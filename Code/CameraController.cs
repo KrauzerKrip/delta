@@ -22,9 +22,14 @@ public sealed class CameraController : Component
 	[Property, Group( "Default Shot" ), Range( 0.01f, 30f )]
 	public float DefaultBlendSpeed { get; set; } = 5f;
 
+	[Property, Group( "Following" )]
+	public Vector3 DeadZoneSize { get; set; } = new Vector3( 0f, 128f, 96f );
+
 	private readonly Dictionary<CameraZone, long> activeZones = new();
 	private long enterSequence;
 	private CameraZone currentZone;
+	private Vector3 zoneFocusPosition;
+	private bool focusInitialized;
 
 	/// <summary>The zone currently controlling the camera, or null for the default shot.</summary>
 	public CameraZone CurrentZone => currentZone;
@@ -49,7 +54,15 @@ public sealed class CameraController : Component
 		if ( GameObject.IsProxy || Scene.Camera is null )
 			return;
 
-		currentZone = SelectZone();
+		var selectedZone = SelectZone();
+		if ( !focusInitialized || selectedZone != currentZone )
+		{
+			currentZone = selectedZone;
+			zoneFocusPosition = currentZone is not null
+				? currentZone.WorldPosition
+				: Controller.WorldPosition;
+			focusInitialized = true;
+		}
 
 		Vector3 targetPosition;
 		Rotation targetRotation;
@@ -58,16 +71,24 @@ public sealed class CameraController : Component
 
 		if ( currentZone is not null )
 		{
-			targetPosition = currentZone.GetCameraPosition( Controller.WorldPosition );
+			var deadZoneSize = currentZone.OverrideDeadZone
+				? currentZone.DeadZoneSize
+				: DeadZoneSize;
+
+			UpdateFocusPosition( Controller.WorldPosition, deadZoneSize );
+			targetPosition = currentZone.GetCameraPosition( zoneFocusPosition );
 			targetRotation = currentZone.CameraAnchor.WorldRotation;
 			targetFieldOfView = currentZone.FieldOfView;
 			blendSpeed = currentZone.BlendSpeed;
 		}
 		else
 		{
+			if ( DefaultCameraAnchor is null )
+				UpdateFocusPosition( Controller.WorldPosition, DeadZoneSize );
+
 			targetPosition = DefaultCameraAnchor is not null
 				? DefaultCameraAnchor.WorldPosition
-				: Controller.WorldPosition + DefaultCameraOffset;
+				: zoneFocusPosition + DefaultCameraOffset;
 			targetRotation = DefaultCameraAnchor is not null
 				? DefaultCameraAnchor.WorldRotation
 				: DefaultCameraAngles.ToRotation();
@@ -79,6 +100,30 @@ public sealed class CameraController : Component
 		Scene.Camera.WorldPosition = Vector3.Lerp( Scene.Camera.WorldPosition, targetPosition, blend );
 		Scene.Camera.WorldRotation = Rotation.Slerp( Scene.Camera.WorldRotation, targetRotation, blend );
 		Scene.Camera.FieldOfView = MathX.Lerp( Scene.Camera.FieldOfView, targetFieldOfView, blend );
+	}
+
+	private void UpdateFocusPosition( Vector3 playerPosition, Vector3 deadZoneSize )
+	{
+		zoneFocusPosition.x = AdvanceFocus( zoneFocusPosition.x, playerPosition.x, deadZoneSize.x );
+		zoneFocusPosition.y = AdvanceFocus( zoneFocusPosition.y, playerPosition.y, deadZoneSize.y );
+		zoneFocusPosition.z = AdvanceFocus( zoneFocusPosition.z, playerPosition.z, deadZoneSize.z );
+	}
+
+	private static float AdvanceFocus( float focus, float player, float deadZoneSize )
+	{
+		if ( deadZoneSize <= 0f )
+			return player;
+
+		var halfSize = deadZoneSize * 0.5f;
+		var distance = player - focus;
+
+		if ( distance > halfSize )
+			return player - halfSize;
+
+		if ( distance < -halfSize )
+			return player + halfSize;
+
+		return focus;
 	}
 
 	internal void EnterZone( CameraZone zone )

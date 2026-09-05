@@ -28,28 +28,34 @@ public sealed class CameraZone : Component, Component.ITriggerListener
 	[Property, Group( "Following" )]
 	public Vector3 FollowLimits { get; set; }
 
+	[Property, Group( "Following" )]
+	public bool OverrideDeadZone { get; set; }
+
+	[Property, Group( "Following" )]
+	public Vector3 DeadZoneSize { get; set; } = new Vector3( 0f, 128f, 96f );
+
 	private readonly Dictionary<Collider, CameraController> contacts = new();
 
 	/// <summary>
 	/// Returns the authored anchor position with optional, bounded player following.
-	/// The zone object's position is the center from which player displacement is measured.
-	/// A limit of zero leaves that axis unbounded.
+	/// The controller supplies a focus position after applying its dead-zone rules.
+	/// A follow limit of zero leaves that axis unbounded.
 	/// </summary>
-	public Vector3 GetCameraPosition( Vector3 playerPosition )
+	public Vector3 GetCameraPosition( Vector3 focusPosition )
 	{
 		if ( CameraAnchor is null )
 			return WorldPosition;
 
 		var position = CameraAnchor.WorldPosition;
-		var displacement = playerPosition - WorldPosition;
 
-		displacement.x = ClampFollow( displacement.x, FollowLimits.x );
-		displacement.y = ClampFollow( displacement.y, FollowLimits.y );
-		displacement.z = ClampFollow( displacement.z, FollowLimits.z );
+		if ( FollowPlayerX )
+			position.x += ClampFollow( focusPosition.x - WorldPosition.x, FollowLimits.x );
 
-		if ( FollowPlayerX ) position.x += displacement.x;
-		if ( FollowPlayerY ) position.y += displacement.y;
-		if ( FollowPlayerZ ) position.z += displacement.z;
+		if ( FollowPlayerY )
+			position.y += ClampFollow( focusPosition.y - WorldPosition.y, FollowLimits.y );
+
+		if ( FollowPlayerZ )
+			position.z += ClampFollow( focusPosition.z - WorldPosition.z, FollowLimits.z );
 
 		return position;
 	}
