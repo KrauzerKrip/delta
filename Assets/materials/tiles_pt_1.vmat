@@ -1,0 +1,43 @@
+// THIS FILE IS AUTO-GENERATED
+
+Layer0
+{
+	shader "shaders/simple_pixel.shader"
+
+	//---- AmbientOcclusion ----
+	AmbientOcclusionA "materials/default/default_ao.tga"
+
+	//---- Color ----
+	ColorA "textures/tiles_pt_1/tiles_pt_1.png"
+	g_vTintcolorA "[1.000000 1.000000 1.000000 1.000000]"
+	TintmaskA "materials/default/default_mask.tga"
+
+	//---- Emission ----
+	EmissionA "materials/default/default_selfillum.tga"
+	g_flSelfillumStrengthA "1.000"
+
+	//---- Fog ----
+	g_bFogEnabled "1"
+
+	//---- Metalness ----
+	MetalnessA "materials/default/default_metal.tga"
+
+	//---- Normal ----
+	NormalA "textures/tiles_pt_1/tiles_pt_1_normal.png"
+
+	//---- Roughness ----
+	g_flRoughnessStrengthA "1.000"
+	RoughnessA "materials/default/default_rough.tga"
+
+	//---- Texture Coordinates ----
+	g_vTexCoordScaleA "[1.000 1.000]"
+	g_vTexCoordScrollSpeedA "[0.000 0.000]"
+
+	//---- Texture Warp ----
+	g_flAmplitude "0.000"
+	g_flFrequency "0.000"
+	g_flSpeed "0.000"
+
+	//---- Translucent ----
+	AlphaMask "materials/default/default_trans.tga"
+}

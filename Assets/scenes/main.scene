@@ -6,11 +6,11 @@
       "__version": 2,
       "Flags": 0,
       "Name": "Directional Light",
-      "Position": "0,0,200",
+      "Position": "-17.6356201,-17.6356277,179.072403",
       "Rotation": "-0.161728993,0.390448302,0.346828997,0.837319016",
       "Scale": "1,1,1",
-      "Tags": "light_directional,light,hidden",
-      "Enabled": true,
+      "Tags": "light_directional,light",
+      "Enabled": false,
       "NetworkMode": 2,
       "NetworkFlags": 0,
       "NetworkOrphaned": 0,
@@ -65,7 +65,7 @@
       "Position": "-390.915771,-5.31523514,27.3162231",
       "Rotation": "7.61638141E-10,0,0,1",
       "Scale": "1,1,1",
-      "Tags": "hidden",
+      "Tags": "",
       "Enabled": true,
       "NetworkMode": 2,
       "NetworkFlags": 0,
@@ -113,7 +113,7 @@
       "Position": "0,0,160",
       "Rotation": "0,0,0,1",
       "Scale": "1,1,1",
-      "Tags": "hidden",
+      "Tags": "",
       "Enabled": true,
       "NetworkMode": 2,
       "NetworkFlags": 0,
@@ -305,6 +305,12 @@
           "__guid": "100d8032-dac3-4bac-b73c-c153561a13ef",
           "__enabled": true,
           "Flags": 0,
+          "DeadZoneSize": "0,128,96",
+          "DefaultBlendSpeed": 5,
+          "DefaultCameraAnchor": null,
+          "DefaultCameraAngles": "15,0,0",
+          "DefaultCameraOffset": "-1024,0,256",
+          "DefaultFieldOfView": 60,
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
@@ -319,7 +325,7 @@
           "__version": 2,
           "Flags": 0,
           "Name": "Body",
-          "Position": "0,0,0",
+          "Position": "80,64,-32",
           "Rotation": "0,0,0,1",
           "Scale": "1,1,1",
           "Tags": "",
@@ -460,7 +466,7 @@
       "Position": "160.370407,45.5776978,222.960663",
       "Rotation": "0,0,0,1",
       "Scale": "1,1,1",
-      "Tags": "hidden",
+      "Tags": "",
       "Enabled": true,
       "NetworkMode": 2,
       "NetworkFlags": 0,
@@ -474,7 +480,7 @@
           "__version": 2,
           "Flags": 0,
           "Name": "Block",
-          "Position": "-16.3704071,18.4223022,161.039337",
+          "Position": "-16.3704071,18.4223022,149.039337",
           "Rotation": "0,0,0,1",
           "Scale": "1,1,1",
           "Tags": "world",
@@ -499,10 +505,12 @@
               "IsTrigger": false,
               "Mesh": {
                 "Data": {
-                  "$blob": "f826502b-b16b-8182-a0d5-03fa9d91681a"
+                  "$blob": "46915b1c-c5fd-8497-b87b-e143b7ce5135"
                 },
                 "Materials": [
-                  "materials/dev/reflectivity_30.vmat"
+                  "materials/dev/reflectivity_30.vmat",
+                  "materials/concrete.vmat",
+                  "materials/linoleum.vmat"
                 ]
               },
               "OnComponentDestroy": null,
@@ -555,10 +563,11 @@
               "IsTrigger": false,
               "Mesh": {
                 "Data": {
-                  "$blob": "f9a2c791-b6d3-813e-9736-ac600fcb7910"
+                  "$blob": "8b9e3804-6edf-8f2e-8153-4e8ef8f56638"
                 },
                 "Materials": [
-                  "materials/dev/reflectivity_30.vmat"
+                  "materials/dev/reflectivity_30.vmat",
+                  "materials/linoleum.vmat"
                 ]
               },
               "OnComponentDestroy": null,
@@ -611,122 +620,11 @@
               "IsTrigger": false,
               "Mesh": {
                 "Data": {
-                  "$blob": "119f046d-b4f0-8d82-8825-9e436124fda2"
+                  "$blob": "71f3ab59-6ba1-81df-afa9-82d68b0d052b"
                 },
                 "Materials": [
-                  "materials/dev/reflectivity_30.vmat"
-                ]
-              },
-              "OnComponentDestroy": null,
-              "OnComponentDisabled": null,
-              "OnComponentEnabled": null,
-              "OnComponentFixedUpdate": null,
-              "OnComponentStart": null,
-              "OnComponentUpdate": null,
-              "OnObjectTriggerEnter": null,
-              "OnObjectTriggerExit": null,
-              "OnTriggerEnter": null,
-              "OnTriggerExit": null,
-              "RenderType": "On",
-              "RollingResistance": null,
-              "SmoothingAngle": 40,
-              "Static": true,
-              "Surface": null,
-              "SurfaceVelocity": "0,0,0"
-            }
-          ],
-          "Children": []
-        },
-        {
-          "__guid": "bc81d818-342c-489a-88e0-fbc07d0b3d61",
-          "__version": 2,
-          "Flags": 0,
-          "Name": "Block",
-          "Position": "-16.3704071,-101.577698,97.0393372",
-          "Rotation": "0,0,0,1",
-          "Scale": "1,1,1",
-          "Tags": "world",
-          "Enabled": true,
-          "NetworkMode": 2,
-          "NetworkFlags": 0,
-          "NetworkOrphaned": 0,
-          "NetworkTransmit": true,
-          "OwnerTransfer": 1,
-          "Components": [
-            {
-              "__type": "Sandbox.MeshComponent",
-              "__guid": "c2c824df-70fc-41c3-af4d-b1074e7fda09",
-              "__enabled": true,
-              "Flags": 0,
-              "ColliderFlags": 0,
-              "Collision": "Mesh",
-              "Color": "1,1,1,1",
-              "Elasticity": null,
-              "Friction": null,
-              "HideInGame": false,
-              "IsTrigger": false,
-              "Mesh": {
-                "Data": {
-                  "$blob": "f2dcd488-6556-8f1b-ae10-f4630b874d8e"
-                },
-                "Materials": [
-                  "materials/dev/reflectivity_30.vmat"
-                ]
-              },
-              "OnComponentDestroy": null,
-              "OnComponentDisabled": null,
-              "OnComponentEnabled": null,
-              "OnComponentFixedUpdate": null,
-              "OnComponentStart": null,
-              "OnComponentUpdate": null,
-              "OnObjectTriggerEnter": null,
-              "OnObjectTriggerExit": null,
-              "OnTriggerEnter": null,
-              "OnTriggerExit": null,
-              "RenderType": "On",
-              "RollingResistance": null,
-              "SmoothingAngle": 40,
-              "Static": true,
-              "Surface": null,
-              "SurfaceVelocity": "0,0,0"
-            }
-          ],
-          "Children": []
-        },
-        {
-          "__guid": "32436056-c061-480d-aa72-12ec0d3a1457",
-          "__version": 2,
-          "Flags": 0,
-          "Name": "Block",
-          "Position": "-16.3704071,170.422302,97.0393372",
-          "Rotation": "0,0,0,1",
-          "Scale": "1,1,1",
-          "Tags": "world",
-          "Enabled": true,
-          "NetworkMode": 2,
-          "NetworkFlags": 0,
-          "NetworkOrphaned": 0,
-          "NetworkTransmit": true,
-          "OwnerTransfer": 1,
-          "Components": [
-            {
-              "__type": "Sandbox.MeshComponent",
-              "__guid": "acea2e59-b24e-4004-933a-a640bd289a41",
-              "__enabled": true,
-              "Flags": 0,
-              "ColliderFlags": 0,
-              "Collision": "Mesh",
-              "Color": "1,1,1,1",
-              "Elasticity": null,
-              "Friction": null,
-              "HideInGame": false,
-              "IsTrigger": false,
-              "Mesh": {
-                "Data": {
-                  "$blob": "6c82449d-a487-8656-842a-5271cd0c9054"
-                },
-                "Materials": [
-                  "materials/dev/reflectivity_30.vmat"
+                  "materials/dev/reflectivity_30.vmat",
+                  "materials/linoleum.vmat"
                 ]
               },
               "OnComponentDestroy": null,
@@ -754,7 +652,7 @@
           "__version": 2,
           "Flags": 0,
           "Name": "Block",
-          "Position": "-256.370422,290.422302,97.0393372",
+          "Position": "-112.370422,290.422302,97.0393372",
           "Rotation": "0,0,0,1",
           "Scale": "1,1,1",
           "Tags": "world",
@@ -779,10 +677,130 @@
               "IsTrigger": false,
               "Mesh": {
                 "Data": {
-                  "$blob": "5c47eae1-b5af-8dfd-8f88-2e8b9e65ddc9"
+                  "$blob": "cb55f3f6-15b8-8910-a4fe-bd888ae3710a"
                 },
                 "Materials": [
-                  "materials/dev/reflectivity_30.vmat"
+                  "materials/dev/reflectivity_30.vmat",
+                  "materials/concrete.vmat",
+                  "materials/concrete_line_blue.vmat"
+                ]
+              },
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "OnObjectTriggerEnter": null,
+              "OnObjectTriggerExit": null,
+              "OnTriggerEnter": null,
+              "OnTriggerExit": null,
+              "RenderType": "On",
+              "RollingResistance": null,
+              "SmoothingAngle": 40,
+              "Static": true,
+              "Surface": null,
+              "SurfaceVelocity": "0,0,0"
+            }
+          ],
+          "Children": []
+        },
+        {
+          "__guid": "44600aa0-061f-492c-86ec-fdd04e8b43aa",
+          "__version": 2,
+          "Flags": 0,
+          "Name": "Block",
+          "Position": "-16.3704071,166.422256,97.0393372",
+          "Rotation": "0,0,-0.707106769,0.707106769",
+          "Scale": "1,1,1",
+          "Tags": "world",
+          "Enabled": true,
+          "NetworkMode": 2,
+          "NetworkFlags": 0,
+          "NetworkOrphaned": 0,
+          "NetworkTransmit": true,
+          "OwnerTransfer": 1,
+          "Components": [
+            {
+              "__type": "Sandbox.MeshComponent",
+              "__guid": "fe414951-163e-4878-a1f8-6a35689b460d",
+              "__enabled": true,
+              "Flags": 0,
+              "ColliderFlags": 0,
+              "Collision": "Mesh",
+              "Color": "1,1,1,1",
+              "Elasticity": null,
+              "Friction": null,
+              "HideInGame": false,
+              "IsTrigger": false,
+              "Mesh": {
+                "Data": {
+                  "$blob": "fac1f113-e79c-8526-a05a-1d23339fcc68"
+                },
+                "Materials": [
+                  "materials/dev/reflectivity_30.vmat",
+                  "materials/concrete.vmat",
+                  "materials/concrete_line_blue.vmat",
+                  "materials/linoleum.vmat"
+                ]
+              },
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "OnObjectTriggerEnter": null,
+              "OnObjectTriggerExit": null,
+              "OnTriggerEnter": null,
+              "OnTriggerExit": null,
+              "RenderType": "On",
+              "RollingResistance": null,
+              "SmoothingAngle": 40,
+              "Static": true,
+              "Surface": null,
+              "SurfaceVelocity": "0,0,0"
+            }
+          ],
+          "Children": []
+        },
+        {
+          "__guid": "a351c89a-63f9-4f0e-b24a-754f958feb38",
+          "__version": 2,
+          "Flags": 0,
+          "Name": "Block",
+          "Position": "-16.3704071,-125.577682,97.0393372",
+          "Rotation": "0,0,-0.707106769,0.707106769",
+          "Scale": "1,1,1",
+          "Tags": "world",
+          "Enabled": true,
+          "NetworkMode": 2,
+          "NetworkFlags": 0,
+          "NetworkOrphaned": 0,
+          "NetworkTransmit": true,
+          "OwnerTransfer": 1,
+          "Components": [
+            {
+              "__type": "Sandbox.MeshComponent",
+              "__guid": "f76ae77c-18fa-40b1-a886-c6813f548161",
+              "__enabled": true,
+              "Flags": 0,
+              "ColliderFlags": 0,
+              "Collision": "Mesh",
+              "Color": "1,1,1,1",
+              "Elasticity": null,
+              "Friction": null,
+              "HideInGame": false,
+              "IsTrigger": false,
+              "Mesh": {
+                "Data": {
+                  "$blob": "b36ae09e-0794-8099-bbb9-0f57ab779f05"
+                },
+                "Materials": [
+                  "materials/dev/reflectivity_30.vmat",
+                  "materials/concrete.vmat",
+                  "materials/concrete_line_blue.vmat",
+                  "materials/linoleum.vmat"
                 ]
               },
               "OnComponentDestroy": null,
@@ -810,7 +828,7 @@
           "__version": 2,
           "Flags": 0,
           "Name": "Block",
-          "Position": "-32.3704071,-189.577698,-158.960663",
+          "Position": "111.629593,-189.577698,-158.960663",
           "Rotation": "0,0,0,1",
           "Scale": "1,1,1",
           "Tags": "world",
@@ -835,9 +853,10 @@
               "IsTrigger": false,
               "Mesh": {
                 "Data": {
-                  "$blob": "d9a5f167-59c9-8f6b-b117-b129af88930d"
+                  "$blob": "9f97ee4f-3e96-85c8-96e3-eed52b6d50dd"
                 },
                 "Materials": [
+                  "materials/tiles_pt_1.vmat",
                   "materials/dev/reflectivity_30.vmat"
                 ]
               },
@@ -860,6 +879,208 @@
             }
           ],
           "Children": []
+        },
+        {
+          "__guid": "ea540dc6-1905-4bb6-a434-a092bdb04106",
+          "__version": 2,
+          "__Prefab": "prefabs/baseboard_blue_256.prefab",
+          "__PrefabInstancePatch": {
+            "AddedObjects": [],
+            "RemovedObjects": [],
+            "PropertyOverrides": [
+              {
+                "Target": {
+                  "Type": "GameObject",
+                  "IdValue": "b39d06ff-a5f1-4866-9079-e7c3fb0416bb"
+                },
+                "Property": "Name",
+                "Value": "Baseboard"
+              },
+              {
+                "Target": {
+                  "Type": "GameObject",
+                  "IdValue": "b39d06ff-a5f1-4866-9079-e7c3fb0416bb"
+                },
+                "Property": "Position",
+                "Value": "-96.3704071,258.422302,-62.9606628"
+              },
+              {
+                "Target": {
+                  "Type": "Component",
+                  "IdValue": "28b7d2c1-ed80-4cd7-80ba-fac7fe9167aa"
+                },
+                "Property": "Mesh",
+                "Value": {
+                  "Data": "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",
+                  "Materials": [
+                    "materials/concrete_line_blue.vmat"
+                  ]
+                }
+              },
+              {
+                "Target": {
+                  "Type": "Component",
+                  "IdValue": "3903f977-d620-4976-aee3-b9fa14455b77"
+                },
+                "Property": "Mesh",
+                "Value": {
+                  "Data": "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",
+                  "Materials": [
+                    "materials/concrete_line_blue.vmat",
+                    "materials/pipe_a.vmat"
+                  ]
+                }
+              }
+            ],
+            "MovedObjects": []
+          },
+          "__PrefabIdToInstanceId": {
+            "b39d06ff-a5f1-4866-9079-e7c3fb0416bb": "ea540dc6-1905-4bb6-a434-a092bdb04106",
+            "d0b4ea38-a107-4f9c-8904-42d478494881": "2b75bc0d-6643-4575-bf60-00db8c177679",
+            "28b7d2c1-ed80-4cd7-80ba-fac7fe9167aa": "ca159540-6bd0-4a36-95c1-cfc53a91da01",
+            "d85bdd16-9812-4a47-a90c-bf342f47e6c8": "8815cce2-d232-47e3-997d-b238d6a3b255",
+            "3903f977-d620-4976-aee3-b9fa14455b77": "435f9e08-6c7c-4df3-b8ba-e37f86cdeae2"
+          }
+        },
+        {
+          "__guid": "4ef85eff-c63f-4131-ab6c-73e9a74ef3ca",
+          "__version": 2,
+          "__Prefab": "prefabs/baseboard_blue_256.prefab",
+          "__PrefabInstancePatch": {
+            "AddedObjects": [],
+            "RemovedObjects": [],
+            "PropertyOverrides": [
+              {
+                "Target": {
+                  "Type": "GameObject",
+                  "IdValue": "b39d06ff-a5f1-4866-9079-e7c3fb0416bb"
+                },
+                "Property": "Name",
+                "Value": "Baseboard"
+              },
+              {
+                "Target": {
+                  "Type": "GameObject",
+                  "IdValue": "b39d06ff-a5f1-4866-9079-e7c3fb0416bb"
+                },
+                "Property": "Position",
+                "Value": "-48.3703995,186.422302,-62.9606628"
+              },
+              {
+                "Target": {
+                  "Type": "GameObject",
+                  "IdValue": "b39d06ff-a5f1-4866-9079-e7c3fb0416bb"
+                },
+                "Property": "Rotation",
+                "Value": "0,0,-0.707106709,0.707106769"
+              },
+              {
+                "Target": {
+                  "Type": "Component",
+                  "IdValue": "28b7d2c1-ed80-4cd7-80ba-fac7fe9167aa"
+                },
+                "Property": "Mesh",
+                "Value": {
+                  "Data": "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",
+                  "Materials": [
+                    "materials/concrete_line_blue.vmat"
+                  ]
+                }
+              },
+              {
+                "Target": {
+                  "Type": "Component",
+                  "IdValue": "3903f977-d620-4976-aee3-b9fa14455b77"
+                },
+                "Property": "Mesh",
+                "Value": {
+                  "Data": "AQAAAAcAAAAIAAAAdG9wb2xvZ3l0AwAAEAAAADAAAAAKAAAAAAAAAAIAAAAEAAAABgAAAAgAAAAKAAAADAAAAA4AAAAQAAAAEgAAABQAAAAWAAAAGAAAABoAAAAcAAAAHgAAAAEAAAABAAAAAgAAAAAAAAAAAAAAAAAAAC4AAAAIAAAAAgAAAAMAAAAEAAAAAAAAAAEAAAACAAAALAAAAAcAAAADAAAABQAAAAYAAAAAAAAAAgAAAAQAAAAqAAAABgAAAAQAAAAHAAAACAAAAAAAAAADAAAABgAAACgAAAAFAAAABQAAAAkAAAAKAAAAAAAAAAQAAAAIAAAAJgAAAAQAAAAGAAAACwAAAAwAAAAAAAAABQAAAAoAAAAkAAAAAwAAAAcAAAANAAAADgAAAAAAAAAGAAAADAAAACAAAAACAAAAAAAAAA8AAAAAAAAAAAAAAAcAAAAOAAAAIwAAAAkAAAAJAAAAEQAAABIAAAABAAAACAAAABAAAAAiAAAAAgAAAAoAAAATAAAAFAAAAAEAAAAJAAAAEgAAACEAAAADAAAACwAAABUAAAAWAAAAAQAAAAoAAAAUAAAAJQAAAAQAAAAMAAAAFwAAABgAAAABAAAACwAAABYAAAAnAAAABQAAAA0AAAAZAAAAGgAAAAEAAAAMAAAAGAAAACkAAAAGAAAADgAAABsAAAAcAAAAAQAAAA0AAAAaAAAAKwAAAAcAAAAPAAAAHQAAAB4AAAABAAAADgAAABwAAAAtAAAACAAAAAgAAAAfAAAAEAAAAAEAAAAPAAAAHgAAAC8AAAAJAAAACQAAACEAAAARAAAAAgAAAAYAAAAgAAAACwAAAAMAAAAHAAAAIwAAAA0AAAACAAAACAAAACIAAAAfAAAACQAAAAoAAAAlAAAAEwAAAAMAAAAFAAAAJAAAAAkAAAAEAAAACwAAACcAAAAVAAAABAAAAAQAAAAmAAAABwAAAAUAAAAMAAAAKQAAABcAAAAFAAAAAwAAACgAAAAFAAAABgAAAA0AAAArAAAAGQAAAAYAAAACAAAAKgAAAAMAAAAHAAAADgAAAC0AAAAbAAAABwAAAAEAAAAsAAAAAQAAAAgAAAAPAAAALwAAAB0AAAAIAAAAAAAAAC4AAAAPAAAACQAAAA4AAAAeAAAAIgAAACEAAAAlAAAAJwAAACkAAAArAAAALQAAAC8AAAAJAAAAcG9zaXRpb25zwAAAAKzDB8HAwwdB+P//QgwAQMEAAAAA/P//QqzDB8GewwfB+P//QgAA4Lf+/z/BAQAAQ5zDB0GewwfBAAAAQ+z/P0EAAAAAAQAAQ5zDB0HAwwdBAAAAQwAA4LcAAEBBAQAAQwAAoLcAAEBB+P//wqDDB0HAwwdB9v//wuD/P0EAAAAA9v//wqDDB0GewwfB9v//wgAAoLf+/z/B+P//wrzDB8GewwfB+P//wgwAQMEAAAAA9v//wrzDB8HAwwdB+P//wgYAAABibGVuZHPAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABgAAAGNvbG9yc8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAdGV4Y29vcmSAAQAAHQDAPksAQD7Y8GA98v+/v0Ee3D704aM+BQBAPvf/v78GABA/IwDAPike3D7z/7+/+vAxP/Thoz4IABA//f+/vxQAQD9LAEA+EA8uP/z/v78I8TE/KPJgPQQAUD/+/7+/GwAQPwAAlDUkHpw+/P+/v10e3D4o8mA9+v/fPv7/v7/88DE/uO5gPRIA4D78/x9ABABAP27/Pz7x8HE///8fQOrwMT+G4aM+/v9PP/v/H0D2/w8/tf+/Pu7wMT/6/x9AIB7cPobhoz72/w8//P8fQAYAwD5u/z8+z+GjPvz/H0BHHtw+uO5gPfz/Pz78/x9AEgAQPwAAErbk8BE//v8fQDQenD77/x9A6PBxP/z/v78CAOA+/v+/v/7/3z7+/x9ADgBQP///H0AAAFA//f+/vxAPLj/7/x9A9/AxP/v/v7///w8/+v8fQP//Dz/+/7+/Eh7cPvz/H0Db4aM+8v+/v/D/Pz78/x9A+P8/Pvf/v7/w8GA9/P8fQODwET/z/7+/DQAAAG1hdGVyaWFsaW5kZXgoAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAkAAABlZGdlZmxhZ3PAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                  "Materials": [
+                    "materials/concrete_line_blue.vmat",
+                    "materials/pipe_a.vmat"
+                  ]
+                }
+              }
+            ],
+            "MovedObjects": []
+          },
+          "__PrefabIdToInstanceId": {
+            "b39d06ff-a5f1-4866-9079-e7c3fb0416bb": "4ef85eff-c63f-4131-ab6c-73e9a74ef3ca",
+            "d0b4ea38-a107-4f9c-8904-42d478494881": "668ad75f-f7a7-46d0-8818-8583c94a38ef",
+            "28b7d2c1-ed80-4cd7-80ba-fac7fe9167aa": "f8d053d5-33a4-4639-b77b-1924403e7299",
+            "d85bdd16-9812-4a47-a90c-bf342f47e6c8": "198ca2c7-2b4a-4cfc-bb9e-fed09034a9cc",
+            "3903f977-d620-4976-aee3-b9fa14455b77": "d01d099b-e67a-457b-af8a-12cb6d3940d7"
+          }
+        },
+        {
+          "__guid": "896ef0c3-94ff-4816-aee9-734286908068",
+          "__version": 2,
+          "__Prefab": "prefabs/baseboard_blue_256.prefab",
+          "__PrefabInstancePatch": {
+            "AddedObjects": [],
+            "RemovedObjects": [],
+            "PropertyOverrides": [
+              {
+                "Target": {
+                  "Type": "GameObject",
+                  "IdValue": "b39d06ff-a5f1-4866-9079-e7c3fb0416bb"
+                },
+                "Property": "Name",
+                "Value": "Baseboard"
+              },
+              {
+                "Target": {
+                  "Type": "GameObject",
+                  "IdValue": "b39d06ff-a5f1-4866-9079-e7c3fb0416bb"
+                },
+                "Property": "Position",
+                "Value": "-48.370369,-141.577698,-62.9606628"
+              },
+              {
+                "Target": {
+                  "Type": "GameObject",
+                  "IdValue": "b39d06ff-a5f1-4866-9079-e7c3fb0416bb"
+                },
+                "Property": "Rotation",
+                "Value": "0,0,-0.707106709,0.707106769"
+              },
+              {
+                "Target": {
+                  "Type": "Component",
+                  "IdValue": "28b7d2c1-ed80-4cd7-80ba-fac7fe9167aa"
+                },
+                "Property": "Mesh",
+                "Value": {
+                  "Data": "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",
+                  "Materials": [
+                    "materials/concrete_line_blue.vmat"
+                  ]
+                }
+              },
+              {
+                "Target": {
+                  "Type": "Component",
+                  "IdValue": "3903f977-d620-4976-aee3-b9fa14455b77"
+                },
+                "Property": "Mesh",
+                "Value": {
+                  "Data": "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",
+                  "Materials": [
+                    "materials/concrete_line_blue.vmat",
+                    "materials/pipe_a.vmat"
+                  ]
+                }
+              }
+            ],
+            "MovedObjects": []
+          },
+          "__PrefabIdToInstanceId": {
+            "b39d06ff-a5f1-4866-9079-e7c3fb0416bb": "896ef0c3-94ff-4816-aee9-734286908068",
+            "d0b4ea38-a107-4f9c-8904-42d478494881": "32845615-c7ed-404a-ac82-5a8195f1c49a",
+            "28b7d2c1-ed80-4cd7-80ba-fac7fe9167aa": "b946cf96-5c4e-4850-855a-7e2304d68e5b",
+            "d85bdd16-9812-4a47-a90c-bf342f47e6c8": "615fb917-c9ba-45a5-8f4b-dfd12b315bf5",
+            "3903f977-d620-4976-aee3-b9fa14455b77": "68bcdf46-152b-4d98-a590-ab3144b74674"
+          }
         }
       ]
     },
@@ -879,6 +1100,520 @@
       "NetworkTransmit": true,
       "OwnerTransfer": 1,
       "Components": [],
+      "Children": [
+        {
+          "__guid": "3fdfa97d-cabb-423d-ba89-c988d1aafe8d",
+          "__version": 2,
+          "Flags": 0,
+          "Name": "Room",
+          "Position": "0,-31.9733887,-277.869385",
+          "Rotation": "0,0,0,1",
+          "Scale": "1,1,1",
+          "Tags": "",
+          "Enabled": true,
+          "NetworkMode": 2,
+          "NetworkFlags": 0,
+          "NetworkOrphaned": 0,
+          "NetworkTransmit": true,
+          "OwnerTransfer": 1,
+          "Components": [
+            {
+              "__type": "CameraZone",
+              "__guid": "adee41a9-eab0-4b12-8d4a-4ba338f2b1a7",
+              "__enabled": true,
+              "Flags": 0,
+              "BlendSpeed": 5,
+              "CameraAnchor": {
+                "_type": "gameobject",
+                "go": "3bebce25-7def-4744-b13a-8ba60c60e165"
+              },
+              "DeadZoneSize": "0,128,96",
+              "FieldOfView": 60,
+              "FollowLimits": "0,0,0",
+              "FollowPlayerX": false,
+              "FollowPlayerY": false,
+              "FollowPlayerZ": false,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "OverrideDeadZone": false,
+              "Priority": 0
+            },
+            {
+              "__type": "Sandbox.BoxCollider",
+              "__guid": "6b421b24-8a36-4706-a281-c96fac43801f",
+              "__enabled": true,
+              "Flags": 0,
+              "Center": "-112,-8,59.5",
+              "ColliderFlags": 0,
+              "Elasticity": null,
+              "Friction": null,
+              "IsTrigger": true,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "OnObjectTriggerEnter": null,
+              "OnObjectTriggerExit": null,
+              "OnTriggerEnter": null,
+              "OnTriggerExit": null,
+              "RollingResistance": null,
+              "Scale": "480,208,169",
+              "Static": false,
+              "Surface": null,
+              "SurfaceVelocity": "0,0,0"
+            }
+          ],
+          "Children": [
+            {
+              "__guid": "3bebce25-7def-4744-b13a-8ba60c60e165",
+              "__version": 2,
+              "Flags": 0,
+              "Name": "Anchor",
+              "Position": "-360.185242,-16.4767723,39.5325928",
+              "Rotation": "0,0,0,1",
+              "Scale": "1,1,1",
+              "Tags": "",
+              "Enabled": true,
+              "NetworkMode": 2,
+              "NetworkFlags": 0,
+              "NetworkOrphaned": 0,
+              "NetworkTransmit": true,
+              "OwnerTransfer": 1,
+              "Components": [],
+              "Children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "__guid": "0e7f87db-84c9-41b8-aa66-45d7049055a3",
+      "__version": 2,
+      "Flags": 0,
+      "Name": "Global Post Processing",
+      "Position": "-1183.70752,19.8108406,437.467072",
+      "Rotation": "0,0,0,1",
+      "Scale": "1,1,1",
+      "Tags": "",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkFlags": 0,
+      "NetworkOrphaned": 0,
+      "NetworkTransmit": true,
+      "OwnerTransfer": 1,
+      "Components": [
+        {
+          "__type": "Sandbox.PostProcessVolume",
+          "__guid": "4a44f577-18ae-446a-9613-f71759134059",
+          "__enabled": true,
+          "Flags": 0,
+          "BlendDistance": 50,
+          "BlendWeight": 1,
+          "EditorPreview": true,
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "Priority": 0,
+          "SceneVolume": {
+            "Type": "Infinite",
+            "Sphere": {
+              "Center": "0,0,0",
+              "Radius": 10
+            },
+            "Box": {
+              "Mins": "-50,-50,-50",
+              "Maxs": "50,50,50"
+            },
+            "Capsule": {
+              "CenterA": "0,0,10",
+              "CenterB": "0,0,90",
+              "Radius": 10
+            }
+          }
+        },
+        {
+          "__type": "Sandbox.Tonemapping",
+          "__guid": "aa1cca5b-51f1-4b1e-8997-3e259376ede8",
+          "__enabled": true,
+          "Flags": 0,
+          "__version": 3,
+          "AutoExposureEnabled": true,
+          "ExposureCompensation": 0,
+          "ExposureMethod": "RGB",
+          "MaximumExposure": 3,
+          "MinimumExposure": 1,
+          "Mode": "AgX",
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "Rate": 1
+        },
+        {
+          "__type": "Sandbox.AmbientOcclusion",
+          "__guid": "1466ecb7-f1f6-459d-9b8a-3d540b2a40c3",
+          "__enabled": true,
+          "Flags": 0,
+          "__version": 1,
+          "FalloffRange": 1,
+          "Intensity": 1,
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "Radius": 128,
+          "ThinCompensation": 5
+        }
+      ],
+      "Children": []
+    },
+    {
+      "__guid": "3a2ddb6a-5ca9-4088-ada9-4c455cc390de",
+      "__version": 2,
+      "Flags": 0,
+      "Name": "Point Light",
+      "Position": "368,72.406723,264",
+      "Rotation": "0,0,0,1",
+      "Scale": "1,1,1",
+      "Tags": "light_point,light",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkFlags": 0,
+      "NetworkOrphaned": 0,
+      "NetworkTransmit": true,
+      "OwnerTransfer": 1,
+      "Components": [
+        {
+          "__type": "Sandbox.PointLight",
+          "__guid": "931e71db-534e-47b7-b770-ecc159b4fed0",
+          "__enabled": true,
+          "Flags": 0,
+          "Attenuation": 0.5,
+          "Contribution": "Diffuse, Specular, Transmissive",
+          "FogMode": "Enabled",
+          "FogStrength": 1,
+          "LightColor": "1,0.9098,0.76471,1",
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "Radius": 400,
+          "ShadowBias": 0,
+          "ShadowHardness": 0,
+          "Shadows": true
+        }
+      ],
+      "Children": []
+    },
+    {
+      "__guid": "0e3aac8b-95d0-4516-b6bb-bb338e764b57",
+      "__version": 2,
+      "Flags": 0,
+      "Name": "Point Light (1)",
+      "Position": "184,72.406723,264",
+      "Rotation": "0,0,0,1",
+      "Scale": "1,1,1",
+      "Tags": "light_point,light",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkFlags": 0,
+      "NetworkOrphaned": 0,
+      "NetworkTransmit": true,
+      "OwnerTransfer": 1,
+      "Components": [
+        {
+          "__type": "Sandbox.PointLight",
+          "__guid": "84a2f6b2-a737-4a07-8592-f30c85fcda65",
+          "__enabled": true,
+          "Flags": 0,
+          "Attenuation": 0.5,
+          "Contribution": "Diffuse, Specular, Transmissive",
+          "FogMode": "Enabled",
+          "FogStrength": 1,
+          "LightColor": "1,0.9098,0.76471,1",
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "Radius": 400,
+          "ShadowBias": 0,
+          "ShadowHardness": 0,
+          "Shadows": true
+        }
+      ],
+      "Children": []
+    },
+    {
+      "__guid": "9c573535-9e46-4b20-a0f5-a04a0a61b640",
+      "__version": 2,
+      "Flags": 0,
+      "Name": "Point Light",
+      "Position": "80,272,304",
+      "Rotation": "0,0,0,1",
+      "Scale": "1,1,1",
+      "Tags": "light_point,light",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkFlags": 0,
+      "NetworkOrphaned": 0,
+      "NetworkTransmit": true,
+      "OwnerTransfer": 1,
+      "Components": [
+        {
+          "__type": "Sandbox.PointLight",
+          "__guid": "3f12fd2b-751d-4116-9f3d-dd736a798209",
+          "__enabled": true,
+          "Flags": 0,
+          "Attenuation": 0.1,
+          "Contribution": "Diffuse, Specular, Transmissive",
+          "FogMode": "Enabled",
+          "FogStrength": 1,
+          "LightColor": "1,0.90718,0.76279,1",
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "Radius": 600,
+          "ShadowBias": 0,
+          "ShadowHardness": 0,
+          "Shadows": true
+        }
+      ],
+      "Children": []
+    },
+    {
+      "__guid": "3dd4745e-34ed-42c8-afe3-2bdde0e5321c",
+      "__version": 2,
+      "Flags": 0,
+      "Name": "Point Light (4)",
+      "Position": "-24,288,312",
+      "Rotation": "0,0,0,1",
+      "Scale": "1,1,1",
+      "Tags": "light_point,light",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkFlags": 0,
+      "NetworkOrphaned": 0,
+      "NetworkTransmit": true,
+      "OwnerTransfer": 1,
+      "Components": [
+        {
+          "__type": "Sandbox.PointLight",
+          "__guid": "8ea32c27-126f-4d65-b953-81c0fad911e3",
+          "__enabled": true,
+          "Flags": 0,
+          "Attenuation": 0.1,
+          "Contribution": "Diffuse, Specular, Transmissive",
+          "FogMode": "Enabled",
+          "FogStrength": 1,
+          "LightColor": "1,0.90718,0.76279,1",
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "Radius": 600,
+          "ShadowBias": 0,
+          "ShadowHardness": 0,
+          "Shadows": true
+        }
+      ],
+      "Children": []
+    },
+    {
+      "__guid": "77a391bb-6865-46bd-9b71-0aa6b89d3942",
+      "__version": 2,
+      "Flags": 0,
+      "Name": "Point Light (5)",
+      "Position": "-24,-136,312",
+      "Rotation": "0,0,0,1",
+      "Scale": "1,1,1",
+      "Tags": "light_point,light",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkFlags": 0,
+      "NetworkOrphaned": 0,
+      "NetworkTransmit": true,
+      "OwnerTransfer": 1,
+      "Components": [
+        {
+          "__type": "Sandbox.PointLight",
+          "__guid": "7d5f1ce4-445e-4d12-8dc4-0b9124d29362",
+          "__enabled": true,
+          "Flags": 0,
+          "Attenuation": 0.1,
+          "Contribution": "Diffuse, Specular, Transmissive",
+          "FogMode": "Enabled",
+          "FogStrength": 1,
+          "LightColor": "1,0.90718,0.76279,1",
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "Radius": 600,
+          "ShadowBias": 0,
+          "ShadowHardness": 0,
+          "Shadows": true
+        }
+      ],
+      "Children": []
+    },
+    {
+      "__guid": "04586ab5-bc01-4380-a835-6bcf07578602",
+      "__version": 2,
+      "Flags": 0,
+      "Name": "Point Light (3)",
+      "Position": "80,-144,304",
+      "Rotation": "0,0,0,1",
+      "Scale": "1,1,1",
+      "Tags": "light_point,light",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkFlags": 0,
+      "NetworkOrphaned": 0,
+      "NetworkTransmit": true,
+      "OwnerTransfer": 1,
+      "Components": [
+        {
+          "__type": "Sandbox.PointLight",
+          "__guid": "f9c87fa3-84f2-4329-b400-0090e2da52ed",
+          "__enabled": true,
+          "Flags": 0,
+          "Attenuation": 0.1,
+          "Contribution": "Diffuse, Specular, Transmissive",
+          "FogMode": "Enabled",
+          "FogStrength": 1,
+          "LightColor": "1,0.90718,0.76279,1",
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "Radius": 600,
+          "ShadowBias": 0,
+          "ShadowHardness": 0,
+          "Shadows": true
+        }
+      ],
+      "Children": []
+    },
+    {
+      "__guid": "fb4268cd-0a70-45d4-b847-e894b55f09f2",
+      "__version": 2,
+      "Flags": 0,
+      "Name": "Point Light (2)",
+      "Position": "401.142151,68.1169434,127.991486",
+      "Rotation": "0,0,0,1",
+      "Scale": "1,1,1",
+      "Tags": "light_point,light",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkFlags": 0,
+      "NetworkOrphaned": 0,
+      "NetworkTransmit": true,
+      "OwnerTransfer": 1,
+      "Components": [
+        {
+          "__type": "Sandbox.PointLight",
+          "__guid": "da3cce42-7eae-4466-a8da-24dc4dfd2c88",
+          "__enabled": true,
+          "Flags": 0,
+          "Attenuation": 0.1,
+          "Contribution": "Diffuse, Specular, Transmissive",
+          "FogMode": "Enabled",
+          "FogStrength": 1,
+          "LightColor": "1,0.90718,0.76279,1",
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "Radius": 400,
+          "ShadowBias": 0,
+          "ShadowHardness": 0,
+          "Shadows": true
+        }
+      ],
+      "Children": []
+    },
+    {
+      "__guid": "5dd5bab2-fa61-4864-ba93-e3bd55b425aa",
+      "__version": 2,
+      "Flags": 0,
+      "Name": "Block",
+      "Position": "32,80,384",
+      "Rotation": "0,0,0,1",
+      "Scale": "1,1,1",
+      "Tags": "world",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkFlags": 0,
+      "NetworkOrphaned": 0,
+      "NetworkTransmit": true,
+      "OwnerTransfer": 1,
+      "Components": [
+        {
+          "__type": "Sandbox.MeshComponent",
+          "__guid": "dd9ea40e-bde4-4e53-9136-5b85c55c81d3",
+          "__enabled": true,
+          "Flags": 0,
+          "ColliderFlags": 0,
+          "Collision": "Mesh",
+          "Color": "1,1,1,1",
+          "Elasticity": null,
+          "Friction": null,
+          "HideInGame": false,
+          "IsTrigger": false,
+          "Mesh": {
+            "Data": {
+              "$blob": "96ba56d2-efd3-8914-92e1-68a125756991"
+            },
+            "Materials": [
+              "materials/concrete.vmat"
+            ]
+          },
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "OnObjectTriggerEnter": null,
+          "OnObjectTriggerExit": null,
+          "OnTriggerEnter": null,
+          "OnTriggerExit": null,
+          "RenderType": "On",
+          "RollingResistance": null,
+          "SmoothingAngle": 40,
+          "Static": true,
+          "Surface": null,
+          "SurfaceVelocity": "0,0,0"
+        }
+      ],
       "Children": []
     }
   ],
