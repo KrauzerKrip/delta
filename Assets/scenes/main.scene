@@ -591,6 +591,63 @@
           "Children": []
         },
         {
+          "__guid": "8f53ee2a-0de8-4292-9866-a84367b66ef3",
+          "__version": 2,
+          "Flags": 0,
+          "Name": "Block (1)",
+          "Position": "109.629593,-481.577637,-369.11261",
+          "Rotation": "0,0,0,1",
+          "Scale": "1,1,1",
+          "Tags": "world",
+          "Enabled": true,
+          "NetworkMode": 2,
+          "NetworkFlags": 0,
+          "NetworkOrphaned": 0,
+          "NetworkTransmit": true,
+          "OwnerTransfer": 1,
+          "Components": [
+            {
+              "__type": "Sandbox.MeshComponent",
+              "__guid": "9a7c0dcf-6cfa-40bf-8518-90f0d9002052",
+              "__enabled": true,
+              "Flags": 0,
+              "ColliderFlags": 0,
+              "Collision": "Mesh",
+              "Color": "1,1,1,1",
+              "Elasticity": null,
+              "Friction": null,
+              "HideInGame": false,
+              "IsTrigger": false,
+              "Mesh": {
+                "Data": {
+                  "$blob": "014bdf6c-3aa0-845b-b41b-00bf1eb31063"
+                },
+                "Materials": [
+                  "materials/tiles_pt_1.vmat",
+                  "materials/dev/reflectivity_30.vmat"
+                ]
+              },
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "OnObjectTriggerEnter": null,
+              "OnObjectTriggerExit": null,
+              "OnTriggerEnter": null,
+              "OnTriggerExit": null,
+              "RenderType": "On",
+              "RollingResistance": null,
+              "SmoothingAngle": 40,
+              "Static": true,
+              "Surface": null,
+              "SurfaceVelocity": "0,0,0"
+            }
+          ],
+          "Children": []
+        },
+        {
           "__guid": "96276dec-e661-4ca6-945c-22e7b40b749e",
           "__version": 2,
           "Flags": 0,
@@ -1323,6 +1380,14 @@
                   "Type": "GameObject",
                   "IdValue": "45f59d95-b3bb-429f-bd27-6f4a45d83dee"
                 },
+                "Property": "Position",
+                "Value": "2.49994087,19.9999924,48"
+              },
+              {
+                "Target": {
+                  "Type": "GameObject",
+                  "IdValue": "45f59d95-b3bb-429f-bd27-6f4a45d83dee"
+                },
                 "Property": "Rotation",
                 "Value": "0,0,0,1"
               },
@@ -1333,7 +1398,7 @@
                 },
                 "Property": "Mesh",
                 "Value": {
-                  "Data": "AQAAAAcAAAAIAAAAdG9wb2xvZ3nEAQAACAAAABgAAAAGAAAAAAAAAAIAAAAEAAAABgAAAAgAAAAKAAAADAAAAA4AAAABAAAAAQAAAAIAAAAAAAAAAAAAAAAAAAARAAAABQAAAAIAAAADAAAABAAAAAAAAAABAAAAAgAAABQAAAADAAAAAwAAAAUAAAAGAAAAAAAAAAIAAAAEAAAAFwAAAAQAAAAAAAAABwAAAAAAAAAAAAAAAwAAAAYAAAASAAAAAgAAAAUAAAAJAAAACgAAAAEAAAAEAAAACAAAABMAAAAEAAAABgAAAAsAAAAMAAAAAQAAAAUAAAAKAAAAFgAAAAMAAAAHAAAADQAAAA4AAAABAAAABgAAAAwAAAAVAAAABQAAAAQAAAAPAAAACAAAAAEAAAAHAAAADgAAABAAAAACAAAAAAAAABEAAAAHAAAAAgAAAAcAAAAQAAAADQAAAAUAAAAEAAAAEwAAAA8AAAACAAAAAwAAABIAAAAFAAAABAAAAAYAAAAVAAAACwAAAAMAAAABAAAAFAAAAAEAAAAFAAAAAgAAABcAAAADAAAAAwAAAAUAAAAWAAAACQAAAAQAAAAGAAAADgAAABIAAAAWAAAAFwAAABUAAAAJAAAAcG9zaXRpb25zYAAAAAAAAMPQQpjAAACAQAAAAEPQQpjAAACAQAAAAEPQQphAAACAQAAAAMPQQphAAACAQAAAAMPQQphAAACAwAAAAEPQQphAAACAwAAAAEPQQpjAAACAwAAAAMPQQpjAAACAwAYAAABibGVuZHNgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABgAAAGNvbG9yc2AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAdGV4Y29vcmTAAAAAAAAAQAAAAD4AAADAAACAvgAAAECAFsK8AAAAvgAAgL4AAADAgBbCvAAAAMAAAIC+AAAAwAAAAD6AFsK8AACAvgAAAECAFsK8AAAAQAAAAL4AAABAAAAAPoAWwjwAAAC+AAAAwAAAAD4AAABAAAAAvgAAAMCAFsK8AAAAPgAAAL4AAAA+AACAvgAAAMAAAAC+gBbCvAAAAL4AAABAAACAvgAAAL4AAAC+AAAAQAAAgL6AFsI8AACAvgAAAMAAAAC+DQAAAG1hdGVyaWFsaW5kZXgYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACQAAAGVkZ2VmbGFnc2AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=",
+                  "Data": "AQAAAAcAAAAIAAAAdG9wb2xvZ3nEAQAACAAAABgAAAAGAAAAAAAAAAIAAAAEAAAABgAAAAgAAAAKAAAADAAAAA4AAAABAAAAAQAAAAIAAAAAAAAAAAAAAAAAAAARAAAABQAAAAIAAAADAAAABAAAAAAAAAABAAAAAgAAABQAAAADAAAAAwAAAAUAAAAGAAAAAAAAAAIAAAAEAAAAFwAAAAQAAAAAAAAABwAAAAAAAAAAAAAAAwAAAAYAAAASAAAAAgAAAAUAAAAJAAAACgAAAAEAAAAEAAAACAAAABMAAAAEAAAABgAAAAsAAAAMAAAAAQAAAAUAAAAKAAAAFgAAAAMAAAAHAAAADQAAAA4AAAABAAAABgAAAAwAAAAVAAAABQAAAAQAAAAPAAAACAAAAAEAAAAHAAAADgAAABAAAAACAAAAAAAAABEAAAAHAAAAAgAAAAcAAAAQAAAADQAAAAUAAAAEAAAAEwAAAA8AAAACAAAAAwAAABIAAAAFAAAABAAAAAYAAAAVAAAACwAAAAMAAAABAAAAFAAAAAEAAAAFAAAAAgAAABcAAAADAAAAAwAAAAUAAAAWAAAACQAAAAQAAAAGAAAADgAAABIAAAAWAAAAFwAAABUAAAAJAAAAcG9zaXRpb25zYAAAAPx/AsPQQpjAAACAQACAAkPQQpjAAACAQPx/AkPQQphAAACAQPx/AsPQQphAAACAQPx/AsPQQphAAACAwPx/AkPQQphAAACAwACAAkPQQpjAAACAwPx/AsPQQpjAAACAwAYAAABibGVuZHNgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABgAAAGNvbG9yc2AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAdGV4Y29vcmTAAAAA/z9hQQAA8L8AACBBAAAUwf4/YUEuhAHAAAA4QAAAFMEAACBBLoQBwP4/UcEAABTBAAAgQQAA8L8thAHAAAAUwf4/YUEthAHAAAAQwQAAEsH/P2FB///vvy2EQUAAABLBAAAgQf//77//P2FBAAASwQAAIEEthAHAAADwvwAAEsEAAPC/AAAUwQAAIEEAABLBLYQBwAAAEsEAABDBAAAUwQAAOEAAABLB/z9hQQAAFMEthEFAAAAUwf4/UcEAABLBDQAAAG1hdGVyaWFsaW5kZXgYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACQAAAGVkZ2VmbGFnc2AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=",
                   "Materials": [
                     "materials/concrete_line_blue.vmat"
                   ]
@@ -1547,7 +1612,7 @@
           "__version": 2,
           "Flags": 0,
           "Name": "Block",
-          "Position": "-116.370399,-311.577698,161.039337",
+          "Position": "145.629593,-487.577698,161.039368",
           "Rotation": "0,0,0,1",
           "Scale": "1,1,1",
           "Tags": "world",
@@ -1572,7 +1637,7 @@
               "IsTrigger": false,
               "Mesh": {
                 "Data": {
-                  "$blob": "1e839437-c13d-8f67-a1fc-051bb368fa71"
+                  "$blob": "af2e47b1-4a2a-8d6e-a0f3-ffacc51feda0"
                 },
                 "Materials": [
                   "materials/concrete.vmat"
@@ -1677,7 +1742,7 @@
               "__version": 2,
               "Flags": 0,
               "Name": "Block",
-              "Position": "207.629593,-189.577698,-158.960663",
+              "Position": "207.629593,-189.577698,-130.036621",
               "Rotation": "0,0,0,1",
               "Scale": "1,1,1",
               "Tags": "world",
@@ -1702,7 +1767,7 @@
                   "IsTrigger": false,
                   "Mesh": {
                     "Data": {
-                      "$blob": "9c67ced5-f656-847b-9418-338a1ba07c3b"
+                      "$blob": "7b175f81-d18e-8c59-9c83-d9f55564a403"
                     },
                     "Materials": [
                       "materials/linoleum.vmat",
@@ -1990,7 +2055,7 @@
                   "IsTrigger": false,
                   "Mesh": {
                     "Data": {
-                      "$blob": "72762a73-e1fb-88f9-811b-4880e57fa214"
+                      "$blob": "9550a702-f8ae-8e3c-b254-7ae3880a593b"
                     },
                     "Materials": [
                       "materials/dev/reflectivity_30.vmat",
@@ -2023,7 +2088,7 @@
               "__version": 2,
               "Flags": 0,
               "Name": "Block (1)",
-              "Position": "239.62941,-905.577698,17.9633179",
+              "Position": "235.62941,-904.077637,-58.0366821",
               "Rotation": "0,0,-0.99999994,0",
               "Scale": "1,1,1",
               "Tags": "world",
@@ -2048,12 +2113,11 @@
                   "IsTrigger": false,
                   "Mesh": {
                     "Data": {
-                      "$blob": "b8c045b8-6e9d-8361-aee4-d98b17dacab2"
+                      "$blob": "92a4512a-57a6-8ce4-a7b0-708853cf547f"
                     },
                     "Materials": [
                       "materials/dev/reflectivity_30.vmat",
-                      "materials/white_stucco.vmat",
-                      "materials/concrete_line_blue.vmat"
+                      "materials/white_stucco.vmat"
                     ]
                   },
                   "OnComponentDestroy": null,
@@ -2287,8 +2351,8 @@
               "__version": 2,
               "Flags": 0,
               "Name": "Bed",
-              "Position": "383.629578,82.4223022,-94.9606628",
-              "Rotation": "0,0,-0.707106769,0.707106769",
+              "Position": "419.629578,82.4223022,-94.9606323",
+              "Rotation": "0,0,-0.99999994,0",
               "Scale": "1,1,1",
               "Tags": "",
               "Enabled": true,
@@ -2309,7 +2373,7 @@
                   "MaterialGroup": null,
                   "MaterialOverride": null,
                   "Materials": null,
-                  "Model": "models/items/minimal_set/minimal_bed.vmdl",
+                  "Model": "models/props/prison/prison_bed_a.vmdl",
                   "OnComponentDestroy": null,
                   "OnComponentDisabled": null,
                   "OnComponentEnabled": null,
@@ -2334,7 +2398,7 @@
                   "Elasticity": null,
                   "Friction": null,
                   "IsTrigger": false,
-                  "Model": "models/items/minimal_set/minimal_bed.vmdl",
+                  "Model": "models/props/prison/prison_bed_a.vmdl",
                   "OnComponentDestroy": null,
                   "OnComponentDisabled": null,
                   "OnComponentEnabled": null,
@@ -3014,7 +3078,64 @@
               "IsTrigger": false,
               "Mesh": {
                 "Data": {
-                  "$blob": "ea2bfe21-4a3c-8de4-8796-6f30351bb337"
+                  "$blob": "3040d738-3c62-82ba-8006-0c50a840753b"
+                },
+                "Materials": [
+                  "materials/white_stucco.vmat",
+                  "materials/tiles_pt_1.vmat"
+                ]
+              },
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "OnObjectTriggerEnter": null,
+              "OnObjectTriggerExit": null,
+              "OnTriggerEnter": null,
+              "OnTriggerExit": null,
+              "RenderType": "On",
+              "RollingResistance": null,
+              "SmoothingAngle": 40,
+              "Static": true,
+              "Surface": null,
+              "SurfaceVelocity": "0,0,0"
+            }
+          ],
+          "Children": []
+        },
+        {
+          "__guid": "16d7aef5-6a30-4491-bc69-45dccc4dc49d",
+          "__version": 2,
+          "Flags": 0,
+          "Name": "Block (1)",
+          "Position": "158.629562,-991.577698,-313.11261",
+          "Rotation": "0,-0.707106769,0,0.70710665",
+          "Scale": "1,1,1",
+          "Tags": "world",
+          "Enabled": true,
+          "NetworkMode": 2,
+          "NetworkFlags": 0,
+          "NetworkOrphaned": 0,
+          "NetworkTransmit": true,
+          "OwnerTransfer": 1,
+          "Components": [
+            {
+              "__type": "Sandbox.MeshComponent",
+              "__guid": "673bef1a-69ef-4021-8595-5b5eaea0c592",
+              "__enabled": true,
+              "Flags": 0,
+              "ColliderFlags": 0,
+              "Collision": "Mesh",
+              "Color": "1,1,1,1",
+              "Elasticity": null,
+              "Friction": null,
+              "HideInGame": false,
+              "IsTrigger": false,
+              "Mesh": {
+                "Data": {
+                  "$blob": "3040d738-3c62-82ba-8006-0c50a840753b"
                 },
                 "Materials": [
                   "materials/white_stucco.vmat",
@@ -3159,7 +3280,7 @@
           "__version": 2,
           "Flags": 0,
           "Name": "Block",
-          "Position": "427.629578,-1081.57764,-311.11261",
+          "Position": "427.629578,-1081.57764,-247.11261",
           "Rotation": "0,0,0,1",
           "Scale": "1,1,1",
           "Tags": "world",
@@ -3184,7 +3305,7 @@
               "IsTrigger": false,
               "Mesh": {
                 "Data": {
-                  "$blob": "243c4747-d6ee-803e-a6b2-6d0bae856c58"
+                  "$blob": "c839fbc1-c4f9-8d97-a469-35a065493941"
                 },
                 "Materials": [
                   "materials/tiles_pt_1.vmat"
@@ -3215,7 +3336,7 @@
           "__version": 2,
           "Flags": 0,
           "Name": "Block",
-          "Position": "159.629593,-1085.57764,-31.1126099",
+          "Position": "159.629593,-1085.57764,-89.1126099",
           "Rotation": "0,0,0,1",
           "Scale": "1,0.25,1",
           "Tags": "world",
@@ -3240,10 +3361,10 @@
               "IsTrigger": false,
               "Mesh": {
                 "Data": {
-                  "$blob": "2f7fd489-4103-8380-81e8-7d72d345ebe2"
+                  "$blob": "6d5ffeef-f276-8f7f-a601-dfbad13412c1"
                 },
                 "Materials": [
-                  "materials/glass_industrial_b/glass_industrial_b.vmat"
+                  "materials/glass/glass_a.vmat"
                 ]
               },
               "OnComponentDestroy": null,
@@ -3296,10 +3417,11 @@
               "IsTrigger": false,
               "Mesh": {
                 "Data": {
-                  "$blob": "c614956a-23d1-80d2-b342-4af0236be7ba"
+                  "$blob": "d134217d-a192-80d8-9124-90e38e5f29be"
                 },
                 "Materials": [
-                  "materials/glass_industrial_b/glass_industrial_b.vmat"
+                  "materials/glass_industrial_b/glass_industrial_b.vmat",
+                  "materials/glass/glass_a.vmat"
                 ]
               },
               "OnComponentDestroy": null,
@@ -3493,11 +3615,189 @@
           "Children": []
         },
         {
-          "__guid": "893f18db-4286-4179-bbc8-cf8d43a2119f",
+          "__guid": "e2285407-abaa-486f-b8fd-1139574daff8",
           "__version": 2,
           "Flags": 0,
-          "Name": "Block",
-          "Position": "-40.3704071,-1089.57764,37.9633179",
+          "Name": "LivingSectorStairZone",
+          "Position": "15.6295929,-1093.57764,-69.1126099",
+          "Rotation": "0,0,0,1",
+          "Scale": "1,1,1",
+          "Tags": "",
+          "Enabled": true,
+          "NetworkMode": 2,
+          "NetworkFlags": 0,
+          "NetworkOrphaned": 0,
+          "NetworkTransmit": true,
+          "OwnerTransfer": 1,
+          "Components": [
+            {
+              "__type": "CameraZone",
+              "__guid": "fa790d3f-6bfc-421b-a7fb-f81d48fdaba8",
+              "__enabled": true,
+              "Flags": 0,
+              "BlendSpeed": 5,
+              "CameraAnchor": {
+                "_type": "gameobject",
+                "go": "c1cae51f-5168-4e92-90af-f78782145ad6"
+              },
+              "DeadZoneSize": "0,128,96",
+              "FieldOfView": 60,
+              "FollowLimits": "0,0,0",
+              "FollowPlayerX": true,
+              "FollowPlayerY": true,
+              "FollowPlayerZ": true,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "OverrideDeadZone": false,
+              "Priority": 0
+            },
+            {
+              "__type": "Sandbox.BoxCollider",
+              "__guid": "f83e598e-5f86-4017-a315-ebfc5647b400",
+              "__enabled": true,
+              "Flags": 0,
+              "Center": "231.5,22,-88",
+              "ColliderFlags": 0,
+              "Elasticity": null,
+              "Friction": null,
+              "IsTrigger": true,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "OnObjectTriggerEnter": null,
+              "OnObjectTriggerExit": null,
+              "OnTriggerEnter": null,
+              "OnTriggerExit": null,
+              "RollingResistance": null,
+              "Scale": "513,324,624",
+              "Static": false,
+              "Surface": null,
+              "SurfaceVelocity": "0,0,0"
+            }
+          ],
+          "Children": [
+            {
+              "__guid": "c1cae51f-5168-4e92-90af-f78782145ad6",
+              "__version": 2,
+              "Flags": 0,
+              "Name": "Anchor",
+              "Position": "-748.804626,0,277.04657",
+              "Rotation": "0,0.130525768,0,0.991445065",
+              "Scale": "1,1,1",
+              "Tags": "",
+              "Enabled": true,
+              "NetworkMode": 2,
+              "NetworkFlags": 0,
+              "NetworkOrphaned": 0,
+              "NetworkTransmit": true,
+              "OwnerTransfer": 1,
+              "Components": [],
+              "Children": []
+            }
+          ]
+        },
+        {
+          "__guid": "96bb58e2-74a4-47be-bc90-f274b5681e64",
+          "__version": 2,
+          "Flags": 0,
+          "Name": "LivingSectorZone",
+          "Position": "-200.370407,-1093.57764,-69.1126099",
+          "Rotation": "0,0,0,1",
+          "Scale": "1,1,1",
+          "Tags": "",
+          "Enabled": true,
+          "NetworkMode": 2,
+          "NetworkFlags": 0,
+          "NetworkOrphaned": 0,
+          "NetworkTransmit": true,
+          "OwnerTransfer": 1,
+          "Components": [
+            {
+              "__type": "CameraZone",
+              "__guid": "16f8f78a-9493-48db-92bc-579806547b07",
+              "__enabled": true,
+              "Flags": 0,
+              "BlendSpeed": 5,
+              "CameraAnchor": {
+                "_type": "gameobject",
+                "go": "6a840a71-cdfb-4cd8-903b-61f3e83511f6"
+              },
+              "DeadZoneSize": "0,128,96",
+              "FieldOfView": 60,
+              "FollowLimits": "0,0,0",
+              "FollowPlayerX": false,
+              "FollowPlayerY": true,
+              "FollowPlayerZ": true,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "OverrideDeadZone": false,
+              "Priority": 0
+            },
+            {
+              "__type": "Sandbox.BoxCollider",
+              "__guid": "5a324a6a-9cd1-4baa-9b22-4a8f6d1ba627",
+              "__enabled": true,
+              "Flags": 0,
+              "Center": "85.5,634,60",
+              "ColliderFlags": 0,
+              "Elasticity": null,
+              "Friction": null,
+              "IsTrigger": true,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "OnObjectTriggerEnter": null,
+              "OnObjectTriggerExit": null,
+              "OnTriggerEnter": null,
+              "OnTriggerExit": null,
+              "RollingResistance": null,
+              "Scale": "221,1548,328",
+              "Static": false,
+              "Surface": null,
+              "SurfaceVelocity": "0,0,0"
+            }
+          ],
+          "Children": [
+            {
+              "__guid": "6a840a71-cdfb-4cd8-903b-61f3e83511f6",
+              "__version": 2,
+              "Flags": 0,
+              "Name": "Anchor",
+              "Position": "-748.804626,0,277.04657",
+              "Rotation": "0,0.130525768,0,0.991445065",
+              "Scale": "1,1,1",
+              "Tags": "",
+              "Enabled": true,
+              "NetworkMode": 2,
+              "NetworkFlags": 0,
+              "NetworkOrphaned": 0,
+              "NetworkTransmit": true,
+              "OwnerTransfer": 1,
+              "Components": [],
+              "Children": []
+            }
+          ]
+        },
+        {
+          "__guid": "5650fc74-1801-429a-a0a7-d32acab3b805",
+          "__version": 2,
+          "Flags": 0,
+          "Name": "Block (1)",
+          "Position": "351.629578,-1085.57764,-140.650574",
           "Rotation": "0,0,0,1",
           "Scale": "1,1,1",
           "Tags": "world",
@@ -3510,7 +3810,7 @@
           "Components": [
             {
               "__type": "Sandbox.MeshComponent",
-              "__guid": "ad955103-0915-401e-bc20-dbcf17b81f30",
+              "__guid": "dba2a0e1-feb2-4bab-8ed4-45809bfa9c25",
               "__enabled": true,
               "Flags": 0,
               "ColliderFlags": 0,
@@ -3522,10 +3822,65 @@
               "IsTrigger": false,
               "Mesh": {
                 "Data": {
-                  "$blob": "d39a81c4-ea01-807e-92ed-f0b6a8058ab0"
+                  "$blob": "9127c9ea-3d05-8bd9-8e72-cc2269fd8ba7"
                 },
                 "Materials": [
-                  "materials/hotspots/metal_painted_red_a_hs.vmat",
+                  "materials/hotspots/metal_painted_red_b_hs.vmat"
+                ]
+              },
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "OnObjectTriggerEnter": null,
+              "OnObjectTriggerExit": null,
+              "OnTriggerEnter": null,
+              "OnTriggerExit": null,
+              "RenderType": "On",
+              "RollingResistance": null,
+              "SmoothingAngle": 40,
+              "Static": true,
+              "Surface": null,
+              "SurfaceVelocity": "0,0,0"
+            }
+          ],
+          "Children": []
+        },
+        {
+          "__guid": "be1e5ed5-013f-4401-93b0-a7d599e9f332",
+          "__version": 2,
+          "Flags": 0,
+          "Name": "Block",
+          "Position": "-28.3704071,-1085.57764,-88.1126099",
+          "Rotation": "0,0,0,1",
+          "Scale": "1,1,1",
+          "Tags": "world",
+          "Enabled": true,
+          "NetworkMode": 2,
+          "NetworkFlags": 0,
+          "NetworkOrphaned": 0,
+          "NetworkTransmit": true,
+          "OwnerTransfer": 1,
+          "Components": [
+            {
+              "__type": "Sandbox.MeshComponent",
+              "__guid": "94893b7d-bdc9-4299-8b4c-a945d6440073",
+              "__enabled": true,
+              "Flags": 0,
+              "ColliderFlags": 0,
+              "Collision": "Mesh",
+              "Color": "1,1,1,1",
+              "Elasticity": null,
+              "Friction": null,
+              "HideInGame": false,
+              "IsTrigger": false,
+              "Mesh": {
+                "Data": {
+                  "$blob": "cc38ffa6-6654-8e20-821c-699a1e5e5cef"
+                },
+                "Materials": [
                   "materials/hotspots/metal_painted_red_b_hs.vmat"
                 ]
               },
@@ -3948,6 +4303,86 @@
       "Children": []
     },
     {
+      "__guid": "c27b70f8-25b1-48ae-b7ac-74933d926def",
+      "__version": 2,
+      "Flags": 0,
+      "Name": "Point Light (5)",
+      "Position": "36,-948,730.151978",
+      "Rotation": "0,0,0,1",
+      "Scale": "1,1,1",
+      "Tags": "light_point,light",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkFlags": 0,
+      "NetworkOrphaned": 0,
+      "NetworkTransmit": true,
+      "OwnerTransfer": 1,
+      "Components": [
+        {
+          "__type": "Sandbox.PointLight",
+          "__guid": "1232116a-fe45-4ff7-9764-a5aac5c3943b",
+          "__enabled": true,
+          "Flags": 0,
+          "Attenuation": 0.1,
+          "Contribution": "Diffuse, Specular, Transmissive",
+          "FogMode": "Enabled",
+          "FogStrength": 1,
+          "LightColor": "1,0.90718,0.76279,1",
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "Radius": 600,
+          "ShadowBias": 0,
+          "ShadowHardness": 0,
+          "Shadows": true
+        }
+      ],
+      "Children": []
+    },
+    {
+      "__guid": "160d2926-3e47-44bd-8f84-25fc604d157e",
+      "__version": 2,
+      "Flags": 0,
+      "Name": "Point Light (6)",
+      "Position": "592,-984,720",
+      "Rotation": "0,0,0,1",
+      "Scale": "1,1,1",
+      "Tags": "light_point,light",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkFlags": 0,
+      "NetworkOrphaned": 0,
+      "NetworkTransmit": true,
+      "OwnerTransfer": 1,
+      "Components": [
+        {
+          "__type": "Sandbox.PointLight",
+          "__guid": "eab4979d-a723-46b1-b6be-5cec10589b8f",
+          "__enabled": true,
+          "Flags": 0,
+          "Attenuation": 0.1,
+          "Contribution": "Diffuse, Specular, Transmissive",
+          "FogMode": "Enabled",
+          "FogStrength": 1,
+          "LightColor": "1,0.90718,0.76279,1",
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "Radius": 600,
+          "ShadowBias": 0,
+          "ShadowHardness": 0,
+          "Shadows": true
+        }
+      ],
+      "Children": []
+    },
+    {
       "__guid": "fb4268cd-0a70-45d4-b847-e894b55f09f2",
       "__version": 2,
       "Flags": 0,
@@ -3983,6 +4418,161 @@
           "ShadowBias": 0,
           "ShadowHardness": 0,
           "Shadows": true
+        }
+      ],
+      "Children": []
+    },
+    {
+      "__guid": "71d0c0d7-5f84-4042-8907-a7fe95127388",
+      "__version": 2,
+      "Flags": 0,
+      "Name": "Indirect Light Volume",
+      "Position": "-406.724243,-127.071648,759.24054",
+      "Rotation": "0,0,0,1",
+      "Scale": "1,1,1",
+      "Tags": "",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkFlags": 0,
+      "NetworkOrphaned": 0,
+      "NetworkTransmit": true,
+      "OwnerTransfer": 1,
+      "Components": [
+        {
+          "__type": "Sandbox.IndirectLightVolume",
+          "__guid": "6e250d28-6fa4-4b1a-9a81-d113148801a4",
+          "__enabled": true,
+          "Flags": 0,
+          "Bounds": {
+            "Mins": "344,-1068,-224",
+            "Maxs": "1000,512,100"
+          },
+          "Contrast": 1,
+          "DistanceTexture": "scenes/main_scene_data/ddgi/indirect light volume_distance_6e250d28-6fa4-4b1a-9a81-d113148801a4.vtex",
+          "InsideGeometry": "Relocate",
+          "IrradianceTexture": "scenes/main_scene_data/ddgi/indirect light volume_irradiance_6e250d28-6fa4-4b1a-9a81-d113148801a4.vtex",
+          "NormalBias": 5,
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "ProbeDensity": 8,
+          "RelocationTexture": "scenes/main_scene_data/ddgi/indirect light volume_relocation_6e250d28-6fa4-4b1a-9a81-d113148801a4.vtex",
+          "RenderExcludeTags": ""
+        }
+      ],
+      "Children": []
+    },
+    {
+      "__guid": "7848ad26-ed71-482e-81b2-66c2d3c33ccd",
+      "__version": 2,
+      "Flags": 0,
+      "Name": "Block",
+      "Position": "600,-258,342",
+      "Rotation": "0,0,0,1",
+      "Scale": "1,1,1",
+      "Tags": "world",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkFlags": 0,
+      "NetworkOrphaned": 0,
+      "NetworkTransmit": true,
+      "OwnerTransfer": 1,
+      "Components": [
+        {
+          "__type": "Sandbox.MeshComponent",
+          "__guid": "b52f4e44-b20b-44fe-890f-5b27f1e5b32b",
+          "__enabled": true,
+          "Flags": 0,
+          "ColliderFlags": 0,
+          "Collision": "Mesh",
+          "Color": "1,1,1,1",
+          "Elasticity": null,
+          "Friction": null,
+          "HideInGame": false,
+          "IsTrigger": false,
+          "Mesh": {
+            "Data": {
+              "$blob": "9babc358-e44e-8982-924d-670ef1b4c634"
+            },
+            "Materials": [
+              "materials/white_stucco.vmat"
+            ]
+          },
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "OnObjectTriggerEnter": null,
+          "OnObjectTriggerExit": null,
+          "OnTriggerEnter": null,
+          "OnTriggerExit": null,
+          "RenderType": "On",
+          "RollingResistance": null,
+          "SmoothingAngle": 40,
+          "Static": true,
+          "Surface": null,
+          "SurfaceVelocity": "0,0,0"
+        }
+      ],
+      "Children": []
+    },
+    {
+      "__guid": "c6b7aaea-647a-439f-959b-39c9dbb72348",
+      "__version": 2,
+      "Flags": 0,
+      "Name": "Block",
+      "Position": "128,-960,359",
+      "Rotation": "0,0,0,1",
+      "Scale": "1,1,1",
+      "Tags": "world",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkFlags": 0,
+      "NetworkOrphaned": 0,
+      "NetworkTransmit": true,
+      "OwnerTransfer": 1,
+      "Components": [
+        {
+          "__type": "Sandbox.MeshComponent",
+          "__guid": "3d9a1ff3-75a5-4215-8196-6a7ce6f57ecf",
+          "__enabled": true,
+          "Flags": 0,
+          "ColliderFlags": 0,
+          "Collision": "Mesh",
+          "Color": "1,1,1,1",
+          "Elasticity": null,
+          "Friction": null,
+          "HideInGame": false,
+          "IsTrigger": false,
+          "Mesh": {
+            "Data": {
+              "$blob": "45fa70f8-2a3a-802c-a536-3580caf1acdc"
+            },
+            "Materials": [
+              "materials/white_stucco.vmat"
+            ]
+          },
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "OnObjectTriggerEnter": null,
+          "OnObjectTriggerExit": null,
+          "OnTriggerEnter": null,
+          "OnTriggerExit": null,
+          "RenderType": "On",
+          "RollingResistance": null,
+          "SmoothingAngle": 40,
+          "Static": true,
+          "Surface": null,
+          "SurfaceVelocity": "0,0,0"
         }
       ],
       "Children": []
@@ -4025,9 +4615,9 @@
   "Title": null,
   "Description": null,
   "__references": [
-    "facepunch.metal_painted_red_a_hs#291766",
+    "facepunch.glass_a#293147",
     "facepunch.metal_painted_red_b_hs#291767",
-    "luke.minimal_bed#22926",
+    "jammie.prisonbeda#113999",
     "rustextended.glass_industrial_b#43277"
   ],
   "__version": 3
