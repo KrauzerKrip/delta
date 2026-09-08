@@ -8,6 +8,8 @@ public sealed class PlayerInventory : BaseInventoryComponent
 	private readonly List<BaseInventoryItem> acceptedItems = new();
 	private GameObject hudObject;
 	private InventoryHud hud;
+	private DollhouseCursor cursor;
+	private InteractionController interaction;
 
 	/// <summary>Raised after this inventory accepts an item.</summary>
 	public event System.Action Changed;
@@ -103,6 +105,10 @@ public sealed class PlayerInventory : BaseInventoryComponent
 			hud.Refresh();
 			Log.Info( $"[Inventory] Inventory HUD ready on local UI object '{hudObject.Name}'." );
 		}
+
+		interaction ??= Components.Get<InteractionController>() ?? GameObject.AddComponent<InteractionController>();
+		cursor ??= hudObject.Components.Get<DollhouseCursor>() ?? hudObject.AddComponent<DollhouseCursor>();
+		cursor.Interaction = interaction;
 
 		return hudObject;
 	}

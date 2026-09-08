@@ -1,0 +1,85 @@
+DollhouseCursor
+{
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 900;
+	pointer-events: all;
+	cursor: none;
+
+	.dollhouse-cursor
+	{
+		position: absolute;
+		width: 38px;
+		height: 28px;
+		transform: translate( -50%, -50% );
+		pointer-events: none;
+		transition: transform 0.06s ease;
+
+		.target-ring
+		{
+			position: absolute;
+			left: 3px;
+			top: 8px;
+			width: 32px;
+			height: 16px;
+			border: 3px solid #dff7ff;
+			border-radius: 50%;
+			background-color: rgba( 12, 18, 24, 0.16 );
+			box-shadow: 0 0 0 2px rgba( 12, 18, 24, 0.82 ), 0 3px 8px rgba( 0, 0, 0, 0.55 );
+		}
+
+		.target-dot
+		{
+			position: absolute;
+			left: 16px;
+			top: 13px;
+			width: 6px;
+			height: 6px;
+			border: 1px solid rgba( 12, 18, 24, 0.9 );
+			border-radius: 50%;
+			background-color: #7ecae2;
+			box-shadow: 0 0 5px rgba( 126, 202, 226, 0.9 );
+		}
+
+		.direction-tick
+		{
+			position: absolute;
+			left: 16px;
+			top: 1px;
+			width: 6px;
+			height: 10px;
+			border: 2px solid rgba( 12, 18, 24, 0.9 );
+			border-radius: 3px;
+			background-color: #7ecae2;
+		}
+
+		&.out-of-range
+		{
+			.target-ring
+			{
+				border-color: #ed7770;
+			}
+
+			.target-dot,
+			.direction-tick
+			{
+				background-color: #ed7770;
+				box-shadow: 0 0 5px rgba( 237, 119, 112, 0.72 );
+			}
+		}
+
+		&.pressed
+		{
+			transform: translate( -50%, -50% ) scale( 0.82 );
+
+			.target-ring
+			{
+				background-color: rgba( 126, 202, 226, 0.42 );
+				border-color: #ffffff;
+			}
+		}
+	}
+}

@@ -10,7 +10,7 @@
       "Rotation": "-0.161728993,0.390448302,0.346828997,0.837319016",
       "Scale": "1,1,1",
       "Tags": "light_directional,light",
-      "Enabled": false,
+      "Enabled": true,
       "NetworkMode": 2,
       "NetworkFlags": 0,
       "NetworkOrphaned": 0,
@@ -110,7 +110,7 @@
       "__version": 2,
       "Flags": 0,
       "Name": "Player Controller",
-      "Position": "-68,-180,312",
+      "Position": "48,-180,284",
       "Rotation": "0,0,0,1",
       "Scale": "1,1,1",
       "Tags": "",
@@ -155,6 +155,42 @@
           "RigidbodyFlags": "DisableCollisionSounds",
           "SleepThreshold": 2,
           "StartAsleep": false
+        },
+        {
+          "__type": "Sandbox.PlayerInventory",
+          "__guid": "5351ebd9-e31a-437d-909c-8a8091c0a4ee",
+          "__enabled": true,
+          "Flags": 0,
+          "AutoSwitchOnEmpty": false,
+          "AutoSwitchOnPickup": false,
+          "Behaviour": "Hotbar",
+          "GiveOnStart": false,
+          "ManualPumping": false,
+          "MaxSlots": 8,
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "PickupMode": "None",
+          "PickupRadius": 48,
+          "StartingAmmo": [],
+          "StartingItems": [],
+          "UsesLoadout": false
+        },
+        {
+          "__type": "InteractionController",
+          "__guid": "74bbdd11-52e4-4bb6-a635-cd7f2f724709",
+          "__enabled": true,
+          "Flags": 0,
+          "InteractionDistance": 256,
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null
         },
         {
           "__type": "Sandbox.PlayerController",
@@ -230,6 +266,24 @@
           "WalkSpeed": 110
         },
         {
+          "__type": "CameraController",
+          "__guid": "100d8032-dac3-4bac-b73c-c153561a13ef",
+          "__enabled": true,
+          "Flags": 0,
+          "DeadZoneSize": "0,128,96",
+          "DefaultBlendSpeed": 5,
+          "DefaultCameraAnchor": null,
+          "DefaultCameraAngles": "15,0,0",
+          "DefaultCameraOffset": "-1024,0,256",
+          "DefaultFieldOfView": 60,
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null
+        },
+        {
           "__type": "Sandbox.Movement.MoveModeWalk",
           "__guid": "d6986eef-be4a-4961-9464-12b442014fff",
           "__enabled": true,
@@ -299,47 +353,6 @@
           "RemoveUnownedItems": true,
           "Source": "OwnerConnection",
           "WorkshopItems": []
-        },
-        {
-          "__type": "CameraController",
-          "__guid": "100d8032-dac3-4bac-b73c-c153561a13ef",
-          "__enabled": true,
-          "Flags": 0,
-          "DeadZoneSize": "0,128,96",
-          "DefaultBlendSpeed": 5,
-          "DefaultCameraAnchor": null,
-          "DefaultCameraAngles": "15,0,0",
-          "DefaultCameraOffset": "-1024,0,256",
-          "DefaultFieldOfView": 60,
-          "OnComponentDestroy": null,
-          "OnComponentDisabled": null,
-          "OnComponentEnabled": null,
-          "OnComponentFixedUpdate": null,
-          "OnComponentStart": null,
-          "OnComponentUpdate": null
-        },
-        {
-          "__type": "Sandbox.BaseInventoryComponent",
-          "__guid": "fd092310-9e32-4f23-adf8-5666e39a7db4",
-          "__enabled": true,
-          "Flags": 0,
-          "AutoSwitchOnEmpty": false,
-          "AutoSwitchOnPickup": true,
-          "Behaviour": "Hotbar",
-          "GiveOnStart": true,
-          "ManualPumping": false,
-          "MaxSlots": 6,
-          "OnComponentDestroy": null,
-          "OnComponentDisabled": null,
-          "OnComponentEnabled": null,
-          "OnComponentFixedUpdate": null,
-          "OnComponentStart": null,
-          "OnComponentUpdate": null,
-          "PickupMode": "None",
-          "PickupRadius": 48,
-          "StartingAmmo": [],
-          "StartingItems": [],
-          "UsesLoadout": false
         }
       ],
       "Children": [
@@ -1441,6 +1454,117 @@
           }
         },
         {
+          "__guid": "c2d8f0e6-af48-4b70-83ab-7d8938a29a2e",
+          "__version": 2,
+          "__Prefab": "prefabs/baseboard_blue_256.prefab",
+          "__PrefabInstancePatch": {
+            "AddedObjects": [],
+            "RemovedObjects": [],
+            "PropertyOverrides": [
+              {
+                "Target": {
+                  "Type": "GameObject",
+                  "IdValue": "b39d06ff-a5f1-4866-9079-e7c3fb0416bb"
+                },
+                "Property": "Name",
+                "Value": "Baseboard"
+              },
+              {
+                "Target": {
+                  "Type": "GameObject",
+                  "IdValue": "b39d06ff-a5f1-4866-9079-e7c3fb0416bb"
+                },
+                "Property": "Position",
+                "Value": "-48.3702774,-1177.57764,-62.9606323"
+              },
+              {
+                "Target": {
+                  "Type": "GameObject",
+                  "IdValue": "b39d06ff-a5f1-4866-9079-e7c3fb0416bb"
+                },
+                "Property": "Rotation",
+                "Value": "0,0,-0.707106709,0.707106769"
+              },
+              {
+                "Target": {
+                  "Type": "GameObject",
+                  "IdValue": "b39d06ff-a5f1-4866-9079-e7c3fb0416bb"
+                },
+                "Property": "Enabled",
+                "Value": false
+              },
+              {
+                "Target": {
+                  "Type": "Component",
+                  "IdValue": "28b7d2c1-ed80-4cd7-80ba-fac7fe9167aa"
+                },
+                "Property": "Mesh",
+                "Value": {
+                  "Data": "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",
+                  "Materials": [
+                    "materials/concrete_line_blue.vmat",
+                    "materials/rubber_tiles.vmat",
+                    "materials/white_stucco.vmat"
+                  ]
+                }
+              },
+              {
+                "Target": {
+                  "Type": "Component",
+                  "IdValue": "3903f977-d620-4976-aee3-b9fa14455b77"
+                },
+                "Property": "Mesh",
+                "Value": {
+                  "Data": "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",
+                  "Materials": [
+                    "materials/concrete_line_blue.vmat",
+                    "materials/pipe_a.vmat"
+                  ]
+                }
+              },
+              {
+                "Target": {
+                  "Type": "GameObject",
+                  "IdValue": "45f59d95-b3bb-429f-bd27-6f4a45d83dee"
+                },
+                "Property": "Position",
+                "Value": "2.49994087,19.9999924,48"
+              },
+              {
+                "Target": {
+                  "Type": "GameObject",
+                  "IdValue": "45f59d95-b3bb-429f-bd27-6f4a45d83dee"
+                },
+                "Property": "Rotation",
+                "Value": "0,0,0,1"
+              },
+              {
+                "Target": {
+                  "Type": "Component",
+                  "IdValue": "be1d5800-f6bf-4f88-a1c3-3f77e735d965"
+                },
+                "Property": "Mesh",
+                "Value": {
+                  "Data": "AQAAAAcAAAAIAAAAdG9wb2xvZ3nEAQAACAAAABgAAAAGAAAAAAAAAAIAAAAEAAAABgAAAAgAAAAKAAAADAAAAA4AAAABAAAAAQAAAAIAAAAAAAAAAAAAAAAAAAARAAAABQAAAAIAAAADAAAABAAAAAAAAAABAAAAAgAAABQAAAADAAAAAwAAAAUAAAAGAAAAAAAAAAIAAAAEAAAAFwAAAAQAAAAAAAAABwAAAAAAAAAAAAAAAwAAAAYAAAASAAAAAgAAAAUAAAAJAAAACgAAAAEAAAAEAAAACAAAABMAAAAEAAAABgAAAAsAAAAMAAAAAQAAAAUAAAAKAAAAFgAAAAMAAAAHAAAADQAAAA4AAAABAAAABgAAAAwAAAAVAAAABQAAAAQAAAAPAAAACAAAAAEAAAAHAAAADgAAABAAAAACAAAAAAAAABEAAAAHAAAAAgAAAAcAAAAQAAAADQAAAAUAAAAEAAAAEwAAAA8AAAACAAAAAwAAABIAAAAFAAAABAAAAAYAAAAVAAAACwAAAAMAAAABAAAAFAAAAAEAAAAFAAAAAgAAABcAAAADAAAAAwAAAAUAAAAWAAAACQAAAAQAAAAGAAAADgAAABIAAAAWAAAAFwAAABUAAAAJAAAAcG9zaXRpb25zYAAAAPx/AsPQQpjAAACAQACAAkPQQpjAAACAQPx/AkPQQphAAACAQPx/AsPQQphAAACAQPx/AsPQQphAAACAwPx/AkPQQphAAACAwACAAkPQQpjAAACAwPx/AsPQQpjAAACAwAYAAABibGVuZHNgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABgAAAGNvbG9yc2AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAdGV4Y29vcmTAAAAA/z9hQQAA8L8AACBBAAAUwf4/YUEuhAHAAAA4QAAAFMEAACBBLoQBwP4/UcEAABTBAAAgQQAA8L8thAHAAAAUwf4/YUEthAHAAAAQwQAAEsH/P2FB///vvy2EQUAAABLBAAAgQf//77//P2FBAAASwQAAIEEthAHAAADwvwAAEsEAAPC/AAAUwQAAIEEAABLBLYQBwAAAEsEAABDBAAAUwQAAOEAAABLB/z9hQQAAFMEthEFAAAAUwf4/UcEAABLBDQAAAG1hdGVyaWFsaW5kZXgYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACQAAAGVkZ2VmbGFnc2AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=",
+                  "Materials": [
+                    "materials/concrete_line_blue.vmat"
+                  ]
+                }
+              }
+            ],
+            "MovedObjects": []
+          },
+          "__PrefabIdToInstanceId": {
+            "b39d06ff-a5f1-4866-9079-e7c3fb0416bb": "c2d8f0e6-af48-4b70-83ab-7d8938a29a2e",
+            "d0b4ea38-a107-4f9c-8904-42d478494881": "d4dd36cb-5461-4092-9cdc-4825ab657713",
+            "28b7d2c1-ed80-4cd7-80ba-fac7fe9167aa": "03cffcd6-876b-497d-9640-7e98d1076ab0",
+            "d85bdd16-9812-4a47-a90c-bf342f47e6c8": "d9793a8b-2830-4127-be35-2b44653848d7",
+            "3903f977-d620-4976-aee3-b9fa14455b77": "18dd1dc0-8fe0-4044-b104-102944d73fcc",
+            "45f59d95-b3bb-429f-bd27-6f4a45d83dee": "c273bb90-3dab-47c2-8d5e-40184b37f8f4",
+            "be1d5800-f6bf-4f88-a1c3-3f77e735d965": "f9ab88a9-2795-45f2-b71b-278d0e4264a8"
+          }
+        },
+        {
           "__guid": "216114f1-4430-4ba9-bfe1-8c8fa6bf0cbe",
           "__version": 2,
           "__Prefab": "prefabs/baseboard_blue_256.prefab",
@@ -2535,6 +2659,64 @@
                 {
                   "__type": "Sandbox.MeshComponent",
                   "__guid": "a2c80737-494e-4c8f-9f75-31cd6b520e6d",
+                  "__enabled": true,
+                  "Flags": 0,
+                  "ColliderFlags": 0,
+                  "Collision": "Mesh",
+                  "Color": "1,1,1,1",
+                  "Elasticity": null,
+                  "Friction": null,
+                  "HideInGame": false,
+                  "IsTrigger": false,
+                  "Mesh": {
+                    "Data": {
+                      "$blob": "9550a702-f8ae-8e3c-b254-7ae3880a593b"
+                    },
+                    "Materials": [
+                      "materials/dev/reflectivity_30.vmat",
+                      "materials/white_stucco.vmat",
+                      "materials/concrete_line_blue.vmat"
+                    ]
+                  },
+                  "OnComponentDestroy": null,
+                  "OnComponentDisabled": null,
+                  "OnComponentEnabled": null,
+                  "OnComponentFixedUpdate": null,
+                  "OnComponentStart": null,
+                  "OnComponentUpdate": null,
+                  "OnObjectTriggerEnter": null,
+                  "OnObjectTriggerExit": null,
+                  "OnTriggerEnter": null,
+                  "OnTriggerExit": null,
+                  "RenderType": "On",
+                  "RollingResistance": null,
+                  "SmoothingAngle": 40,
+                  "Static": true,
+                  "Surface": null,
+                  "SurfaceVelocity": "0,0,0"
+                }
+              ],
+              "Children": []
+            },
+            {
+              "__guid": "3e45d233-ee55-4743-a9cc-94b9d3ff73cf",
+              "__version": 2,
+              "Flags": 0,
+              "Name": "Block (2)",
+              "Position": "-26.3704071,-1177.57764,97.0393677",
+              "Rotation": "0,0,-0.707106769,0.707106769",
+              "Scale": "1,1,1",
+              "Tags": "world",
+              "Enabled": false,
+              "NetworkMode": 2,
+              "NetworkFlags": 0,
+              "NetworkOrphaned": 0,
+              "NetworkTransmit": true,
+              "OwnerTransfer": 1,
+              "Components": [
+                {
+                  "__type": "Sandbox.MeshComponent",
+                  "__guid": "666e0415-d868-461f-ac76-96b2bd3bb4a5",
                   "__enabled": true,
                   "Flags": 0,
                   "ColliderFlags": 0,
@@ -5511,6 +5693,186 @@
       ]
     },
     {
+      "__guid": "69190f2b-2546-4153-b40d-f12e22e6c8ec",
+      "__version": 2,
+      "Flags": 0,
+      "Name": "Wall",
+      "Position": "130,-1372,464",
+      "Rotation": "0,0,-0.707106769,0.707106769",
+      "Scale": "1,1,1",
+      "Tags": "",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkFlags": 0,
+      "NetworkOrphaned": 0,
+      "NetworkTransmit": true,
+      "OwnerTransfer": 1,
+      "Components": [],
+      "Children": [
+        {
+          "__guid": "3a84b269-70fa-40c7-b15c-63b654d147f2",
+          "__version": 2,
+          "Flags": 0,
+          "Name": "Block (2)",
+          "Position": "0,0,-95.0000763",
+          "Rotation": "0,0,0,1",
+          "Scale": "1,1,1",
+          "Tags": "world",
+          "Enabled": true,
+          "NetworkMode": 2,
+          "NetworkFlags": 0,
+          "NetworkOrphaned": 0,
+          "NetworkTransmit": true,
+          "OwnerTransfer": 1,
+          "Components": [
+            {
+              "__type": "Sandbox.MeshComponent",
+              "__guid": "7252e059-e4fd-4d61-8b01-54fe7b700a9a",
+              "__enabled": true,
+              "Flags": 0,
+              "ColliderFlags": 0,
+              "Collision": "Mesh",
+              "Color": "1,1,1,1",
+              "Elasticity": null,
+              "Friction": null,
+              "HideInGame": false,
+              "IsTrigger": false,
+              "Mesh": {
+                "Data": {
+                  "$blob": "b40b2f4b-d371-879b-aa49-3c6e9ddb1706"
+                },
+                "Materials": [
+                  "materials/dev/reflectivity_30.vmat",
+                  "materials/white_stucco.vmat",
+                  "materials/concrete_line_blue.vmat"
+                ]
+              },
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "OnObjectTriggerEnter": null,
+              "OnObjectTriggerExit": null,
+              "OnTriggerEnter": null,
+              "OnTriggerExit": null,
+              "RenderType": "On",
+              "RollingResistance": null,
+              "SmoothingAngle": 40,
+              "Static": true,
+              "Surface": null,
+              "SurfaceVelocity": "0,0,0"
+            }
+          ],
+          "Children": []
+        },
+        {
+          "__guid": "990d3f4e-33d6-477d-9b5e-4f73b05ce69d",
+          "__version": 2,
+          "__Prefab": "prefabs/baseboard_blue_256.prefab",
+          "__PrefabInstancePatch": {
+            "AddedObjects": [],
+            "RemovedObjects": [],
+            "PropertyOverrides": [
+              {
+                "Target": {
+                  "Type": "GameObject",
+                  "IdValue": "b39d06ff-a5f1-4866-9079-e7c3fb0416bb"
+                },
+                "Property": "Name",
+                "Value": "Baseboard"
+              },
+              {
+                "Target": {
+                  "Type": "GameObject",
+                  "IdValue": "b39d06ff-a5f1-4866-9079-e7c3fb0416bb"
+                },
+                "Property": "Position",
+                "Value": "0,-21.9998493,-160.000015"
+              },
+              {
+                "Target": {
+                  "Type": "GameObject",
+                  "IdValue": "b39d06ff-a5f1-4866-9079-e7c3fb0416bb"
+                },
+                "Property": "Rotation",
+                "Value": "0,0,2.98023224E-08,1"
+              },
+              {
+                "Target": {
+                  "Type": "Component",
+                  "IdValue": "28b7d2c1-ed80-4cd7-80ba-fac7fe9167aa"
+                },
+                "Property": "Mesh",
+                "Value": {
+                  "Data": "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",
+                  "Materials": [
+                    "materials/concrete_line_blue.vmat",
+                    "materials/rubber_tiles.vmat",
+                    "materials/white_stucco.vmat"
+                  ]
+                }
+              },
+              {
+                "Target": {
+                  "Type": "Component",
+                  "IdValue": "3903f977-d620-4976-aee3-b9fa14455b77"
+                },
+                "Property": "Mesh",
+                "Value": {
+                  "Data": "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",
+                  "Materials": [
+                    "materials/concrete_line_blue.vmat",
+                    "materials/pipe_a.vmat"
+                  ]
+                }
+              },
+              {
+                "Target": {
+                  "Type": "GameObject",
+                  "IdValue": "45f59d95-b3bb-429f-bd27-6f4a45d83dee"
+                },
+                "Property": "Position",
+                "Value": "2.49994087,19.9999924,48"
+              },
+              {
+                "Target": {
+                  "Type": "GameObject",
+                  "IdValue": "45f59d95-b3bb-429f-bd27-6f4a45d83dee"
+                },
+                "Property": "Rotation",
+                "Value": "0,0,0,1"
+              },
+              {
+                "Target": {
+                  "Type": "Component",
+                  "IdValue": "be1d5800-f6bf-4f88-a1c3-3f77e735d965"
+                },
+                "Property": "Mesh",
+                "Value": {
+                  "Data": "AQAAAAcAAAAIAAAAdG9wb2xvZ3nEAQAACAAAABgAAAAGAAAAAAAAAAIAAAAEAAAABgAAAAgAAAAKAAAADAAAAA4AAAABAAAAAQAAAAIAAAAAAAAAAAAAAAAAAAARAAAABQAAAAIAAAADAAAABAAAAAAAAAABAAAAAgAAABQAAAADAAAAAwAAAAUAAAAGAAAAAAAAAAIAAAAEAAAAFwAAAAQAAAAAAAAABwAAAAAAAAAAAAAAAwAAAAYAAAASAAAAAgAAAAUAAAAJAAAACgAAAAEAAAAEAAAACAAAABMAAAAEAAAABgAAAAsAAAAMAAAAAQAAAAUAAAAKAAAAFgAAAAMAAAAHAAAADQAAAA4AAAABAAAABgAAAAwAAAAVAAAABQAAAAQAAAAPAAAACAAAAAEAAAAHAAAADgAAABAAAAACAAAAAAAAABEAAAAHAAAAAgAAAAcAAAAQAAAADQAAAAUAAAAEAAAAEwAAAA8AAAACAAAAAwAAABIAAAAFAAAABAAAAAYAAAAVAAAACwAAAAMAAAABAAAAFAAAAAEAAAAFAAAAAgAAABcAAAADAAAAAwAAAAUAAAAWAAAACQAAAAQAAAAGAAAADgAAABIAAAAWAAAAFwAAABUAAAAJAAAAcG9zaXRpb25zYAAAAPx/AsPQQpjAAACAQACAAkPQQpjAAACAQPx/AkPQQphAAACAQPx/AsPQQphAAACAQPx/AsPQQphAAACAwPx/AkPQQphAAACAwACAAkPQQpjAAACAwPx/AsPQQpjAAACAwAYAAABibGVuZHNgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABgAAAGNvbG9yc2AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAdGV4Y29vcmTAAAAA/z9hQQAA8L8AACBBAAAUwf4/YUEuhAHAAAA4QAAAFMEAACBBLoQBwP4/UcEAABTBAAAgQQAA8L8thAHAAAAUwf4/YUEthAHAAAAQwQAAEsH/P2FB///vvy2EQUAAABLBAAAgQf//77//P2FBAAASwQAAIEEthAHAAADwvwAAEsEAAPC/AAAUwQAAIEEAABLBLYQBwAAAEsEAABDBAAAUwQAAOEAAABLB/z9hQQAAFMEthEFAAAAUwf4/UcEAABLBDQAAAG1hdGVyaWFsaW5kZXgYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACQAAAGVkZ2VmbGFnc2AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=",
+                  "Materials": [
+                    "materials/concrete_line_blue.vmat"
+                  ]
+                }
+              }
+            ],
+            "MovedObjects": []
+          },
+          "__PrefabIdToInstanceId": {
+            "b39d06ff-a5f1-4866-9079-e7c3fb0416bb": "990d3f4e-33d6-477d-9b5e-4f73b05ce69d",
+            "d0b4ea38-a107-4f9c-8904-42d478494881": "555179ef-4a9e-4759-a540-19879ae31e65",
+            "28b7d2c1-ed80-4cd7-80ba-fac7fe9167aa": "c9da8c31-2da3-4bd3-85f7-6027d2f31708",
+            "d85bdd16-9812-4a47-a90c-bf342f47e6c8": "b8ec193f-9718-47ba-bf17-4137326fedf9",
+            "3903f977-d620-4976-aee3-b9fa14455b77": "5a7a8060-dd9b-4ce4-b773-858143767e58",
+            "45f59d95-b3bb-429f-bd27-6f4a45d83dee": "34ef2403-8b8c-4699-b4d9-cf124eb920f8",
+            "be1d5800-f6bf-4f88-a1c3-3f77e735d965": "6de78c60-b806-4bb9-9d9f-48f414ccc4c9"
+          }
+        }
+      ]
+    },
+    {
       "__guid": "fb4268cd-0a70-45d4-b847-e894b55f09f2",
       "__version": 2,
       "Flags": 0,
@@ -7200,6 +7562,7 @@
           "__guid": "e2118226-7e21-4a31-aa89-9f492b9f9fbe",
           "__enabled": true,
           "Flags": 0,
+          "DebugLogging": true,
           "Dialogue": {
             "_type": "component",
             "component_id": "2234a648-8b4a-4fb9-a264-2373caf380d9",
@@ -7212,6 +7575,62 @@
           "OnComponentFixedUpdate": null,
           "OnComponentStart": null,
           "OnComponentUpdate": null
+        }
+      ],
+      "Children": []
+    },
+    {
+      "__guid": "77fdbc49-3fbb-4dee-a1ce-a50af4899730",
+      "__version": 2,
+      "Flags": 0,
+      "Name": "Card Reader",
+      "Position": "-26,-1216,342",
+      "Rotation": "0,0,0,1",
+      "Scale": "1,1,1",
+      "Tags": "world",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkFlags": 0,
+      "NetworkOrphaned": 0,
+      "NetworkTransmit": true,
+      "OwnerTransfer": 1,
+      "Components": [
+        {
+          "__type": "Sandbox.MeshComponent",
+          "__guid": "d498acf9-4323-4bb0-90ff-479ba07a5ef4",
+          "__enabled": true,
+          "Flags": 0,
+          "ColliderFlags": 0,
+          "Collision": "Mesh",
+          "Color": "1,1,1,1",
+          "Elasticity": null,
+          "Friction": null,
+          "HideInGame": false,
+          "IsTrigger": false,
+          "Mesh": {
+            "Data": {
+              "$blob": "cbf3f53d-967e-8ba0-af06-b9b1659b50c4"
+            },
+            "Materials": [
+              "materials/rubber_tiles.vmat"
+            ]
+          },
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "OnObjectTriggerEnter": null,
+          "OnObjectTriggerExit": null,
+          "OnTriggerEnter": null,
+          "OnTriggerExit": null,
+          "RenderType": "On",
+          "RollingResistance": null,
+          "SmoothingAngle": 40,
+          "Static": true,
+          "Surface": null,
+          "SurfaceVelocity": "0,0,0"
         }
       ],
       "Children": []
