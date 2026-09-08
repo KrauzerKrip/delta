@@ -39,6 +39,12 @@ public sealed class CameraController : Component
 		if ( GameObject.IsProxy )
 			return;
 
+		if ( Components.Get<DialogueController>()?.IsOpen == true )
+		{
+			Controller.WishVelocity = Vector3.Zero;
+			return;
+		}
+
 		var speed = Input.Down( "Run" ) ? Controller.RunSpeed : Controller.WalkSpeed;
 		Controller.WishVelocity = Input.AnalogMove * speed;
 

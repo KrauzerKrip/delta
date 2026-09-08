@@ -1,0 +1,29 @@
+@using Sandbox
+@using Sandbox.UI
+@namespace Sandbox
+@inherits PanelComponent
+
+<root class="@(Dialogue?.IsOpen == true ? "visible" : "")">
+	@if ( Dialogue?.IsOpen == true )
+	{
+		<div class="dialogue-box">
+			<div class="speaker">@Dialogue.SpeakerName</div>
+			<div class="line">@Dialogue.CurrentLine</div>
+			<div class="footer">
+				<div class="progress">@(Dialogue.LineIndex + 1) / @Dialogue.LineCount</div>
+				<div class="continue"><span class="key">E</span> Continue</div>
+			</div>
+		</div>
+	}
+</root>
+
+@code
+{
+	public DialogueController Dialogue { get; set; }
+
+	protected override int BuildHash() => System.HashCode.Combine(
+		Dialogue?.IsOpen,
+		Dialogue?.SpeakerName,
+		Dialogue?.LineIndex,
+		Dialogue?.CurrentLine );
+}

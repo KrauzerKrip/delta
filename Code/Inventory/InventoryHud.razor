@@ -1,0 +1,51 @@
+@using Sandbox
+@using Sandbox.UI
+@namespace Sandbox
+@inherits PanelComponent
+
+<root class="@(displayItems.Count > 0 ? "visible" : "")">
+	<div class="inventory-card">
+		<div class="inventory-title">Inventory</div>
+		@foreach ( var displayName in displayItems )
+		{
+			<div class="inventory-item">@displayName</div>
+		}
+	</div>
+</root>
+
+@code
+{
+	private readonly List<string> displayItems = new();
+	private int revision;
+
+	public PlayerInventory Inventory { get; set; }
+
+	protected override void OnUpdate()
+	{
+		RefreshFromInventory();
+	}
+
+	public void Refresh()
+	{
+		RefreshFromInventory( true );
+	}
+
+	private void RefreshFromInventory( bool force = false )
+	{
+		var currentItems = Inventory is null
+			? System.Array.Empty<string>()
+			: Inventory.GetHudItems().Select( Inventory.GetHudDisplayName ).ToArray();
+
+		if ( !force && displayItems.SequenceEqual( currentItems ) )
+			return;
+
+		displayItems.Clear();
+		displayItems.AddRange( currentItems );
+
+		revision++;
+		StateHasChanged();
+		Log.Info( $"[Inventory] HUD refreshed with {displayItems.Count} item(s)." );
+	}
+
+	protected override int BuildHash() => revision;
+}

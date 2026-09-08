@@ -1,0 +1,44 @@
+InventoryHud
+{
+	position: absolute;
+	top: 28px;
+	right: 28px;
+	display: flex;
+	z-index: 1000;
+	pointer-events: none;
+	opacity: 0;
+	transition: opacity 0.15s ease;
+	font-family: Poppins;
+
+	&.visible
+	{
+		opacity: 1;
+	}
+
+	.inventory-card
+	{
+		min-width: 250px;
+		padding: 16px 18px;
+		gap: 8px;
+		flex-direction: column;
+		background-color: rgba( 12, 18, 24, 0.92 );
+		border: 1px solid rgba( 126, 202, 226, 0.45 );
+		border-radius: 8px;
+		box-shadow: 0 6px 24px rgba( 0, 0, 0, 0.35 );
+	}
+
+	.inventory-title
+	{
+		font-size: 15px;
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 1px;
+		color: #7ecae2;
+	}
+
+	.inventory-item
+	{
+		font-size: 18px;
+		color: #f3f6f8;
+	}
+}
