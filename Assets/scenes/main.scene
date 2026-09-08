@@ -10,7 +10,7 @@
       "Rotation": "-0.161728993,0.390448302,0.346828997,0.837319016",
       "Scale": "1,1,1",
       "Tags": "light_directional,light",
-      "Enabled": true,
+      "Enabled": false,
       "NetworkMode": 2,
       "NetworkFlags": 0,
       "NetworkOrphaned": 0,
@@ -4495,184 +4495,6 @@
           "Children": []
         },
         {
-          "__guid": "e2285407-abaa-486f-b8fd-1139574daff8",
-          "__version": 2,
-          "Flags": 0,
-          "Name": "LivingSectorStairZone",
-          "Position": "15.6295929,-1093.57764,-69.1126099",
-          "Rotation": "0,0,0,1",
-          "Scale": "1,1,1",
-          "Tags": "",
-          "Enabled": true,
-          "NetworkMode": 2,
-          "NetworkFlags": 0,
-          "NetworkOrphaned": 0,
-          "NetworkTransmit": true,
-          "OwnerTransfer": 1,
-          "Components": [
-            {
-              "__type": "CameraZone",
-              "__guid": "fa790d3f-6bfc-421b-a7fb-f81d48fdaba8",
-              "__enabled": true,
-              "Flags": 0,
-              "BlendSpeed": 5,
-              "CameraAnchor": {
-                "_type": "gameobject",
-                "go": "c1cae51f-5168-4e92-90af-f78782145ad6"
-              },
-              "DeadZoneSize": "0,128,96",
-              "FieldOfView": 60,
-              "FollowLimits": "0,0,0",
-              "FollowPlayerX": true,
-              "FollowPlayerY": true,
-              "FollowPlayerZ": true,
-              "OnComponentDestroy": null,
-              "OnComponentDisabled": null,
-              "OnComponentEnabled": null,
-              "OnComponentFixedUpdate": null,
-              "OnComponentStart": null,
-              "OnComponentUpdate": null,
-              "OverrideDeadZone": false,
-              "Priority": 0
-            },
-            {
-              "__type": "Sandbox.BoxCollider",
-              "__guid": "f83e598e-5f86-4017-a315-ebfc5647b400",
-              "__enabled": true,
-              "Flags": 0,
-              "Center": "231.5,22,-88",
-              "ColliderFlags": 0,
-              "Elasticity": null,
-              "Friction": null,
-              "IsTrigger": true,
-              "OnComponentDestroy": null,
-              "OnComponentDisabled": null,
-              "OnComponentEnabled": null,
-              "OnComponentFixedUpdate": null,
-              "OnComponentStart": null,
-              "OnComponentUpdate": null,
-              "OnObjectTriggerEnter": null,
-              "OnObjectTriggerExit": null,
-              "OnTriggerEnter": null,
-              "OnTriggerExit": null,
-              "RollingResistance": null,
-              "Scale": "513,324,624",
-              "Static": false,
-              "Surface": null,
-              "SurfaceVelocity": "0,0,0"
-            }
-          ],
-          "Children": [
-            {
-              "__guid": "c1cae51f-5168-4e92-90af-f78782145ad6",
-              "__version": 2,
-              "Flags": 0,
-              "Name": "Anchor",
-              "Position": "-748.804626,0,277.04657",
-              "Rotation": "0,0.130525768,0,0.991445065",
-              "Scale": "1,1,1",
-              "Tags": "",
-              "Enabled": true,
-              "NetworkMode": 2,
-              "NetworkFlags": 0,
-              "NetworkOrphaned": 0,
-              "NetworkTransmit": true,
-              "OwnerTransfer": 1,
-              "Components": [],
-              "Children": []
-            }
-          ]
-        },
-        {
-          "__guid": "96bb58e2-74a4-47be-bc90-f274b5681e64",
-          "__version": 2,
-          "Flags": 0,
-          "Name": "LivingSectorZone",
-          "Position": "-200.370407,-1093.57764,-69.1126099",
-          "Rotation": "0,0,0,1",
-          "Scale": "1,1,1",
-          "Tags": "",
-          "Enabled": true,
-          "NetworkMode": 2,
-          "NetworkFlags": 0,
-          "NetworkOrphaned": 0,
-          "NetworkTransmit": true,
-          "OwnerTransfer": 1,
-          "Components": [
-            {
-              "__type": "CameraZone",
-              "__guid": "16f8f78a-9493-48db-92bc-579806547b07",
-              "__enabled": true,
-              "Flags": 0,
-              "BlendSpeed": 5,
-              "CameraAnchor": {
-                "_type": "gameobject",
-                "go": "6a840a71-cdfb-4cd8-903b-61f3e83511f6"
-              },
-              "DeadZoneSize": "0,128,96",
-              "FieldOfView": 60,
-              "FollowLimits": "0,0,0",
-              "FollowPlayerX": false,
-              "FollowPlayerY": true,
-              "FollowPlayerZ": true,
-              "OnComponentDestroy": null,
-              "OnComponentDisabled": null,
-              "OnComponentEnabled": null,
-              "OnComponentFixedUpdate": null,
-              "OnComponentStart": null,
-              "OnComponentUpdate": null,
-              "OverrideDeadZone": false,
-              "Priority": 0
-            },
-            {
-              "__type": "Sandbox.BoxCollider",
-              "__guid": "5a324a6a-9cd1-4baa-9b22-4a8f6d1ba627",
-              "__enabled": true,
-              "Flags": 0,
-              "Center": "85.5,634,60",
-              "ColliderFlags": 0,
-              "Elasticity": null,
-              "Friction": null,
-              "IsTrigger": true,
-              "OnComponentDestroy": null,
-              "OnComponentDisabled": null,
-              "OnComponentEnabled": null,
-              "OnComponentFixedUpdate": null,
-              "OnComponentStart": null,
-              "OnComponentUpdate": null,
-              "OnObjectTriggerEnter": null,
-              "OnObjectTriggerExit": null,
-              "OnTriggerEnter": null,
-              "OnTriggerExit": null,
-              "RollingResistance": null,
-              "Scale": "221,1548,328",
-              "Static": false,
-              "Surface": null,
-              "SurfaceVelocity": "0,0,0"
-            }
-          ],
-          "Children": [
-            {
-              "__guid": "6a840a71-cdfb-4cd8-903b-61f3e83511f6",
-              "__version": 2,
-              "Flags": 0,
-              "Name": "Anchor",
-              "Position": "-748.804626,0,277.04657",
-              "Rotation": "0,0.130525768,0,0.991445065",
-              "Scale": "1,1,1",
-              "Tags": "",
-              "Enabled": true,
-              "NetworkMode": 2,
-              "NetworkFlags": 0,
-              "NetworkOrphaned": 0,
-              "NetworkTransmit": true,
-              "OwnerTransfer": 1,
-              "Components": [],
-              "Children": []
-            }
-          ]
-        },
-        {
           "__guid": "5650fc74-1801-429a-a0a7-d32acab3b805",
           "__version": 2,
           "Flags": 0,
@@ -4919,7 +4741,7 @@
           "__guid": "3fdfa97d-cabb-423d-ba89-c988d1aafe8d",
           "__version": 2,
           "Flags": 0,
-          "Name": "Room",
+          "Name": "RoomZone",
           "Position": "0,-31.9733887,-277.869385",
           "Rotation": "0,0,0,1",
           "Scale": "1,1,1",
@@ -4991,6 +4813,273 @@
               "Name": "Anchor",
               "Position": "-360.185242,-16.4767723,39.5325928",
               "Rotation": "0,0,0,1",
+              "Scale": "1,1,1",
+              "Tags": "",
+              "Enabled": true,
+              "NetworkMode": 2,
+              "NetworkFlags": 0,
+              "NetworkOrphaned": 0,
+              "NetworkTransmit": true,
+              "OwnerTransfer": 1,
+              "Components": [],
+              "Children": []
+            }
+          ]
+        },
+        {
+          "__guid": "96bb58e2-74a4-47be-bc90-f274b5681e64",
+          "__version": 2,
+          "Flags": 0,
+          "Name": "LivingSectorZone",
+          "Position": "-528.185242,-1159.97339,-284.021362",
+          "Rotation": "0,0,0,1",
+          "Scale": "1,1,1",
+          "Tags": "",
+          "Enabled": true,
+          "NetworkMode": 2,
+          "NetworkFlags": 0,
+          "NetworkOrphaned": 0,
+          "NetworkTransmit": true,
+          "OwnerTransfer": 1,
+          "Components": [
+            {
+              "__type": "CameraZone",
+              "__guid": "16f8f78a-9493-48db-92bc-579806547b07",
+              "__enabled": true,
+              "Flags": 0,
+              "BlendSpeed": 5,
+              "CameraAnchor": {
+                "_type": "gameobject",
+                "go": "6a840a71-cdfb-4cd8-903b-61f3e83511f6"
+              },
+              "DeadZoneSize": "0,128,96",
+              "FieldOfView": 60,
+              "FollowLimits": "0,0,0",
+              "FollowPlayerX": false,
+              "FollowPlayerY": true,
+              "FollowPlayerZ": true,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "OverrideDeadZone": false,
+              "Priority": 0
+            },
+            {
+              "__type": "Sandbox.BoxCollider",
+              "__guid": "5a324a6a-9cd1-4baa-9b22-4a8f6d1ba627",
+              "__enabled": true,
+              "Flags": 0,
+              "Center": "85.5,634,60",
+              "ColliderFlags": 0,
+              "Elasticity": null,
+              "Friction": null,
+              "IsTrigger": true,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "OnObjectTriggerEnter": null,
+              "OnObjectTriggerExit": null,
+              "OnTriggerEnter": null,
+              "OnTriggerExit": null,
+              "RollingResistance": null,
+              "Scale": "221,1548,328",
+              "Static": false,
+              "Surface": null,
+              "SurfaceVelocity": "0,0,0"
+            }
+          ],
+          "Children": [
+            {
+              "__guid": "6a840a71-cdfb-4cd8-903b-61f3e83511f6",
+              "__version": 2,
+              "Flags": 0,
+              "Name": "Anchor",
+              "Position": "-748.804626,0,277.04657",
+              "Rotation": "0,0.130525768,0,0.991445065",
+              "Scale": "1,1,1",
+              "Tags": "",
+              "Enabled": true,
+              "NetworkMode": 2,
+              "NetworkFlags": 0,
+              "NetworkOrphaned": 0,
+              "NetworkTransmit": true,
+              "OwnerTransfer": 1,
+              "Components": [],
+              "Children": []
+            }
+          ]
+        },
+        {
+          "__guid": "76cf6605-31ce-46a0-aab0-e3cee1865524",
+          "__version": 2,
+          "Flags": 0,
+          "Name": "CanteeneZone",
+          "Position": "-300.185242,-1159.97339,-484.021362",
+          "Rotation": "0,0,0,1",
+          "Scale": "1,1,1",
+          "Tags": "",
+          "Enabled": true,
+          "NetworkMode": 2,
+          "NetworkFlags": 0,
+          "NetworkOrphaned": 0,
+          "NetworkTransmit": true,
+          "OwnerTransfer": 1,
+          "Components": [
+            {
+              "__type": "CameraZone",
+              "__guid": "81ec79c9-5356-485a-b96e-e8b9c818c2f2",
+              "__enabled": true,
+              "Flags": 0,
+              "BlendSpeed": 5,
+              "CameraAnchor": {
+                "_type": "gameobject",
+                "go": "71c75c5c-a6e5-4343-b50c-dcc99fc918bd"
+              },
+              "DeadZoneSize": "0,128,96",
+              "FieldOfView": 60,
+              "FollowLimits": "0,0,0",
+              "FollowPlayerX": false,
+              "FollowPlayerY": true,
+              "FollowPlayerZ": true,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "OverrideDeadZone": false,
+              "Priority": 0
+            },
+            {
+              "__type": "Sandbox.BoxCollider",
+              "__guid": "16b05de9-3cb7-4b8d-a856-aceaed2b0b61",
+              "__enabled": true,
+              "Flags": 0,
+              "Center": "74,618,0",
+              "ColliderFlags": 0,
+              "Elasticity": null,
+              "Friction": null,
+              "IsTrigger": true,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "OnObjectTriggerEnter": null,
+              "OnObjectTriggerExit": null,
+              "OnTriggerEnter": null,
+              "OnTriggerExit": null,
+              "RollingResistance": null,
+              "Scale": "644,1580,208",
+              "Static": false,
+              "Surface": null,
+              "SurfaceVelocity": "0,0,0"
+            }
+          ],
+          "Children": [
+            {
+              "__guid": "71c75c5c-a6e5-4343-b50c-dcc99fc918bd",
+              "__version": 2,
+              "Flags": 0,
+              "Name": "Anchor",
+              "Position": "-886.885132,0,191.964539",
+              "Rotation": "0,0.130525768,0,0.991445065",
+              "Scale": "1,1,1",
+              "Tags": "",
+              "Enabled": true,
+              "NetworkMode": 2,
+              "NetworkFlags": 0,
+              "NetworkOrphaned": 0,
+              "NetworkTransmit": true,
+              "OwnerTransfer": 1,
+              "Components": [],
+              "Children": []
+            }
+          ]
+        },
+        {
+          "__guid": "e2285407-abaa-486f-b8fd-1139574daff8",
+          "__version": 2,
+          "Flags": 0,
+          "Name": "LivingSectorStairZone",
+          "Position": "-312.185242,-1159.97339,-284.021362",
+          "Rotation": "0,0,0,1",
+          "Scale": "1,1,1",
+          "Tags": "",
+          "Enabled": true,
+          "NetworkMode": 2,
+          "NetworkFlags": 0,
+          "NetworkOrphaned": 0,
+          "NetworkTransmit": true,
+          "OwnerTransfer": 1,
+          "Components": [
+            {
+              "__type": "CameraZone",
+              "__guid": "fa790d3f-6bfc-421b-a7fb-f81d48fdaba8",
+              "__enabled": true,
+              "Flags": 0,
+              "BlendSpeed": 5,
+              "CameraAnchor": {
+                "_type": "gameobject",
+                "go": "c1cae51f-5168-4e92-90af-f78782145ad6"
+              },
+              "DeadZoneSize": "0,128,96",
+              "FieldOfView": 60,
+              "FollowLimits": "0,0,0",
+              "FollowPlayerX": true,
+              "FollowPlayerY": true,
+              "FollowPlayerZ": true,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "OverrideDeadZone": false,
+              "Priority": 1
+            },
+            {
+              "__type": "Sandbox.BoxCollider",
+              "__guid": "f83e598e-5f86-4017-a315-ebfc5647b400",
+              "__enabled": true,
+              "Flags": 0,
+              "Center": "231.5,22,-88",
+              "ColliderFlags": 0,
+              "Elasticity": null,
+              "Friction": null,
+              "IsTrigger": true,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "OnObjectTriggerEnter": null,
+              "OnObjectTriggerExit": null,
+              "OnTriggerEnter": null,
+              "OnTriggerExit": null,
+              "RollingResistance": null,
+              "Scale": "513,324,624",
+              "Static": false,
+              "Surface": null,
+              "SurfaceVelocity": "0,0,0"
+            }
+          ],
+          "Children": [
+            {
+              "__guid": "c1cae51f-5168-4e92-90af-f78782145ad6",
+              "__version": 2,
+              "Flags": 0,
+              "Name": "Anchor",
+              "Position": "-748.804626,0,277.04657",
+              "Rotation": "0,0.130525768,0,0.991445065",
               "Scale": "1,1,1",
               "Tags": "",
               "Enabled": true,
@@ -5383,7 +5472,7 @@
       "Rotation": "0,0,0,1",
       "Scale": "1,1,1",
       "Tags": "light_point,light",
-      "Enabled": true,
+      "Enabled": false,
       "NetworkMode": 2,
       "NetworkFlags": 0,
       "NetworkOrphaned": 0,
@@ -5396,7 +5485,7 @@
           "__enabled": true,
           "Flags": 0,
           "Attenuation": 0.1,
-          "Contribution": "Specular, Transmissive",
+          "Contribution": "Diffuse, Specular, Transmissive",
           "FogMode": "Enabled",
           "FogStrength": 1,
           "LightColor": "1,0.90718,0.76279,1",
@@ -7401,9 +7490,127 @@
       "__version": 2,
       "__Prefab": "prefabs/living_room_door.prefab",
       "__PrefabInstancePatch": {
-        "AddedObjects": [],
+        "AddedObjects": [
+          {
+            "Id": {
+              "Type": "GameObject",
+              "IdValue": "e9657524-0431-46ed-b60e-9159d35a91c9"
+            },
+            "Parent": {
+              "Type": "GameObject",
+              "IdValue": "9f532d26-7d0d-47b2-b660-95b2612917a7"
+            },
+            "PreviousElement": {
+              "Type": "GameObject",
+              "IdValue": "d0e9f242-fbe0-4b66-ac2f-0572c53496d9"
+            },
+            "ContainerProperty": "Children",
+            "IsContainerArray": true,
+            "Data": {
+              "__guid": "e9657524-0431-46ed-b60e-9159d35a91c9",
+              "__version": 2,
+              "Flags": 0,
+              "Name": "Trigger",
+              "Position": "0,0,-25.9999924",
+              "Rotation": "0,0,0,1",
+              "Scale": "1,1,1",
+              "Tags": "",
+              "Enabled": true,
+              "NetworkMode": 2,
+              "NetworkFlags": 0,
+              "NetworkOrphaned": 0,
+              "NetworkTransmit": true,
+              "OwnerTransfer": 1,
+              "Components": [],
+              "Children": []
+            }
+          },
+          {
+            "Id": {
+              "Type": "Component",
+              "IdValue": "ba60defc-1837-436d-abd1-831d08b48018"
+            },
+            "Parent": {
+              "Type": "GameObject",
+              "IdValue": "e9657524-0431-46ed-b60e-9159d35a91c9"
+            },
+            "PreviousElement": null,
+            "ContainerProperty": "Components",
+            "IsContainerArray": true,
+            "Data": {
+              "__type": "Sandbox.BoxCollider",
+              "__guid": "ba60defc-1837-436d-abd1-831d08b48018",
+              "__enabled": true,
+              "Flags": 0,
+              "Center": "8,0,27.5",
+              "ColliderFlags": 0,
+              "Elasticity": null,
+              "Friction": null,
+              "IsTrigger": true,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "OnObjectTriggerEnter": null,
+              "OnObjectTriggerExit": null,
+              "OnTriggerEnter": null,
+              "OnTriggerExit": null,
+              "RollingResistance": null,
+              "Scale": "96,96,105",
+              "Static": false,
+              "Surface": null,
+              "SurfaceVelocity": "0,0,0"
+            }
+          },
+          {
+            "Id": {
+              "Type": "Component",
+              "IdValue": "8ed4c472-734b-4bb7-b3c5-21ca3aa596d4"
+            },
+            "Parent": {
+              "Type": "GameObject",
+              "IdValue": "e9657524-0431-46ed-b60e-9159d35a91c9"
+            },
+            "PreviousElement": {
+              "Type": "Component",
+              "IdValue": "ba60defc-1837-436d-abd1-831d08b48018"
+            },
+            "ContainerProperty": "Components",
+            "IsContainerArray": true,
+            "Data": {
+              "__type": "CardReader",
+              "__guid": "8ed4c472-734b-4bb7-b3c5-21ca3aa596d4",
+              "__enabled": true,
+              "Flags": 0,
+              "AutoCloseDelay": 5,
+              "Door": {
+                "_type": "component",
+                "component_id": "035b3d4e-6e18-4aa1-98ab-a56c6195ace0",
+                "go": "29de8510-6731-400e-946d-032eff890e75",
+                "component_type": "Door"
+              },
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "RequiredAccessLevel": "Level1"
+            }
+          }
+        ],
         "RemovedObjects": [],
         "PropertyOverrides": [
+          {
+            "Target": {
+              "Type": "GameObject",
+              "IdValue": "9f532d26-7d0d-47b2-b660-95b2612917a7"
+            },
+            "Property": "Name",
+            "Value": "canteen_door"
+          },
           {
             "Target": {
               "Type": "GameObject",
@@ -7432,6 +7639,14 @@
                 "materials/rubber_tiles.vmat"
               ]
             }
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "035b3d4e-6e18-4aa1-98ab-a56c6195ace0"
+            },
+            "Property": "IsUsable",
+            "Value": false
           },
           {
             "Target": {
@@ -7631,6 +7846,96 @@
           "Static": true,
           "Surface": null,
           "SurfaceVelocity": "0,0,0"
+        }
+      ],
+      "Children": []
+    },
+    {
+      "__guid": "4ec6d549-cd59-4758-8607-59d3f3fe4c7c",
+      "__version": 2,
+      "Flags": 0,
+      "Name": "Cantine Light Trigger",
+      "Position": "8,-716,320",
+      "Rotation": "0,0,0,1",
+      "Scale": "1,1,1",
+      "Tags": "",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkFlags": 0,
+      "NetworkOrphaned": 0,
+      "NetworkTransmit": true,
+      "OwnerTransfer": 1,
+      "Components": [
+        {
+          "__type": "Sandbox.BoxCollider",
+          "__guid": "70cf1101-a45e-4984-8da0-67c50e101b78",
+          "__enabled": true,
+          "Flags": 0,
+          "Center": "244,-35.5,52",
+          "ColliderFlags": 0,
+          "Elasticity": null,
+          "Friction": null,
+          "IsTrigger": true,
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "OnObjectTriggerEnter": null,
+          "OnObjectTriggerExit": null,
+          "OnTriggerEnter": null,
+          "OnTriggerExit": null,
+          "RollingResistance": null,
+          "Scale": "632,121,184",
+          "Static": false,
+          "Surface": null,
+          "SurfaceVelocity": "0,0,0"
+        },
+        {
+          "__type": "Sandbox.LightFlicker",
+          "__guid": "4d45e2bf-b158-4c13-8f4e-581134da206c",
+          "__enabled": true,
+          "Flags": 0,
+          "FlickerCount": 1,
+          "Light": {
+            "_type": "component",
+            "component_id": "43c6dc2c-c8f8-4b05-bcff-4997d2b1e2ad",
+            "go": "9264c02d-453f-4a40-960e-6e0ecfd2d15e",
+            "component_type": "PointLight"
+          },
+          "OffDuration": 0.12,
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "OnDuration": 0.24
+        },
+        {
+          "__type": "Sandbox.LightFlickerTrigger",
+          "__guid": "f4211a74-f59c-46e7-b4b4-228e578d08a2",
+          "__enabled": true,
+          "Flags": 0,
+          "Flicker": {
+            "_type": "component",
+            "component_id": "4d45e2bf-b158-4c13-8f4e-581134da206c",
+            "go": "4ec6d549-cd59-4758-8607-59d3f3fe4c7c",
+            "component_type": "LightFlicker"
+          },
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "RequiredDialogue": {
+            "_type": "component",
+            "component_id": "2234a648-8b4a-4fb9-a264-2373caf380d9",
+            "go": "8073b0b5-c744-43bc-a016-eec7f074c3de",
+            "component_type": "MatiasDialogue"
+          }
         }
       ],
       "Children": []
