@@ -1,6 +1,6 @@
 /// <summary>
-/// Moves the local player and drives the main camera from the highest-priority
-/// <see cref="CameraZone"/> currently occupied by that player.
+/// Drives the main camera from the highest-priority <see cref="CameraZone"/>
+/// currently occupied by the local player.
 /// </summary>
 public sealed class CameraController : Component
 {
@@ -33,27 +33,6 @@ public sealed class CameraController : Component
 
 	/// <summary>The zone currently controlling the camera, or null for the default shot.</summary>
 	public CameraZone CurrentZone => currentZone;
-
-	protected override void OnFixedUpdate()
-	{
-		if ( GameObject.IsProxy )
-			return;
-
-		if ( Components.Get<DialogueController>()?.IsOpen == true )
-		{
-			Controller.WishVelocity = Vector3.Zero;
-			return;
-		}
-
-		var speed = Input.Down( "Run" ) ? Controller.RunSpeed : Controller.WalkSpeed;
-		Controller.WishVelocity = Input.AnalogMove * speed;
-
-		if ( Controller.WishVelocity.LengthSquared > 0f )
-		{
-			var targetAngle = Controller.WishVelocity.EulerAngles;
-			Controller.EyeAngles = Rotation.Slerp( Controller.EyeAngles, targetAngle, Time.Delta * 10f );
-		}
-	}
 
 	protected override void OnPreRender()
 	{
