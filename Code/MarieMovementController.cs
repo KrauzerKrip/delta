@@ -30,6 +30,9 @@ public sealed class MarieMovementController : Component
 	[Property, Group( "Movement" ), Range( 0f, 30f )]
 	public float TurnSpeed { get; set; } = 10f;
 
+	[Property, Group( "Movement" )]
+	public bool MovementInputEnabled { get; set; } = true;
+
 	protected override void OnStart()
 	{
 		Renderer ??= Controller.Renderer;
@@ -53,6 +56,12 @@ public sealed class MarieMovementController : Component
 	{
 		if ( GameObject.IsProxy )
 			return;
+
+		if ( !MovementInputEnabled )
+		{
+			Controller.WishVelocity = Vector3.Zero;
+			return;
+		}
 
 		if ( Components.Get<DialogueController>()?.IsOpen == true )
 		{
