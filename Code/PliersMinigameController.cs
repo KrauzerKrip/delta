@@ -103,6 +103,10 @@ public sealed class PliersMinigameController : Component
 	private float breathRecoveryTime;
 	private float breathRecoveryTotalDuration;
 	private float breathRecoverySeverity;
+	private float dangerReactionTime;
+	private float dangerReactionDuration;
+	private float dangerTremorMultiplier = 1f;
+	private float recoilControlLockTime;
 	private float vignetteIntensity;
 	private bool isHoldingBreath;
 	private bool waitForBreathKeyRelease;
@@ -141,6 +145,7 @@ public sealed class PliersMinigameController : Component
 			return;
 
 		UpdateBreathing( Time.Delta );
+		UpdateDangerReaction( Time.Delta );
 		UpdateRotation( Time.Delta );
 		UpdateMovement( Time.Delta );
 		UpdateWobble( Time.Delta );
@@ -232,10 +237,78 @@ public sealed class PliersMinigameController : Component
 		SetVignetteIntensity( System.MathF.Max( vignetteIntensity - fadeSpeed * deltaTime, 0f ) );
 	}
 
+	/// <summary>Returns true when a collider belongs to the controlled pliers hierarchy.</summary>
+	public bool IsPliersCollider( Collider collider )
+	{
+		if ( collider is null || Pliers is null )
+			return false;
+
+		for ( var current = collider.GameObject; current is not null; current = current.Parent )
+		{
+			if ( current == Pliers )
+				return true;
+		}
+
+		return false;
+	}
+
+	/// <summary>Immediately jerks the pliers away from a dangerous world-space contact.</summary>
+	public void RecoilFromDanger(
+		Vector3 dangerPosition,
+		float recoilDistance,
+		float recoilSpeed,
+		float controlLockDuration,
+		float tremorDuration,
+		float tremorMultiplier )
+	{
+		if ( !TestControlsEnabled || !poseInitialized )
+			return;
+
+		var currentPosition = authoredPosition
+			+ horizontalAxis * logicalOffset.x
+			+ verticalAxis * logicalOffset.y;
+		var away = currentPosition - dangerPosition;
+		var planarAway = new Vector3(
+			Vector3.Dot( away, horizontalAxis ),
+			Vector3.Dot( away, verticalAxis ),
+			0f
+		);
+
+		if ( planarAway.LengthSquared <= 0.0001f )
+		{
+			var facing = Rotation.FromAxis( planeNormal, rotationAngle ) * horizontalAxis;
+			planarAway = new Vector3(
+				-Vector3.Dot( facing, horizontalAxis ),
+				-Vector3.Dot( facing, verticalAxis ),
+				0f
+			);
+		}
+
+		planarAway = planarAway.Normal;
+		logicalOffset += planarAway * System.MathF.Max( recoilDistance, 0f );
+		movementVelocity = planarAway * System.MathF.Max( recoilSpeed, 0f );
+		ClampToMovementBounds();
+
+		recoilControlLockTime = System.MathF.Max(
+			recoilControlLockTime,
+			System.MathF.Max( controlLockDuration, 0f )
+		);
+		dangerReactionDuration = System.MathF.Max( tremorDuration, 0f );
+		dangerReactionTime = dangerReactionDuration;
+		dangerTremorMultiplier = System.MathF.Max( tremorMultiplier, 1f );
+	}
+
+	private void UpdateDangerReaction( float deltaTime )
+	{
+		dangerReactionTime = System.MathF.Max( dangerReactionTime - deltaTime, 0f );
+		recoilControlLockTime = System.MathF.Max( recoilControlLockTime - deltaTime, 0f );
+	}
+
 	private void UpdateMovement( float deltaTime )
 	{
-		var horizontalInput = GetInputAxis( "Right", "Left" );
-		var verticalInput = GetInputAxis( "Forward", "Backward" );
+		var acceptInput = recoilControlLockTime <= 0f;
+		var horizontalInput = acceptInput ? GetInputAxis( "Right", "Left" ) : 0f;
+		var verticalInput = acceptInput ? GetInputAxis( "Forward", "Backward" ) : 0f;
 		var unrotatedDirection = horizontalAxis * horizontalInput + verticalAxis * verticalInput;
 		var inputRotation = Rotation.FromAxis( planeNormal, rotationAngle );
 		var rotatedDirection = inputRotation * unrotatedDirection;
@@ -274,10 +347,9 @@ public sealed class PliersMinigameController : Component
 
 	private void UpdateRotation( float deltaTime )
 	{
-		var rotationInput = GetInputAxis(
-			"RotatePliersClockwise",
-			"RotatePliersCounterClockwise"
-		);
+		var rotationInput = recoilControlLockTime <= 0f
+			? GetInputAxis( "RotatePliersClockwise", "RotatePliersCounterClockwise" )
+			: 0f;
 
 		if ( rotationInput != 0f )
 		{
@@ -356,7 +428,7 @@ public sealed class PliersMinigameController : Component
 
 	private void ApplyPose()
 	{
-		var tremorScale = GetBreathTremorScale();
+		var tremorScale = System.MathF.Max( GetBreathTremorScale(), GetDangerTremorScale() );
 		var angularFrequency = TremorFrequency * System.MathF.PI * 2f;
 		var horizontalTremor = System.MathF.Sin( tremorTime * angularFrequency );
 		var verticalTremor = System.MathF.Sin( tremorTime * angularFrequency * 1.37f + 1.1f );
@@ -483,6 +555,10 @@ public sealed class PliersMinigameController : Component
 		breathRecoveryTime = 0f;
 		breathRecoveryTotalDuration = 0f;
 		breathRecoverySeverity = 0f;
+		dangerReactionTime = 0f;
+		dangerReactionDuration = 0f;
+		dangerTremorMultiplier = 1f;
+		recoilControlLockTime = 0f;
 		isHoldingBreath = false;
 		waitForBreathKeyRelease = false;
 		SetVignetteIntensity( 0f );
@@ -493,6 +569,16 @@ public sealed class PliersMinigameController : Component
 		vignetteIntensity = intensity.Clamp( 0f, 1f );
 		if ( BreathVignette is not null )
 			BreathVignette.Intensity = vignetteIntensity;
+	}
+
+	private float GetDangerTremorScale()
+	{
+		if ( dangerReactionTime <= 0f )
+			return 1f;
+
+		var duration = System.MathF.Max( dangerReactionDuration, 0.01f );
+		var strength = (dangerReactionTime / duration).Clamp( 0f, 1f );
+		return 1f + (dangerTremorMultiplier - 1f) * strength * strength;
 	}
 
 	private static float GetInputAxis( string positiveAction, string negativeAction )
