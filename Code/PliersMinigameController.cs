@@ -19,6 +19,9 @@ public sealed class PliersMinigameController : Component
 	public GameObject CameraAnchor { get; set; }
 
 	[Property, Group( "Setup" )]
+	public Vignette BreathVignette { get; set; }
+
+	[Property, Group( "Setup" )]
 	public PlayerController PlayerController { get; set; }
 
 	[Property, Group( "Setup" )]
@@ -58,7 +61,31 @@ public sealed class PliersMinigameController : Component
 	public float TremorRotationAmplitude { get; set; } = 0.8f;
 
 	[Property, Group( "Tremor" ), Range( 0f, 10f )]
-	public float TremorFrequency { get; set; } = 1.7f;
+	public float TremorFrequency { get; set; } = 1.2f;
+
+	[Property, Group( "Breathing" ), Range( 1f, 30f )]
+	public float MaximumBreathHoldDuration { get; set; } = 7f;
+
+	[Property, Group( "Breathing" ), Range( 0f, 1f )]
+	public float HeldBreathTremorMultiplier { get; set; } = 0.12f;
+
+	[Property, Group( "Breathing" ), Range( 0.1f, 5f )]
+	public float BreathRecoveryDuration { get; set; } = 1.4f;
+
+	[Property, Group( "Breathing" ), Range( 0f, 2f )]
+	public float MinimumBreathRecoveryDuration { get; set; } = 0.25f;
+
+	[Property, Group( "Breathing" ), Range( 1f, 12f )]
+	public float BreathRecoveryTremorMultiplier { get; set; } = 3f;
+
+	[Property, Group( "Breathing" ), Range( 1f, 5f )]
+	public float BreathRecoveryFrequencyMultiplier { get; set; } = 1.35f;
+
+	[Property, Group( "Breathing" ), Range( 0.05f, 3f )]
+	public float VignetteFadeOutDuration { get; set; } = 0.6f;
+
+	[Property, Group( "Breathing" ), Range( 0f, 1f )]
+	public float MaximumVignetteIntensity { get; set; } = 1f;
 
 	private Vector3 authoredPosition;
 	private Rotation authoredRotation;
@@ -72,6 +99,13 @@ public sealed class PliersMinigameController : Component
 	private float leanAngle;
 	private float leanVelocity;
 	private float tremorTime;
+	private float breathHoldTime;
+	private float breathRecoveryTime;
+	private float breathRecoveryTotalDuration;
+	private float breathRecoverySeverity;
+	private float vignetteIntensity;
+	private bool isHoldingBreath;
+	private bool waitForBreathKeyRelease;
 	private bool poseInitialized;
 	private bool testWasEnabled;
 	private bool playerControlsSuppressed;
@@ -92,6 +126,7 @@ public sealed class PliersMinigameController : Component
 		verticalAxis = WorldRotation.Up;
 		planeNormal = WorldRotation.Forward;
 		poseInitialized = true;
+		SetVignetteIntensity( 0f );
 
 		SynchronizeTestState();
 	}
@@ -105,6 +140,7 @@ public sealed class PliersMinigameController : Component
 		if ( !TestControlsEnabled )
 			return;
 
+		UpdateBreathing( Time.Delta );
 		UpdateRotation( Time.Delta );
 		UpdateMovement( Time.Delta );
 		UpdateWobble( Time.Delta );
@@ -113,6 +149,7 @@ public sealed class PliersMinigameController : Component
 
 	protected override void OnDisabled()
 	{
+		ResetBreathing();
 		RestorePlayerControls();
 		testWasEnabled = false;
 	}
@@ -133,6 +170,66 @@ public sealed class PliersMinigameController : Component
 
 		RestorePlayerControls();
 		ReleaseCamera();
+		ResetBreathing();
+	}
+
+	private void UpdateBreathing( float deltaTime )
+	{
+		var breathKeyDown = Input.Down( "Run" );
+		if ( waitForBreathKeyRelease && !breathKeyDown )
+			waitForBreathKeyRelease = false;
+
+		if ( breathRecoveryTime > 0f )
+		{
+			breathRecoveryTime = System.MathF.Max( breathRecoveryTime - deltaTime, 0f );
+			FadeOutVignette( deltaTime );
+			return;
+		}
+
+		if ( breathKeyDown && !waitForBreathKeyRelease )
+		{
+			isHoldingBreath = true;
+			var maximumDuration = System.MathF.Max( MaximumBreathHoldDuration, 0.01f );
+			breathHoldTime = System.MathF.Min( breathHoldTime + deltaTime, maximumDuration );
+			var progress = (breathHoldTime / maximumDuration).Clamp( 0f, 1f );
+			var easedProgress = progress * progress * (3f - 2f * progress);
+			SetVignetteIntensity( easedProgress * MaximumVignetteIntensity );
+
+			if ( breathHoldTime >= maximumDuration )
+				BeginBreathRecovery( requireKeyRelease: true );
+
+			return;
+		}
+
+		if ( isHoldingBreath )
+			BeginBreathRecovery( requireKeyRelease: false );
+
+		FadeOutVignette( deltaTime );
+	}
+
+	private void BeginBreathRecovery( bool requireKeyRelease )
+	{
+		var maximumHoldDuration = System.MathF.Max( MaximumBreathHoldDuration, 0.01f );
+		breathRecoverySeverity = (breathHoldTime / maximumHoldDuration).Clamp( 0f, 1f );
+		var maximumRecoveryDuration = System.MathF.Max( BreathRecoveryDuration, 0f );
+		var minimumRecoveryDuration = MinimumBreathRecoveryDuration.Clamp(
+			0f,
+			maximumRecoveryDuration
+		);
+		breathRecoveryTotalDuration = minimumRecoveryDuration
+			+ (maximumRecoveryDuration - minimumRecoveryDuration) * breathRecoverySeverity;
+
+		isHoldingBreath = false;
+		breathHoldTime = 0f;
+		breathRecoveryTime = breathRecoveryTotalDuration;
+		waitForBreathKeyRelease = requireKeyRelease;
+	}
+
+	private void FadeOutVignette( float deltaTime )
+	{
+		var fadeDuration = System.MathF.Max( VignetteFadeOutDuration, 0.01f );
+		var fadeSpeed = System.MathF.Max( MaximumVignetteIntensity, 0f ) / fadeDuration;
+		SetVignetteIntensity( System.MathF.Max( vignetteIntensity - fadeSpeed * deltaTime, 0f ) );
 	}
 
 	private void UpdateMovement( float deltaTime )
@@ -214,7 +311,7 @@ public sealed class PliersMinigameController : Component
 		leanVelocity *= System.MathF.Exp( -System.MathF.Max( LeanDamping, 0f ) * deltaTime );
 		leanAngle += leanVelocity * deltaTime;
 		leanAngle = leanAngle.Clamp( -MaximumLeanDegrees, MaximumLeanDegrees );
-		tremorTime += deltaTime;
+		tremorTime += deltaTime * GetBreathFrequencyScale();
 	}
 
 	private void ClampToMovementBounds()
@@ -259,6 +356,7 @@ public sealed class PliersMinigameController : Component
 
 	private void ApplyPose()
 	{
+		var tremorScale = GetBreathTremorScale();
 		var angularFrequency = TremorFrequency * System.MathF.PI * 2f;
 		var horizontalTremor = System.MathF.Sin( tremorTime * angularFrequency );
 		var verticalTremor = System.MathF.Sin( tremorTime * angularFrequency * 1.37f + 1.1f );
@@ -268,9 +366,13 @@ public sealed class PliersMinigameController : Component
 			+ horizontalAxis * logicalOffset.x
 			+ verticalAxis * logicalOffset.y;
 		var tremorPosition = (horizontalAxis * horizontalTremor + verticalAxis * verticalTremor)
-			* TremorPositionAmplitude;
-		var wobbleAngle = (leanAngle + rotationalTremor * TremorRotationAmplitude)
-			.Clamp( -MaximumLeanDegrees, MaximumLeanDegrees );
+			* TremorPositionAmplitude
+			* tremorScale;
+		var wobbleAngle = leanAngle
+			+ rotationalTremor * TremorRotationAmplitude * tremorScale;
+		var maximumWobble = MaximumLeanDegrees
+			+ TremorRotationAmplitude * System.MathF.Max( tremorScale, 1f );
+		wobbleAngle = wobbleAngle.Clamp( -maximumWobble, maximumWobble );
 		var totalRotation = rotationAngle + wobbleAngle;
 
 		Pliers.WorldPosition = movementPosition + tremorPosition;
@@ -286,6 +388,7 @@ public sealed class PliersMinigameController : Component
 		leanAngle = 0f;
 		leanVelocity = 0f;
 		tremorTime = 0f;
+		ResetBreathing();
 		Pliers.WorldPosition = authoredPosition;
 		Pliers.WorldRotation = authoredRotation;
 	}
@@ -341,6 +444,55 @@ public sealed class PliersMinigameController : Component
 			MarieMovementController.MovementInputEnabled = previousMarieInputEnabled;
 
 		playerControlsSuppressed = false;
+	}
+
+	private float GetBreathTremorScale()
+	{
+		if ( isHoldingBreath )
+			return HeldBreathTremorMultiplier.Clamp( 0f, 1f );
+
+		if ( breathRecoveryTime <= 0f )
+			return 1f;
+
+		var duration = System.MathF.Max( breathRecoveryTotalDuration, 0.01f );
+		var recoveryStrength = (breathRecoveryTime / duration).Clamp( 0f, 1f );
+		var peakMultiplier = 1f
+			+ (System.MathF.Max( BreathRecoveryTremorMultiplier, 1f ) - 1f)
+			* breathRecoverySeverity;
+		return 1f + (peakMultiplier - 1f)
+			* recoveryStrength * recoveryStrength;
+	}
+
+	private float GetBreathFrequencyScale()
+	{
+		if ( breathRecoveryTime <= 0f )
+			return 1f;
+
+		var duration = System.MathF.Max( breathRecoveryTotalDuration, 0.01f );
+		var recoveryStrength = (breathRecoveryTime / duration).Clamp( 0f, 1f );
+		var peakMultiplier = 1f
+			+ (System.MathF.Max( BreathRecoveryFrequencyMultiplier, 1f ) - 1f)
+			* breathRecoverySeverity;
+		return 1f + (peakMultiplier - 1f)
+			* recoveryStrength;
+	}
+
+	private void ResetBreathing()
+	{
+		breathHoldTime = 0f;
+		breathRecoveryTime = 0f;
+		breathRecoveryTotalDuration = 0f;
+		breathRecoverySeverity = 0f;
+		isHoldingBreath = false;
+		waitForBreathKeyRelease = false;
+		SetVignetteIntensity( 0f );
+	}
+
+	private void SetVignetteIntensity( float intensity )
+	{
+		vignetteIntensity = intensity.Clamp( 0f, 1f );
+		if ( BreathVignette is not null )
+			BreathVignette.Intensity = vignetteIntensity;
 	}
 
 	private static float GetInputAxis( string positiveAction, string negativeAction )
