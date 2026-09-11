@@ -8126,6 +8126,10 @@
               "__enabled": true,
               "Flags": 0,
               "Acceleration": 350,
+              "CameraAnchor": {
+                "_type": "gameobject",
+                "go": "3e1fc273-d6ce-47f3-bbf6-17f34aa83330"
+              },
               "LeanDamping": 6,
               "LeanSpring": 32,
               "MarieMovementController": {
@@ -8267,7 +8271,7 @@
               "Name": "Pliers",
               "Position": "16,-19.9177246,-16",
               "Rotation": "0,-0.707106769,0,0.707106769",
-              "Scale": "8,8,8",
+              "Scale": "16,16,16",
               "Tags": "",
               "Enabled": true,
               "NetworkMode": 2,
@@ -8302,6 +8306,64 @@
                   },
                   "RenderType": "On",
                   "Tint": "1,1,1,1"
+                }
+              ],
+              "Children": []
+            },
+            {
+              "__guid": "3e1fc273-d6ce-47f3-bbf6-17f34aa83330",
+              "__version": 2,
+              "Flags": 0,
+              "Name": "CameraAnchor",
+              "Position": "-99,-47.9177246,-4",
+              "Rotation": "0,0,0,1",
+              "Scale": "1,1,1",
+              "Tags": "",
+              "Enabled": true,
+              "NetworkMode": 2,
+              "NetworkFlags": 0,
+              "NetworkOrphaned": 0,
+              "NetworkTransmit": true,
+              "OwnerTransfer": 1,
+              "Components": [],
+              "Children": []
+            },
+            {
+              "__guid": "df761684-5b6b-467e-9d58-ba8338db1d42",
+              "__version": 2,
+              "Flags": 0,
+              "Name": "Point Light",
+              "Position": "-27,-43.9177246,0",
+              "Rotation": "0,0,0,1",
+              "Scale": "1,1,1",
+              "Tags": "light_point,light",
+              "Enabled": true,
+              "NetworkMode": 2,
+              "NetworkFlags": 0,
+              "NetworkOrphaned": 0,
+              "NetworkTransmit": true,
+              "OwnerTransfer": 1,
+              "Components": [
+                {
+                  "__type": "Sandbox.PointLight",
+                  "__guid": "b6e955b4-f0e8-4d38-9a2f-f6b6323ffd77",
+                  "__enabled": true,
+                  "Flags": 0,
+                  "Attenuation": 1,
+                  "Contribution": "Diffuse, Specular, Transmissive",
+                  "FogMode": "Enabled",
+                  "FogStrength": 1,
+                  "LightColor": "1,0.9098,0.76471,1",
+                  "OnComponentDestroy": null,
+                  "OnComponentDisabled": null,
+                  "OnComponentEnabled": null,
+                  "OnComponentFixedUpdate": null,
+                  "OnComponentStart": null,
+                  "OnComponentUpdate": null,
+                  "Radius": 128,
+                  "ShadowBias": 0,
+                  "ShadowHardness": 0,
+                  "Shadows": true
                 }
               ],
               "Children": []

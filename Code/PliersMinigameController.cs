@@ -16,6 +16,9 @@ public sealed class PliersMinigameController : Component
 	public GameObject MovementUpperRight { get; set; }
 
 	[Property, Group( "Setup" )]
+	public GameObject CameraAnchor { get; set; }
+
+	[Property, Group( "Setup" )]
 	public PlayerController PlayerController { get; set; }
 
 	[Property, Group( "Setup" )]
@@ -112,10 +115,12 @@ public sealed class PliersMinigameController : Component
 		{
 			ResetPliers();
 			SuppressPlayerControls();
+			SetupCamera();
 			return;
 		}
 
 		RestorePlayerControls();
+		ReleaseCamera();
 	}
 
 	private void UpdateMovement( float deltaTime )
@@ -234,6 +239,21 @@ public sealed class PliersMinigameController : Component
 		tremorTime = 0f;
 		Pliers.WorldPosition = authoredPosition;
 		Pliers.WorldRotation = authoredRotation;
+	}
+
+	private void SetupCamera()
+	{
+		PlayerController.GetComponent<CameraController>( includeDisabled: true ).Enabled = false;
+		Scene.Camera.WorldPosition = CameraAnchor.WorldPosition;
+		Scene.Camera.WorldRotation = CameraAnchor.WorldRotation;
+		Scene.Camera.Orthographic = true;
+		Scene.Camera.OrthographicHeight = 128;
+	}
+
+	private void ReleaseCamera()
+	{
+		PlayerController.GetComponent<CameraController>( includeDisabled: true ).Enabled = true;
+		Scene.Camera.Orthographic = false;
 	}
 
 	private void SuppressPlayerControls()
