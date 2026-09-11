@@ -791,7 +791,11 @@ public sealed class PliersMinigameController : Component
 
 	private void ApplyPose()
 	{
-		var tremorScale = System.MathF.Max( GetBreathTremorScale(), GetDangerTremorScale() );
+		var breathTremorScale = GetBreathTremorScale();
+		var dangerTremorScale = dangerReactionTime > 0f
+			? GetDangerTremorScale()
+			: 0f;
+		var tremorScale = System.MathF.Max( breathTremorScale, dangerTremorScale );
 		var angularFrequency = TremorFrequency * System.MathF.PI * 2f;
 		var horizontalTremor = System.MathF.Sin( tremorTime * angularFrequency );
 		var verticalTremor = System.MathF.Sin( tremorTime * angularFrequency * 1.37f + 1.1f );
