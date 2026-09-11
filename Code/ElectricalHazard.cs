@@ -2,7 +2,7 @@
 /// Reacts when a controlled pliers collider touches an electrical obstacle.
 /// Place this component beside the obstacle collider or trigger.
 /// </summary>
-public sealed class ElectricalHazard : Component, Component.ITriggerListener
+public sealed class ElectricalHazard : Component, Component.ITriggerListener, Component.ICollisionListener
 {
 	[Property, Group( "Effects" )]
 	public ParticleEffect SparkEffect { get; set; }
@@ -97,6 +97,7 @@ public sealed class ElectricalHazard : Component, Component.ITriggerListener
 			SparkEffect.Enabled = false;
 	}
 
+
 	protected override void OnDisabled()
 	{
 		sparkTimeRemaining = 0f;
@@ -104,19 +105,20 @@ public sealed class ElectricalHazard : Component, Component.ITriggerListener
 			SparkEffect.Enabled = false;
 	}
 
-	//public void OnCollisionStart( Collision collision )
-	//{
-	//	var outwardDirection = EstimateOutwardDirection( collision.Contact.Point, collision.Contact.Normal );
-	//	TryReact( collision.Other.Collider, collision.Contact.Point, outwardDirection );
-	//}
+	public void OnCollisionStart( Collision collision )
+	{
+		Log.Info( "CAT" );
+		var outwardDirection = EstimateOutwardDirection( collision.Contact.Point, collision.Contact.Normal );
+		TryReact( collision.Other.Collider, collision.Contact.Point, outwardDirection );
+	}
 
-	//public void OnCollisionUpdate( Collision collision )
-	//{
-	//}
+	public void OnCollisionUpdate( Collision collision )
+	{
+	}
 
-	//public void OnCollisionStop( CollisionStop collision )
-	//{
-	//}
+	public void OnCollisionStop( CollisionStop collision )
+	{
+	}
 
 	public void OnTriggerEnter( Collider other )
 	{
@@ -193,7 +195,8 @@ public sealed class ElectricalHazard : Component, Component.ITriggerListener
 			RecoilSpeed,
 			ControlLockDuration,
 			TremorDuration,
-			TremorMultiplier
+			TremorMultiplier,
+			Components.Get<Collider>()
 		);
 	}
 

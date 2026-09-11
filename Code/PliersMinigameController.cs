@@ -87,6 +87,15 @@ public sealed class PliersMinigameController : Component
 	[Property, Group( "Breathing" ), Range( 0f, 1f )]
 	public float MaximumVignetteIntensity { get; set; } = 1f;
 
+	[Property, Group( "Danger Return" ), Range( 0f, 32f )]
+	public float ReturnObstacleClearance { get; set; } = 6f;
+
+	[Property, Group( "Danger Return" ), Range( 0.01f, 4f )]
+	public float ReturnArrivalDistance { get; set; } = 0.25f;
+
+	[Property, Group( "Danger Return" ), Range( 1f, 720f )]
+	public float ReturnRotationSpeed { get; set; } = 240f;
+
 	private Vector3 authoredPosition;
 	private Rotation authoredRotation;
 	private Vector3 horizontalAxis;
@@ -107,6 +116,12 @@ public sealed class PliersMinigameController : Component
 	private float dangerReactionDuration;
 	private float dangerTremorMultiplier = 1f;
 	private float recoilControlLockTime;
+	private readonly System.Collections.Generic.List<Vector3> dangerReturnWaypoints = new();
+	private int dangerReturnWaypointIndex;
+	private int dangerReturnRotationWaypointIndex;
+	private float dangerReturnSpeed;
+	private bool dangerReturnActive;
+	private bool dangerReturnRotationComplete;
 	private float vignetteIntensity;
 	private bool isHoldingBreath;
 	private bool waitForBreathKeyRelease;
@@ -259,7 +274,8 @@ public sealed class PliersMinigameController : Component
 		float recoilSpeed,
 		float controlLockDuration,
 		float tremorDuration,
-		float tremorMultiplier )
+		float tremorMultiplier,
+		Collider dangerCollider = null )
 	{
 		if ( !TestControlsEnabled || !poseInitialized )
 			return;
@@ -288,6 +304,11 @@ public sealed class PliersMinigameController : Component
 		logicalOffset += planarAway * System.MathF.Max( recoilDistance, 0f );
 		movementVelocity = planarAway * System.MathF.Max( recoilSpeed, 0f );
 		ClampToMovementBounds();
+		dangerReturnSpeed = System.MathF.Max( recoilSpeed, 1f );
+		BuildDangerReturnPath( dangerCollider, System.MathF.Max( ReturnObstacleClearance, 0f ) );
+		rotationAngle = NormalizeAngle( rotationAngle );
+		dangerReturnRotationComplete = System.MathF.Abs( rotationAngle ) < 0.05f;
+		dangerReturnActive = true;
 
 		recoilControlLockTime = System.MathF.Max(
 			recoilControlLockTime,
@@ -306,6 +327,12 @@ public sealed class PliersMinigameController : Component
 
 	private void UpdateMovement( float deltaTime )
 	{
+		if ( dangerReturnActive )
+		{
+			UpdateDangerReturnMovement( deltaTime );
+			return;
+		}
+
 		var acceptInput = recoilControlLockTime <= 0f;
 		var horizontalInput = acceptInput ? GetInputAxis( "Right", "Left" ) : 0f;
 		var verticalInput = acceptInput ? GetInputAxis( "Forward", "Backward" ) : 0f;
@@ -347,6 +374,25 @@ public sealed class PliersMinigameController : Component
 
 	private void UpdateRotation( float deltaTime )
 	{
+		if ( dangerReturnActive )
+		{
+			rotationVelocity = 0f;
+			if ( dangerReturnRotationComplete
+				|| dangerReturnWaypointIndex < dangerReturnRotationWaypointIndex )
+				return;
+
+			rotationAngle = NormalizeAngle( rotationAngle );
+			var rotationStep = System.MathF.Max( ReturnRotationSpeed, 1f ) * deltaTime;
+			if ( System.MathF.Abs( rotationAngle ) <= rotationStep )
+			{
+				rotationAngle = 0f;
+				dangerReturnRotationComplete = true;
+			}
+			else
+				rotationAngle -= System.MathF.Sign( rotationAngle ) * rotationStep;
+			return;
+		}
+
 		var rotationInput = recoilControlLockTime <= 0f
 			? GetInputAxis( "RotatePliersClockwise", "RotatePliersCounterClockwise" )
 			: 0f;
@@ -426,6 +472,323 @@ public sealed class PliersMinigameController : Component
 		movementVelocity.y = verticalVelocity;
 	}
 
+	private void UpdateDangerReturnMovement( float deltaTime )
+	{
+		if ( !dangerReturnRotationComplete
+			&& dangerReturnWaypointIndex >= dangerReturnRotationWaypointIndex )
+		{
+			movementVelocity = Vector3.Zero;
+			return;
+		}
+
+		if ( dangerReturnWaypointIndex >= dangerReturnWaypoints.Count )
+		{
+			CompleteDangerReturn();
+			return;
+		}
+
+		var target = dangerReturnWaypoints[dangerReturnWaypointIndex];
+		var toTarget = target - logicalOffset;
+		var arrivalDistance = System.MathF.Max( ReturnArrivalDistance, 0.01f );
+		var stepDistance = dangerReturnSpeed * deltaTime;
+
+		if ( toTarget.Length <= System.MathF.Max( arrivalDistance, stepDistance ) )
+		{
+			logicalOffset = target;
+			dangerReturnWaypointIndex++;
+			if ( !dangerReturnRotationComplete
+				&& dangerReturnWaypointIndex >= dangerReturnRotationWaypointIndex )
+			{
+				movementVelocity = Vector3.Zero;
+				return;
+			}
+
+			if ( dangerReturnWaypointIndex >= dangerReturnWaypoints.Count )
+			{
+				CompleteDangerReturn();
+				return;
+			}
+
+			toTarget = dangerReturnWaypoints[dangerReturnWaypointIndex] - logicalOffset;
+		}
+
+		movementVelocity = toTarget.LengthSquared > 0.0001f
+			? toTarget.Normal * dangerReturnSpeed
+			: Vector3.Zero;
+		logicalOffset += movementVelocity * deltaTime;
+		ClampToMovementBounds();
+	}
+
+	private void CompleteDangerReturn()
+	{
+		dangerReturnActive = false;
+		dangerReturnWaypoints.Clear();
+		dangerReturnWaypointIndex = 0;
+		dangerReturnRotationWaypointIndex = 0;
+		dangerReturnRotationComplete = true;
+		logicalOffset = Vector3.Zero;
+		movementVelocity = Vector3.Zero;
+		rotationAngle = 0f;
+		rotationVelocity = 0f;
+		leanAngle = 0f;
+		leanVelocity = 0f;
+	}
+
+	private void BuildDangerReturnPath( Collider dangerCollider, float clearance )
+	{
+		dangerReturnWaypoints.Clear();
+		dangerReturnWaypointIndex = 0;
+		dangerReturnRotationWaypointIndex = 0;
+
+		var target = Vector3.Zero;
+		if ( dangerCollider is null )
+		{
+			dangerReturnWaypoints.Add( target );
+			return;
+		}
+
+		var bounds = dangerCollider.GetWorldBounds();
+		var minimumHorizontal = float.MaxValue;
+		var maximumHorizontal = float.MinValue;
+		var minimumVertical = float.MaxValue;
+		var maximumVertical = float.MinValue;
+
+		foreach ( var corner in bounds.Corners )
+		{
+			var fromStart = corner - authoredPosition;
+			var horizontal = Vector3.Dot( fromStart, horizontalAxis );
+			var vertical = Vector3.Dot( fromStart, verticalAxis );
+			minimumHorizontal = System.MathF.Min( minimumHorizontal, horizontal );
+			maximumHorizontal = System.MathF.Max( maximumHorizontal, horizontal );
+			minimumVertical = System.MathF.Min( minimumVertical, vertical );
+			maximumVertical = System.MathF.Max( maximumVertical, vertical );
+		}
+
+		var totalClearance = clearance + GetPliersSweepRadius();
+		minimumHorizontal -= totalClearance;
+		maximumHorizontal += totalClearance;
+		minimumVertical -= totalClearance;
+		maximumVertical += totalClearance;
+
+		var routeStart = logicalOffset;
+		if ( PointIsInsideRectangle(
+			routeStart,
+			minimumHorizontal,
+			maximumHorizontal,
+			minimumVertical,
+			maximumVertical ) )
+		{
+			const float escapePadding = 0.1f;
+			var escapeOrigin = routeStart;
+			var escapePoints = new[]
+			{
+				new Vector3( minimumHorizontal - escapePadding, routeStart.y.Clamp( minimumVertical, maximumVertical ), 0f ),
+				new Vector3( maximumHorizontal + escapePadding, routeStart.y.Clamp( minimumVertical, maximumVertical ), 0f ),
+				new Vector3( routeStart.x.Clamp( minimumHorizontal, maximumHorizontal ), minimumVertical - escapePadding, 0f ),
+				new Vector3( routeStart.x.Clamp( minimumHorizontal, maximumHorizontal ), maximumVertical + escapePadding, 0f )
+			};
+			var closestEscapeDistance = float.MaxValue;
+			foreach ( var escapePoint in escapePoints )
+			{
+				if ( !IsInsideMovementBounds( escapePoint ) )
+					continue;
+
+				var escapeDistance = (escapePoint - escapeOrigin).Length;
+				if ( escapeDistance >= closestEscapeDistance )
+					continue;
+
+				closestEscapeDistance = escapeDistance;
+				routeStart = escapePoint;
+			}
+
+			if ( closestEscapeDistance < float.MaxValue )
+			{
+				dangerReturnWaypoints.Add( routeStart );
+				dangerReturnRotationWaypointIndex = 1;
+			}
+		}
+
+		if ( !SegmentCrossesRectangle(
+			routeStart,
+			target,
+			minimumHorizontal,
+			maximumHorizontal,
+			minimumVertical,
+			maximumVertical ) )
+		{
+			dangerReturnWaypoints.Add( target );
+			return;
+		}
+
+		var corners = new[]
+		{
+			new Vector3( minimumHorizontal, minimumVertical, 0f ),
+			new Vector3( maximumHorizontal, minimumVertical, 0f ),
+			new Vector3( maximumHorizontal, maximumVertical, 0f ),
+			new Vector3( minimumHorizontal, maximumVertical, 0f )
+		};
+		var bestDistance = float.MaxValue;
+		var bestFirst = -1;
+		var bestSecond = -1;
+
+		for ( var first = 0; first < corners.Length; first++ )
+		{
+			if ( !IsInsideMovementBounds( corners[first] )
+				|| SegmentCrossesRectangle( routeStart, corners[first], minimumHorizontal, maximumHorizontal, minimumVertical, maximumVertical ) )
+				continue;
+
+			if ( !SegmentCrossesRectangle( corners[first], target, minimumHorizontal, maximumHorizontal, minimumVertical, maximumVertical ) )
+			{
+				var distance = (corners[first] - routeStart).Length + (target - corners[first]).Length;
+				if ( distance < bestDistance )
+				{
+					bestDistance = distance;
+					bestFirst = first;
+					bestSecond = -1;
+				}
+			}
+
+			for ( var second = 0; second < corners.Length; second++ )
+			{
+				if ( second == first || !IsInsideMovementBounds( corners[second] ) )
+					continue;
+				if ( SegmentCrossesRectangle( corners[first], corners[second], minimumHorizontal, maximumHorizontal, minimumVertical, maximumVertical )
+					|| SegmentCrossesRectangle( corners[second], target, minimumHorizontal, maximumHorizontal, minimumVertical, maximumVertical ) )
+					continue;
+
+				var distance = (corners[first] - routeStart).Length
+					+ (corners[second] - corners[first]).Length
+					+ (target - corners[second]).Length;
+				if ( distance < bestDistance )
+				{
+					bestDistance = distance;
+					bestFirst = first;
+					bestSecond = second;
+				}
+			}
+		}
+
+		if ( bestFirst >= 0 )
+		{
+			dangerReturnWaypoints.Add( corners[bestFirst] );
+			if ( bestSecond >= 0 )
+				dangerReturnWaypoints.Add( corners[bestSecond] );
+		}
+
+		// If no route fits inside the movement bounds, returning home still takes priority.
+		dangerReturnWaypoints.Add( target );
+		// Hold the current angle until the first clearance point, then rotate before continuing.
+		if ( dangerReturnRotationWaypointIndex == 0 )
+			dangerReturnRotationWaypointIndex = 1;
+	}
+
+	private float GetPliersSweepRadius()
+	{
+		if ( Pliers is null )
+			return 0f;
+
+		var radius = 0f;
+		foreach ( var collider in Pliers.GetComponentsInChildren<Collider>( includeDisabled: false, includeSelf: true ) )
+		{
+			foreach ( var corner in collider.GetWorldBounds().Corners )
+			{
+				var fromPivot = corner - Pliers.WorldPosition;
+				var horizontal = Vector3.Dot( fromPivot, horizontalAxis );
+				var vertical = Vector3.Dot( fromPivot, verticalAxis );
+				var planarDistance = System.MathF.Sqrt(
+					horizontal * horizontal + vertical * vertical
+				);
+				radius = System.MathF.Max( radius, planarDistance );
+			}
+		}
+
+		return radius;
+	}
+
+	private bool IsInsideMovementBounds( Vector3 point )
+	{
+		if ( MovementLowerLeft is null || MovementUpperRight is null )
+			return true;
+
+		var lowerOffset = MovementLowerLeft.WorldPosition - authoredPosition;
+		var upperOffset = MovementUpperRight.WorldPosition - authoredPosition;
+		var minimumHorizontal = System.MathF.Min(
+			Vector3.Dot( lowerOffset, horizontalAxis ),
+			Vector3.Dot( upperOffset, horizontalAxis )
+		);
+		var maximumHorizontal = System.MathF.Max(
+			Vector3.Dot( lowerOffset, horizontalAxis ),
+			Vector3.Dot( upperOffset, horizontalAxis )
+		);
+		var minimumVertical = System.MathF.Min(
+			Vector3.Dot( lowerOffset, verticalAxis ),
+			Vector3.Dot( upperOffset, verticalAxis )
+		);
+		var maximumVertical = System.MathF.Max(
+			Vector3.Dot( lowerOffset, verticalAxis ),
+			Vector3.Dot( upperOffset, verticalAxis )
+		);
+
+		return point.x >= minimumHorizontal && point.x <= maximumHorizontal
+			&& point.y >= minimumVertical && point.y <= maximumVertical;
+	}
+
+	private static bool SegmentCrossesRectangle(
+		Vector3 start,
+		Vector3 end,
+		float minimumHorizontal,
+		float maximumHorizontal,
+		float minimumVertical,
+		float maximumVertical )
+	{
+		const float edgeEpsilon = 0.01f;
+		minimumHorizontal += edgeEpsilon;
+		maximumHorizontal -= edgeEpsilon;
+		minimumVertical += edgeEpsilon;
+		maximumVertical -= edgeEpsilon;
+
+		var minimumTime = 0f;
+		var maximumTime = 1f;
+		var delta = end - start;
+		if ( !ClipSegmentAxis( start.x, delta.x, minimumHorizontal, maximumHorizontal, ref minimumTime, ref maximumTime )
+			|| !ClipSegmentAxis( start.y, delta.y, minimumVertical, maximumVertical, ref minimumTime, ref maximumTime ) )
+			return false;
+
+		return maximumTime > edgeEpsilon && minimumTime < 1f - edgeEpsilon;
+	}
+
+	private static bool PointIsInsideRectangle(
+		Vector3 point,
+		float minimumHorizontal,
+		float maximumHorizontal,
+		float minimumVertical,
+		float maximumVertical )
+	{
+		return point.x > minimumHorizontal && point.x < maximumHorizontal
+			&& point.y > minimumVertical && point.y < maximumVertical;
+	}
+
+	private static bool ClipSegmentAxis(
+		float start,
+		float delta,
+		float minimum,
+		float maximum,
+		ref float minimumTime,
+		ref float maximumTime )
+	{
+		if ( System.MathF.Abs( delta ) <= 0.0001f )
+			return start >= minimum && start <= maximum;
+
+		var first = (minimum - start) / delta;
+		var second = (maximum - start) / delta;
+		if ( first > second )
+			(first, second) = (second, first);
+
+		minimumTime = System.MathF.Max( minimumTime, first );
+		maximumTime = System.MathF.Min( maximumTime, second );
+		return minimumTime <= maximumTime;
+	}
+
 	private void ApplyPose()
 	{
 		var tremorScale = System.MathF.Max( GetBreathTremorScale(), GetDangerTremorScale() );
@@ -453,6 +816,11 @@ public sealed class PliersMinigameController : Component
 
 	private void ResetPliers()
 	{
+		dangerReturnActive = false;
+		dangerReturnWaypoints.Clear();
+		dangerReturnWaypointIndex = 0;
+		dangerReturnRotationWaypointIndex = 0;
+		dangerReturnRotationComplete = true;
 		logicalOffset = Vector3.Zero;
 		movementVelocity = Vector3.Zero;
 		rotationAngle = 0f;
@@ -585,6 +953,17 @@ public sealed class PliersMinigameController : Component
 	{
 		return (Input.Down( positiveAction ) ? 1f : 0f)
 			- (Input.Down( negativeAction ) ? 1f : 0f);
+	}
+
+	private static float NormalizeAngle( float angle )
+	{
+		angle %= 360f;
+		if ( angle > 180f )
+			angle -= 360f;
+		else if ( angle < -180f )
+			angle += 360f;
+
+		return angle;
 	}
 
 	private static void ClampAxis(
