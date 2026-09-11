@@ -8139,6 +8139,7 @@
                 "component_type": "MarieMovementController"
               },
               "MaximumLeanDegrees": 6,
+              "MaximumRotationSpeed": 90,
               "MaximumSpeed": 110,
               "MovementLowerLeft": {
                 "_type": "gameobject",
@@ -8165,6 +8166,8 @@
                 "go": "dd61323c-726a-4078-a0d6-407a4d248cfb"
               },
               "ReleaseDamping": 3.5,
+              "RotationAcceleration": 360,
+              "RotationReleaseDamping": 4,
               "TestControlsEnabled": true,
               "TremorFrequency": 1.7,
               "TremorPositionAmplitude": 0.75,
@@ -8271,7 +8274,7 @@
               "Name": "Pliers",
               "Position": "16,-19.9177246,-16",
               "Rotation": "0,-0.707106769,0,0.707106769",
-              "Scale": "16,16,16",
+              "Scale": "24,24,24",
               "Tags": "",
               "Enabled": true,
               "NetworkMode": 2,

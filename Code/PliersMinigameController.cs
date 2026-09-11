@@ -33,6 +33,15 @@ public sealed class PliersMinigameController : Component
 	[Property, Group( "Movement" ), Range( 0f, 20f )]
 	public float ReleaseDamping { get; set; } = 3.5f;
 
+	[Property, Group( "Rotation" ), Range( 1f, 720f )]
+	public float MaximumRotationSpeed { get; set; } = 90f;
+
+	[Property, Group( "Rotation" ), Range( 1f, 2000f )]
+	public float RotationAcceleration { get; set; } = 360f;
+
+	[Property, Group( "Rotation" ), Range( 0f, 20f )]
+	public float RotationReleaseDamping { get; set; } = 4f;
+
 	[Property, Group( "Wobble" ), Range( 0f, 20f )]
 	public float MaximumLeanDegrees { get; set; } = 6f;
 
@@ -58,6 +67,8 @@ public sealed class PliersMinigameController : Component
 	private Vector3 planeNormal;
 	private Vector3 logicalOffset;
 	private Vector3 movementVelocity;
+	private float rotationAngle;
+	private float rotationVelocity;
 	private float leanAngle;
 	private float leanVelocity;
 	private float tremorTime;
@@ -94,6 +105,7 @@ public sealed class PliersMinigameController : Component
 		if ( !TestControlsEnabled )
 			return;
 
+		UpdateRotation( Time.Delta );
 		UpdateMovement( Time.Delta );
 		UpdateWobble( Time.Delta );
 		ApplyPose();
@@ -127,7 +139,14 @@ public sealed class PliersMinigameController : Component
 	{
 		var horizontalInput = GetInputAxis( "Right", "Left" );
 		var verticalInput = GetInputAxis( "Forward", "Backward" );
-		var input = new Vector3( horizontalInput, verticalInput, 0f );
+		var unrotatedDirection = horizontalAxis * horizontalInput + verticalAxis * verticalInput;
+		var inputRotation = Rotation.FromAxis( planeNormal, rotationAngle );
+		var rotatedDirection = inputRotation * unrotatedDirection;
+		var input = new Vector3(
+			Vector3.Dot( rotatedDirection, horizontalAxis ),
+			Vector3.Dot( rotatedDirection, verticalAxis ),
+			0f
+		);
 
 		if ( input.LengthSquared > 1f )
 			input = input.Normal;
@@ -154,6 +173,33 @@ public sealed class PliersMinigameController : Component
 
 		logicalOffset += movementVelocity * deltaTime;
 		ClampToMovementBounds();
+	}
+
+	private void UpdateRotation( float deltaTime )
+	{
+		var rotationInput = GetInputAxis(
+			"RotatePliersClockwise",
+			"RotatePliersCounterClockwise"
+		);
+
+		if ( rotationInput != 0f )
+		{
+			rotationVelocity += rotationInput * RotationAcceleration * deltaTime;
+		}
+		else
+		{
+			var damping = System.MathF.Exp(
+				-System.MathF.Max( RotationReleaseDamping, 0f ) * deltaTime
+			);
+			rotationVelocity *= damping;
+		}
+
+		var maximumSpeed = System.MathF.Max( MaximumRotationSpeed, 0f );
+		rotationVelocity = rotationVelocity.Clamp( -maximumSpeed, maximumSpeed );
+		rotationAngle += rotationVelocity * deltaTime;
+
+		if ( System.MathF.Abs( rotationAngle ) >= 360f )
+			rotationAngle %= 360f;
 	}
 
 	private void UpdateWobble( float deltaTime )
@@ -223,17 +269,20 @@ public sealed class PliersMinigameController : Component
 			+ verticalAxis * logicalOffset.y;
 		var tremorPosition = (horizontalAxis * horizontalTremor + verticalAxis * verticalTremor)
 			* TremorPositionAmplitude;
-		var totalLean = (leanAngle + rotationalTremor * TremorRotationAmplitude)
+		var wobbleAngle = (leanAngle + rotationalTremor * TremorRotationAmplitude)
 			.Clamp( -MaximumLeanDegrees, MaximumLeanDegrees );
+		var totalRotation = rotationAngle + wobbleAngle;
 
 		Pliers.WorldPosition = movementPosition + tremorPosition;
-		Pliers.WorldRotation = Rotation.FromAxis( planeNormal, totalLean ) * authoredRotation;
+		Pliers.WorldRotation = Rotation.FromAxis( planeNormal, totalRotation ) * authoredRotation;
 	}
 
 	private void ResetPliers()
 	{
 		logicalOffset = Vector3.Zero;
 		movementVelocity = Vector3.Zero;
+		rotationAngle = 0f;
+		rotationVelocity = 0f;
 		leanAngle = 0f;
 		leanVelocity = 0f;
 		tremorTime = 0f;
