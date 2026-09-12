@@ -8288,7 +8288,7 @@
               "__version": 2,
               "Flags": 0,
               "Name": "Movement Upper Right",
-              "Position": "16,-107.231445,33.8859253",
+              "Position": "16,-124.613525,33.8859253",
               "Rotation": "0,0,0,1",
               "Scale": "1,1,1",
               "Tags": "",
@@ -8523,6 +8523,24 @@
                       "Children": []
                     }
                   ]
+                },
+                {
+                  "__guid": "82322cae-6f4d-41b1-815b-7401e6649fab",
+                  "__version": 2,
+                  "Flags": 0,
+                  "Name": "FuseAttachment",
+                  "Position": "1.30101669,0.328654021,0.19708395",
+                  "Rotation": "0,0,0,1",
+                  "Scale": "1,1,1",
+                  "Tags": "",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "NetworkFlags": 0,
+                  "NetworkOrphaned": 0,
+                  "NetworkTransmit": true,
+                  "OwnerTransfer": 1,
+                  "Components": [],
+                  "Children": []
                 }
               ]
             },
@@ -8674,8 +8692,8 @@
               "__guid": "84611eb4-2335-49ba-b7fe-3d52b0cf1392",
               "__version": 2,
               "Flags": 0,
-              "Name": "Block (2)",
-              "Position": "16,-69.4177246,-14",
+              "Name": "Circuit",
+              "Position": "19.5615501,-114.714355,5.69335938",
               "Rotation": "0,0,0,1",
               "Scale": "1,1,1",
               "Tags": "world",
@@ -8700,7 +8718,158 @@
                   "IsTrigger": true,
                   "Mesh": {
                     "Data": {
-                      "$blob": "3abab9cb-88ab-8aa0-8fb0-2876cf6f8932"
+                      "$blob": "a66e9079-5b71-8003-8602-86c9f7c3048d"
+                    },
+                    "Materials": [
+                      "materials/metal_roofing_pt_1.vmat"
+                    ]
+                  },
+                  "OnComponentDestroy": null,
+                  "OnComponentDisabled": null,
+                  "OnComponentEnabled": null,
+                  "OnComponentFixedUpdate": null,
+                  "OnComponentStart": null,
+                  "OnComponentUpdate": null,
+                  "OnObjectTriggerEnter": null,
+                  "OnObjectTriggerExit": null,
+                  "OnTriggerEnter": null,
+                  "OnTriggerExit": null,
+                  "RenderType": "On",
+                  "RollingResistance": null,
+                  "SmoothingAngle": 40,
+                  "Static": true,
+                  "Surface": null,
+                  "SurfaceVelocity": "0,0,0"
+                }
+              ],
+              "Children": [
+                {
+                  "__guid": "854c619d-89f2-49af-8792-cee3705535f9",
+                  "__version": 2,
+                  "Flags": 0,
+                  "Name": "FuseTrigger",
+                  "Position": "0,12.046875,-23.6836548",
+                  "Rotation": "0,0,0,1",
+                  "Scale": "1,1,1",
+                  "Tags": "",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "NetworkFlags": 0,
+                  "NetworkOrphaned": 0,
+                  "NetworkTransmit": true,
+                  "OwnerTransfer": 1,
+                  "Components": [
+                    {
+                      "__type": "Sandbox.BoxCollider",
+                      "__guid": "bf103749-7966-49e0-9c1c-e2ceed916634",
+                      "__enabled": true,
+                      "Flags": 0,
+                      "Center": "-1.71448898,3.62072086,4.42634964",
+                      "ColliderFlags": 0,
+                      "Elasticity": null,
+                      "Friction": null,
+                      "IsTrigger": true,
+                      "OnComponentDestroy": null,
+                      "OnComponentDisabled": null,
+                      "OnComponentEnabled": null,
+                      "OnComponentFixedUpdate": null,
+                      "OnComponentStart": null,
+                      "OnComponentUpdate": null,
+                      "OnObjectTriggerEnter": null,
+                      "OnObjectTriggerExit": null,
+                      "OnTriggerEnter": null,
+                      "OnTriggerExit": null,
+                      "RollingResistance": null,
+                      "Scale": "30.8665237,21.3049202,16.2496986",
+                      "Static": false,
+                      "Surface": null,
+                      "SurfaceVelocity": "0,0,0"
+                    },
+                    {
+                      "__type": "FusePlacementTrigger",
+                      "__guid": "68700fb0-1bc7-4381-8271-0e5ab6334766",
+                      "__enabled": true,
+                      "Flags": 0,
+                      "CircuitFuseAttachment": {
+                        "_type": "gameobject",
+                        "go": "2d2e788d-33b5-43e8-99f0-9b50e1676189"
+                      },
+                      "Fuse": {
+                        "_type": "gameobject",
+                        "go": "d1261dff-dd8c-4c3e-a86b-7c01f294ec32"
+                      },
+                      "Minigame": {
+                        "_type": "component",
+                        "component_id": "f861159d-dcf3-44b9-9543-4c63a5b5067d",
+                        "go": "80e30912-0ccb-40e2-892b-569f0504f33f",
+                        "component_type": "PliersMinigameController"
+                      },
+                      "OnComponentDestroy": null,
+                      "OnComponentDisabled": null,
+                      "OnComponentEnabled": null,
+                      "OnComponentFixedUpdate": null,
+                      "OnComponentStart": null,
+                      "OnComponentUpdate": null,
+                      "PliersCloseDelay": 0.75,
+                      "PliersFuseAttachment": {
+                        "_type": "gameobject",
+                        "go": "82322cae-6f4d-41b1-815b-7401e6649fab"
+                      }
+                    }
+                  ],
+                  "Children": []
+                },
+                {
+                  "__guid": "2d2e788d-33b5-43e8-99f0-9b50e1676189",
+                  "__version": 2,
+                  "Flags": 0,
+                  "Name": "CircuitFuseAttachment",
+                  "Position": "0,14.081543,-21.1910706",
+                  "Rotation": "0.707106769,0,0,0.707106769",
+                  "Scale": "1,1,1",
+                  "Tags": "",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "NetworkFlags": 0,
+                  "NetworkOrphaned": 0,
+                  "NetworkTransmit": true,
+                  "OwnerTransfer": 1,
+                  "Components": [],
+                  "Children": []
+                }
+              ]
+            },
+            {
+              "__guid": "c81494c5-889a-4da3-b1f2-006f31455332",
+              "__version": 2,
+              "Flags": 0,
+              "Name": "Block (2)",
+              "Position": "16,-69.4177246,-17.8626099",
+              "Rotation": "0,0,0,1",
+              "Scale": "1,1,1",
+              "Tags": "world",
+              "Enabled": true,
+              "NetworkMode": 2,
+              "NetworkFlags": 0,
+              "NetworkOrphaned": 0,
+              "NetworkTransmit": true,
+              "OwnerTransfer": 1,
+              "Components": [
+                {
+                  "__type": "Sandbox.MeshComponent",
+                  "__guid": "51ca195d-06d4-4612-8bf2-a66c7403eeb5",
+                  "__enabled": true,
+                  "Flags": 0,
+                  "ColliderFlags": 0,
+                  "Collision": "Mesh",
+                  "Color": "1,1,1,1",
+                  "Elasticity": null,
+                  "Friction": null,
+                  "HideInGame": false,
+                  "IsTrigger": true,
+                  "Mesh": {
+                    "Data": {
+                      "$blob": "a66e9079-5b71-8003-8602-86c9f7c3048d"
                     },
                     "Materials": [
                       "materials/metal_roofing_pt_1.vmat"
@@ -8725,7 +8894,7 @@
                 },
                 {
                   "__type": "ElectricalHazard",
-                  "__guid": "594cd88a-00a8-452a-987f-2486f6a5860e",
+                  "__guid": "55a68d92-fc8b-48d0-ad2a-bb0368c119d0",
                   "__enabled": true,
                   "Flags": 0,
                   "ContactCooldown": 0.35,
@@ -8752,32 +8921,6 @@
                   "SparkVisibleDuration": 0.1,
                   "TremorDuration": 0.75,
                   "TremorMultiplier": 4
-                },
-                {
-                  "__type": "Sandbox.BoxCollider",
-                  "__guid": "7a459327-d0dc-4d0b-a634-9bd05a5c3b55",
-                  "__enabled": true,
-                  "Flags": 0,
-                  "Center": "0,0.480640411,0",
-                  "ColliderFlags": 0,
-                  "Elasticity": null,
-                  "Friction": null,
-                  "IsTrigger": false,
-                  "OnComponentDestroy": null,
-                  "OnComponentDisabled": null,
-                  "OnComponentEnabled": null,
-                  "OnComponentFixedUpdate": null,
-                  "OnComponentStart": null,
-                  "OnComponentUpdate": null,
-                  "OnObjectTriggerEnter": null,
-                  "OnObjectTriggerExit": null,
-                  "OnTriggerEnter": null,
-                  "OnTriggerExit": null,
-                  "RollingResistance": null,
-                  "Scale": "50,67.1294785,50",
-                  "Static": false,
-                  "Surface": null,
-                  "SurfaceVelocity": "0,0,0"
                 }
               ],
               "Children": []
@@ -9130,7 +9273,7 @@
               "Name": "Fuse",
               "Position": "0,0,-3.8324585",
               "Rotation": "0,0,0,1",
-              "Scale": "1,1,1",
+              "Scale": "1.63999999,1.63999999,1.63999999",
               "Tags": "",
               "Enabled": true,
               "NetworkMode": 2,
@@ -9226,7 +9369,7 @@
                       "IsTrigger": false,
                       "Mesh": {
                         "Data": {
-                          "$blob": "98050ad1-13cd-8a6c-9ea4-9c1957195aaa"
+                          "$blob": "9ac013f8-fd33-8a7a-9f7f-adc7b8efa276"
                         },
                         "Materials": [
                           "materials/white_stucco.vmat",
@@ -9283,7 +9426,7 @@
                       "IsTrigger": false,
                       "Mesh": {
                         "Data": {
-                          "$blob": "98050ad1-13cd-8a6c-9ea4-9c1957195aaa"
+                          "$blob": "89fbe845-3e38-82b2-8547-3a20dc856467"
                         },
                         "Materials": [
                           "materials/white_stucco.vmat",
@@ -9355,7 +9498,6 @@
   "Title": null,
   "Description": null,
   "__references": [
-    "desertroad.rustybus#240768",
     "facepunch.glass_a#293147",
     "facepunch.metal_painted_red_b_hs#291767",
     "facepunch.metal_trim_galvanized#274131",

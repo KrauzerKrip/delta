@@ -84,7 +84,7 @@
 						disable_interpolation = false
 						enable_scale = false
 						source_filename = "models/pliers/pliers.fbx"
-						start_frame = 36
+						start_frame = 39
 						end_frame = 47
 						framerate = -1.0
 						take = 0
