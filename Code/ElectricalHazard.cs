@@ -4,6 +4,8 @@
 /// </summary>
 public sealed class ElectricalHazard : Component, Component.ITriggerListener, Component.ICollisionListener
 {
+	private const string ElectricArcSound = "sounds/electric_arc.sound";
+
 	[Property, Group( "Effects" )]
 	public ParticleEffect SparkEffect { get; set; }
 
@@ -189,6 +191,7 @@ public sealed class ElectricalHazard : Component, Component.ITriggerListener, Co
 		hasContactPoint = true;
 		cooldownRemaining = System.MathF.Max( ContactCooldown, 0f );
 		EmitSparks( contactPoint, outwardDirection );
+		Sound.Play( ElectricArcSound, contactPoint );
 		controller.RecoilFromDanger(
 			contactPoint,
 			RecoilDistance,

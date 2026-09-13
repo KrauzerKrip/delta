@@ -8607,7 +8607,7 @@
               "__version": 2,
               "Flags": 0,
               "Name": "Block",
-              "Position": "16,33.0822754,30.0312195",
+              "Position": "16,36.1210938,30.0312195",
               "Rotation": "0,0,0,1",
               "Scale": "1,1,1",
               "Tags": "world",
@@ -8632,7 +8632,7 @@
                   "IsTrigger": true,
                   "Mesh": {
                     "Data": {
-                      "$blob": "167c1a99-0091-8df2-9663-157c16a76588"
+                      "$blob": "54faa0fd-76fb-8b25-9a65-9298d31682f6"
                     },
                     "Materials": [
                       "materials/metal_roofing_pt_1.vmat"
@@ -9767,7 +9767,7 @@
                   "__version": 2,
                   "Flags": 0,
                   "Name": "Block (2)",
-                  "Position": "0,0,13.598999",
+                  "Position": "0,0,14.0928955",
                   "Rotation": "0,0,0,1",
                   "Scale": "1,1,1",
                   "Tags": "world",
@@ -9792,7 +9792,7 @@
                       "IsTrigger": true,
                       "Mesh": {
                         "Data": {
-                          "$blob": "70e5377e-4c14-841b-abfb-9ccce4166d08"
+                          "$blob": "d365da54-b8ca-8450-ab9e-46a77f17169a"
                         },
                         "Materials": [
                           "materials/metal_roofing_pt_1.vmat"
@@ -10148,9 +10148,9 @@
               "__version": 2,
               "Flags": 0,
               "Name": "Object",
-              "Position": "0.542757034,-53.4841309,0.766235352",
+              "Position": "-1.21654797,-156.989014,-10.0798645",
               "Rotation": "0,0,-1,-4.37113883E-08",
-              "Scale": "1,1,1",
+              "Scale": "1,4,4",
               "Tags": "",
               "Enabled": true,
               "NetworkMode": 2,
@@ -10162,6 +10162,52 @@
                 {
                   "__type": "Sandbox.ModelRenderer",
                   "__guid": "e04f55db-5629-40cc-9c12-44c86ea44f50",
+                  "__enabled": true,
+                  "Flags": 0,
+                  "BodyGroups": 18446744073709551615,
+                  "CreateAttachments": false,
+                  "LodOverride": null,
+                  "MaterialGroup": null,
+                  "MaterialOverride": null,
+                  "Materials": null,
+                  "Model": "models/props/electrical_panels_industrial/electrical_industrial_panel_2.vmdl",
+                  "OnComponentDestroy": null,
+                  "OnComponentDisabled": null,
+                  "OnComponentEnabled": null,
+                  "OnComponentFixedUpdate": null,
+                  "OnComponentStart": null,
+                  "OnComponentUpdate": null,
+                  "RenderOptions": {
+                    "GameLayer": true,
+                    "OverlayLayer": false,
+                    "BloomLayer": false,
+                    "AfterUILayer": false
+                  },
+                  "RenderType": "On",
+                  "Tint": "1,1,1,1"
+                }
+              ],
+              "Children": []
+            },
+            {
+              "__guid": "40eaf37a-4d62-42e1-bbad-87aa36778356",
+              "__version": 2,
+              "Flags": 0,
+              "Name": "Object",
+              "Position": "-1.21653032,46.4575195,75.9985046",
+              "Rotation": "0,0,-1,-4.37113883E-08",
+              "Scale": "1,4,4",
+              "Tags": "",
+              "Enabled": true,
+              "NetworkMode": 2,
+              "NetworkFlags": 0,
+              "NetworkOrphaned": 0,
+              "NetworkTransmit": true,
+              "OwnerTransfer": 1,
+              "Components": [
+                {
+                  "__type": "Sandbox.ModelRenderer",
+                  "__guid": "09ad7994-1de7-42af-a360-3fdb6acb6a31",
                   "__enabled": true,
                   "Flags": 0,
                   "BodyGroups": 18446744073709551615,
@@ -10447,7 +10493,7 @@
               "__version": 2,
               "Flags": 0,
               "Name": "hazard_line",
-              "Position": "0.919059277,28.454834,3.4810791",
+              "Position": "0.919059277,28.3066406,3.4810791",
               "Rotation": "-0.99999994,0,0,0",
               "Scale": "1,1,1",
               "Tags": "",
@@ -10461,6 +10507,57 @@
                 {
                   "__type": "Sandbox.Decal",
                   "__guid": "aa139fd9-95d2-4672-bfe2-5d36c3cda2e8",
+                  "__enabled": true,
+                  "Flags": 0,
+                  "__version": 3,
+                  "AttenuationAngle": 1,
+                  "ColorMix": 1,
+                  "ColorTint": "1,1,1,1",
+                  "CoverageAmount": 1,
+                  "CoverageRange": 0.07,
+                  "Decals": [
+                    "textures/hazard_line/hazard_line.decal"
+                  ],
+                  "Depth": 8,
+                  "LifeTime": 0,
+                  "Looped": false,
+                  "OnComponentDestroy": null,
+                  "OnComponentDisabled": null,
+                  "OnComponentEnabled": null,
+                  "OnComponentFixedUpdate": null,
+                  "OnComponentStart": null,
+                  "OnComponentUpdate": null,
+                  "Parallax": 1,
+                  "Rotation": 0,
+                  "Scale": 3,
+                  "SequenceId": 0,
+                  "SheetSequence": false,
+                  "Size": "1,1",
+                  "SortLayer": 0,
+                  "Transient": false
+                }
+              ],
+              "Children": []
+            },
+            {
+              "__guid": "71b04ff5-0f4e-4ec9-82e4-24850179724c",
+              "__version": 2,
+              "Flags": 0,
+              "Name": "hazard_line",
+              "Position": "0.919059277,76.1157227,3.4810791",
+              "Rotation": "-0.99999994,0,0,0",
+              "Scale": "1,1,1",
+              "Tags": "",
+              "Enabled": true,
+              "NetworkMode": 2,
+              "NetworkFlags": 0,
+              "NetworkOrphaned": 0,
+              "NetworkTransmit": true,
+              "OwnerTransfer": 1,
+              "Components": [
+                {
+                  "__type": "Sandbox.Decal",
+                  "__guid": "1d2461fe-5806-4c9b-8d7b-4d7aa02adf36",
                   "__enabled": true,
                   "Flags": 0,
                   "__version": 3,
