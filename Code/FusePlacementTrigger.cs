@@ -18,6 +18,9 @@ public sealed class FusePlacementTrigger : Component, Component.ITriggerListener
 	[Property, Group( "Setup" )]
 	public PliersMinigameController Minigame { get; set; }
 
+	[Property, Group( "Setup" )]
+	public PointLight Indicator { get; set; }
+
 	[Property, Group( "Completion" ), Range( 0f, 5f )]
 	public float PliersCloseDelay { get; set; } = 0.75f;
 
@@ -43,6 +46,11 @@ public sealed class FusePlacementTrigger : Component, Component.ITriggerListener
 
 		if ( CircuitFuseAttachment is null )
 			Log.Warning( $"[Fuse Placement] Trigger '{GameObject.Name}' has no circuit fuse attachment assigned." );
+
+		if ( Indicator is null )
+			Log.Warning( $"[Fuse Placement] Trigger '{GameObject.Name}' has no indicator light assigned." );
+		else
+			Indicator.LightColor = Color.Red;
 
 		pliersRenderer = Minigame?.Pliers?.Components.Get<SkinnedModelRenderer>();
 		if ( pliersRenderer is null )
@@ -79,6 +87,8 @@ public sealed class FusePlacementTrigger : Component, Component.ITriggerListener
 
 		HasPlacedFuse = true;
 		SnapFuseTo( CircuitFuseAttachment );
+		if ( Indicator is not null )
+			Indicator.LightColor = Color.Green;
 		closeDelayRemaining = System.MathF.Max( PliersCloseDelay, 0f );
 	}
 
