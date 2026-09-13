@@ -1,0 +1,23 @@
+@using Sandbox
+@using Sandbox.UI
+@namespace Sandbox
+@inherits PanelComponent
+
+<root class="@(Minigame?.IsDialogueVisible == true ? "visible" : "")">
+	@if ( Minigame?.IsDialogueVisible == true )
+	{
+		<div class="dialogue-box">
+			<div class="speaker">Marie</div>
+			<div class="line">@Minigame.CurrentDialogueLine</div>
+		</div>
+	}
+</root>
+
+@code
+{
+	public PliersMinigameController Minigame { get; set; }
+
+	protected override int BuildHash() => System.HashCode.Combine(
+		Minigame?.IsDialogueVisible,
+		Minigame?.CurrentDialogueLine );
+}

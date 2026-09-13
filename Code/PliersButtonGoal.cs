@@ -107,6 +107,7 @@ public sealed class PliersButtonGoal : Component, Component.ITriggerListener
 		activeTimeRemaining = System.MathF.Max( ActiveDuration, 0f );
 		BeginMove( activatedPosition );
 		SetIndicatorColor( Color.Green );
+		Minigame?.NotifyButtonEngaged();
 	}
 
 	private void Deactivate()
@@ -114,6 +115,7 @@ public sealed class PliersButtonGoal : Component, Component.ITriggerListener
 		IsActivated = false;
 		BeginMove( releasedPosition );
 		SetIndicatorColor( Color.Red );
+		Minigame?.NotifyButtonBlownOff();
 	}
 
 	private void BeginMove( Vector3 targetPosition )

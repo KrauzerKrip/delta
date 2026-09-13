@@ -87,6 +87,7 @@ public sealed class FusePlacementTrigger : Component, Component.ITriggerListener
 
 		HasPlacedFuse = true;
 		SnapFuseTo( CircuitFuseAttachment );
+		Minigame?.NotifyFusePlaced();
 		if ( Indicator is not null )
 			Indicator.LightColor = Color.Green;
 		closeDelayRemaining = System.MathF.Max( PliersCloseDelay, 0f );

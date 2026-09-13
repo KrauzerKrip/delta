@@ -3,6 +3,11 @@
 /// </summary>
 public sealed class PliersMinigameController : Component
 {
+	private const string InsertFuseLine = "I need to insert the fuse into the slot";
+	private const string EngageButtonLine = "I need to push the engagement button and we are done";
+	private const string FinalCheckLine = "Nice! Final check...";
+	private const string RetryButtonLine = "It happens. Just push it again.";
+
 	[Property, Group( "Setup" )]
 	public bool TestControlsEnabled { get; set; }
 
@@ -130,6 +135,17 @@ public sealed class PliersMinigameController : Component
 	private bool playerControlsSuppressed;
 	private bool previousPlayerInputEnabled;
 	private bool previousMarieInputEnabled;
+	private MinigameDialogueHud dialogueHud;
+	private MinigameDialogueState dialogueState = MinigameDialogueState.InsertFuse;
+
+	public bool IsDialogueVisible => TestControlsEnabled;
+	public string CurrentDialogueLine => dialogueState switch
+	{
+		MinigameDialogueState.EngageButton => EngageButtonLine,
+		MinigameDialogueState.FinalCheck => FinalCheckLine,
+		MinigameDialogueState.RetryButton => RetryButtonLine,
+		_ => InsertFuseLine
+	};
 
 	protected override void OnStart()
 	{
@@ -171,7 +187,27 @@ public sealed class PliersMinigameController : Component
 	{
 		ResetBreathing();
 		RestorePlayerControls();
+		dialogueState = MinigameDialogueState.InsertFuse;
 		testWasEnabled = false;
+	}
+
+	/// <summary>Advances Marie's instruction after the fuse reaches its slot.</summary>
+	public void NotifyFusePlaced()
+	{
+		if ( dialogueState == MinigameDialogueState.InsertFuse )
+			dialogueState = MinigameDialogueState.EngageButton;
+	}
+
+	/// <summary>Advances Marie's instruction while the engagement button is held.</summary>
+	public void NotifyButtonEngaged()
+	{
+		dialogueState = MinigameDialogueState.FinalCheck;
+	}
+
+	/// <summary>Asks the player to retry after the engagement button releases.</summary>
+	public void NotifyButtonBlownOff()
+	{
+		dialogueState = MinigameDialogueState.RetryButton;
 	}
 
 	private void SynchronizeTestState()
@@ -184,6 +220,7 @@ public sealed class PliersMinigameController : Component
 		{
 			ResetPliers();
 			SuppressPlayerControls();
+			EnsureDialogueHud();
 			SetupCamera();
 			return;
 		}
@@ -191,6 +228,19 @@ public sealed class PliersMinigameController : Component
 		RestorePlayerControls();
 		ReleaseCamera();
 		ResetBreathing();
+	}
+
+	private void EnsureDialogueHud()
+	{
+		if ( dialogueHud is not null || PlayerController is null || PlayerController.GameObject.IsProxy )
+			return;
+
+		var inventory = PlayerController.Components.Get<PlayerInventory>()
+			?? PlayerController.GameObject.AddComponent<PlayerInventory>();
+		var hudObject = inventory.EnsureHudObject();
+		dialogueHud = hudObject.Components.Get<MinigameDialogueHud>()
+			?? hudObject.AddComponent<MinigameDialogueHud>();
+		dialogueHud.Minigame = this;
 	}
 
 	private void UpdateBreathing( float deltaTime )
@@ -993,5 +1043,13 @@ public sealed class PliersMinigameController : Component
 			if ( velocity > 0f )
 				clampedVelocity = 0f;
 		}
+	}
+
+	private enum MinigameDialogueState
+	{
+		InsertFuse,
+		EngageButton,
+		FinalCheck,
+		RetryButton
 	}
 }
