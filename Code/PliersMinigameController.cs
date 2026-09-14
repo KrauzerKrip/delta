@@ -8,6 +8,8 @@ public sealed class PliersMinigameController : Component
 	private const string EngageButtonLine = "I need to push the engagement button and we are done";
 	private const string FinalCheckLine = "Nice! Final check...";
 	private const string RetryButtonLine = "It happens. Just push it again.";
+	private const string RotateClockwiseAction = "RotatePliersClockwise";
+	private const string RotateCounterClockwiseAction = "RotatePliersCounterClockwise";
 
 	[Property, Group( "Setup" )]
 	public bool TestControlsEnabled { get; set; }
@@ -142,6 +144,7 @@ public sealed class PliersMinigameController : Component
 	private bool waitForBreathKeyRelease;
 	private bool poseInitialized;
 	private bool testWasEnabled;
+	private bool waitForRotationInputRelease;
 	private bool playerControlsSuppressed;
 	private bool previousPlayerInputEnabled;
 	private bool previousMarieInputEnabled;
@@ -209,6 +212,7 @@ public sealed class PliersMinigameController : Component
 		CancelFlashbang();
 		ResetBreathing();
 		RestorePlayerControls();
+		waitForRotationInputRelease = false;
 		buttonActivationCount = 0;
 		dialogueState = MinigameDialogueState.InsertFuse;
 		testWasEnabled = false;
@@ -265,6 +269,7 @@ public sealed class PliersMinigameController : Component
 		if ( TestControlsEnabled )
 		{
 			CancelFlashbang();
+			waitForRotationInputRelease = true;
 			buttonActivationCount = 0;
 			dialogueState = MinigameDialogueState.InsertFuse;
 			ResetPliers();
@@ -276,6 +281,7 @@ public sealed class PliersMinigameController : Component
 
 		RestorePlayerControls();
 		ReleaseCamera();
+		waitForRotationInputRelease = false;
 		ResetBreathing();
 	}
 
@@ -284,6 +290,7 @@ public sealed class PliersMinigameController : Component
 		ResetBreathing();
 		TestControlsEnabled = false;
 		testWasEnabled = false;
+		waitForRotationInputRelease = false;
 		ReleaseCamera();
 		EnsureDialogueHud();
 
@@ -539,6 +546,16 @@ public sealed class PliersMinigameController : Component
 
 	private void UpdateRotation( float deltaTime )
 	{
+		if ( waitForRotationInputRelease )
+		{
+			rotationVelocity = 0f;
+			if ( Input.Down( RotateClockwiseAction )
+				|| Input.Down( RotateCounterClockwiseAction ) )
+				return;
+
+			waitForRotationInputRelease = false;
+		}
+
 		if ( dangerReturnActive )
 		{
 			rotationVelocity = 0f;
@@ -559,7 +576,7 @@ public sealed class PliersMinigameController : Component
 		}
 
 		var rotationInput = recoilControlLockTime <= 0f
-			? GetInputAxis( "RotatePliersClockwise", "RotatePliersCounterClockwise" )
+			? GetInputAxis( RotateClockwiseAction, RotateCounterClockwiseAction )
 			: 0f;
 
 		if ( rotationInput != 0f )
