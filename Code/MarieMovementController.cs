@@ -7,6 +7,7 @@ public sealed class MarieMovementController : Component
 	private const string GroundMovementParameter = "ground_movement";
 	private const string GroundedParameter = "grounded";
 	private const string CrouchingParameter = "crouching";
+	private const string LyingParameter = "lying";
 
 	private enum GroundMovement
 	{
@@ -32,6 +33,8 @@ public sealed class MarieMovementController : Component
 
 	[Property, Group( "Movement" )]
 	public bool MovementInputEnabled { get; set; } = true;
+
+	public bool IsLying { get; private set; }
 
 	protected override void OnStart()
 	{
@@ -88,6 +91,21 @@ public sealed class MarieMovementController : Component
 		UpdateAnimationParameters();
 	}
 
+	/// <summary>Updates Marie's lying animation state.</summary>
+	public void SetLying( bool isLying )
+	{
+		IsLying = isLying;
+		Renderer?.Set( LyingParameter, IsLying );
+	}
+
+	/// <summary>Faces Marie's player root toward an absolute world-space yaw.</summary>
+	public void FaceYaw( float yaw )
+	{
+		var rotation = Rotation.FromYaw( yaw );
+		WorldRotation = rotation;
+		Controller.EyeAngles = rotation;
+	}
+
 	private void UpdateAnimationParameters()
 	{
 		if ( Renderer is null )
@@ -96,6 +114,7 @@ public sealed class MarieMovementController : Component
 		Renderer.Set( GroundMovementParameter, (int)GetGroundMovement() );
 		Renderer.Set( GroundedParameter, !Controller.IsAirborne );
 		Renderer.Set( CrouchingParameter, Controller.IsDucking );
+		Renderer.Set( LyingParameter, IsLying );
 	}
 
 	private GroundMovement GetGroundMovement()

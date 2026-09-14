@@ -110,7 +110,7 @@
       "__version": 2,
       "Flags": 0,
       "Name": "Player Controller",
-      "Position": "243.576965,120.764526,562.271851",
+      "Position": "-12.2763062,-2225.16357,296.55127",
       "Rotation": "0,0,0,1",
       "Scale": "1,1,1",
       "Tags": "",
@@ -8156,6 +8156,8 @@
                 "_type": "gameobject",
                 "go": "3e1fc273-d6ce-47f3-bbf6-17f34aa83330"
               },
+              "FlashbangFadeDuration": 7,
+              "FlashbangHoldDuration": 7,
               "HeldBreathTremorMultiplier": 0.12,
               "LeanDamping": 6,
               "LeanSpring": 32,

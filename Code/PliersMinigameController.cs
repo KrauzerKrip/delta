@@ -3,6 +3,7 @@
 /// </summary>
 public sealed class PliersMinigameController : Component
 {
+	private const string ElectricShockSound = "sounds/electric_shock.sound";
 	private const string InsertFuseLine = "I need to insert the fuse into the slot";
 	private const string EngageButtonLine = "I need to push the engagement button and we are done";
 	private const string FinalCheckLine = "Nice! Final check...";
@@ -92,6 +93,15 @@ public sealed class PliersMinigameController : Component
 	[Property, Group( "Breathing" ), Range( 0f, 1f )]
 	public float MaximumVignetteIntensity { get; set; } = 1f;
 
+	[Property, Group( "Cutscene" ), Range( 0f, 60f )]
+	public float FlashbangHoldDuration { get; set; } = 7f;
+
+	[Property, Group( "Cutscene" ), Range( 0f, 60f )]
+	public float FlashbangFadeDuration { get; set; } = 7f;
+
+	[Property, Group( "Cutscene" ), Range( -180f, 180f )]
+	public float FlashbangMarieYaw { get; set; } = 90f;
+
 	[Property, Group( "Danger Return" ), Range( 0f, 32f )]
 	public float ReturnObstacleClearance { get; set; } = 6f;
 
@@ -135,10 +145,15 @@ public sealed class PliersMinigameController : Component
 	private bool playerControlsSuppressed;
 	private bool previousPlayerInputEnabled;
 	private bool previousMarieInputEnabled;
+	private float flashbangTimeRemaining;
+	private int buttonActivationCount;
+	private FlashbangPhase flashbangPhase;
 	private MinigameDialogueHud dialogueHud;
+	private FlashbangHud flashbangHud;
 	private MinigameDialogueState dialogueState = MinigameDialogueState.InsertFuse;
 
 	public bool IsDialogueVisible => TestControlsEnabled;
+	public float FlashbangOverlayOpacity { get; private set; }
 	public string CurrentDialogueLine => dialogueState switch
 	{
 		MinigameDialogueState.EngageButton => EngageButtonLine,
@@ -172,6 +187,12 @@ public sealed class PliersMinigameController : Component
 			return;
 
 		SynchronizeTestState();
+		if ( flashbangPhase != FlashbangPhase.None )
+		{
+			UpdateFlashbang( Time.Delta );
+			return;
+		}
+
 		if ( !TestControlsEnabled )
 			return;
 
@@ -185,8 +206,10 @@ public sealed class PliersMinigameController : Component
 
 	protected override void OnDisabled()
 	{
+		CancelFlashbang();
 		ResetBreathing();
 		RestorePlayerControls();
+		buttonActivationCount = 0;
 		dialogueState = MinigameDialogueState.InsertFuse;
 		testWasEnabled = false;
 	}
@@ -201,12 +224,25 @@ public sealed class PliersMinigameController : Component
 	/// <summary>Advances Marie's instruction while the engagement button is held.</summary>
 	public void NotifyButtonEngaged()
 	{
+		if ( !TestControlsEnabled || flashbangPhase != FlashbangPhase.None )
+			return;
+
+		buttonActivationCount++;
+		if ( buttonActivationCount >= 2 )
+		{
+			BeginFlashbang();
+			return;
+		}
+
 		dialogueState = MinigameDialogueState.FinalCheck;
 	}
 
 	/// <summary>Asks the player to retry after the engagement button releases.</summary>
 	public void NotifyButtonBlownOff()
 	{
+		if ( !TestControlsEnabled || buttonActivationCount >= 2 )
+			return;
+
 		dialogueState = MinigameDialogueState.RetryButton;
 	}
 
@@ -218,6 +254,9 @@ public sealed class PliersMinigameController : Component
 		testWasEnabled = TestControlsEnabled;
 		if ( TestControlsEnabled )
 		{
+			CancelFlashbang();
+			buttonActivationCount = 0;
+			dialogueState = MinigameDialogueState.InsertFuse;
 			ResetPliers();
 			SuppressPlayerControls();
 			EnsureDialogueHud();
@@ -230,17 +269,83 @@ public sealed class PliersMinigameController : Component
 		ResetBreathing();
 	}
 
+	private void BeginFlashbang()
+	{
+		ResetBreathing();
+		TestControlsEnabled = false;
+		testWasEnabled = false;
+		ReleaseCamera();
+		EnsureDialogueHud();
+
+		flashbangPhase = FlashbangPhase.Hold;
+		flashbangTimeRemaining = System.MathF.Max( FlashbangHoldDuration, 0f );
+		FlashbangOverlayOpacity = 1f;
+		MarieMovementController?.FaceYaw( FlashbangMarieYaw );
+		MarieMovementController?.SetLying( true );
+		Sound.Play( ElectricShockSound );
+	}
+
+	private void UpdateFlashbang( float deltaTime )
+	{
+		flashbangTimeRemaining = System.MathF.Max( flashbangTimeRemaining - deltaTime, 0f );
+
+		if ( flashbangPhase == FlashbangPhase.Hold )
+		{
+			FlashbangOverlayOpacity = 1f;
+			if ( flashbangTimeRemaining > 0f )
+				return;
+
+			RestorePlayerControls();
+			MarieMovementController?.SetLying( false );
+			flashbangPhase = FlashbangPhase.Fade;
+			flashbangTimeRemaining = System.MathF.Max( FlashbangFadeDuration, 0f );
+		}
+
+		if ( flashbangTimeRemaining <= 0f )
+		{
+			CompleteFlashbang();
+			return;
+		}
+
+		var fadeDuration = System.MathF.Max( FlashbangFadeDuration, 0.01f );
+		FlashbangOverlayOpacity = (flashbangTimeRemaining / fadeDuration).Clamp( 0f, 1f );
+	}
+
+	private void CompleteFlashbang()
+	{
+		flashbangPhase = FlashbangPhase.None;
+		flashbangTimeRemaining = 0f;
+		FlashbangOverlayOpacity = 0f;
+		MarieMovementController?.SetLying( false );
+	}
+
+	private void CancelFlashbang()
+	{
+		if ( flashbangPhase == FlashbangPhase.None )
+			return;
+
+		flashbangPhase = FlashbangPhase.None;
+		flashbangTimeRemaining = 0f;
+		RestorePlayerControls();
+		FlashbangOverlayOpacity = 0f;
+		MarieMovementController?.SetLying( false );
+	}
+
 	private void EnsureDialogueHud()
 	{
-		if ( dialogueHud is not null || PlayerController is null || PlayerController.GameObject.IsProxy )
+		if ( PlayerController is null || PlayerController.GameObject.IsProxy )
 			return;
 
 		var inventory = PlayerController.Components.Get<PlayerInventory>()
 			?? PlayerController.GameObject.AddComponent<PlayerInventory>();
 		var hudObject = inventory.EnsureHudObject();
-		dialogueHud = hudObject.Components.Get<MinigameDialogueHud>()
+		dialogueHud ??= hudObject.Components.Get<MinigameDialogueHud>()
 			?? hudObject.AddComponent<MinigameDialogueHud>();
 		dialogueHud.Minigame = this;
+
+		flashbangHud ??= hudObject.Components.Get<FlashbangHud>()
+			?? hudObject.AddComponent<FlashbangHud>();
+		flashbangHud.Minigame = this;
 	}
 
 	private void UpdateBreathing( float deltaTime )
@@ -1051,5 +1156,12 @@ public sealed class PliersMinigameController : Component
 		EngageButton,
 		FinalCheck,
 		RetryButton
+	}
+
+	private enum FlashbangPhase
+	{
+		None,
+		Hold,
+		Fade
 	}
 }

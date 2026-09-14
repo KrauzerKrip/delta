@@ -1,0 +1,14 @@
+@using Sandbox
+@using Sandbox.UI
+@namespace Sandbox
+@inherits PanelComponent
+
+<root style="opacity: @(Minigame?.FlashbangOverlayOpacity ?? 0f)"></root>
+
+@code
+{
+	public PliersMinigameController Minigame { get; set; }
+
+	protected override int BuildHash() => System.HashCode.Combine(
+		Minigame?.FlashbangOverlayOpacity );
+}
