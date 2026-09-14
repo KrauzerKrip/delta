@@ -8735,7 +8735,7 @@
               "Rotation": "0,0,0,1",
               "Scale": "1,1,1",
               "Tags": "light_point,light",
-              "Enabled": true,
+              "Enabled": false,
               "NetworkMode": 2,
               "NetworkFlags": 0,
               "NetworkOrphaned": 0,
@@ -11209,6 +11209,240 @@
                   "Size": "1,1",
                   "SortLayer": 1,
                   "Transient": false
+                }
+              ],
+              "Children": []
+            },
+            {
+              "__guid": "d77d3eb7-ef64-44c0-8d10-53f5ee736894",
+              "__version": 2,
+              "Flags": 0,
+              "Name": "Block",
+              "Position": "-113.055908,68.5864258,-12",
+              "Rotation": "0,0,0,1",
+              "Scale": "1,1,1",
+              "Tags": "world",
+              "Enabled": true,
+              "NetworkMode": 2,
+              "NetworkFlags": 0,
+              "NetworkOrphaned": 0,
+              "NetworkTransmit": true,
+              "OwnerTransfer": 1,
+              "Components": [
+                {
+                  "__type": "Sandbox.MeshComponent",
+                  "__guid": "ca924b14-0649-4159-967f-b12089456703",
+                  "__enabled": true,
+                  "Flags": 0,
+                  "ColliderFlags": 0,
+                  "Collision": "Mesh",
+                  "Color": "1,1,1,1",
+                  "Elasticity": null,
+                  "Friction": null,
+                  "HideInGame": false,
+                  "IsTrigger": false,
+                  "Mesh": {
+                    "Data": {
+                      "$blob": "2d77aad2-9b99-8e78-bf0e-06ada0a2d60b"
+                    },
+                    "Materials": [
+                      "materials/corrugated_steel_pt_3.vmat"
+                    ]
+                  },
+                  "OnComponentDestroy": null,
+                  "OnComponentDisabled": null,
+                  "OnComponentEnabled": null,
+                  "OnComponentFixedUpdate": null,
+                  "OnComponentStart": null,
+                  "OnComponentUpdate": null,
+                  "OnObjectTriggerEnter": null,
+                  "OnObjectTriggerExit": null,
+                  "OnTriggerEnter": null,
+                  "OnTriggerExit": null,
+                  "RenderType": "On",
+                  "RollingResistance": null,
+                  "SmoothingAngle": 40,
+                  "Static": true,
+                  "Surface": null,
+                  "SurfaceVelocity": "0,0,0"
+                }
+              ],
+              "Children": []
+            },
+            {
+              "__guid": "831e226a-26c3-4b21-8ff9-1774f4c8200e",
+              "__version": 2,
+              "Flags": 0,
+              "Name": "Block (2)",
+              "Position": "-113.055908,-58.9094238,56",
+              "Rotation": "0.707106829,0,0,0.707106769",
+              "Scale": "1,1,1",
+              "Tags": "world",
+              "Enabled": true,
+              "NetworkMode": 2,
+              "NetworkFlags": 0,
+              "NetworkOrphaned": 0,
+              "NetworkTransmit": true,
+              "OwnerTransfer": 1,
+              "Components": [
+                {
+                  "__type": "Sandbox.MeshComponent",
+                  "__guid": "63222fa4-9ac4-4481-a622-b721efc9bbc5",
+                  "__enabled": true,
+                  "Flags": 0,
+                  "ColliderFlags": 0,
+                  "Collision": "Mesh",
+                  "Color": "1,1,1,1",
+                  "Elasticity": null,
+                  "Friction": null,
+                  "HideInGame": false,
+                  "IsTrigger": false,
+                  "Mesh": {
+                    "Data": {
+                      "$blob": "281ec6a4-edb9-848a-b188-6fe36cce256e"
+                    },
+                    "Materials": [
+                      "materials/corrugated_steel_pt_3.vmat"
+                    ]
+                  },
+                  "OnComponentDestroy": null,
+                  "OnComponentDisabled": null,
+                  "OnComponentEnabled": null,
+                  "OnComponentFixedUpdate": null,
+                  "OnComponentStart": null,
+                  "OnComponentUpdate": null,
+                  "OnObjectTriggerEnter": null,
+                  "OnObjectTriggerExit": null,
+                  "OnTriggerEnter": null,
+                  "OnTriggerExit": null,
+                  "RenderType": "On",
+                  "RollingResistance": null,
+                  "SmoothingAngle": 40,
+                  "Static": true,
+                  "Surface": null,
+                  "SurfaceVelocity": "0,0,0"
+                }
+              ],
+              "Children": []
+            },
+            {
+              "__guid": "247df81c-8285-4af0-ae3e-8eb0f3348615",
+              "__version": 2,
+              "Flags": 0,
+              "Name": "Block (2)",
+              "Position": "-113.055908,-178.909668,-16",
+              "Rotation": "0,0,0,1",
+              "Scale": "1,1,1",
+              "Tags": "world",
+              "Enabled": true,
+              "NetworkMode": 2,
+              "NetworkFlags": 0,
+              "NetworkOrphaned": 0,
+              "NetworkTransmit": true,
+              "OwnerTransfer": 1,
+              "Components": [
+                {
+                  "__type": "Sandbox.MeshComponent",
+                  "__guid": "4f332cdf-01c8-4ab7-874a-6083cc85c677",
+                  "__enabled": true,
+                  "Flags": 0,
+                  "ColliderFlags": 0,
+                  "Collision": "Mesh",
+                  "Color": "1,1,1,1",
+                  "Elasticity": null,
+                  "Friction": null,
+                  "HideInGame": false,
+                  "IsTrigger": false,
+                  "Mesh": {
+                    "Data": {
+                      "$blob": "069c009b-98f0-809b-bf77-01f2325095c7"
+                    },
+                    "Materials": [
+                      "materials/corrugated_steel_pt_3.vmat"
+                    ]
+                  },
+                  "OnComponentDestroy": null,
+                  "OnComponentDisabled": null,
+                  "OnComponentEnabled": null,
+                  "OnComponentFixedUpdate": null,
+                  "OnComponentStart": null,
+                  "OnComponentUpdate": null,
+                  "OnObjectTriggerEnter": null,
+                  "OnObjectTriggerExit": null,
+                  "OnTriggerEnter": null,
+                  "OnTriggerExit": null,
+                  "RenderType": "On",
+                  "RollingResistance": null,
+                  "SmoothingAngle": 40,
+                  "Static": true,
+                  "Surface": null,
+                  "SurfaceVelocity": "0,0,0"
+                }
+              ],
+              "Children": []
+            },
+            {
+              "__guid": "0fd5f10a-f95e-4094-9cd9-2e3d3c021053",
+              "__version": 2,
+              "Flags": 0,
+              "Name": "Spot Light",
+              "Position": "-241.055908,0,0",
+              "Rotation": "0,0,0,1",
+              "Scale": "1,1,1",
+              "Tags": "light_spot,light",
+              "Enabled": true,
+              "NetworkMode": 2,
+              "NetworkFlags": 0,
+              "NetworkOrphaned": 0,
+              "NetworkTransmit": true,
+              "OwnerTransfer": 1,
+              "Components": [
+                {
+                  "__type": "FlashlightSpotFollower",
+                  "__guid": "037958eb-896e-4313-92fe-c84f51d7a4f8",
+                  "__enabled": true,
+                  "Flags": 0,
+                  "FollowInfluence": 0.7,
+                  "FollowSpeed": 2.5,
+                  "OnComponentDestroy": null,
+                  "OnComponentDisabled": null,
+                  "OnComponentEnabled": null,
+                  "OnComponentFixedUpdate": null,
+                  "OnComponentStart": null,
+                  "OnComponentUpdate": null,
+                  "ShockTrembleAmplitude": 3,
+                  "ShockTrembleFrequency": 5,
+                  "SwayAmplitude": 0.8,
+                  "Target": {
+                    "_type": "gameobject",
+                    "go": "dd61323c-726a-4078-a0d6-407a4d248cfb"
+                  },
+                  "TrembleAmplitude": 0.45,
+                  "TrembleFrequency": 2.2
+                },
+                {
+                  "__type": "Sandbox.SpotLight",
+                  "__guid": "605ab0e2-f1aa-4592-b34f-f8b57879def8",
+                  "__enabled": true,
+                  "Flags": 0,
+                  "Attenuation": 0.4,
+                  "ConeInner": 15,
+                  "ConeOuter": 16,
+                  "Contribution": "Diffuse, Specular, Transmissive",
+                  "Cookie": null,
+                  "FogMode": "Enabled",
+                  "FogStrength": 1,
+                  "LightColor": "1,0.9098,0.76471,1",
+                  "OnComponentDestroy": null,
+                  "OnComponentDisabled": null,
+                  "OnComponentEnabled": null,
+                  "OnComponentFixedUpdate": null,
+                  "OnComponentStart": null,
+                  "OnComponentUpdate": null,
+                  "Radius": 300,
+                  "ShadowBias": 0,
+                  "ShadowHardness": 0,
+                  "Shadows": true
                 }
               ],
               "Children": []

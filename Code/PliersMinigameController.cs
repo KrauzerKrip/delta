@@ -156,6 +156,18 @@ public sealed class PliersMinigameController : Component
 	private MinigameDialogueState dialogueState = MinigameDialogueState.InsertFuse;
 
 	public bool IsDialogueVisible => TestControlsEnabled;
+	public float DangerTremorStrength
+	{
+		get
+		{
+			if ( dangerReactionTime <= 0f )
+				return 0f;
+
+			var duration = System.MathF.Max( dangerReactionDuration, 0.01f );
+			var strength = (dangerReactionTime / duration).Clamp( 0f, 1f );
+			return strength * strength;
+		}
+	}
 	public float FlashbangOverlayOpacity { get; private set; }
 	public string CurrentDialogueLine => dialogueState switch
 	{
@@ -1127,12 +1139,7 @@ public sealed class PliersMinigameController : Component
 
 	private float GetDangerTremorScale()
 	{
-		if ( dangerReactionTime <= 0f )
-			return 1f;
-
-		var duration = System.MathF.Max( dangerReactionDuration, 0.01f );
-		var strength = (dangerReactionTime / duration).Clamp( 0f, 1f );
-		return 1f + (dangerTremorMultiplier - 1f) * strength * strength;
+		return 1f + (dangerTremorMultiplier - 1f) * DangerTremorStrength;
 	}
 
 	private static float GetInputAxis( string positiveAction, string negativeAction )
