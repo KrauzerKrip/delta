@@ -8317,9 +8317,22 @@
                 "_type": "gameobject",
                 "go": "3e1fc273-d6ce-47f3-bbf6-17f34aa83330"
               },
+              "EntranceBlackoutFadeInDuration": 1.25,
+              "EntranceBlackoutLeadTime": 0.25,
+              "EntranceFlashlightDelay": 1.75,
+              "EntranceFlyDuration": 2,
+              "EntranceRevealDuration": 1.25,
+              "EntranceTarget": {
+                "_type": "gameobject",
+                "go": "d53cbda6-1bf6-4629-81a0-7f6fee215cb7"
+              },
               "FlashbangFadeDuration": 7,
               "FlashbangHoldDuration": 7,
               "FlashbangMarieYaw": 90,
+              "Flashlight": {
+                "_type": "gameobject",
+                "go": "0fd5f10a-f95e-4094-9cd9-2e3d3c021053"
+              },
               "HeldBreathTremorMultiplier": 0.12,
               "LeanDamping": 6,
               "LeanSpring": 32,
@@ -11390,7 +11403,7 @@
               "Rotation": "0,0,0,1",
               "Scale": "1,1,1",
               "Tags": "light_spot,light",
-              "Enabled": true,
+              "Enabled": false,
               "NetworkMode": 2,
               "NetworkFlags": 0,
               "NetworkOrphaned": 0,

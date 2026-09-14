@@ -6,6 +6,25 @@ FlashbangHud
 	bottom: 0;
 	left: 0;
 	z-index: 10000;
-	background-color: white;
 	pointer-events: none;
+
+	.blackout,
+	.flashbang
+	{
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+	}
+
+	.blackout
+	{
+		background-color: black;
+	}
+
+	.flashbang
+	{
+		background-color: white;
+	}
 }

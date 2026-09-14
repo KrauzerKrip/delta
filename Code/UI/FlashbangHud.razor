@@ -3,12 +3,16 @@
 @namespace Sandbox
 @inherits PanelComponent
 
-<root style="opacity: @(Minigame?.FlashbangOverlayOpacity ?? 0f)"></root>
+<root>
+	<div class="blackout" style="opacity: @(Minigame?.BlackoutOverlayOpacity ?? 0f)"></div>
+	<div class="flashbang" style="opacity: @(Minigame?.FlashbangOverlayOpacity ?? 0f)"></div>
+</root>
 
 @code
 {
 	public PliersMinigameController Minigame { get; set; }
 
 	protected override int BuildHash() => System.HashCode.Combine(
+		Minigame?.BlackoutOverlayOpacity,
 		Minigame?.FlashbangOverlayOpacity );
 }

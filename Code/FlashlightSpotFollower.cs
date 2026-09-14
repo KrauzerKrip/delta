@@ -67,7 +67,6 @@ public sealed class FlashlightSpotFollower : Component
 
 		motionTime += Time.Delta;
 		var shockStrength = minigame?.DangerTremorStrength ?? 0f;
-		Log.Info( minigame?.DangerTremorStrength );
 		var normalFrequency = System.MathF.Max( TrembleFrequency, 0.1f );
 		var shockFrequency = System.MathF.Max( ShockTrembleFrequency, 0.1f );
 		var frequency = normalFrequency;

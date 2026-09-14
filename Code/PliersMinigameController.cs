@@ -27,6 +27,12 @@ public sealed class PliersMinigameController : Component
 	public GameObject CameraAnchor { get; set; }
 
 	[Property, Group( "Setup" )]
+	public GameObject EntranceTarget { get; set; }
+
+	[Property, Group( "Setup" )]
+	public GameObject Flashlight { get; set; }
+
+	[Property, Group( "Setup" )]
 	public Vignette BreathVignette { get; set; }
 
 	[Property, Group( "Setup" )]
@@ -95,6 +101,21 @@ public sealed class PliersMinigameController : Component
 	[Property, Group( "Breathing" ), Range( 0f, 1f )]
 	public float MaximumVignetteIntensity { get; set; } = 1f;
 
+	[Property, Group( "Entrance" ), Range( 0f, 10f )]
+	public float EntranceFlyDuration { get; set; } = 2f;
+
+	[Property, Group( "Entrance" ), Range( 0f, 10f )]
+	public float EntranceBlackoutFadeInDuration { get; set; } = 1.25f;
+
+	[Property, Group( "Entrance" ), Range( 0f, 10f )]
+	public float EntranceBlackoutLeadTime { get; set; } = 0.25f;
+
+	[Property, Group( "Entrance" ), Range( 0f, 10f )]
+	public float EntranceRevealDuration { get; set; } = 1.25f;
+
+	[Property, Group( "Entrance" ), Range( 0f, 10f )]
+	public float EntranceFlashlightDelay { get; set; } = 1f;
+
 	[Property, Group( "Cutscene" ), Range( 0f, 60f )]
 	public float FlashbangHoldDuration { get; set; } = 7f;
 
@@ -148,14 +169,25 @@ public sealed class PliersMinigameController : Component
 	private bool playerControlsSuppressed;
 	private bool previousPlayerInputEnabled;
 	private bool previousMarieInputEnabled;
+	private bool cameraOwned;
+	private bool previousCameraControllerEnabled;
+	private bool previousCameraOrthographic;
+	private float previousCameraOrthographicHeight;
+	private CameraController ownedCameraController;
+	private Vector3 entranceCameraStartPosition;
+	private Rotation entranceCameraStartRotation;
+	private float entranceTime;
 	private float flashbangTimeRemaining;
 	private int buttonActivationCount;
+	private EntrancePhase entrancePhase;
 	private FlashbangPhase flashbangPhase;
 	private MinigameDialogueHud dialogueHud;
 	private FlashbangHud flashbangHud;
 	private MinigameDialogueState dialogueState = MinigameDialogueState.InsertFuse;
 
-	public bool IsDialogueVisible => TestControlsEnabled;
+	private bool IsMinigameActive => TestControlsEnabled
+		&& entrancePhase is EntrancePhase.Reveal or EntrancePhase.Active;
+	public bool IsDialogueVisible => IsMinigameActive;
 	public float DangerTremorStrength
 	{
 		get
@@ -168,6 +200,7 @@ public sealed class PliersMinigameController : Component
 			return strength * strength;
 		}
 	}
+	public float BlackoutOverlayOpacity { get; private set; }
 	public float FlashbangOverlayOpacity { get; private set; }
 	public string CurrentDialogueLine => dialogueState switch
 	{
@@ -179,6 +212,8 @@ public sealed class PliersMinigameController : Component
 
 	protected override void OnStart()
 	{
+		SetFlashlightEnabled( false );
+
 		if ( Pliers is null )
 		{
 			Log.Warning( $"[Pliers Minigame] '{GameObject.Name}' has no pliers object assigned." );
@@ -202,13 +237,14 @@ public sealed class PliersMinigameController : Component
 			return;
 
 		SynchronizeTestState();
+		UpdateEntrance( Time.Delta );
 		if ( flashbangPhase != FlashbangPhase.None )
 		{
 			UpdateFlashbang( Time.Delta );
 			return;
 		}
 
-		if ( !TestControlsEnabled )
+		if ( !IsMinigameActive )
 			return;
 
 		UpdateBreathing( Time.Delta );
@@ -221,9 +257,11 @@ public sealed class PliersMinigameController : Component
 
 	protected override void OnDisabled()
 	{
+		CancelEntrance();
 		CancelFlashbang();
 		ResetBreathing();
 		RestorePlayerControls();
+		ReleaseCamera();
 		waitForRotationInputRelease = false;
 		buttonActivationCount = 0;
 		dialogueState = MinigameDialogueState.InsertFuse;
@@ -233,6 +271,9 @@ public sealed class PliersMinigameController : Component
 	/// <summary>Advances Marie's instruction after the fuse reaches its slot.</summary>
 	public void NotifyFusePlaced()
 	{
+		if ( !IsMinigameActive )
+			return;
+
 		if ( dialogueState == MinigameDialogueState.InsertFuse )
 			dialogueState = MinigameDialogueState.EngageButton;
 	}
@@ -240,7 +281,7 @@ public sealed class PliersMinigameController : Component
 	/// <summary>Advances Marie's instruction while the engagement button is held.</summary>
 	public void NotifyButtonEngaged()
 	{
-		if ( !TestControlsEnabled || flashbangPhase != FlashbangPhase.None )
+		if ( !IsMinigameActive || flashbangPhase != FlashbangPhase.None )
 			return;
 
 		buttonActivationCount++;
@@ -256,7 +297,7 @@ public sealed class PliersMinigameController : Component
 	/// <summary>Asks the player to retry after the engagement button releases.</summary>
 	public void NotifyButtonBlownOff()
 	{
-		if ( !TestControlsEnabled || buttonActivationCount >= 2 )
+		if ( !IsMinigameActive || buttonActivationCount >= 2 )
 			return;
 
 		dialogueState = MinigameDialogueState.RetryButton;
@@ -287,10 +328,11 @@ public sealed class PliersMinigameController : Component
 			ResetPliers();
 			SuppressPlayerControls();
 			EnsureDialogueHud();
-			SetupCamera();
+			BeginEntrance();
 			return;
 		}
 
+		CancelEntrance();
 		RestorePlayerControls();
 		ReleaseCamera();
 		waitForRotationInputRelease = false;
@@ -303,6 +345,7 @@ public sealed class PliersMinigameController : Component
 		TestControlsEnabled = false;
 		testWasEnabled = false;
 		waitForRotationInputRelease = false;
+		CancelEntrance();
 		ReleaseCamera();
 		EnsureDialogueHud();
 
@@ -312,6 +355,120 @@ public sealed class PliersMinigameController : Component
 		MarieMovementController?.FaceYaw( FlashbangMarieYaw );
 		MarieMovementController?.SetLying( true );
 		Sound.Play( ElectricShockSound );
+	}
+
+	private void BeginEntrance()
+	{
+		CancelEntrance();
+
+		if ( Scene.Camera is null || CameraAnchor is null )
+		{
+			Log.Warning( $"[Pliers Minigame] '{GameObject.Name}' cannot animate its entrance without a camera and camera anchor." );
+			ActivateMinigameView();
+			return;
+		}
+		if ( EntranceTarget is null )
+		{
+			Log.Warning( $"[Pliers Minigame] '{GameObject.Name}' cannot animate its entrance without a repair-box entrance target." );
+			BlackoutOverlayOpacity = 1f;
+			ActivateMinigameView();
+			return;
+		}
+
+		AcquireCamera();
+		entranceCameraStartPosition = Scene.Camera.WorldPosition;
+		entranceCameraStartRotation = Scene.Camera.WorldRotation;
+		entranceTime = 0f;
+		BlackoutOverlayOpacity = 0f;
+		entrancePhase = EntrancePhase.Fly;
+	}
+
+	private void UpdateEntrance( float deltaTime )
+	{
+		if ( entrancePhase == EntrancePhase.None )
+			return;
+
+		entranceTime += deltaTime;
+
+		if ( entrancePhase == EntrancePhase.Fly )
+		{
+			UpdateEntranceFlight();
+			return;
+		}
+
+		if ( entrancePhase == EntrancePhase.Reveal )
+		{
+			var revealDuration = System.MathF.Max( EntranceRevealDuration, 0f );
+			BlackoutOverlayOpacity = revealDuration <= 0f
+				? 0f
+				: (1f - entranceTime / revealDuration).Clamp( 0f, 1f );
+
+			if ( entranceTime >= revealDuration )
+				entrancePhase = EntrancePhase.Active;
+		}
+
+		if ( entranceTime >= System.MathF.Max( EntranceFlashlightDelay, 0f ) )
+			SetFlashlightEnabled( true );
+	}
+
+	private void UpdateEntranceFlight()
+	{
+		if ( Scene.Camera is null || EntranceTarget is null )
+		{
+			BlackoutOverlayOpacity = 1f;
+			ActivateMinigameView();
+			return;
+		}
+
+		var flyDuration = System.MathF.Max( EntranceFlyDuration, 0f );
+		var flightProgress = flyDuration <= 0f
+			? 1f
+			: (entranceTime / flyDuration).Clamp( 0f, 1f );
+		var easedProgress = flightProgress * flightProgress * (3f - 2f * flightProgress);
+		Scene.Camera.WorldPosition = Vector3.Lerp(
+			entranceCameraStartPosition,
+			EntranceTarget.WorldPosition,
+			easedProgress
+		);
+		Scene.Camera.WorldRotation = entranceCameraStartRotation;
+
+		var fullBlackTime = System.MathF.Max(
+			flyDuration - System.MathF.Max( EntranceBlackoutLeadTime, 0f ),
+			0f
+		);
+		var fadeDuration = System.MathF.Min(
+			System.MathF.Max( EntranceBlackoutFadeInDuration, 0f ),
+			fullBlackTime
+		);
+		var fadeStartTime = fullBlackTime - fadeDuration;
+		BlackoutOverlayOpacity = fadeDuration <= 0f
+			? (entranceTime >= fullBlackTime ? 1f : 0f)
+			: ((entranceTime - fadeStartTime) / fadeDuration).Clamp( 0f, 1f );
+
+		if ( entranceTime >= flyDuration )
+			ActivateMinigameView();
+	}
+
+	private void ActivateMinigameView()
+	{
+		SetupCamera();
+		entrancePhase = EntrancePhase.Reveal;
+		entranceTime = 0f;
+		BlackoutOverlayOpacity = 1f;
+	}
+
+	private void CancelEntrance()
+	{
+		entrancePhase = EntrancePhase.None;
+		entranceTime = 0f;
+		BlackoutOverlayOpacity = 0f;
+		SetFlashlightEnabled( false );
+	}
+
+	private void SetFlashlightEnabled( bool enabled )
+	{
+		if ( Flashlight is not null )
+			Flashlight.Enabled = enabled;
 	}
 
 	private void UpdateFlashbang( float deltaTime )
@@ -461,7 +618,7 @@ public sealed class PliersMinigameController : Component
 		float tremorMultiplier,
 		Collider dangerCollider = null )
 	{
-		if ( !TestControlsEnabled || !poseInitialized )
+		if ( !IsMinigameActive || !poseInitialized )
 			return;
 
 		var currentPosition = authoredPosition
@@ -1033,17 +1190,52 @@ public sealed class PliersMinigameController : Component
 
 	private void SetupCamera()
 	{
-		PlayerController.GetComponent<CameraController>( includeDisabled: true ).Enabled = false;
+		if ( Scene.Camera is null || CameraAnchor is null )
+			return;
+
+		AcquireCamera();
+
 		Scene.Camera.WorldPosition = CameraAnchor.WorldPosition;
 		Scene.Camera.WorldRotation = CameraAnchor.WorldRotation;
 		Scene.Camera.Orthographic = true;
 		Scene.Camera.OrthographicHeight = 128;
 	}
 
+	private void AcquireCamera()
+	{
+		if ( cameraOwned )
+			return;
+
+		cameraOwned = true;
+		ownedCameraController = PlayerController?.GetComponent<CameraController>( includeDisabled: true );
+		if ( ownedCameraController is not null )
+		{
+			previousCameraControllerEnabled = ownedCameraController.Enabled;
+			ownedCameraController.Enabled = false;
+		}
+
+		if ( Scene.Camera is not null )
+		{
+			previousCameraOrthographic = Scene.Camera.Orthographic;
+			previousCameraOrthographicHeight = Scene.Camera.OrthographicHeight;
+		}
+	}
+
 	private void ReleaseCamera()
 	{
-		PlayerController.GetComponent<CameraController>( includeDisabled: true ).Enabled = true;
-		Scene.Camera.Orthographic = false;
+		if ( !cameraOwned )
+			return;
+
+		cameraOwned = false;
+		if ( ownedCameraController is not null )
+			ownedCameraController.Enabled = previousCameraControllerEnabled;
+		ownedCameraController = null;
+
+		if ( Scene.Camera is not null )
+		{
+			Scene.Camera.Orthographic = previousCameraOrthographic;
+			Scene.Camera.OrthographicHeight = previousCameraOrthographicHeight;
+		}
 	}
 
 	private void SuppressPlayerControls()
@@ -1190,6 +1382,14 @@ public sealed class PliersMinigameController : Component
 		EngageButton,
 		FinalCheck,
 		RetryButton
+	}
+
+	private enum EntrancePhase
+	{
+		None,
+		Fly,
+		Reveal,
+		Active
 	}
 
 	private enum FlashbangPhase
