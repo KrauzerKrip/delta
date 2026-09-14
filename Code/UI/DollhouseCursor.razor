@@ -8,6 +8,16 @@
 		<div class="target-ring"></div>
 		<div class="target-dot"></div>
 		<div class="direction-tick"></div>
+		@if ( showUseGlyph )
+		{
+			<div class="use-prompt">
+				<div class="hold-progress" style="@HoldProgressStyle">
+					<div class="glyph-background">
+						<Image Texture="@Input.GetGlyph( Interaction.UseButton, InputGlyphSize.Medium, GlyphStyle.Light )" />
+					</div>
+				</div>
+			</div>
+		}
 	</div>
 </root>
 
@@ -16,12 +26,22 @@
 	private Vector2 cursorPosition;
 	private bool pressed;
 	private bool isInRange;
+	private bool showUseGlyph;
+	private float holdProgress;
 
 	public InteractionController Interaction { get; set; }
 
 	private string CursorStyle =>
 		$"left: {cursorPosition.x}px; top: {cursorPosition.y}px;";
 	private string RangeClass => isInRange ? "in-range" : "out-of-range";
+	private string HoldProgressStyle
+	{
+		get
+		{
+			var percent = holdProgress * 100f;
+			return $"background-image: conic-gradient( #7ecae2 0%, #7ecae2 {percent}%, rgba(126, 202, 226, 0.18) {percent}%, rgba(126, 202, 226, 0.18) 100% );";
+		}
+	}
 
 	protected override void OnStart()
 	{
@@ -33,26 +53,10 @@
 		if ( Panel is not null )
 			cursorPosition = Panel.MousePosition * Panel.ScaleFromScreen;
 
-		pressed = Input.Down( "Attack1" );
-		isInRange = IsCursorInInteractionRange();
-	}
-
-	private bool IsCursorInInteractionRange()
-	{
-		if ( Interaction is null || Scene.Camera is null )
-			return false;
-
-		var cursorRay = Scene.Camera.ScreenPixelToRay( Mouse.Position );
-		var trace = Scene.Trace
-			.Ray( cursorRay, 100000f )
-			.IgnoreGameObjectHierarchy( Interaction.GameObject )
-			.Run();
-
-		if ( !trace.Hit )
-			return false;
-
-		var distanceFromPlayer = (trace.HitPosition - Interaction.WorldPosition).Length;
-		return distanceFromPlayer <= Interaction.InteractionDistance;
+		pressed = Input.Down( Interaction?.UseButton ?? "use" );
+		isInRange = Interaction?.CursorPressableIsInRange == true;
+		showUseGlyph = Interaction?.ShouldShowUseGlyph == true;
+		holdProgress = Interaction?.HoldProgress ?? 0f;
 	}
 
 	protected override void OnDisabled()
@@ -60,5 +64,12 @@
 		Mouse.Visibility = MouseVisibility.Auto;
 	}
 
-	protected override int BuildHash() => System.HashCode.Combine( cursorPosition, pressed, isInRange );
+	protected override int BuildHash() => System.HashCode.Combine(
+		cursorPosition,
+		pressed,
+		isInRange,
+		showUseGlyph,
+		holdProgress,
+		Interaction?.UseButton
+	);
 }

@@ -246,6 +246,16 @@ public sealed class PliersMinigameController : Component
 		dialogueState = MinigameDialogueState.RetryButton;
 	}
 
+	public void Enable()
+	{
+		TestControlsEnabled = true;
+	}
+
+	public void Disable()
+	{
+		TestControlsEnabled = false;
+	}
+
 	private void SynchronizeTestState()
 	{
 		if ( TestControlsEnabled == testWasEnabled )

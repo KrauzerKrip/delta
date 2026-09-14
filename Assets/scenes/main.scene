@@ -184,13 +184,23 @@
           "__guid": "74bbdd11-52e4-4bb6-a635-cd7f2f724709",
           "__enabled": true,
           "Flags": 0,
+          "HoveredOutlineColor": "0.494,0.792,0.886,0.85",
+          "HoveredOutlineWidth": 0.5,
+          "InRangeOutlineColor": "0.494,0.792,0.886,0.5",
+          "InRangeOutlineWidth": 0.25,
+          "InsideObscuredOutlineColor": "0,0,0,0",
+          "InsideOutlineColor": "0,0,0,0",
           "InteractionDistance": 256,
+          "ObscuredOutlineColor": "0,0,0,0",
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
           "OnComponentFixedUpdate": null,
           "OnComponentStart": null,
-          "OnComponentUpdate": null
+          "OnComponentUpdate": null,
+          "OutlineTransitionSpeed": 12,
+          "OutOfRangeOutlineColor": "0.494,0.792,0.886,0.08",
+          "OutOfRangeOutlineWidth": 0
         },
         {
           "__type": "Sandbox.PlayerController",
@@ -7706,7 +7716,7 @@
               "Rotation": "0,0,0,1",
               "Scale": "1,1,1",
               "Tags": "world",
-              "Enabled": true,
+              "Enabled": false,
               "NetworkMode": 2,
               "NetworkFlags": 0,
               "NetworkOrphaned": 0,
@@ -7718,7 +7728,7 @@
                   "__guid": "aa0a86ee-66c1-4c19-9cf2-c7e7db0ea666",
                   "__enabled": true,
                   "Flags": 0,
-                  "ColliderFlags": 0,
+                  "ColliderFlags": "IgnoreMass",
                   "Collision": "Mesh",
                   "Color": "1,1,1,1",
                   "Elasticity": null,
@@ -8099,6 +8109,157 @@
                 }
               ],
               "Children": []
+            },
+            {
+              "__guid": "ef448f99-0419-4da4-8de7-1c20cb54160a",
+              "__version": 2,
+              "Flags": 0,
+              "Name": "Button",
+              "Position": "-15.3527374,0,0",
+              "Rotation": "0,0,0,1",
+              "Scale": "1,1,1",
+              "Tags": "",
+              "Enabled": true,
+              "NetworkMode": 2,
+              "NetworkFlags": 0,
+              "NetworkOrphaned": 0,
+              "NetworkTransmit": true,
+              "OwnerTransfer": 1,
+              "Components": [
+                {
+                  "__type": "HoldPressable",
+                  "__guid": "1a897c66-c38f-4aba-9a00-73ba5c4efe09",
+                  "__enabled": true,
+                  "Flags": 0,
+                  "HoldDuration": 3,
+                  "OnCompleted": {
+                    "body": [
+                      {
+                        "$type": "ivk",
+                        "InvokeType": "Member",
+                        "TargetComponent": {
+                          "t": "Direct",
+                          "cv": {
+                            "_type": "component",
+                            "component_id": "f861159d-dcf3-44b9-9543-4c63a5b5067d",
+                            "go": "80e30912-0ccb-40e2-892b-569f0504f33f",
+                            "component_type": "PliersMinigameController"
+                          }
+                        },
+                        "Member": "PliersMinigameController.Enable",
+                        "Arguments": [],
+                        "ReturnVariable": null
+                      }
+                    ]
+                  },
+                  "OnComponentDestroy": null,
+                  "OnComponentDisabled": null,
+                  "OnComponentEnabled": null,
+                  "OnComponentFixedUpdate": null,
+                  "OnComponentStart": null,
+                  "OnComponentUpdate": null,
+                  "OneShot": true
+                },
+                {
+                  "__type": "PressablePresentation",
+                  "__guid": "7179e186-76d9-4e23-af0c-42b53c142101",
+                  "__enabled": true,
+                  "Flags": 0,
+                  "OnComponentDestroy": null,
+                  "OnComponentDisabled": null,
+                  "OnComponentEnabled": null,
+                  "OnComponentFixedUpdate": null,
+                  "OnComponentStart": null,
+                  "OnComponentUpdate": null,
+                  "OutlineTargets": [
+                    {
+                      "_type": "component",
+                      "component_id": "84414b20-0c35-4aa5-91c7-4ed0b13fd025",
+                      "go": "8afc559e-36d0-4e21-8827-5eb9f26442d3",
+                      "component_type": "ModelRenderer"
+                    }
+                  ],
+                  "Pressable": {
+                    "_type": "component",
+                    "component_id": "1a897c66-c38f-4aba-9a00-73ba5c4efe09",
+                    "go": "ef448f99-0419-4da4-8de7-1c20cb54160a",
+                    "component_type": "HoldPressable"
+                  }
+                },
+                {
+                  "__type": "Sandbox.BoxCollider",
+                  "__guid": "7113e099-56a3-4d99-a55c-745c831bdc95",
+                  "__enabled": true,
+                  "Flags": 0,
+                  "Center": "9.29090786,1.31024361,-0.279029846",
+                  "ColliderFlags": 0,
+                  "Elasticity": null,
+                  "Friction": null,
+                  "IsTrigger": false,
+                  "OnComponentDestroy": null,
+                  "OnComponentDisabled": null,
+                  "OnComponentEnabled": null,
+                  "OnComponentFixedUpdate": null,
+                  "OnComponentStart": null,
+                  "OnComponentUpdate": null,
+                  "OnObjectTriggerEnter": null,
+                  "OnObjectTriggerExit": null,
+                  "OnTriggerEnter": null,
+                  "OnTriggerExit": null,
+                  "RollingResistance": null,
+                  "Scale": "31.4181824,31.8657265,39.4871597",
+                  "Static": false,
+                  "Surface": null,
+                  "SurfaceVelocity": "0,0,0"
+                }
+              ],
+              "Children": []
+            },
+            {
+              "__guid": "8afc559e-36d0-4e21-8827-5eb9f26442d3",
+              "__version": 2,
+              "Flags": 0,
+              "Name": "Model",
+              "Position": "0,0,-24.8365784",
+              "Rotation": "0,0,0,1",
+              "Scale": "1,1,1",
+              "Tags": "",
+              "Enabled": true,
+              "NetworkMode": 2,
+              "NetworkFlags": 0,
+              "NetworkOrphaned": 0,
+              "NetworkTransmit": true,
+              "OwnerTransfer": 1,
+              "Components": [
+                {
+                  "__type": "Sandbox.ModelRenderer",
+                  "__guid": "84414b20-0c35-4aa5-91c7-4ed0b13fd025",
+                  "__enabled": true,
+                  "Flags": 0,
+                  "BodyGroups": 18446744073709551615,
+                  "CreateAttachments": false,
+                  "LodOverride": null,
+                  "MaterialGroup": null,
+                  "MaterialOverride": null,
+                  "Materials": null,
+                  "Model": "models/props/electrical/enclosures/old/electric_enclosure_old_short_01.vmdl",
+                  "OnComponentDestroy": null,
+                  "OnComponentDisabled": null,
+                  "OnComponentEnabled": null,
+                  "OnComponentFixedUpdate": null,
+                  "OnComponentStart": null,
+                  "OnComponentUpdate": null,
+                  "RenderOptions": {
+                    "GameLayer": true,
+                    "OverlayLayer": false,
+                    "BloomLayer": false,
+                    "AfterUILayer": false
+                  },
+                  "RenderType": "On",
+                  "Tint": "1,1,1,1"
+                }
+              ],
+              "Children": []
             }
           ]
         }
@@ -8109,7 +8270,7 @@
       "__version": 2,
       "Flags": 0,
       "Name": "Minigames",
-      "Position": "-5,-2692.08228,368",
+      "Position": "425.055908,-2469.09033,368",
       "Rotation": "0,0,0,1",
       "Scale": "1,1,1",
       "Tags": "",
@@ -8158,6 +8319,7 @@
               },
               "FlashbangFadeDuration": 7,
               "FlashbangHoldDuration": 7,
+              "FlashbangMarieYaw": 90,
               "HeldBreathTremorMultiplier": 0.12,
               "LeanDamping": 6,
               "LeanSpring": 32,
@@ -8203,7 +8365,7 @@
               "ReturnRotationSpeed": 240,
               "RotationAcceleration": 360,
               "RotationReleaseDamping": 4,
-              "TestControlsEnabled": true,
+              "TestControlsEnabled": false,
               "TremorFrequency": 1.7,
               "TremorPositionAmplitude": 0.75,
               "TremorRotationAmplitude": 0.8,
@@ -11097,6 +11259,7 @@
     "facepunch.cablefloor02#90732",
     "facepunch.electricalindustrialpanel2#308568",
     "facepunch.electricenclosureolddoubleinterior#279484",
+    "facepunch.electricenclosureoldshort01#279485",
     "facepunch.glass_a#293147",
     "facepunch.metal_painted_red_b_hs#291767",
     "facepunch.metal_trim_galvanized#274131",

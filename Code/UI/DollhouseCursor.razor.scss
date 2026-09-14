@@ -56,6 +56,43 @@ DollhouseCursor
 			background-color: #7ecae2;
 		}
 
+		.use-prompt
+		{
+			position: absolute;
+			left: 46px;
+			top: -6px;
+			width: 54px;
+			height: 54px;
+			padding: 3px;
+			border-radius: 50%;
+			background-color: rgba( 10, 16, 22, 0.92 );
+			box-shadow: 0 5px 18px rgba( 0, 0, 0, 0.45 );
+		}
+
+		.hold-progress
+		{
+			width: 48px;
+			height: 48px;
+			padding: 4px;
+			border-radius: 50%;
+		}
+
+		.glyph-background
+		{
+			width: 40px;
+			height: 40px;
+			align-items: center;
+			justify-content: center;
+			border-radius: 50%;
+			background-color: rgba( 10, 16, 22, 0.98 );
+
+			Image
+			{
+				width: 30px;
+				height: 30px;
+			}
+		}
+
 		&.out-of-range
 		{
 			.target-ring
