@@ -17,7 +17,7 @@ public sealed class MatiasDialogue : NpcDialogue
 
 	protected override void OnDialogueCompleted( PlayerInventory inventory )
 	{
-		inventory.GiveItem<KeyCard>( card => card.AccessLevel = AccessLevel.Level1, slot: 0 );
+		inventory.GiveItem<KeyCard>( card => card.AccessLevel = AccessLevel.Maintenance, slot: 0 );
 		inventory.GiveItem<WorkOrder>( slot: 1 );
 	}
 }

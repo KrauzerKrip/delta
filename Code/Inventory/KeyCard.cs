@@ -4,7 +4,7 @@ namespace Sandbox;
 public enum AccessLevel
 {
 	None,
-	Level1,
+	Maintenance,
 	Level2,
 	Level3
 }

@@ -10,7 +10,7 @@ public sealed class CardReader : Component, Component.ITriggerListener
 	public Door Door { get; set; }
 
 	[Property]
-	public AccessLevel RequiredAccessLevel { get; set; } = AccessLevel.Level1;
+	public AccessLevel RequiredAccessLevel { get; set; } = AccessLevel.Maintenance;
 
 	[Property, Range( 0.1f, 60f )]
 	public float AutoCloseDelay { get; set; } = 5f;
