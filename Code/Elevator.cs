@@ -91,6 +91,9 @@ public sealed class Elevator : Component
 		if ( initialized )
 			return;
 
+		// needed to make enclosure colliders appear
+		GetComponent<Rigidbody>(includeDisabled: true).Enabled = false;
+
 		initialized = true;
 		endpointsReady = PointA.IsValid() && PointB.IsValid();
 		if ( !endpointsReady )
@@ -101,6 +104,9 @@ public sealed class Elevator : Component
 
 		positionA = PointA.WorldPosition;
 		positionB = PointB.WorldPosition;
+
+		// needed to make enclosure colliders appear
+		GetComponent<Rigidbody>( includeDisabled: true ).Enabled = true;
 	}
 
 	private bool ValidateEndpoints()
