@@ -6,6 +6,7 @@
 .vs/*
 .vscode/*
 *.csproj
+!UnitTests/TunnelTransitions.Tests.csproj
 obj
 bin
 Properties/*

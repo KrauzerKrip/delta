@@ -35,6 +35,45 @@ public sealed class CameraZone : Component, Component.ITriggerListener
 	public Vector3 DeadZoneSize { get; set; } = new Vector3( 0f, 128f, 96f );
 
 	private readonly Dictionary<Collider, CameraController> contacts = new();
+	private readonly HashSet<CameraController> seededDirectors = new();
+	private readonly HashSet<CameraController> departedDirectors = new();
+
+	internal bool ContainsPosition( Vector3 position ) => Active && GetComponents<BoxCollider>()
+		.Any( box => box.Active && box.IsTrigger && box.LocalBounds.Contains( box.WorldTransform.PointToLocal( position ) ) );
+
+	internal void ReconcileAfterTransfer( CameraController director )
+	{
+		var departed = contacts.Values.Contains( director ) || seededDirectors.Contains( director );
+		foreach ( var contact in contacts.Where( x => x.Value == director ).ToArray() )
+			contacts.Remove( contact.Key );
+		seededDirectors.Remove( director );
+		if ( departed )
+			departedDirectors.Add( director );
+		if ( ContainsPosition( director.Controller.WorldPosition ) )
+		{
+			departedDirectors.Remove( director );
+			seededDirectors.Add( director );
+			director.EnterZone( this );
+		}
+	}
+
+	protected override void OnFixedUpdate()
+	{
+		foreach ( var director in seededDirectors.ToArray() )
+		{
+			if ( !director.IsValid() )
+			{
+				seededDirectors.Remove( director );
+				continue;
+			}
+			if ( !ContainsPosition( director.Controller.WorldPosition ) )
+			{
+				seededDirectors.Remove( director );
+				if ( !contacts.Values.Contains( director ) )
+					director.ExitZone( this );
+			}
+		}
+	}
 
 	/// <summary>
 	/// Returns the authored anchor position with optional, bounded player following.
@@ -71,8 +110,17 @@ public sealed class CameraZone : Component, Component.ITriggerListener
 		if ( director is null || director.GameObject.IsProxy )
 			return;
 
-		var wasOutside = !contacts.Values.Contains( director );
+		// Only a player that just teleported needs protection from stale source callbacks.
+		// Ordinary camera zones trust the engine's trigger events as before.
+		if ( departedDirectors.Contains( director ) )
+		{
+			if ( !ContainsPosition( director.Controller.WorldPosition ) )
+				return;
+			departedDirectors.Remove( director );
+		}
+		var wasOutside = !contacts.Values.Contains( director ) && !seededDirectors.Contains( director );
 		contacts.Add( other, director );
+		seededDirectors.Remove( director );
 
 		if ( wasOutside )
 			director.EnterZone( this );
@@ -83,16 +131,18 @@ public sealed class CameraZone : Component, Component.ITriggerListener
 		if ( !contacts.Remove( other, out var director ) )
 			return;
 
-		if ( !contacts.Values.Contains( director ) )
+		if ( !contacts.Values.Contains( director ) && !seededDirectors.Contains( director ) )
 			director.ExitZone( this );
 	}
 
 	protected override void OnDisabled()
 	{
-		foreach ( var director in contacts.Values.Distinct().ToArray() )
+		foreach ( var director in contacts.Values.Concat( seededDirectors ).Distinct().ToArray() )
 			director?.ExitZone( this );
 
 		contacts.Clear();
+		seededDirectors.Clear();
+		departedDirectors.Clear();
 	}
 
 	private static float ClampFollow( float value, float limit )
