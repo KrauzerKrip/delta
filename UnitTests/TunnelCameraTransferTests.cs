@@ -39,6 +39,39 @@ public sealed class TunnelCameraTransferTests
 	}
 
 	[TestMethod]
+	public void ReversingInsideArrivalTriggerAllowsReturnTrip()
+	{
+		var state = new TunnelCameraTransferState();
+		state.MarkArrival();
+		Assert.IsFalse( state.CanTransfer( true, true, reversing: false ) );
+		Assert.IsTrue( state.CanTransfer( true, true, reversing: true ) );
+	}
+
+	[TestMethod]
+	public void ArmedAttemptSurvivesLeavingTriggerAndCameraZone()
+	{
+		Assert.IsTrue( TunnelCameraTransferState.ShouldKeepAttempt(
+			playerValid: true, isProxy: false, insideTrigger: false,
+			arrivalBlocked: false, insideCloseCameraZone: false ) );
+	}
+
+	[TestMethod]
+	public void ArrivalBlockEndsWhenDestinationTriggerIsLeft()
+	{
+		Assert.IsFalse( TunnelCameraTransferState.ShouldKeepAttempt(
+			playerValid: true, isProxy: false, insideTrigger: false,
+			arrivalBlocked: true, insideCloseCameraZone: true ) );
+	}
+
+	[TestMethod]
+	public void InvalidPlayerCancelsCommittedAttempt()
+	{
+		Assert.IsFalse( TunnelCameraTransferState.ShouldKeepAttempt(
+			playerValid: false, isProxy: false, insideTrigger: false,
+			arrivalBlocked: false, insideCloseCameraZone: false ) );
+	}
+
+	[TestMethod]
 	public void FollowingLagDoesNotBlockFixedTunnelShot()
 	{
 		Assert.IsTrue( TunnelCameraTransferState.IsShotSettled( 3f, 100f, 50f,

@@ -20,47 +20,73 @@ public sealed class TunnelTransition : Component
 	public CameraZone CloseCameraZone { get; set; }
 
 	private readonly Dictionary<PlayerController, TunnelCameraTransferState> arrivals = new();
+	private readonly Dictionary<PlayerController, Vector3> arrivalDirections = new();
+	private readonly Dictionary<PlayerController, Vector3> approachDirections = new();
 	private string lastWarning;
 
 	protected override void OnFixedUpdate()
 	{
 		if ( !ValidatePair() )
 		{
-			arrivals.Clear();
+			ClearAttempts();
 			return;
 		}
 
-		foreach ( var player in arrivals.Keys.ToArray() )
-			if ( !player.IsValid() || player.GameObject.IsProxy || !Contains( player.WorldPosition ) )
+		foreach ( var pair in arrivals.ToArray() )
+		{
+			var player = pair.Key;
+			var state = pair.Value;
+			var playerValid = player.IsValid();
+			var validPendingArea = TunnelCameraTransferState.ShouldKeepAttempt(
+				playerValid, playerValid && player.GameObject.IsProxy,
+				playerValid && Contains( player.WorldPosition ), state.IsArrivalBlocked,
+				playerValid && CloseCameraZone.ContainsPosition( player.WorldPosition ) );
+			if ( !validPendingArea )
+			{
 				arrivals.Remove( player );
+				arrivalDirections.Remove( player );
+				approachDirections.Remove( player );
+			}
+		}
 
 		foreach ( var player in Scene.GetAllComponents<PlayerController>().ToArray() )
 		{
-			if ( !player.Active || player.GameObject.IsProxy || !Contains( player.WorldPosition ) )
+			if ( !player.Active || player.GameObject.IsProxy )
 				continue;
+			var insideTrigger = Contains( player.WorldPosition );
 			if ( !arrivals.TryGetValue( player, out var arrival ) )
+			{
+				if ( !insideTrigger )
+					continue;
 				arrivals[player] = arrival = new TunnelCameraTransferState();
+			}
+			var eligible = insideTrigger ||
+				!arrival.IsArrivalBlocked;
+			if ( !eligible )
+				continue;
+			var currentDirection = GetTravelDirection( player );
+			if ( !arrivalDirections.ContainsKey( player ) && currentDirection.LengthSquared > 0f )
+				approachDirections[player] = currentDirection;
 			var director = player.Components.Get<CameraController>();
 			if ( !director.IsValid() || !director.Active )
 			{
 				Warn( "The player requires an active CameraController." );
 				continue;
 			}
-			if ( !arrival.CanTransfer( true, director.IsZoneSettled( CloseCameraZone, CameraPositionTolerance ) ) )
+			if ( !arrival.IsArrivalBlocked )
+				director.PinZone( CloseCameraZone );
+			var reversing = arrivalDirections.TryGetValue( player, out var arrivalDirection ) &&
+				IsReversing( player, arrivalDirection );
+			if ( !arrival.CanTransfer( eligible,
+				director.IsZoneSettled( CloseCameraZone, CameraPositionTolerance ), reversing ) )
 				continue;
+			arrivalDirections.Remove( player );
+			var travelDirection = currentDirection.LengthSquared > 0f
+				? currentDirection
+				: approachDirections.GetValueOrDefault( player );
+			approachDirections.Remove( player );
 			var translation = PairedTransition.SeamAnchor.WorldPosition - SeamAnchor.WorldPosition;
 			var destination = player.WorldPosition + translation;
-			if ( !PairedTransition.Contains( destination ) )
-			{
-				Warn( "The corresponding position is outside the destination trigger. Match the trigger volumes around the seams." );
-				continue;
-			}
-			if ( !PairedTransition.CloseCameraZone.ContainsPosition( destination ) )
-			{
-				Warn( "The destination close camera zone must cover the player's corresponding position at the seam." );
-				continue;
-			}
-
 			player.WorldPosition = destination;
 			// Teleports must discard the previous physics/render transform history.
 			// Otherwise the rendered player travels back through the old tunnel.
@@ -69,8 +95,22 @@ public sealed class TunnelTransition : Component
 			var destinationArrival = new TunnelCameraTransferState();
 			destinationArrival.MarkArrival();
 			PairedTransition.arrivals[player] = destinationArrival;
+			if ( travelDirection.LengthSquared > 0f )
+				PairedTransition.arrivalDirections[player] = travelDirection;
 			director.TransferToTunnel( translation, PairedTransition.CloseCameraZone );
 		}
+	}
+
+	private static Vector3 GetTravelDirection( PlayerController player )
+	{
+		var velocity = player.WishVelocity.LengthSquared > 1f ? player.WishVelocity : player.Velocity;
+		return velocity.LengthSquared > 1f ? velocity.Normal : Vector3.Zero;
+	}
+
+	private static bool IsReversing( PlayerController player, Vector3 arrivalDirection )
+	{
+		var direction = GetTravelDirection( player );
+		return direction.LengthSquared > 0f && Vector3.Dot( direction, arrivalDirection ) < -0.5f;
 	}
 
 	private bool Contains( Vector3 position ) => Trigger.IsValid() && Trigger.Active && Trigger.IsTrigger &&
@@ -110,5 +150,14 @@ public sealed class TunnelTransition : Component
 		Log.Warning( $"[TunnelTransition] '{GameObject.Name}': {message}" );
 	}
 
-	protected override void OnDisabled() => arrivals.Clear();
+	private void ClearAttempts()
+	{
+		foreach ( var player in arrivals.Keys.ToArray() )
+			player?.Components.Get<CameraController>()?.UnpinZone( CloseCameraZone );
+		arrivals.Clear();
+		arrivalDirections.Clear();
+		approachDirections.Clear();
+	}
+
+	protected override void OnDisabled() => ClearAttempts();
 }

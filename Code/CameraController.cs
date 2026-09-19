@@ -26,6 +26,7 @@ public sealed class CameraController : Component
 	public Vector3 DeadZoneSize { get; set; } = new Vector3( 0f, 128f, 96f );
 
 	private readonly Dictionary<CameraZone, long> activeZones = new();
+	private readonly HashSet<CameraZone> pinnedZones = new();
 	private long enterSequence;
 	private CameraZone currentZone;
 	private Vector3 zoneFocusPosition;
@@ -150,13 +151,35 @@ public sealed class CameraController : Component
 		zoneFocusPosition = focusInitialized ? zoneFocusPosition + translation : Controller.WorldPosition;
 		focusInitialized = true;
 		lastTargetPosition += translation;
+		pinnedZones.Clear();
 		activeZones.Clear();
 		foreach ( var zone in Scene.GetAllComponents<CameraZone>().ToArray() )
 			zone.ReconcileAfterTransfer( this );
 
-		// Enter last to win equal-priority overlaps without resetting the translated focus.
-		EnterZone( destinationZone );
-		currentZone = destinationZone;
+		// Keep the matching close shot only when the translated player still occupies
+		// it. Otherwise use the destination's actual wider/default shot immediately.
+		if ( destinationZone.IsValid() && destinationZone.ContainsPosition( Controller.WorldPosition ) )
+		{
+			EnterZone( destinationZone );
+			currentZone = destinationZone;
+		}
+		else
+		{
+			currentZone = SelectZone();
+		}
+	}
+
+	internal void PinZone( CameraZone zone )
+	{
+		if ( zone.IsValid() && pinnedZones.Add( zone ) )
+			EnterZone( zone );
+	}
+
+	internal void UnpinZone( CameraZone zone )
+	{
+		if ( !zone.IsValid() || !pinnedZones.Remove( zone ) )
+			return;
+		activeZones.Remove( zone );
 	}
 
 	internal void EnterZone( CameraZone zone )
@@ -170,6 +193,8 @@ public sealed class CameraController : Component
 	internal void ExitZone( CameraZone zone )
 	{
 		if ( zone is null )
+			return;
+		if ( pinnedZones.Contains( zone ) )
 			return;
 
 		activeZones.Remove( zone );
