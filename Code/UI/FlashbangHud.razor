@@ -5,14 +5,19 @@
 
 <root>
 	<div class="blackout" style="opacity: @(Minigame?.BlackoutOverlayOpacity ?? 0f)"></div>
-	<div class="flashbang" style="opacity: @(Minigame?.FlashbangOverlayOpacity ?? 0f)"></div>
+	<div class="flashbang" style="opacity: @FlashbangOpacity"></div>
 </root>
 
 @code
 {
 	public PliersMinigameController Minigame { get; set; }
+	public RunResetTransition ResetTransition { get; set; }
+
+	private float FlashbangOpacity => ResetTransition?.OverlayOpacity
+		?? Minigame?.FlashbangOverlayOpacity
+		?? 0f;
 
 	protected override int BuildHash() => System.HashCode.Combine(
 		Minigame?.BlackoutOverlayOpacity,
-		Minigame?.FlashbangOverlayOpacity );
+		FlashbangOpacity );
 }

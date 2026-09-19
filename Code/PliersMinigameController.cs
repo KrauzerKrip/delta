@@ -41,6 +41,12 @@ public sealed class PliersMinigameController : Component
 	[Property, Group( "Setup" )]
 	public MarieMovementController MarieMovementController { get; set; }
 
+	[Property, Group( "Setup" )]
+	public RunTimeline RunTimeline { get; set; }
+
+	[Property, Group( "Setup" )]
+	public HeroineDeathController HeroineDeathController { get; set; }
+
 	[Property, Group( "Movement" ), Range( 1f, 500f )]
 	public float MaximumSpeed { get; set; } = 110f;
 
@@ -213,6 +219,7 @@ public sealed class PliersMinigameController : Component
 	protected override void OnStart()
 	{
 		SetFlashlightEnabled( false );
+		ResolveHeroineDeathController();
 
 		if ( Pliers is null )
 		{
@@ -355,6 +362,22 @@ public sealed class PliersMinigameController : Component
 		MarieMovementController?.FaceYaw( FlashbangMarieYaw );
 		MarieMovementController?.SetLying( true );
 		Sound.Play( ElectricShockSound );
+
+		ResolveHeroineDeathController();
+		if ( HeroineDeathController is null )
+		{
+			Log.Warning( "[Pliers Minigame] Electrocution could not grant infinite lives because no heroine death controller was found." );
+			return;
+		}
+
+		HeroineDeathController.AcquireInfiniteLives();
+	}
+
+	private void ResolveHeroineDeathController()
+	{
+		HeroineDeathController ??= PlayerController?.Components.Get<HeroineDeathController>()
+			?? Scene.GetAllComponents<HeroineDeathController>()
+				.FirstOrDefault( controller => !controller.GameObject.IsProxy );
 	}
 
 	private void BeginEntrance()

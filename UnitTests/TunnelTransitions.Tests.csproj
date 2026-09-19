@@ -13,5 +13,6 @@
     <PackageReference Include="MSTest.TestAdapter" Version="3.6.4" />
     <PackageReference Include="MSTest.TestFramework" Version="3.6.4" />
     <Compile Include="../Code/TunnelCameraTransferState.cs" Link="TunnelCameraTransferState.cs" />
+	<Compile Include="../Code/RunTimelineState.cs" Link="RunTimelineState.cs" />
   </ItemGroup>
 </Project>
