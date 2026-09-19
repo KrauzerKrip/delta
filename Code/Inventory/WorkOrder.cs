@@ -1,7 +1,7 @@
 namespace Sandbox;
 
 /// <summary>A work order with no gameplay behavior yet.</summary>
-public sealed class WorkOrder : BaseInventoryItem
+public sealed class WorkOrder : InteractableInventoryItem
 {
 	public WorkOrder()
 	{

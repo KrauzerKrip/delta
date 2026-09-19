@@ -55,14 +55,24 @@ public sealed class PlayerInventory : BaseInventoryComponent
 		return null;
 	}
 
-	/// <summary>Formats engine inventory items for the project's inventory HUD.</summary>
-	public string GetHudDisplayName( BaseInventoryItem item ) => item switch
+	/// <summary>Returns whether a world item can currently be picked up through interaction.</summary>
+	public bool CanInteractivelyPickup( BaseInventoryItem item )
 	{
-		KeyCard { AccessLevel: not AccessLevel.None } card =>
-			$"{card.DisplayName} — Level {(int)card.AccessLevel}",
-		null => string.Empty,
-		_ => item.DisplayName
-	};
+		return CanPickupWorldItem( item );
+	}
+
+	/// <summary>Requests pickup using the inventory's normal host-authoritative world-item path.</summary>
+	public bool TryInteractivePickup( BaseInventoryItem item )
+	{
+		if ( !CanInteractivelyPickup( item ) )
+			return false;
+
+		PickupWorldItem( item );
+		return true;
+	}
+
+	/// <summary>Formats engine inventory items for the project's inventory HUD.</summary>
+	public string GetHudDisplayName( BaseInventoryItem item ) => item.DisplayName;
 
 	/// <summary>
 	/// Returns the synchronized base items. During the short engine hierarchy delay after Add,

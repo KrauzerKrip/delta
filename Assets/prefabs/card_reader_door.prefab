@@ -3,7 +3,7 @@
     "__guid": "5bf6d9c6-218a-496f-b4a9-83ad6fcc51d9",
     "__version": 2,
     "Flags": 0,
-    "Name": "card_reader_door (1)",
+    "Name": "card_reader_door",
     "Position": "0,0,0",
     "Rotation": "0,0,-0.707106292,0.707107425",
     "Scale": "1,1,1",
@@ -400,13 +400,42 @@
               "go": "f4116fdd-5ae6-4c2f-9116-575723d0a777",
               "component_type": "Door"
             },
+            "IndicatorDuration": 5,
+            "Indicators": [
+              {
+                "_type": "component",
+                "component_id": "5d5bd214-3473-4c28-a47e-12dcda1efc51",
+                "go": "2fcb15b5-e0e3-4126-816f-ff0c0fb28a74",
+                "component_type": "PointLight"
+              },
+              {
+                "_type": "component",
+                "component_id": "8fe84717-951c-4ccd-a3e5-17deb7565d17",
+                "go": "39db070a-c6e8-4db7-80fc-8db9660b19f5",
+                "component_type": "PointLight"
+              }
+            ],
+            "IndicatorSpheres": [
+              {
+                "_type": "component",
+                "component_id": "d8ed90e4-bec0-4696-b313-75ef27efdea9",
+                "go": "9b357cf7-d73e-4b6b-b110-9ef99122916f",
+                "component_type": "ModelRenderer"
+              },
+              {
+                "_type": "component",
+                "component_id": "6081ce00-0112-432d-9c34-bec8148fde60",
+                "go": "4b3c128a-956c-486b-9bf8-5c3b04a94e3e",
+                "component_type": "ModelRenderer"
+              }
+            ],
             "OnComponentDestroy": null,
             "OnComponentDisabled": null,
             "OnComponentEnabled": null,
             "OnComponentFixedUpdate": null,
             "OnComponentStart": null,
             "OnComponentUpdate": null,
-            "RequiredAccessLevel": "Level1"
+            "RequiredAccessLevel": "Maintenance"
           }
         ],
         "Children": []
@@ -463,7 +492,95 @@
             "SurfaceVelocity": "0,0,0"
           }
         ],
-        "Children": []
+        "Children": [
+          {
+            "__guid": "4b3c128a-956c-486b-9bf8-5c3b04a94e3e",
+            "__version": 2,
+            "Flags": 0,
+            "Name": "Sphere",
+            "Position": "-7.62939453E-06,4.00000381,6.00000095",
+            "Rotation": "0,0,1.00000012,-9.68575478E-07",
+            "Scale": "0.0500000007,0.0500000007,0.0500000007",
+            "Tags": "",
+            "Enabled": true,
+            "NetworkMode": 2,
+            "NetworkFlags": 0,
+            "NetworkOrphaned": 0,
+            "NetworkTransmit": true,
+            "OwnerTransfer": 1,
+            "Components": [
+              {
+                "__type": "Sandbox.ModelRenderer",
+                "__guid": "6081ce00-0112-432d-9c34-bec8148fde60",
+                "__enabled": true,
+                "Flags": 0,
+                "BodyGroups": 18446744073709551615,
+                "CreateAttachments": false,
+                "LodOverride": null,
+                "MaterialGroup": null,
+                "MaterialOverride": null,
+                "Materials": null,
+                "Model": "models/dev/sphere.vmdl",
+                "OnComponentDestroy": null,
+                "OnComponentDisabled": null,
+                "OnComponentEnabled": null,
+                "OnComponentFixedUpdate": null,
+                "OnComponentStart": null,
+                "OnComponentUpdate": null,
+                "RenderOptions": {
+                  "GameLayer": true,
+                  "OverlayLayer": false,
+                  "BloomLayer": false,
+                  "AfterUILayer": false
+                },
+                "RenderType": "On",
+                "Tint": "1,1,1,1"
+              }
+            ],
+            "Children": [
+              {
+                "__guid": "39db070a-c6e8-4db7-80fc-8db9660b19f5",
+                "__version": 2,
+                "Flags": 0,
+                "Name": "Point Light",
+                "Position": "0,-40,0",
+                "Rotation": "0,0,0,1",
+                "Scale": "1,1,1",
+                "Tags": "light_point,light",
+                "Enabled": true,
+                "NetworkMode": 2,
+                "NetworkFlags": 0,
+                "NetworkOrphaned": 0,
+                "NetworkTransmit": true,
+                "OwnerTransfer": 1,
+                "Components": [
+                  {
+                    "__type": "Sandbox.PointLight",
+                    "__guid": "8fe84717-951c-4ccd-a3e5-17deb7565d17",
+                    "__enabled": true,
+                    "Flags": 0,
+                    "Attenuation": 50,
+                    "Contribution": "Diffuse, Specular, Transmissive",
+                    "FogMode": "Enabled",
+                    "FogStrength": 1,
+                    "LightColor": "0.91373,0.98039,1,1",
+                    "OnComponentDestroy": null,
+                    "OnComponentDisabled": null,
+                    "OnComponentEnabled": null,
+                    "OnComponentFixedUpdate": null,
+                    "OnComponentStart": null,
+                    "OnComponentUpdate": null,
+                    "Radius": 12,
+                    "ShadowBias": 0,
+                    "ShadowHardness": 0,
+                    "Shadows": true
+                  }
+                ],
+                "Children": []
+              }
+            ]
+          }
+        ]
       },
       {
         "__guid": "abdb15a4-286e-8a50-8ec4-aabd36f70161",
@@ -517,7 +634,95 @@
             "SurfaceVelocity": "0,0,0"
           }
         ],
-        "Children": []
+        "Children": [
+          {
+            "__guid": "9b357cf7-d73e-4b6b-b110-9ef99122916f",
+            "__version": 2,
+            "Flags": 0,
+            "Name": "Sphere",
+            "Position": "0,-4.00000191,6.00000095",
+            "Rotation": "0,0,0,1",
+            "Scale": "0.0500000007,0.0500000007,0.0500000007",
+            "Tags": "",
+            "Enabled": true,
+            "NetworkMode": 2,
+            "NetworkFlags": 0,
+            "NetworkOrphaned": 0,
+            "NetworkTransmit": true,
+            "OwnerTransfer": 1,
+            "Components": [
+              {
+                "__type": "Sandbox.ModelRenderer",
+                "__guid": "d8ed90e4-bec0-4696-b313-75ef27efdea9",
+                "__enabled": true,
+                "Flags": 0,
+                "BodyGroups": 18446744073709551615,
+                "CreateAttachments": false,
+                "LodOverride": null,
+                "MaterialGroup": null,
+                "MaterialOverride": null,
+                "Materials": null,
+                "Model": "models/dev/sphere.vmdl",
+                "OnComponentDestroy": null,
+                "OnComponentDisabled": null,
+                "OnComponentEnabled": null,
+                "OnComponentFixedUpdate": null,
+                "OnComponentStart": null,
+                "OnComponentUpdate": null,
+                "RenderOptions": {
+                  "GameLayer": true,
+                  "OverlayLayer": false,
+                  "BloomLayer": false,
+                  "AfterUILayer": false
+                },
+                "RenderType": "On",
+                "Tint": "1,1,1,1"
+              }
+            ],
+            "Children": [
+              {
+                "__guid": "2fcb15b5-e0e3-4126-816f-ff0c0fb28a74",
+                "__version": 2,
+                "Flags": 0,
+                "Name": "Point Light",
+                "Position": "0,-40,0",
+                "Rotation": "0,0,0,1",
+                "Scale": "1,1,1",
+                "Tags": "light_point,light",
+                "Enabled": true,
+                "NetworkMode": 2,
+                "NetworkFlags": 0,
+                "NetworkOrphaned": 0,
+                "NetworkTransmit": true,
+                "OwnerTransfer": 1,
+                "Components": [
+                  {
+                    "__type": "Sandbox.PointLight",
+                    "__guid": "5d5bd214-3473-4c28-a47e-12dcda1efc51",
+                    "__enabled": true,
+                    "Flags": 0,
+                    "Attenuation": 50,
+                    "Contribution": "Diffuse, Specular, Transmissive",
+                    "FogMode": "Enabled",
+                    "FogStrength": 1,
+                    "LightColor": "0.91373,0.98039,1,1",
+                    "OnComponentDestroy": null,
+                    "OnComponentDisabled": null,
+                    "OnComponentEnabled": null,
+                    "OnComponentFixedUpdate": null,
+                    "OnComponentStart": null,
+                    "OnComponentUpdate": null,
+                    "Radius": 12,
+                    "ShadowBias": 0,
+                    "ShadowHardness": 0,
+                    "Shadows": true
+                  }
+                ],
+                "Children": []
+              }
+            ]
+          }
+        ]
       }
     ],
     "__properties": {

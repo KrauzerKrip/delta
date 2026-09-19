@@ -5,12 +5,12 @@ public enum AccessLevel
 {
 	None,
 	Maintenance,
-	Level2,
+	Science1,
 	Level3
 }
 
 /// <summary>An inventory item whose clearance can be configured per instance.</summary>
-public sealed class KeyCard : BaseInventoryItem
+public sealed class KeyCard : InteractableInventoryItem
 {
 	[Property]
 	public AccessLevel AccessLevel { get; set; }

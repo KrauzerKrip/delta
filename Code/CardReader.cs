@@ -15,9 +15,21 @@ public sealed class CardReader : Component, Component.ITriggerListener
 	[Property, Range( 0.1f, 60f )]
 	public float AutoCloseDelay { get; set; } = 5f;
 
+	[Property, Group( "Indicator" )]
+	public List<PointLight> Indicators { get; set; } = new();
+
+	[Property, Group( "Indicator" )]
+	public List<ModelRenderer> IndicatorSpheres { get; set; } = new();
+
+	[Property, Group( "Indicator" ), Range( 0.1f, 60f )]
+	public float IndicatorDuration { get; set; } = 2f;
+
 	private readonly Dictionary<Collider, PlayerController> contacts = new();
+	private readonly Dictionary<ModelRenderer, Color> originalSphereTints = new();
 	private float timeUntilClose;
+	private float indicatorTimeRemaining;
 	private bool waitingToClose;
+	private bool indicatorIsLit;
 
 	protected override void OnStart()
 	{
@@ -33,11 +45,14 @@ public sealed class CardReader : Component, Component.ITriggerListener
 
 		if ( Door is null )
 			Log.Warning( $"[Card Reader] Trigger '{GameObject.Name}' has no door assigned." );
+
+		TurnOffIndicators();
 	}
 
 	protected override void OnUpdate()
 	{
 		UpdateAutoClose();
+		UpdateIndicators();
 
 		if ( Door is null || !Input.Pressed( "Use" ) )
 			return;
@@ -47,7 +62,10 @@ public sealed class CardReader : Component, Component.ITriggerListener
 			return;
 
 		var inventory = player.Components.Get<PlayerInventory>();
-		if ( HasRequiredAccess( inventory ) )
+		var accessGranted = HasRequiredAccess( inventory );
+		ShowAccessResult( accessGranted );
+
+		if ( accessGranted )
 		{
 			Door.Open( player.GameObject );
 			timeUntilClose = AutoCloseDelay;
@@ -75,6 +93,7 @@ public sealed class CardReader : Component, Component.ITriggerListener
 	{
 		contacts.Clear();
 		waitingToClose = false;
+		TurnOffIndicators();
 	}
 
 	private void UpdateAutoClose()
@@ -88,6 +107,62 @@ public sealed class CardReader : Component, Component.ITriggerListener
 
 		waitingToClose = false;
 		Door.Close();
+	}
+
+	private void ShowAccessResult( bool accessGranted )
+	{
+		var color = accessGranted ? Color.Green : Color.Red;
+		foreach ( var indicator in Indicators )
+		{
+			if ( indicator is null )
+				continue;
+
+			indicator.GameObject.Enabled = true;
+			indicator.LightColor = color;
+			indicator.Enabled = true;
+		}
+
+		foreach ( var sphere in IndicatorSpheres )
+		{
+			if ( sphere is null )
+				continue;
+
+			originalSphereTints.TryAdd( sphere, sphere.Tint );
+			sphere.Tint = color;
+		}
+
+		indicatorTimeRemaining = IndicatorDuration;
+		indicatorIsLit = true;
+	}
+
+	private void UpdateIndicators()
+	{
+		if ( !indicatorIsLit )
+			return;
+
+		indicatorTimeRemaining -= Time.Delta;
+		if ( indicatorTimeRemaining > 0f )
+			return;
+
+		TurnOffIndicators();
+	}
+
+	private void TurnOffIndicators()
+	{
+		foreach ( var indicator in Indicators )
+		{
+			if ( indicator is not null )
+				indicator.Enabled = false;
+		}
+
+		foreach ( var sphere in IndicatorSpheres )
+		{
+			if ( sphere is not null && originalSphereTints.TryGetValue( sphere, out var tint ) )
+				sphere.Tint = tint;
+		}
+
+		indicatorTimeRemaining = 0f;
+		indicatorIsLit = false;
 	}
 
 	private bool HasRequiredAccess( PlayerInventory inventory )
