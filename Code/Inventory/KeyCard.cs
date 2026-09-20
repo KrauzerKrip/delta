@@ -6,7 +6,7 @@ public enum AccessLevel
 	None,
 	Maintenance,
 	Science1,
-	Level3
+	Computer
 }
 
 /// <summary>An inventory item whose clearance can be configured per instance.</summary>
