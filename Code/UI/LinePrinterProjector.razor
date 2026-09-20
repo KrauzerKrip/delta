@@ -6,15 +6,15 @@
 <root class="@FeedClass">
 	<div class="projection-glow"></div>
 	<div class="paper">
-		<div class="printer-face">
+		<div class="printer-face" style="@LensStyle">
 			<div class="printout">
 				@foreach ( var line in printer.CompletedRows )
 				{
-					<div class="printed-line">@line</div>
+					<div class="printed-line" style="@TextStyle">@line</div>
 				}
 				@if ( printer.HasActiveRow )
 				{
-					<div class="printed-line active">@printer.ActiveRow<span class="print-head"></span></div>
+					<div class="printed-line active" style="@TextStyle">@printer.ActiveRow<span class="print-head"></span></div>
 				}
 			</div>
 		</div>
@@ -25,6 +25,8 @@
 {
 	private readonly global::LinePrinterState printer = new();
 	private bool startupQueued;
+	private float trembleClock;
+	private Vector2 lensOffset;
 
 	[Property, Group( "Printer" )]
 	public List<string> StartupLines { get; set; } = new()
@@ -42,10 +44,26 @@
 	[Property, Group( "Printer" ), Range( 1, 100 )]
 	public int MaxVisibleLines { get; set; } = 16;
 
+	[Property, Group( "Projection" ), ColorUsage( true, false )]
+	public Color TextColor { get; set; } = new( 0.169f, 0.153f, 0.122f, 0.84f );
+
+	[Property, Group( "Projection" ), Range( 0f, 12f )]
+	public float TrembleStrength { get; set; } = 4f;
+
+	[Property, Group( "Projection" ), Range( 0.25f, 10f )]
+	public float TremblePeriod { get; set; } = 3.2f;
+
+	[Property, Group( "Projection" ), Range( 0f, 12f )]
+	public float LensSplitOffset { get; set; } = 4f;
+
 	[Property, Group( "Debug" ), TextArea]
 	public string DebugLine { get; set; } = "TEST PRINT: PROJECTOR ONLINE";
 
 	private string FeedClass => printer.FeedRevision % 2 == 0 ? "feed-even" : "feed-odd";
+	private string LensStyle => System.FormattableString.Invariant(
+		$"transform: scaleX( -1 ) translateX( {lensOffset.x:0.###}px ) translateY( {lensOffset.y:0.###}px );" );
+	private string TextStyle => System.FormattableString.Invariant(
+		$"color: {TextColor}; text-shadow: {LensSplitOffset:0.###}px 1px 2px {TextColor.WithAlpha( 0.28f )};" );
 
 	protected override void OnStart()
 	{
@@ -60,6 +78,7 @@
 	protected override void OnUpdate()
 	{
 		QueueStartupLines();
+		UpdateLensTremble();
 		var previousRevision = printer.Revision;
 		printer.Advance( Time.Delta, CharactersPerSecond, MaxVisibleLines );
 		if ( printer.Revision != previousRevision )
@@ -95,9 +114,37 @@
 			WriteLog( line ?? string.Empty );
 	}
 
+	private void UpdateLensTremble()
+	{
+		var period = System.MathF.Max( TremblePeriod, 0.25f );
+		trembleClock = (trembleClock + Time.Delta) % period;
+		var phase = trembleClock / period;
+		var strength = System.MathF.Max( TrembleStrength, 0f );
+		var nextOffset = phase switch
+		{
+			>= 0.28f and < 0.29f => new Vector2( strength, -strength * 0.25f ),
+			>= 0.29f and < 0.30f => new Vector2( -strength * 0.625f, strength * 0.375f ),
+			>= 0.73f and < 0.74f => new Vector2( -strength * 0.875f, -strength * 0.25f ),
+			>= 0.74f and < 0.75f => new Vector2( strength * 0.625f, strength * 0.25f ),
+			_ => Vector2.Zero
+		};
+
+		if ( nextOffset == lensOffset )
+			return;
+
+		lensOffset = nextOffset;
+		StateHasChanged();
+	}
+
 	protected override int BuildHash() => System.HashCode.Combine(
-		printer.Revision,
-		CharactersPerSecond,
-		ColumnWidth,
-		MaxVisibleLines );
+		System.HashCode.Combine(
+			printer.Revision,
+			CharactersPerSecond,
+			ColumnWidth,
+			MaxVisibleLines,
+			TextColor,
+			TrembleStrength,
+			TremblePeriod,
+			LensSplitOffset ),
+		lensOffset );
 }

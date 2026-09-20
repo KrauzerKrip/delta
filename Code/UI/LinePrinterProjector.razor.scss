@@ -65,8 +65,6 @@ LinePrinterProjector
 		font-weight: 700;
 		line-height: 1.22;
 		letter-spacing: 2px;
-		color: rgba( 18, 17, 14, 0.96 );
-		text-shadow: 0 0 2px rgba( 255, 248, 218, 0.3 );
 	}
 
 	.print-head
@@ -74,8 +72,8 @@ LinePrinterProjector
 		width: 28px;
 		height: 104px;
 		margin-left: 5px;
-		background-color: rgba( 18, 17, 14, 0.72 );
-		box-shadow: 0 0 3px rgba( 255, 248, 218, 0.25 );
+		background-color: currentColor;
+		box-shadow: 2px 1px 3px rgba( 105, 88, 57, 0.24 );
 		animation: head-pulse 0.45s steps( 1 ) infinite;
 	}
 
