@@ -1,0 +1,103 @@
+@using Sandbox
+@using Sandbox.UI
+@namespace Sandbox
+@inherits PanelComponent
+
+<root class="@FeedClass">
+	<div class="projection-glow"></div>
+	<div class="paper">
+		<div class="printer-face">
+			<div class="printout">
+				@foreach ( var line in printer.CompletedRows )
+				{
+					<div class="printed-line">@line</div>
+				}
+				@if ( printer.HasActiveRow )
+				{
+					<div class="printed-line active">@printer.ActiveRow<span class="print-head"></span></div>
+				}
+			</div>
+		</div>
+	</div>
+</root>
+
+@code
+{
+	private readonly global::LinePrinterState printer = new();
+	private bool startupQueued;
+
+	[Property, Group( "Printer" )]
+	public List<string> StartupLines { get; set; } = new()
+	{
+		"SYSTEM/360 LOG PROJECTOR",
+		"READY."
+	};
+
+	[Property, Group( "Printer" ), Range( 1f, 1000f )]
+	public float CharactersPerSecond { get; set; } = 80f;
+
+	[Property, Group( "Printer" ), Range( 1, 256 )]
+	public int ColumnWidth { get; set; } = 28;
+
+	[Property, Group( "Printer" ), Range( 1, 100 )]
+	public int MaxVisibleLines { get; set; } = 16;
+
+	[Property, Group( "Debug" ), TextArea]
+	public string DebugLine { get; set; } = "TEST PRINT: PROJECTOR ONLINE";
+
+	private string FeedClass => printer.FeedRevision % 2 == 0 ? "feed-even" : "feed-odd";
+
+	protected override void OnStart()
+	{
+		QueueStartupLines();
+	}
+
+	protected override void OnTreeFirstBuilt()
+	{
+		QueueStartupLines();
+	}
+
+	protected override void OnUpdate()
+	{
+		QueueStartupLines();
+		var previousRevision = printer.Revision;
+		printer.Advance( Time.Delta, CharactersPerSecond, MaxVisibleLines );
+		if ( printer.Revision != previousRevision )
+			StateHasChanged();
+	}
+
+	/// <summary>Queues one or more logical log lines for animated printing.</summary>
+	public void WriteLog( string text )
+	{
+		if ( !printer.EnqueueLog( text, ColumnWidth ) )
+		{
+			Log.Warning( $"[{nameof( LinePrinterProjector )}] Ignored a null log." );
+			return;
+		}
+
+		printer.Advance( 0f, CharactersPerSecond, MaxVisibleLines );
+		StateHasChanged();
+	}
+
+	[Button( "Print Debug Line", "print" )]
+	public void PrintDebugLine()
+	{
+		WriteLog( DebugLine );
+	}
+
+	private void QueueStartupLines()
+	{
+		if ( startupQueued )
+			return;
+
+		startupQueued = true;
+		foreach ( var line in StartupLines ?? new List<string>() )
+			WriteLog( line ?? string.Empty );
+	}
+
+	protected override int BuildHash() => System.HashCode.Combine(
+		printer.Revision,
+		CharactersPerSecond,
+		ColumnWidth,
+		MaxVisibleLines );
+}

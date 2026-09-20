@@ -1,0 +1,109 @@
+LinePrinterProjector
+{
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	overflow: hidden;
+	pointer-events: none;
+	font-family: Consolas, "Courier New", monospace;
+
+	.projection-glow
+	{
+		position: absolute;
+		top: 2%;
+		right: 2%;
+		bottom: 2%;
+		left: 2%;
+		background-color: rgba( 255, 244, 205, 0.05 );
+		box-shadow: 0 0 90px rgba( 255, 239, 180, 0.12 );
+	}
+
+	.paper
+	{
+		position: absolute;
+		top: 4%;
+		right: 4%;
+		bottom: 4%;
+		left: 4%;
+		padding: 110px 140px;
+		overflow: hidden;
+		background-color: rgba( 255, 248, 218, 0.07 );
+		box-shadow: inset 0 0 120px rgba( 255, 255, 224, 0.04 );
+	}
+
+	.printer-face
+	{
+		width: 100%;
+		height: 100%;
+		transform: scaleX( -1 );
+	}
+
+	.printout
+	{
+		width: 100%;
+		height: 100%;
+		flex-direction: column;
+		justify-content: flex-start;
+		align-items: stretch;
+	}
+
+	.printed-line
+	{
+		min-height: 150px;
+		width: 100%;
+		max-width: 100%;
+		flex-shrink: 0;
+		align-items: center;
+		justify-content: flex-start;
+		white-space: pre-wrap;
+		word-break: break-all;
+		overflow: visible;
+		text-align: left;
+		font-size: 110px;
+		font-weight: 700;
+		line-height: 1.22;
+		letter-spacing: 2px;
+		color: rgba( 18, 17, 14, 0.96 );
+		text-shadow: 0 0 2px rgba( 255, 248, 218, 0.3 );
+	}
+
+	.print-head
+	{
+		width: 28px;
+		height: 104px;
+		margin-left: 5px;
+		background-color: rgba( 18, 17, 14, 0.72 );
+		box-shadow: 0 0 3px rgba( 255, 248, 218, 0.25 );
+		animation: head-pulse 0.45s steps( 1 ) infinite;
+	}
+
+	&.feed-even .printout
+	{
+		animation: feed-even 0.12s ease-out;
+	}
+
+	&.feed-odd .printout
+	{
+		animation: feed-odd 0.12s ease-out;
+	}
+}
+
+@keyframes feed-even
+{
+	from { transform: translateY( 18px ); }
+	to { transform: translateY( 0 ); }
+}
+
+@keyframes feed-odd
+{
+	from { transform: translateY( 18px ); }
+	to { transform: translateY( 0 ); }
+}
+
+@keyframes head-pulse
+{
+	0% { opacity: 0.2; }
+	50% { opacity: 0.8; }
+}
