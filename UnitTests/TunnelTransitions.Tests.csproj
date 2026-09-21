@@ -15,5 +15,6 @@
     <Compile Include="../Code/TunnelCameraTransferState.cs" Link="TunnelCameraTransferState.cs" />
 	<Compile Include="../Code/RunTimelineState.cs" Link="RunTimelineState.cs" />
 	<Compile Include="../Code/LinePrinterState.cs" Link="LinePrinterState.cs" />
+	<Compile Include="../Code/KeypadEntryState.cs" Link="KeypadEntryState.cs" />
   </ItemGroup>
 </Project>

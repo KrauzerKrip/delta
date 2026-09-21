@@ -1,0 +1,54 @@
+@using Sandbox
+@using Sandbox.UI
+@namespace Sandbox
+@inherits PanelComponent
+
+<root class="@(Session?.IsOpen == true ? "visible" : "")">
+	@if ( Session?.IsOpen == true )
+	{
+		<div class="backdrop"></div>
+		<div class="keypad-shell @(Session.IsDenied ? "denied" : "")">
+			<div class="brand-row">
+				<div class="brand">SPECTER SECURITY</div>
+				<div class="status-led"></div>
+			</div>
+			<div class="display">
+				<div class="status">@Session.StatusText</div>
+				<div class="pin">@Session.DisplayText</div>
+			</div>
+			<div class="key-grid">
+				<div class="key" onclick=@(() => Session.EnterDigit('1'))><span>1</span></div>
+				<div class="key" onclick=@(() => Session.EnterDigit('2'))><span>2</span></div>
+				<div class="key" onclick=@(() => Session.EnterDigit('3'))><span>3</span></div>
+				<div class="key" onclick=@(() => Session.EnterDigit('4'))><span>4</span></div>
+				<div class="key" onclick=@(() => Session.EnterDigit('5'))><span>5</span></div>
+				<div class="key" onclick=@(() => Session.EnterDigit('6'))><span>6</span></div>
+				<div class="key" onclick=@(() => Session.EnterDigit('7'))><span>7</span></div>
+				<div class="key" onclick=@(() => Session.EnterDigit('8'))><span>8</span></div>
+				<div class="key" onclick=@(() => Session.EnterDigit('9'))><span>9</span></div>
+				<div class="key function clear" onclick=@Session.ClearEntry><span>CLEAR</span></div>
+				<div class="key" onclick=@(() => Session.EnterDigit('0'))><span>0</span></div>
+				<div class="key function backspace" onclick=@Session.Backspace><span>⌫</span></div>
+			</div>
+			<div class="action-row">
+				<div class="action cancel" onclick=@Session.Cancel>Cancel <small>ESC</small></div>
+				<div class="action enter" onclick=@Session.Submit>Enter <small>↵</small></div>
+			</div>
+			<div class="screw top-left"></div>
+			<div class="screw top-right"></div>
+			<div class="screw bottom-left"></div>
+			<div class="screw bottom-right"></div>
+		</div>
+	}
+</root>
+
+@code
+{
+	public KeypadSessionController Session { get; set; }
+
+	protected override int BuildHash() => System.HashCode.Combine(
+		Session?.IsOpen,
+		Session?.IsDenied,
+		Session?.DisplayText,
+		Session?.StatusText );
+}

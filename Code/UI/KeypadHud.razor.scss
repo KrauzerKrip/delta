@@ -1,0 +1,246 @@
+KeypadHud
+{
+	position: absolute;
+	inset: 0;
+	align-items: center;
+	justify-content: center;
+	pointer-events: none;
+	opacity: 0;
+	font-family: Poppins;
+
+	&.visible
+	{
+		opacity: 1;
+		pointer-events: all;
+	}
+
+	.backdrop
+	{
+		position: absolute;
+		inset: 0;
+		background-color: rgba( 2, 5, 7, 0.72 );
+		backdrop-filter: blur( 4px );
+	}
+
+	.keypad-shell
+	{
+		position: relative;
+		width: 390px;
+		padding: 34px 32px 30px;
+		flex-direction: column;
+		background: linear-gradient( 145deg, #343b3e, #171c1f 60%, #292f32 );
+		border: 2px solid #596267;
+		border-radius: 18px;
+		box-shadow: 0 28px 70px rgba( 0, 0, 0, 0.72 ), inset 0 1px 1px rgba( 255, 255, 255, 0.14 );
+		pointer-events: all;
+
+		&.denied
+		{
+			.status-led
+			{
+				background-color: #ff4038;
+				box-shadow: 0 0 12px rgba( 255, 50, 40, 0.9 );
+			}
+
+			.display
+			{
+				border-color: #8f3933;
+				color: #ff665d;
+			}
+		}
+	}
+
+	.brand-row
+	{
+		margin: 0 6px 13px;
+		align-items: center;
+		justify-content: space-between;
+	}
+
+	.brand
+	{
+		font-size: 14px;
+		font-weight: 700;
+		letter-spacing: 2px;
+		color: #c8d0d3;
+		text-shadow: 0 1px 1px #000;
+	}
+
+	.status-led
+	{
+		width: 10px;
+		height: 10px;
+		background-color: #67d792;
+		border: 1px solid #0c1710;
+		border-radius: 50%;
+		box-shadow: 0 0 9px rgba( 90, 220, 140, 0.65 );
+	}
+
+	.display
+	{
+		height: 100px;
+		margin-bottom: 22px;
+		padding: 15px 18px;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		background: linear-gradient( #101c16, #16251c );
+		border: 3px solid #0a0d0c;
+		border-radius: 7px;
+		box-shadow: inset 0 3px 13px rgba( 0, 0, 0, 0.92 ), 0 1px 0 rgba( 255, 255, 255, 0.1 );
+		color: #79e89b;
+		text-shadow: 0 0 9px rgba( 90, 255, 140, 0.52 );
+	}
+
+	.status
+	{
+		margin-bottom: 9px;
+		font-family: monospace;
+		font-size: 13px;
+		font-weight: 700;
+		letter-spacing: 1.5px;
+	}
+
+	.pin
+	{
+		font-family: monospace;
+		font-size: 27px;
+		font-weight: 700;
+		letter-spacing: 10px;
+		white-space: nowrap;
+	}
+
+	.key-grid
+	{
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr;
+		gap: 11px;
+	}
+
+	.key
+	{
+		height: 66px;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		background: linear-gradient( #50595e, #293034 );
+		border: 1px solid #6c777c;
+		border-bottom: 4px solid #121719;
+		border-radius: 7px;
+		box-shadow: 0 4px 7px rgba( 0, 0, 0, 0.45 ), inset 0 1px 0 rgba( 255, 255, 255, 0.16 );
+		color: #f1f4f5;
+		cursor: pointer;
+		transition: transform 0.05s ease, brightness 0.05s ease;
+
+		span
+		{
+			font-size: 24px;
+			font-weight: 700;
+			line-height: 1;
+		}
+
+		small
+		{
+			margin-top: 4px;
+			font-size: 8px;
+			font-weight: 700;
+			letter-spacing: 1px;
+			color: #aeb8bc;
+		}
+
+		&:hover
+		{
+			filter: brightness( 1.18 );
+		}
+
+		&:active
+		{
+			transform: translateY( 3px );
+			border-bottom-width: 1px;
+		}
+
+		&.function span
+		{
+			font-size: 13px;
+			letter-spacing: 0.5px;
+		}
+
+		&.clear
+		{
+			background: linear-gradient( #725b37, #43321e );
+			border-color: #937849;
+		}
+
+		&.backspace
+		{
+			background: linear-gradient( #655153, #392c2d );
+			border-color: #81676a;
+
+			span
+			{
+				font-size: 22px;
+			}
+		}
+	}
+
+	.action-row
+	{
+		margin-top: 17px;
+		gap: 12px;
+	}
+
+	.action
+	{
+		min-height: 48px;
+		flex-grow: 1;
+		align-items: center;
+		justify-content: center;
+		gap: 8px;
+		border-radius: 6px;
+		font-size: 15px;
+		font-weight: 700;
+		text-transform: uppercase;
+		cursor: pointer;
+
+		small
+		{
+			font-size: 10px;
+			opacity: 0.65;
+		}
+
+		&.cancel
+		{
+			background-color: #3a4043;
+			border: 1px solid #596267;
+			color: #d5dadd;
+		}
+
+		&.enter
+		{
+			background: linear-gradient( #328257, #1d5037 );
+			border: 1px solid #4ca774;
+			color: #edfff4;
+		}
+
+		&:hover
+		{
+			filter: brightness( 1.17 );
+		}
+	}
+
+	.screw
+	{
+		position: absolute;
+		width: 11px;
+		height: 11px;
+		background-color: #778084;
+		border: 1px solid #101416;
+		border-radius: 50%;
+		box-shadow: inset 0 1px 2px rgba( 255, 255, 255, 0.35 );
+
+		&.top-left { top: 12px; left: 13px; }
+		&.top-right { top: 12px; right: 13px; }
+		&.bottom-left { bottom: 12px; left: 13px; }
+		&.bottom-right { bottom: 12px; right: 13px; }
+	}
+}
