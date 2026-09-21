@@ -330,6 +330,15 @@
 						weight = 1.0
 						ignore_rotation = false
 					},
+					{
+						_class = "Attachment"
+						name = "LeftHand"
+						parent_bone = "DEF_palm_01_L"
+						relative_origin = [ 0.01599, 0.029321, 0.010847 ]
+						relative_angles = [ -0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
 				]
 			},
 		]

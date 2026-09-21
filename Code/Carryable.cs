@@ -4,7 +4,10 @@
 public sealed class Carryable : Component, Component.IPressable, IHoldProgressProvider
 {
 	[Property, Group( "Setup" )]
-	public GameObject Anchor { get; set; }
+	public GameObject RightAnchor { get; set; }
+
+	[Property, Group( "Setup" )]
+	public GameObject LeftAnchor { get; set; }
 
 	[Property, Group( "Setup" )]
 	public Rigidbody Rigidbody { get; set; }
@@ -37,8 +40,11 @@ public sealed class Carryable : Component, Component.IPressable, IHoldProgressPr
 		if ( Colliders.Count == 0 )
 			Colliders = GameObject.GetComponentsInChildren<Collider>( true, true ).ToList();
 
-		if ( Anchor is null )
-			Log.Warning( $"{nameof( Carryable )} on '{GameObject.Name}' has no Anchor assigned." );
+		if ( RightAnchor is null )
+			Log.Warning( $"{nameof( Carryable )} on '{GameObject.Name}' has no RightAnchor assigned." );
+
+		if ( LeftAnchor is null )
+			Log.Warning( $"{nameof( Carryable )} on '{GameObject.Name}' has no LeftAnchor assigned." );
 	}
 
 	void Component.IPressable.Hover( Component.IPressable.Event e )
@@ -120,19 +126,27 @@ public sealed class Carryable : Component, Component.IPressable, IHoldProgressPr
 		}
 
 		Carrier = carrier;
-		GameObject.SetParent( carrier.Attachment, true );
-		AlignAnchor( carrier.Attachment );
+		if ( !carrier.TryGetCarryPose( this, out var attachment, out var anchor ) )
+		{
+			EndCarry( carrier );
+			return false;
+		}
+
+		AttachTo( attachment, anchor );
 		return true;
 	}
 
-	internal void AlignAnchor( GameObject attachment )
+	internal void AttachTo( GameObject attachment, GameObject anchor )
 	{
-		if ( Anchor is null || attachment is null )
+		if ( anchor is null || attachment is null )
 			return;
 
-		var rotationDelta = attachment.WorldRotation * Anchor.WorldRotation.Inverse;
+		if ( GameObject.Parent != attachment )
+			GameObject.SetParent( attachment, true );
+
+		var rotationDelta = attachment.WorldRotation * anchor.WorldRotation.Inverse;
 		GameObject.WorldRotation = rotationDelta * GameObject.WorldRotation;
-		GameObject.WorldPosition += attachment.WorldPosition - Anchor.WorldPosition;
+		GameObject.WorldPosition += attachment.WorldPosition - anchor.WorldPosition;
 	}
 
 	internal void EndCarry( Carrier carrier )
