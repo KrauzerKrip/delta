@@ -41,7 +41,7 @@ public sealed class InteractionController : Component
 	public Component CursorPressable { get; private set; }
 	public bool CursorPressableIsInRange { get; private set; }
 	public bool ShouldShowUseGlyph { get; private set; }
-	public float HoldProgress => (playerController?.Pressed as HoldPressable)?.HoldProgress ?? 0f;
+	public float HoldProgress => (playerController?.Pressed as IHoldProgressProvider)?.HoldProgress ?? 0f;
 	public string UseButton => playerController?.UseButton ?? "use";
 
 	private PlayerController playerController;

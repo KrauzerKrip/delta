@@ -8,6 +8,7 @@ public sealed class MarieMovementController : Component
 	private const string GroundedParameter = "grounded";
 	private const string CrouchingParameter = "crouching";
 	private const string LyingParameter = "lying";
+	private const string CarryingParameter = "carrying";
 
 	private enum GroundMovement
 	{
@@ -115,6 +116,7 @@ public sealed class MarieMovementController : Component
 		Renderer.Set( GroundedParameter, !Controller.IsAirborne );
 		Renderer.Set( CrouchingParameter, Controller.IsDucking );
 		Renderer.Set( LyingParameter, IsLying );
+		Renderer.Set( CarryingParameter, Components.Get<Carrier>()?.IsCarrying == true );
 	}
 
 	private GroundMovement GetGroundMovement()

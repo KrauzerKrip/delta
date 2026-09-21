@@ -1,7 +1,7 @@
 /// <summary>
 /// A pressable interaction that completes only after Use is held continuously.
 /// </summary>
-public sealed class HoldPressable : Component, Component.IPressable
+public sealed class HoldPressable : Component, Component.IPressable, IHoldProgressProvider
 {
 	[Property, Range( 0.1f, 30f ), Group( "Interaction" )]
 	public float HoldDuration { get; set; } = 3f;
