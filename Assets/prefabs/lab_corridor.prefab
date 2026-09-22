@@ -259,7 +259,7 @@
                 "IdValue": "b39d06ff-a5f1-4866-9079-e7c3fb0416bb"
               },
               "Property": "Position",
-              "Value": "82,423.365601,36"
+              "Value": "82,423.365601,42"
             },
             {
               "Target": {
@@ -328,7 +328,7 @@
                 "IdValue": "45f59d95-b3bb-429f-bd27-6f4a45d83dee"
               },
               "Property": "Position",
-              "Value": "338.000183,16,48.0000076"
+              "Value": "338.000214,18,48.0000114"
             },
             {
               "Target": {
@@ -405,7 +405,29 @@
         ],
         "Children": []
       }
-    ]
+    ],
+    "__properties": {
+      "NetworkInterpolation": true,
+      "PhysicsMode": "Physics3D",
+      "TimeScale": 1,
+      "WantsSystemScene": true,
+      "Metadata": {},
+      "NavMesh": {
+        "Enabled": false,
+        "IncludeStaticBodies": true,
+        "IncludeKeyframedBodies": true,
+        "EditorAutoUpdate": false,
+        "AgentHeight": 64,
+        "AgentRadius": 16,
+        "AgentStepSize": 18,
+        "AgentMaxSlope": 40,
+        "ExcludedBodies": "",
+        "IncludedBodies": "",
+        "DeferGeneration": false,
+        "CustomBounds": false
+      }
+    },
+    "__variables": []
   },
   "ResourceVersion": 2,
   "ShowInMenu": false,
