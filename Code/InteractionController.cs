@@ -167,7 +167,7 @@ public sealed class InteractionController : Component
 		var trace = Scene.Trace
 			.Ray( cursorRay, 100000f )
 			.IgnoreGameObjectHierarchy( GameObject )
-			.WithoutTags( "glass" )
+			.WithoutTags( "glass", "translucent" )
 			.Run();
 
 		if ( !trace.Hit )

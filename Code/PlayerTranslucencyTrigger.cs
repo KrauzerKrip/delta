@@ -4,6 +4,8 @@
 /// </summary>
 public sealed class PlayerTranslucencyTrigger : Component, Component.ITriggerListener
 {
+	private const string TranslucentTag = "translucent";
+
 	[Property]
 	public List<GameObject> Targets { get; set; } = new();
 
@@ -15,14 +17,22 @@ public sealed class PlayerTranslucencyTrigger : Component, Component.ITriggerLis
 
 	private readonly Dictionary<Collider, PlayerController> contacts = new();
 	private readonly HashSet<Component> affectedTargets = new();
+	private readonly HashSet<GameObject> affectedObjects = new();
 
 	// Shared walls remain faded until the final occupied trigger releases them.
 	private static readonly Dictionary<Component, TargetState> targetStates = new();
+	private static readonly Dictionary<GameObject, ObjectTagState> objectTagStates = new();
 
 	private sealed class TargetState
 	{
 		public Color OriginalTint;
 		public readonly Dictionary<PlayerTranslucencyTrigger, float> Requests = new();
+	}
+
+	private sealed class ObjectTagState
+	{
+		public bool HadTranslucentTag;
+		public readonly HashSet<PlayerTranslucencyTrigger> Requests = new();
 	}
 
 	protected override void OnStart()
@@ -74,21 +84,28 @@ public sealed class PlayerTranslucencyTrigger : Component, Component.ITriggerLis
 	private void UpdateTargets()
 	{
 		var desired = new HashSet<Component>();
+		var desiredObjects = new HashSet<GameObject>();
 		if ( contacts.Count > 0 && Targets is not null )
 		{
 			foreach ( var target in Targets.Where( target => target.IsValid() ) )
 			{
+				desiredObjects.Add( target );
 				var components = target.GetComponents<Component>( includeDisabled: true );
 				if ( IncludeChildren )
 					components = components.Concat( target.GetComponentsInChildren<Component>( includeDisabled: true ) );
 				foreach ( var component in components )
+				{
+					desiredObjects.Add( component.GameObject );
 					if ( component is MeshComponent || component is ModelRenderer )
 						desired.Add( component );
+				}
 			}
 		}
 
 		foreach ( var target in affectedTargets.Where( target => !desired.Contains( target ) ).ToArray() )
 			Release( target );
+		foreach ( var targetObject in affectedObjects.Where( target => !desiredObjects.Contains( target ) ).ToArray() )
+			ReleaseTag( targetObject );
 
 		foreach ( var target in desired )
 		{
@@ -101,6 +118,22 @@ public sealed class PlayerTranslucencyTrigger : Component, Component.ITriggerLis
 			affectedTargets.Add( target );
 			Apply( target, state );
 		}
+
+		foreach ( var targetObject in desiredObjects )
+			ApplyTag( targetObject );
+	}
+
+	private void ApplyTag( GameObject target )
+	{
+		if ( !objectTagStates.TryGetValue( target, out var state ) )
+		{
+			state = new ObjectTagState { HadTranslucentTag = target.Tags.Has( TranslucentTag ) };
+			objectTagStates.Add( target, state );
+		}
+
+		state.Requests.Add( this );
+		affectedObjects.Add( target );
+		target.Tags.Add( TranslucentTag );
 	}
 
 	private static Color GetTint( Component target ) => target switch
@@ -135,10 +168,27 @@ public sealed class PlayerTranslucencyTrigger : Component, Component.ITriggerLis
 			targetStates.Remove( target );
 	}
 
+	private void ReleaseTag( GameObject target )
+	{
+		affectedObjects.Remove( target );
+		if ( !objectTagStates.TryGetValue( target, out var state ) )
+			return;
+
+		state.Requests.Remove( this );
+		if ( state.Requests.Count > 0 )
+			return;
+
+		if ( target.IsValid() && !state.HadTranslucentTag )
+			target.Tags.Remove( TranslucentTag );
+		objectTagStates.Remove( target );
+	}
+
 	private void RestoreTargets()
 	{
 		foreach ( var target in affectedTargets.ToArray() )
 			Release( target );
+		foreach ( var targetObject in affectedObjects.ToArray() )
+			ReleaseTag( targetObject );
 		contacts.Clear();
 	}
 
