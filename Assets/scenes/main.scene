@@ -110,7 +110,7 @@
       "__version": 2,
       "Flags": 0,
       "Name": "Player Controller",
-      "Position": "1280,-1932,280",
+      "Position": "1262,-672,584",
       "Rotation": "0,0,0,1",
       "Scale": "1,1,1",
       "Tags": "",
@@ -447,7 +447,10 @@
               "MaterialGroup": "default",
               "MaterialOverride": null,
               "Materials": null,
-              "Model": "models/marie/marie.vmdl",
+              "Model": {
+                "Id": "0a9cee73-86a7-479f-90ec-f472e1430a72",
+                "Path": "models/marie/marie.vmdl"
+              },
               "Morphs": {},
               "OnComponentDestroy": null,
               "OnComponentDisabled": null,
@@ -972,7 +975,10 @@
             {
               "__guid": "5bbc3bca-4f20-46c8-afd5-de0828acad79",
               "__version": 2,
-              "__Prefab": "prefabs/baseboard_blue_256.prefab",
+              "__Prefab": {
+                "Id": "04aedf1b-338d-46d9-b6e4-462919b938d1",
+                "Path": "prefabs/baseboard_blue_256.prefab"
+              },
               "__PrefabInstancePatch": {
                 "AddedObjects": [],
                 "RemovedObjects": [],
@@ -1110,7 +1116,10 @@
             {
               "__guid": "4e824ee7-1103-4fa3-a1aa-963a6ba2381d",
               "__version": 2,
-              "__Prefab": "prefabs/lab_corridor.prefab",
+              "__Prefab": {
+                "Id": "3e7613d1-b21c-445d-999b-4df2a8b8b134",
+                "Path": "prefabs/lab_corridor.prefab"
+              },
               "__PrefabInstancePatch": {
                 "AddedObjects": [
                   {
@@ -1131,7 +1140,10 @@
                     "Data": {
                       "__guid": "1f916d0b-0990-4c7f-8f59-f071548ce205",
                       "__version": 2,
-                      "__Prefab": "prefabs/baseboard_blue_256.prefab",
+                      "__Prefab": {
+                        "Id": "04aedf1b-338d-46d9-b6e4-462919b938d1",
+                        "Path": "prefabs/baseboard_blue_256.prefab"
+                      },
                       "__PrefabInstancePatch": {
                         "AddedObjects": [],
                         "RemovedObjects": [],
@@ -1392,7 +1404,10 @@
             {
               "__guid": "a1f33f41-ae58-4ca0-b5e9-d67db2a182c1",
               "__version": 2,
-              "__Prefab": "prefabs/lab_corridor.prefab",
+              "__Prefab": {
+                "Id": "3e7613d1-b21c-445d-999b-4df2a8b8b134",
+                "Path": "prefabs/lab_corridor.prefab"
+              },
               "__PrefabInstancePatch": {
                 "AddedObjects": [
                   {
@@ -1413,7 +1428,10 @@
                     "Data": {
                       "__guid": "e69309a5-9d85-411d-ad86-e044acffb43f",
                       "__version": 2,
-                      "__Prefab": "prefabs/baseboard_blue_256.prefab",
+                      "__Prefab": {
+                        "Id": "04aedf1b-338d-46d9-b6e4-462919b938d1",
+                        "Path": "prefabs/baseboard_blue_256.prefab"
+                      },
                       "__PrefabInstancePatch": {
                         "AddedObjects": [],
                         "RemovedObjects": [],
@@ -1659,7 +1677,10 @@
             {
               "__guid": "05598bb4-e466-4ed0-bc99-1efe62245f89",
               "__version": 2,
-              "__Prefab": "prefabs/lab_corridor.prefab",
+              "__Prefab": {
+                "Id": "3e7613d1-b21c-445d-999b-4df2a8b8b134",
+                "Path": "prefabs/lab_corridor.prefab"
+              },
               "__PrefabInstancePatch": {
                 "AddedObjects": [
                   {
@@ -1680,7 +1701,10 @@
                     "Data": {
                       "__guid": "595147fe-490b-436d-baeb-6effa490994f",
                       "__version": 2,
-                      "__Prefab": "prefabs/baseboard_blue_256.prefab",
+                      "__Prefab": {
+                        "Id": "04aedf1b-338d-46d9-b6e4-462919b938d1",
+                        "Path": "prefabs/baseboard_blue_256.prefab"
+                      },
                       "__PrefabInstancePatch": {
                         "AddedObjects": [],
                         "RemovedObjects": [],
@@ -1948,7 +1972,10 @@
             {
               "__guid": "d23958dd-923a-4c80-8cc1-1668923765c5",
               "__version": 2,
-              "__Prefab": "prefabs/lab_corridor.prefab",
+              "__Prefab": {
+                "Id": "3e7613d1-b21c-445d-999b-4df2a8b8b134",
+                "Path": "prefabs/lab_corridor.prefab"
+              },
               "__PrefabInstancePatch": {
                 "AddedObjects": [
                   {
@@ -1969,7 +1996,10 @@
                     "Data": {
                       "__guid": "ba9bfc2a-e3c6-4ad1-9868-471f8af1ba58",
                       "__version": 2,
-                      "__Prefab": "prefabs/baseboard_blue_256.prefab",
+                      "__Prefab": {
+                        "Id": "04aedf1b-338d-46d9-b6e4-462919b938d1",
+                        "Path": "prefabs/baseboard_blue_256.prefab"
+                      },
                       "__PrefabInstancePatch": {
                         "AddedObjects": [],
                         "RemovedObjects": [],
@@ -2205,7 +2235,10 @@
             {
               "__guid": "655c3fad-7aa7-41a4-aa21-f05bf57a8a88",
               "__version": 2,
-              "__Prefab": "prefabs/lab_corridor.prefab",
+              "__Prefab": {
+                "Id": "3e7613d1-b21c-445d-999b-4df2a8b8b134",
+                "Path": "prefabs/lab_corridor.prefab"
+              },
               "__PrefabInstancePatch": {
                 "AddedObjects": [
                   {
@@ -2226,7 +2259,10 @@
                     "Data": {
                       "__guid": "284ae6cf-3f2d-49e7-89b4-eb5219fdbb6e",
                       "__version": 2,
-                      "__Prefab": "prefabs/baseboard_blue_256.prefab",
+                      "__Prefab": {
+                        "Id": "04aedf1b-338d-46d9-b6e4-462919b938d1",
+                        "Path": "prefabs/baseboard_blue_256.prefab"
+                      },
                       "__PrefabInstancePatch": {
                         "AddedObjects": [],
                         "RemovedObjects": [],
@@ -2608,7 +2644,10 @@
             {
               "__guid": "16088433-b3fb-4e01-8487-8dd3b67ee178",
               "__version": 2,
-              "__Prefab": "prefabs/lab_corridor.prefab",
+              "__Prefab": {
+                "Id": "3e7613d1-b21c-445d-999b-4df2a8b8b134",
+                "Path": "prefabs/lab_corridor.prefab"
+              },
               "__PrefabInstancePatch": {
                 "AddedObjects": [
                   {
@@ -2629,7 +2668,10 @@
                     "Data": {
                       "__guid": "4cf48e32-f287-49b5-9402-3c51f330fb86",
                       "__version": 2,
-                      "__Prefab": "prefabs/baseboard_blue_256.prefab",
+                      "__Prefab": {
+                        "Id": "04aedf1b-338d-46d9-b6e4-462919b938d1",
+                        "Path": "prefabs/baseboard_blue_256.prefab"
+                      },
                       "__PrefabInstancePatch": {
                         "AddedObjects": [],
                         "RemovedObjects": [],
@@ -3185,7 +3227,10 @@
                 {
                   "__guid": "a559f3b8-7339-4083-9edc-729e019ed5a5",
                   "__version": 2,
-                  "__Prefab": "prefabs/baseboard_blue_256.prefab",
+                  "__Prefab": {
+                    "Id": "04aedf1b-338d-46d9-b6e4-462919b938d1",
+                    "Path": "prefabs/baseboard_blue_256.prefab"
+                  },
                   "__PrefabInstancePatch": {
                     "AddedObjects": [],
                     "RemovedObjects": [],
@@ -3378,7 +3423,10 @@
                 {
                   "__guid": "e21d7d01-ebb3-4217-923a-478ab08a6b86",
                   "__version": 2,
-                  "__Prefab": "prefabs/baseboard_blue_256.prefab",
+                  "__Prefab": {
+                    "Id": "04aedf1b-338d-46d9-b6e4-462919b938d1",
+                    "Path": "prefabs/baseboard_blue_256.prefab"
+                  },
                   "__PrefabInstancePatch": {
                     "AddedObjects": [],
                     "RemovedObjects": [],
@@ -3506,7 +3554,10 @@
                 {
                   "__guid": "b00096c4-0439-4da7-be90-dd8a73c0526b",
                   "__version": 2,
-                  "__Prefab": "prefabs/baseboard_blue_256.prefab",
+                  "__Prefab": {
+                    "Id": "04aedf1b-338d-46d9-b6e4-462919b938d1",
+                    "Path": "prefabs/baseboard_blue_256.prefab"
+                  },
                   "__PrefabInstancePatch": {
                     "AddedObjects": [],
                     "RemovedObjects": [],
@@ -3892,7 +3943,10 @@
                 {
                   "__guid": "9dd81a1c-d803-48c0-8402-ffb0276ec23a",
                   "__version": 2,
-                  "__Prefab": "prefabs/baseboard_blue_256.prefab",
+                  "__Prefab": {
+                    "Id": "04aedf1b-338d-46d9-b6e4-462919b938d1",
+                    "Path": "prefabs/baseboard_blue_256.prefab"
+                  },
                   "__PrefabInstancePatch": {
                     "AddedObjects": [],
                     "RemovedObjects": [],
@@ -4142,7 +4196,10 @@
                     {
                       "__guid": "76652759-ffe9-418d-ac52-a5db909ab561",
                       "__version": 2,
-                      "__Prefab": "prefabs/baseboard_blue_256.prefab",
+                      "__Prefab": {
+                        "Id": "04aedf1b-338d-46d9-b6e4-462919b938d1",
+                        "Path": "prefabs/baseboard_blue_256.prefab"
+                      },
                       "__PrefabInstancePatch": {
                         "AddedObjects": [],
                         "RemovedObjects": [],
@@ -4246,7 +4303,10 @@
                     {
                       "__guid": "e77c110e-9a23-4f91-97f2-7bfbd833204c",
                       "__version": 2,
-                      "__Prefab": "prefabs/baseboard_blue_256.prefab",
+                      "__Prefab": {
+                        "Id": "04aedf1b-338d-46d9-b6e4-462919b938d1",
+                        "Path": "prefabs/baseboard_blue_256.prefab"
+                      },
                       "__PrefabInstancePatch": {
                         "AddedObjects": [],
                         "RemovedObjects": [],
@@ -4374,7 +4434,10 @@
                     {
                       "__guid": "0902411c-0cdf-4292-b54a-cfa53335f44f",
                       "__version": 2,
-                      "__Prefab": "prefabs/baseboard_blue_256.prefab",
+                      "__Prefab": {
+                        "Id": "04aedf1b-338d-46d9-b6e4-462919b938d1",
+                        "Path": "prefabs/baseboard_blue_256.prefab"
+                      },
                       "__PrefabInstancePatch": {
                         "AddedObjects": [],
                         "RemovedObjects": [],
@@ -5118,7 +5181,10 @@
                 {
                   "__guid": "8e12802e-c2c8-4fb7-9942-ed4a82d6a837",
                   "__version": 2,
-                  "__Prefab": "prefabs/lab_corridor.prefab",
+                  "__Prefab": {
+                    "Id": "3e7613d1-b21c-445d-999b-4df2a8b8b134",
+                    "Path": "prefabs/lab_corridor.prefab"
+                  },
                   "__PrefabInstancePatch": {
                     "AddedObjects": [],
                     "RemovedObjects": [
@@ -5328,12 +5394,11 @@
                       "IsTrigger": false,
                       "Mesh": {
                         "Data": {
-                          "$blob": "f22a7472-0360-811b-bcdb-c464cdff9ef9"
+                          "$blob": "edaabe8a-76c2-822b-90aa-417ecfdc1038"
                         },
                         "Materials": [
                           "materials/dev/reflectivity_30.vmat",
-                          "materials/white_stucco.vmat",
-                          "materials/plastic_008_red.vmat"
+                          "materials/white_stucco.vmat"
                         ]
                       },
                       "OnComponentDestroy": null,
@@ -9324,7 +9389,10 @@
                 {
                   "__guid": "c6258464-177d-4c95-90a7-3ef1763d1f63",
                   "__version": 2,
-                  "__Prefab": "prefabs/card_reader_door.prefab",
+                  "__Prefab": {
+                    "Id": "72757b98-58e4-4c31-b677-58b9dec97bb9",
+                    "Path": "prefabs/card_reader_door.prefab"
+                  },
                   "__PrefabInstancePatch": {
                     "AddedObjects": [
                       {
@@ -9749,7 +9817,10 @@
                 {
                   "__guid": "bc2adabc-671b-4d03-b887-ccf6e4b3dd68",
                   "__version": 2,
-                  "__Prefab": "prefabs/card_reader_door.prefab",
+                  "__Prefab": {
+                    "Id": "72757b98-58e4-4c31-b677-58b9dec97bb9",
+                    "Path": "prefabs/card_reader_door.prefab"
+                  },
                   "__PrefabInstancePatch": {
                     "AddedObjects": [
                       {
@@ -10280,7 +10351,10 @@
                     {
                       "__guid": "6a4a5ca5-ad31-4351-a203-3642febf5bba",
                       "__version": 2,
-                      "__Prefab": "prefabs/red_tape.prefab",
+                      "__Prefab": {
+                        "Id": "8fec8a23-1544-41a1-b191-0162462ffc34",
+                        "Path": "prefabs/red_tape.prefab"
+                      },
                       "__PrefabInstancePatch": {
                         "AddedObjects": [],
                         "RemovedObjects": [],
@@ -10319,7 +10393,10 @@
                     {
                       "__guid": "14465f3d-d712-4ade-94d0-a2142723742b",
                       "__version": 2,
-                      "__Prefab": "prefabs/red_tape.prefab",
+                      "__Prefab": {
+                        "Id": "8fec8a23-1544-41a1-b191-0162462ffc34",
+                        "Path": "prefabs/red_tape.prefab"
+                      },
                       "__PrefabInstancePatch": {
                         "AddedObjects": [],
                         "RemovedObjects": [],
@@ -10358,7 +10435,10 @@
                     {
                       "__guid": "30e06c24-b0e4-4248-8bf9-09ea779164f4",
                       "__version": 2,
-                      "__Prefab": "prefabs/red_tape.prefab",
+                      "__Prefab": {
+                        "Id": "8fec8a23-1544-41a1-b191-0162462ffc34",
+                        "Path": "prefabs/red_tape.prefab"
+                      },
                       "__PrefabInstancePatch": {
                         "AddedObjects": [],
                         "RemovedObjects": [],
@@ -10397,7 +10477,10 @@
                     {
                       "__guid": "5a0db581-3c61-4f3e-9c9a-7e45089ccdc0",
                       "__version": 2,
-                      "__Prefab": "prefabs/red_tape.prefab",
+                      "__Prefab": {
+                        "Id": "8fec8a23-1544-41a1-b191-0162462ffc34",
+                        "Path": "prefabs/red_tape.prefab"
+                      },
                       "__PrefabInstancePatch": {
                         "AddedObjects": [],
                         "RemovedObjects": [],
@@ -10436,7 +10519,10 @@
                     {
                       "__guid": "37afb07a-494f-4de6-b252-61c5fe220f01",
                       "__version": 2,
-                      "__Prefab": "prefabs/red_tape.prefab",
+                      "__Prefab": {
+                        "Id": "8fec8a23-1544-41a1-b191-0162462ffc34",
+                        "Path": "prefabs/red_tape.prefab"
+                      },
                       "__PrefabInstancePatch": {
                         "AddedObjects": [],
                         "RemovedObjects": [],
@@ -10475,7 +10561,10 @@
                     {
                       "__guid": "167f837b-f431-41a7-8cee-d043770c8c8c",
                       "__version": 2,
-                      "__Prefab": "prefabs/blue_tape.prefab",
+                      "__Prefab": {
+                        "Id": "6c07491e-dce1-439f-a757-7c306e1120f6",
+                        "Path": "prefabs/blue_tape.prefab"
+                      },
                       "__PrefabInstancePatch": {
                         "AddedObjects": [],
                         "RemovedObjects": [],
@@ -10861,7 +10950,10 @@
                     {
                       "__guid": "d1d03551-6e85-45fd-b630-2f0f16c576bc",
                       "__version": 2,
-                      "__Prefab": "prefabs/blue_tape.prefab",
+                      "__Prefab": {
+                        "Id": "6c07491e-dce1-439f-a757-7c306e1120f6",
+                        "Path": "prefabs/blue_tape.prefab"
+                      },
                       "__PrefabInstancePatch": {
                         "AddedObjects": [],
                         "RemovedObjects": [],
@@ -10900,7 +10992,10 @@
                     {
                       "__guid": "67920809-a72e-4420-add2-2542047a790f",
                       "__version": 2,
-                      "__Prefab": "prefabs/blue_tape.prefab",
+                      "__Prefab": {
+                        "Id": "6c07491e-dce1-439f-a757-7c306e1120f6",
+                        "Path": "prefabs/blue_tape.prefab"
+                      },
                       "__PrefabInstancePatch": {
                         "AddedObjects": [],
                         "RemovedObjects": [],
@@ -10939,7 +11034,10 @@
                     {
                       "__guid": "ecb8c036-8bf7-4c22-a197-31fb75c16557",
                       "__version": 2,
-                      "__Prefab": "prefabs/red_tape.prefab",
+                      "__Prefab": {
+                        "Id": "8fec8a23-1544-41a1-b191-0162462ffc34",
+                        "Path": "prefabs/red_tape.prefab"
+                      },
                       "__PrefabInstancePatch": {
                         "AddedObjects": [],
                         "RemovedObjects": [],
@@ -10978,7 +11076,10 @@
                     {
                       "__guid": "cae93e40-7c8a-406f-a2bb-f07bb72e9eb8",
                       "__version": 2,
-                      "__Prefab": "prefabs/red_tape.prefab",
+                      "__Prefab": {
+                        "Id": "8fec8a23-1544-41a1-b191-0162462ffc34",
+                        "Path": "prefabs/red_tape.prefab"
+                      },
                       "__PrefabInstancePatch": {
                         "AddedObjects": [],
                         "RemovedObjects": [],
@@ -11017,7 +11118,10 @@
                     {
                       "__guid": "d3e19e8d-789d-4f9b-960c-95f473923742",
                       "__version": 2,
-                      "__Prefab": "prefabs/red_tape.prefab",
+                      "__Prefab": {
+                        "Id": "8fec8a23-1544-41a1-b191-0162462ffc34",
+                        "Path": "prefabs/red_tape.prefab"
+                      },
                       "__PrefabInstancePatch": {
                         "AddedObjects": [],
                         "RemovedObjects": [],
@@ -11056,7 +11160,10 @@
                     {
                       "__guid": "6fb1dc44-38d1-4cc0-88c8-14077224b907",
                       "__version": 2,
-                      "__Prefab": "prefabs/red_tape.prefab",
+                      "__Prefab": {
+                        "Id": "8fec8a23-1544-41a1-b191-0162462ffc34",
+                        "Path": "prefabs/red_tape.prefab"
+                      },
                       "__PrefabInstancePatch": {
                         "AddedObjects": [],
                         "RemovedObjects": [],
@@ -11095,7 +11202,10 @@
                     {
                       "__guid": "a870baa5-6604-42d6-92de-fb83c61a636a",
                       "__version": 2,
-                      "__Prefab": "prefabs/red_tape.prefab",
+                      "__Prefab": {
+                        "Id": "8fec8a23-1544-41a1-b191-0162462ffc34",
+                        "Path": "prefabs/red_tape.prefab"
+                      },
                       "__PrefabInstancePatch": {
                         "AddedObjects": [],
                         "RemovedObjects": [],
@@ -11491,7 +11601,10 @@
                 {
                   "__guid": "48f8be52-b95d-47f9-ba1c-f5baf1aa1c43",
                   "__version": 2,
-                  "__Prefab": "prefabs/blue_tape.prefab",
+                  "__Prefab": {
+                    "Id": "6c07491e-dce1-439f-a757-7c306e1120f6",
+                    "Path": "prefabs/blue_tape.prefab"
+                  },
                   "__PrefabInstancePatch": {
                     "AddedObjects": [],
                     "RemovedObjects": [],
@@ -11530,7 +11643,10 @@
                 {
                   "__guid": "a3c3292a-61e6-4bb4-9b6e-26c4dcdaf40c",
                   "__version": 2,
-                  "__Prefab": "prefabs/blue_tape.prefab",
+                  "__Prefab": {
+                    "Id": "6c07491e-dce1-439f-a757-7c306e1120f6",
+                    "Path": "prefabs/blue_tape.prefab"
+                  },
                   "__PrefabInstancePatch": {
                     "AddedObjects": [],
                     "RemovedObjects": [],
@@ -11577,7 +11693,10 @@
                 {
                   "__guid": "c14b2e27-2299-429a-bc7c-c8adb85bd320",
                   "__version": 2,
-                  "__Prefab": "prefabs/blue_tape.prefab",
+                  "__Prefab": {
+                    "Id": "6c07491e-dce1-439f-a757-7c306e1120f6",
+                    "Path": "prefabs/blue_tape.prefab"
+                  },
                   "__PrefabInstancePatch": {
                     "AddedObjects": [],
                     "RemovedObjects": [],
@@ -11624,7 +11743,10 @@
                 {
                   "__guid": "5b7cbb31-5ff3-453b-9f48-ed4e6c7143b4",
                   "__version": 2,
-                  "__Prefab": "prefabs/blue_tape.prefab",
+                  "__Prefab": {
+                    "Id": "6c07491e-dce1-439f-a757-7c306e1120f6",
+                    "Path": "prefabs/blue_tape.prefab"
+                  },
                   "__PrefabInstancePatch": {
                     "AddedObjects": [],
                     "RemovedObjects": [],
@@ -11671,7 +11793,10 @@
                 {
                   "__guid": "7a40d6aa-a011-4df8-8762-96dd5021d914",
                   "__version": 2,
-                  "__Prefab": "prefabs/red_tape.prefab",
+                  "__Prefab": {
+                    "Id": "8fec8a23-1544-41a1-b191-0162462ffc34",
+                    "Path": "prefabs/red_tape.prefab"
+                  },
                   "__PrefabInstancePatch": {
                     "AddedObjects": [],
                     "RemovedObjects": [],
@@ -11710,7 +11835,10 @@
                 {
                   "__guid": "566e1422-50bc-432e-ad0f-0aa2d60150e0",
                   "__version": 2,
-                  "__Prefab": "prefabs/red_tape.prefab",
+                  "__Prefab": {
+                    "Id": "8fec8a23-1544-41a1-b191-0162462ffc34",
+                    "Path": "prefabs/red_tape.prefab"
+                  },
                   "__PrefabInstancePatch": {
                     "AddedObjects": [],
                     "RemovedObjects": [],
@@ -11749,7 +11877,10 @@
                 {
                   "__guid": "33542a70-bc20-4735-a207-6000876a804b",
                   "__version": 2,
-                  "__Prefab": "prefabs/red_tape.prefab",
+                  "__Prefab": {
+                    "Id": "8fec8a23-1544-41a1-b191-0162462ffc34",
+                    "Path": "prefabs/red_tape.prefab"
+                  },
                   "__PrefabInstancePatch": {
                     "AddedObjects": [],
                     "RemovedObjects": [],
@@ -11796,7 +11927,10 @@
                 {
                   "__guid": "719d05c1-1f2d-4bcd-8a7b-08216d1bbc9a",
                   "__version": 2,
-                  "__Prefab": "prefabs/red_tape.prefab",
+                  "__Prefab": {
+                    "Id": "8fec8a23-1544-41a1-b191-0162462ffc34",
+                    "Path": "prefabs/red_tape.prefab"
+                  },
                   "__PrefabInstancePatch": {
                     "AddedObjects": [],
                     "RemovedObjects": [],
@@ -11867,7 +12001,10 @@
                       "MaterialGroup": null,
                       "MaterialOverride": null,
                       "Materials": null,
-                      "Model": "models/sbox_props/wooden_crate/wooden_crate.vmdl",
+                      "Model": {
+                        "Id": "0bb3e3ee-1ffd-48a5-867b-adf9211bcf8c",
+                        "Path": "models/sbox_props/wooden_crate/wooden_crate.vmdl"
+                      },
                       "OnComponentDestroy": null,
                       "OnComponentDisabled": null,
                       "OnComponentEnabled": null,
@@ -11892,7 +12029,10 @@
                       "Elasticity": null,
                       "Friction": null,
                       "IsTrigger": false,
-                      "Model": "models/sbox_props/wooden_crate/wooden_crate.vmdl",
+                      "Model": {
+                        "Id": "0bb3e3ee-1ffd-48a5-867b-adf9211bcf8c",
+                        "Path": "models/sbox_props/wooden_crate/wooden_crate.vmdl"
+                      },
                       "OnComponentDestroy": null,
                       "OnComponentDisabled": null,
                       "OnComponentEnabled": null,
@@ -11938,7 +12078,10 @@
                       "MaterialGroup": null,
                       "MaterialOverride": null,
                       "Materials": null,
-                      "Model": "models/sbox_props/wooden_crate/wooden_crate.vmdl",
+                      "Model": {
+                        "Id": "0bb3e3ee-1ffd-48a5-867b-adf9211bcf8c",
+                        "Path": "models/sbox_props/wooden_crate/wooden_crate.vmdl"
+                      },
                       "OnComponentDestroy": null,
                       "OnComponentDisabled": null,
                       "OnComponentEnabled": null,
@@ -11963,7 +12106,10 @@
                       "Elasticity": null,
                       "Friction": null,
                       "IsTrigger": false,
-                      "Model": "models/sbox_props/wooden_crate/wooden_crate.vmdl",
+                      "Model": {
+                        "Id": "0bb3e3ee-1ffd-48a5-867b-adf9211bcf8c",
+                        "Path": "models/sbox_props/wooden_crate/wooden_crate.vmdl"
+                      },
                       "OnComponentDestroy": null,
                       "OnComponentDisabled": null,
                       "OnComponentEnabled": null,
@@ -12009,7 +12155,10 @@
                       "MaterialGroup": null,
                       "MaterialOverride": null,
                       "Materials": null,
-                      "Model": "models/sbox_props/wooden_crate/wooden_crate.vmdl",
+                      "Model": {
+                        "Id": "0bb3e3ee-1ffd-48a5-867b-adf9211bcf8c",
+                        "Path": "models/sbox_props/wooden_crate/wooden_crate.vmdl"
+                      },
                       "OnComponentDestroy": null,
                       "OnComponentDisabled": null,
                       "OnComponentEnabled": null,
@@ -12034,7 +12183,10 @@
                       "Elasticity": null,
                       "Friction": null,
                       "IsTrigger": false,
-                      "Model": "models/sbox_props/wooden_crate/wooden_crate.vmdl",
+                      "Model": {
+                        "Id": "0bb3e3ee-1ffd-48a5-867b-adf9211bcf8c",
+                        "Path": "models/sbox_props/wooden_crate/wooden_crate.vmdl"
+                      },
                       "OnComponentDestroy": null,
                       "OnComponentDisabled": null,
                       "OnComponentEnabled": null,
@@ -12080,7 +12232,10 @@
                       "MaterialGroup": null,
                       "MaterialOverride": null,
                       "Materials": null,
-                      "Model": "models/sbox_props/wooden_crate/wooden_crate.vmdl",
+                      "Model": {
+                        "Id": "0bb3e3ee-1ffd-48a5-867b-adf9211bcf8c",
+                        "Path": "models/sbox_props/wooden_crate/wooden_crate.vmdl"
+                      },
                       "OnComponentDestroy": null,
                       "OnComponentDisabled": null,
                       "OnComponentEnabled": null,
@@ -12105,7 +12260,10 @@
                       "Elasticity": null,
                       "Friction": null,
                       "IsTrigger": false,
-                      "Model": "models/sbox_props/wooden_crate/wooden_crate.vmdl",
+                      "Model": {
+                        "Id": "0bb3e3ee-1ffd-48a5-867b-adf9211bcf8c",
+                        "Path": "models/sbox_props/wooden_crate/wooden_crate.vmdl"
+                      },
                       "OnComponentDestroy": null,
                       "OnComponentDisabled": null,
                       "OnComponentEnabled": null,
@@ -12151,7 +12309,10 @@
                       "MaterialGroup": null,
                       "MaterialOverride": null,
                       "Materials": null,
-                      "Model": "models/sbox_props/wooden_crate/wooden_crate.vmdl",
+                      "Model": {
+                        "Id": "0bb3e3ee-1ffd-48a5-867b-adf9211bcf8c",
+                        "Path": "models/sbox_props/wooden_crate/wooden_crate.vmdl"
+                      },
                       "OnComponentDestroy": null,
                       "OnComponentDisabled": null,
                       "OnComponentEnabled": null,
@@ -12176,7 +12337,10 @@
                       "Elasticity": null,
                       "Friction": null,
                       "IsTrigger": false,
-                      "Model": "models/sbox_props/wooden_crate/wooden_crate.vmdl",
+                      "Model": {
+                        "Id": "0bb3e3ee-1ffd-48a5-867b-adf9211bcf8c",
+                        "Path": "models/sbox_props/wooden_crate/wooden_crate.vmdl"
+                      },
                       "OnComponentDestroy": null,
                       "OnComponentDisabled": null,
                       "OnComponentEnabled": null,
@@ -12222,7 +12386,10 @@
                       "MaterialGroup": null,
                       "MaterialOverride": null,
                       "Materials": null,
-                      "Model": "models/sbox_props/wooden_crate/wooden_crate.vmdl",
+                      "Model": {
+                        "Id": "0bb3e3ee-1ffd-48a5-867b-adf9211bcf8c",
+                        "Path": "models/sbox_props/wooden_crate/wooden_crate.vmdl"
+                      },
                       "OnComponentDestroy": null,
                       "OnComponentDisabled": null,
                       "OnComponentEnabled": null,
@@ -12247,7 +12414,10 @@
                       "Elasticity": null,
                       "Friction": null,
                       "IsTrigger": false,
-                      "Model": "models/sbox_props/wooden_crate/wooden_crate.vmdl",
+                      "Model": {
+                        "Id": "0bb3e3ee-1ffd-48a5-867b-adf9211bcf8c",
+                        "Path": "models/sbox_props/wooden_crate/wooden_crate.vmdl"
+                      },
                       "OnComponentDestroy": null,
                       "OnComponentDisabled": null,
                       "OnComponentEnabled": null,
@@ -12293,7 +12463,10 @@
                       "MaterialGroup": null,
                       "MaterialOverride": null,
                       "Materials": null,
-                      "Model": "models/sbox_props/wooden_crate/wooden_crate.vmdl",
+                      "Model": {
+                        "Id": "0bb3e3ee-1ffd-48a5-867b-adf9211bcf8c",
+                        "Path": "models/sbox_props/wooden_crate/wooden_crate.vmdl"
+                      },
                       "OnComponentDestroy": null,
                       "OnComponentDisabled": null,
                       "OnComponentEnabled": null,
@@ -12318,7 +12491,10 @@
                       "Elasticity": null,
                       "Friction": null,
                       "IsTrigger": false,
-                      "Model": "models/sbox_props/wooden_crate/wooden_crate.vmdl",
+                      "Model": {
+                        "Id": "0bb3e3ee-1ffd-48a5-867b-adf9211bcf8c",
+                        "Path": "models/sbox_props/wooden_crate/wooden_crate.vmdl"
+                      },
                       "OnComponentDestroy": null,
                       "OnComponentDisabled": null,
                       "OnComponentEnabled": null,
@@ -12364,7 +12540,10 @@
                       "MaterialGroup": null,
                       "MaterialOverride": null,
                       "Materials": null,
-                      "Model": "models/sbox_props/wooden_crate/wooden_crate.vmdl",
+                      "Model": {
+                        "Id": "0bb3e3ee-1ffd-48a5-867b-adf9211bcf8c",
+                        "Path": "models/sbox_props/wooden_crate/wooden_crate.vmdl"
+                      },
                       "OnComponentDestroy": null,
                       "OnComponentDisabled": null,
                       "OnComponentEnabled": null,
@@ -12389,7 +12568,10 @@
                       "Elasticity": null,
                       "Friction": null,
                       "IsTrigger": false,
-                      "Model": "models/sbox_props/wooden_crate/wooden_crate.vmdl",
+                      "Model": {
+                        "Id": "0bb3e3ee-1ffd-48a5-867b-adf9211bcf8c",
+                        "Path": "models/sbox_props/wooden_crate/wooden_crate.vmdl"
+                      },
                       "OnComponentDestroy": null,
                       "OnComponentDisabled": null,
                       "OnComponentEnabled": null,
@@ -12411,7 +12593,10 @@
                 {
                   "__guid": "1278b7bc-f9f6-4492-95a8-641400c2feff",
                   "__version": 2,
-                  "__Prefab": "prefabs/red_tape.prefab",
+                  "__Prefab": {
+                    "Id": "8fec8a23-1544-41a1-b191-0162462ffc34",
+                    "Path": "prefabs/red_tape.prefab"
+                  },
                   "__PrefabInstancePatch": {
                     "AddedObjects": [],
                     "RemovedObjects": [],
@@ -12450,7 +12635,10 @@
                 {
                   "__guid": "f8522752-8fb7-43b8-a771-cc092442a576",
                   "__version": 2,
-                  "__Prefab": "prefabs/red_tape.prefab",
+                  "__Prefab": {
+                    "Id": "8fec8a23-1544-41a1-b191-0162462ffc34",
+                    "Path": "prefabs/red_tape.prefab"
+                  },
                   "__PrefabInstancePatch": {
                     "AddedObjects": [],
                     "RemovedObjects": [],
@@ -12497,7 +12685,10 @@
                 {
                   "__guid": "183b67d1-e7c6-4ef4-a4a2-d220d3114d9b",
                   "__version": 2,
-                  "__Prefab": "prefabs/red_tape.prefab",
+                  "__Prefab": {
+                    "Id": "8fec8a23-1544-41a1-b191-0162462ffc34",
+                    "Path": "prefabs/red_tape.prefab"
+                  },
                   "__PrefabInstancePatch": {
                     "AddedObjects": [],
                     "RemovedObjects": [],
@@ -13514,9 +13705,15 @@
                     "Maxs": "512,512,512"
                   },
                   "Contrast": 1,
-                  "DistanceTexture": "scenes/main_scene_data/ddgi/indirect light volume_distance_d2f9066c-dc11-4ca1-8dde-a7479e389062.vtex",
+                  "DistanceTexture": {
+                    "Id": "dcad3efe-a8cc-4a9e-99dd-c0f476dca00f",
+                    "Path": "scenes/main_scene_data/ddgi/indirect light volume_distance_d2f9066c-dc11-4ca1-8dde-a7479e389062.vtex"
+                  },
                   "InsideGeometry": "Relocate",
-                  "IrradianceTexture": "scenes/main_scene_data/ddgi/indirect light volume_irradiance_d2f9066c-dc11-4ca1-8dde-a7479e389062.vtex",
+                  "IrradianceTexture": {
+                    "Id": "63cccdea-1a50-4218-a65d-9b21bf9ebe1d",
+                    "Path": "scenes/main_scene_data/ddgi/indirect light volume_irradiance_d2f9066c-dc11-4ca1-8dde-a7479e389062.vtex"
+                  },
                   "NormalBias": 5,
                   "OnComponentDestroy": null,
                   "OnComponentDisabled": null,
@@ -13525,7 +13722,10 @@
                   "OnComponentStart": null,
                   "OnComponentUpdate": null,
                   "ProbeDensity": 8,
-                  "RelocationTexture": "scenes/main_scene_data/ddgi/indirect light volume_relocation_d2f9066c-dc11-4ca1-8dde-a7479e389062.vtex",
+                  "RelocationTexture": {
+                    "Id": "469a6645-7b20-4a02-b9dd-6497c013c340",
+                    "Path": "scenes/main_scene_data/ddgi/indirect light volume_relocation_d2f9066c-dc11-4ca1-8dde-a7479e389062.vtex"
+                  },
                   "RenderExcludeTags": ""
                 }
               ],
@@ -13724,7 +13924,10 @@
             {
               "__guid": "69190f2b-2546-4153-b40d-f12e22e6c8ec",
               "__version": 2,
-              "__Prefab": "prefabs/wall_maintenance.prefab",
+              "__Prefab": {
+                "Id": "4271729a-38b1-45f9-aed2-279a9026e038",
+                "Path": "prefabs/wall_maintenance.prefab"
+              },
               "__PrefabInstancePatch": {
                 "AddedObjects": [
                   {
@@ -13745,7 +13948,10 @@
                     "Data": {
                       "__guid": "990d3f4e-33d6-477d-9b5e-4f73b05ce69d",
                       "__version": 2,
-                      "__Prefab": "prefabs/baseboard_blue_256.prefab",
+                      "__Prefab": {
+                        "Id": "04aedf1b-338d-46d9-b6e4-462919b938d1",
+                        "Path": "prefabs/baseboard_blue_256.prefab"
+                      },
                       "__PrefabInstancePatch": {
                         "AddedObjects": [],
                         "RemovedObjects": [],
@@ -13888,7 +14094,10 @@
                     "Data": {
                       "__guid": "84a12105-24b0-4381-9c4e-5590241e6c63",
                       "__version": 2,
-                      "__Prefab": "prefabs/baseboard_blue_256.prefab",
+                      "__Prefab": {
+                        "Id": "04aedf1b-338d-46d9-b6e4-462919b938d1",
+                        "Path": "prefabs/baseboard_blue_256.prefab"
+                      },
                       "__PrefabInstancePatch": {
                         "AddedObjects": [],
                         "RemovedObjects": [],
@@ -14135,7 +14344,10 @@
             {
               "__guid": "60ec7a03-2486-4160-8ff7-9626249e1fcc",
               "__version": 2,
-              "__Prefab": "prefabs/wall_maintenance.prefab",
+              "__Prefab": {
+                "Id": "4271729a-38b1-45f9-aed2-279a9026e038",
+                "Path": "prefabs/wall_maintenance.prefab"
+              },
               "__PrefabInstancePatch": {
                 "AddedObjects": [
                   {
@@ -14156,7 +14368,10 @@
                     "Data": {
                       "__guid": "64ddbc7c-fb9c-4271-816d-37160e5d191f",
                       "__version": 2,
-                      "__Prefab": "prefabs/baseboard_blue_256.prefab",
+                      "__Prefab": {
+                        "Id": "04aedf1b-338d-46d9-b6e4-462919b938d1",
+                        "Path": "prefabs/baseboard_blue_256.prefab"
+                      },
                       "__PrefabInstancePatch": {
                         "AddedObjects": [],
                         "RemovedObjects": [],
@@ -14299,7 +14514,10 @@
                     "Data": {
                       "__guid": "3223d0db-26ba-4cd0-b144-aacbcaa835c2",
                       "__version": 2,
-                      "__Prefab": "prefabs/baseboard_blue_256.prefab",
+                      "__Prefab": {
+                        "Id": "04aedf1b-338d-46d9-b6e4-462919b938d1",
+                        "Path": "prefabs/baseboard_blue_256.prefab"
+                      },
                       "__PrefabInstancePatch": {
                         "AddedObjects": [],
                         "RemovedObjects": [],
@@ -14546,7 +14764,10 @@
             {
               "__guid": "6c1a8214-f919-45e1-b773-ad926bb8f4d2",
               "__version": 2,
-              "__Prefab": "prefabs/wall_maintenance.prefab",
+              "__Prefab": {
+                "Id": "4271729a-38b1-45f9-aed2-279a9026e038",
+                "Path": "prefabs/wall_maintenance.prefab"
+              },
               "__PrefabInstancePatch": {
                 "AddedObjects": [
                   {
@@ -14567,7 +14788,10 @@
                     "Data": {
                       "__guid": "f32759f6-12df-4b7e-a527-22f65aede66f",
                       "__version": 2,
-                      "__Prefab": "prefabs/baseboard_blue_256.prefab",
+                      "__Prefab": {
+                        "Id": "04aedf1b-338d-46d9-b6e4-462919b938d1",
+                        "Path": "prefabs/baseboard_blue_256.prefab"
+                      },
                       "__PrefabInstancePatch": {
                         "AddedObjects": [],
                         "RemovedObjects": [],
@@ -14710,7 +14934,10 @@
                     "Data": {
                       "__guid": "ceecfefc-1675-431e-b804-8d97aa21dba3",
                       "__version": 2,
-                      "__Prefab": "prefabs/baseboard_blue_256.prefab",
+                      "__Prefab": {
+                        "Id": "04aedf1b-338d-46d9-b6e4-462919b938d1",
+                        "Path": "prefabs/baseboard_blue_256.prefab"
+                      },
                       "__PrefabInstancePatch": {
                         "AddedObjects": [],
                         "RemovedObjects": [],
@@ -14957,7 +15184,10 @@
             {
               "__guid": "64be88dc-b9e6-4fc0-ba26-1dc76e472153",
               "__version": 2,
-              "__Prefab": "prefabs/wall_maintenance.prefab",
+              "__Prefab": {
+                "Id": "4271729a-38b1-45f9-aed2-279a9026e038",
+                "Path": "prefabs/wall_maintenance.prefab"
+              },
               "__PrefabInstancePatch": {
                 "AddedObjects": [
                   {
@@ -14978,7 +15208,10 @@
                     "Data": {
                       "__guid": "c314eea2-8df7-4fd3-b1ac-3735f1b66023",
                       "__version": 2,
-                      "__Prefab": "prefabs/baseboard_blue_256.prefab",
+                      "__Prefab": {
+                        "Id": "04aedf1b-338d-46d9-b6e4-462919b938d1",
+                        "Path": "prefabs/baseboard_blue_256.prefab"
+                      },
                       "__PrefabInstancePatch": {
                         "AddedObjects": [],
                         "RemovedObjects": [],
@@ -15121,7 +15354,10 @@
                     "Data": {
                       "__guid": "44abbf68-3462-40d0-9d82-67b8be11bad4",
                       "__version": 2,
-                      "__Prefab": "prefabs/baseboard_blue_256.prefab",
+                      "__Prefab": {
+                        "Id": "04aedf1b-338d-46d9-b6e4-462919b938d1",
+                        "Path": "prefabs/baseboard_blue_256.prefab"
+                      },
                       "__PrefabInstancePatch": {
                         "AddedObjects": [],
                         "RemovedObjects": [],
@@ -15384,7 +15620,10 @@
                   "MaterialGroup": null,
                   "MaterialOverride": null,
                   "Materials": null,
-                  "Model": "models/rust_props/power_generator/power_generator_d.vmdl",
+                  "Model": {
+                    "Id": "0d07d97e-670f-4056-999e-7b5cb465e7c1",
+                    "Path": "models/rust_props/power_generator/power_generator_d.vmdl"
+                  },
                   "OnComponentDestroy": null,
                   "OnComponentDisabled": null,
                   "OnComponentEnabled": null,
@@ -15409,7 +15648,10 @@
                   "Elasticity": null,
                   "Friction": null,
                   "IsTrigger": false,
-                  "Model": "models/rust_props/power_generator/power_generator_d.vmdl",
+                  "Model": {
+                    "Id": "0d07d97e-670f-4056-999e-7b5cb465e7c1",
+                    "Path": "models/rust_props/power_generator/power_generator_d.vmdl"
+                  },
                   "OnComponentDestroy": null,
                   "OnComponentDisabled": null,
                   "OnComponentEnabled": null,
@@ -15455,7 +15697,10 @@
                   "MaterialGroup": null,
                   "MaterialOverride": null,
                   "Materials": null,
-                  "Model": "models/rust_props/power_generator/power_generator_d.vmdl",
+                  "Model": {
+                    "Id": "0d07d97e-670f-4056-999e-7b5cb465e7c1",
+                    "Path": "models/rust_props/power_generator/power_generator_d.vmdl"
+                  },
                   "OnComponentDestroy": null,
                   "OnComponentDisabled": null,
                   "OnComponentEnabled": null,
@@ -15480,7 +15725,10 @@
                   "Elasticity": null,
                   "Friction": null,
                   "IsTrigger": false,
-                  "Model": "models/rust_props/power_generator/power_generator_d.vmdl",
+                  "Model": {
+                    "Id": "0d07d97e-670f-4056-999e-7b5cb465e7c1",
+                    "Path": "models/rust_props/power_generator/power_generator_d.vmdl"
+                  },
                   "OnComponentDestroy": null,
                   "OnComponentDisabled": null,
                   "OnComponentEnabled": null,
@@ -15526,7 +15774,10 @@
                   "MaterialGroup": null,
                   "MaterialOverride": null,
                   "Materials": null,
-                  "Model": "models/rust_props/power_generator/power_generator_d.vmdl",
+                  "Model": {
+                    "Id": "0d07d97e-670f-4056-999e-7b5cb465e7c1",
+                    "Path": "models/rust_props/power_generator/power_generator_d.vmdl"
+                  },
                   "OnComponentDestroy": null,
                   "OnComponentDisabled": null,
                   "OnComponentEnabled": null,
@@ -15551,7 +15802,10 @@
                   "Elasticity": null,
                   "Friction": null,
                   "IsTrigger": false,
-                  "Model": "models/rust_props/power_generator/power_generator_d.vmdl",
+                  "Model": {
+                    "Id": "0d07d97e-670f-4056-999e-7b5cb465e7c1",
+                    "Path": "models/rust_props/power_generator/power_generator_d.vmdl"
+                  },
                   "OnComponentDestroy": null,
                   "OnComponentDisabled": null,
                   "OnComponentEnabled": null,
@@ -15597,7 +15851,10 @@
                   "MaterialGroup": null,
                   "MaterialOverride": null,
                   "Materials": null,
-                  "Model": "models/rust_props/power_generator/power_generator_d.vmdl",
+                  "Model": {
+                    "Id": "0d07d97e-670f-4056-999e-7b5cb465e7c1",
+                    "Path": "models/rust_props/power_generator/power_generator_d.vmdl"
+                  },
                   "OnComponentDestroy": null,
                   "OnComponentDisabled": null,
                   "OnComponentEnabled": null,
@@ -15622,7 +15879,10 @@
                   "Elasticity": null,
                   "Friction": null,
                   "IsTrigger": false,
-                  "Model": "models/rust_props/power_generator/power_generator_d.vmdl",
+                  "Model": {
+                    "Id": "0d07d97e-670f-4056-999e-7b5cb465e7c1",
+                    "Path": "models/rust_props/power_generator/power_generator_d.vmdl"
+                  },
                   "OnComponentDestroy": null,
                   "OnComponentDisabled": null,
                   "OnComponentEnabled": null,
@@ -15817,7 +16077,10 @@
         {
           "__guid": "ea540dc6-1905-4bb6-a434-a092bdb04106",
           "__version": 2,
-          "__Prefab": "prefabs/baseboard_blue_256.prefab",
+          "__Prefab": {
+            "Id": "04aedf1b-338d-46d9-b6e4-462919b938d1",
+            "Path": "prefabs/baseboard_blue_256.prefab"
+          },
           "__PrefabInstancePatch": {
             "AddedObjects": [],
             "RemovedObjects": [],
@@ -15869,7 +16132,10 @@
         {
           "__guid": "4ef85eff-c63f-4131-ab6c-73e9a74ef3ca",
           "__version": 2,
-          "__Prefab": "prefabs/baseboard_blue_256.prefab",
+          "__Prefab": {
+            "Id": "04aedf1b-338d-46d9-b6e4-462919b938d1",
+            "Path": "prefabs/baseboard_blue_256.prefab"
+          },
           "__PrefabInstancePatch": {
             "AddedObjects": [],
             "RemovedObjects": [],
@@ -15914,7 +16180,10 @@
         {
           "__guid": "857230f3-1be2-442b-bd18-3d56e9dcd225",
           "__version": 2,
-          "__Prefab": "prefabs/baseboard_blue_256.prefab",
+          "__Prefab": {
+            "Id": "04aedf1b-338d-46d9-b6e4-462919b938d1",
+            "Path": "prefabs/baseboard_blue_256.prefab"
+          },
           "__PrefabInstancePatch": {
             "AddedObjects": [],
             "RemovedObjects": [],
@@ -15967,7 +16236,10 @@
         {
           "__guid": "bb60d549-f620-47cc-aa36-e8044b0674e4",
           "__version": 2,
-          "__Prefab": "prefabs/baseboard_blue_256.prefab",
+          "__Prefab": {
+            "Id": "04aedf1b-338d-46d9-b6e4-462919b938d1",
+            "Path": "prefabs/baseboard_blue_256.prefab"
+          },
           "__PrefabInstancePatch": {
             "AddedObjects": [],
             "RemovedObjects": [],
@@ -16041,7 +16313,10 @@
         {
           "__guid": "c2d8f0e6-af48-4b70-83ab-7d8938a29a2e",
           "__version": 2,
-          "__Prefab": "prefabs/baseboard_blue_256.prefab",
+          "__Prefab": {
+            "Id": "04aedf1b-338d-46d9-b6e4-462919b938d1",
+            "Path": "prefabs/baseboard_blue_256.prefab"
+          },
           "__PrefabInstancePatch": {
             "AddedObjects": [],
             "RemovedObjects": [],
@@ -16123,7 +16398,10 @@
         {
           "__guid": "216114f1-4430-4ba9-bfe1-8c8fa6bf0cbe",
           "__version": 2,
-          "__Prefab": "prefabs/baseboard_blue_256.prefab",
+          "__Prefab": {
+            "Id": "04aedf1b-338d-46d9-b6e4-462919b938d1",
+            "Path": "prefabs/baseboard_blue_256.prefab"
+          },
           "__PrefabInstancePatch": {
             "AddedObjects": [],
             "RemovedObjects": [],
@@ -16176,7 +16454,10 @@
         {
           "__guid": "c1f06446-93c7-4181-8357-4848d2f7b74f",
           "__version": 2,
-          "__Prefab": "prefabs/baseboard_blue_256.prefab",
+          "__Prefab": {
+            "Id": "04aedf1b-338d-46d9-b6e4-462919b938d1",
+            "Path": "prefabs/baseboard_blue_256.prefab"
+          },
           "__PrefabInstancePatch": {
             "AddedObjects": [],
             "RemovedObjects": [],
@@ -16229,7 +16510,10 @@
         {
           "__guid": "cf7a6d16-d74b-485e-b461-cd316b3972a3",
           "__version": 2,
-          "__Prefab": "prefabs/baseboard_blue_256.prefab",
+          "__Prefab": {
+            "Id": "04aedf1b-338d-46d9-b6e4-462919b938d1",
+            "Path": "prefabs/baseboard_blue_256.prefab"
+          },
           "__PrefabInstancePatch": {
             "AddedObjects": [],
             "RemovedObjects": [],
@@ -16282,7 +16566,10 @@
         {
           "__guid": "727daa1c-4b92-4b6a-be34-d5dfcef581c8",
           "__version": 2,
-          "__Prefab": "prefabs/baseboard_blue_256.prefab",
+          "__Prefab": {
+            "Id": "04aedf1b-338d-46d9-b6e4-462919b938d1",
+            "Path": "prefabs/baseboard_blue_256.prefab"
+          },
           "__PrefabInstancePatch": {
             "AddedObjects": [],
             "RemovedObjects": [],
@@ -16401,7 +16688,10 @@
         {
           "__guid": "19dc503d-0240-42b6-9187-1c199d2a6f38",
           "__version": 2,
-          "__Prefab": "prefabs/baseboard_blue_256.prefab",
+          "__Prefab": {
+            "Id": "04aedf1b-338d-46d9-b6e4-462919b938d1",
+            "Path": "prefabs/baseboard_blue_256.prefab"
+          },
           "__PrefabInstancePatch": {
             "AddedObjects": [],
             "RemovedObjects": [],
@@ -17226,7 +17516,10 @@
                   "MaterialGroup": null,
                   "MaterialOverride": null,
                   "Materials": null,
-                  "Model": "models/props/prison/prison_bed_a.vmdl",
+                  "Model": {
+                    "Id": "3c24819b-0860-4324-afea-23d001b43b6c",
+                    "Path": "models/props/prison/prison_bed_a.vmdl"
+                  },
                   "OnComponentDestroy": null,
                   "OnComponentDisabled": null,
                   "OnComponentEnabled": null,
@@ -17251,7 +17544,10 @@
                   "Elasticity": null,
                   "Friction": null,
                   "IsTrigger": false,
-                  "Model": "models/props/prison/prison_bed_a.vmdl",
+                  "Model": {
+                    "Id": "3c24819b-0860-4324-afea-23d001b43b6c",
+                    "Path": "models/props/prison/prison_bed_a.vmdl"
+                  },
                   "OnComponentDestroy": null,
                   "OnComponentDisabled": null,
                   "OnComponentEnabled": null,
@@ -17354,7 +17650,10 @@
             {
               "__guid": "c4cb40fe-e38d-44d1-993f-606c46cbd634",
               "__version": 2,
-              "__Prefab": "prefabs/living_room_door.prefab",
+              "__Prefab": {
+                "Id": "0900711b-3937-42b0-83ab-b0c3f8bc2859",
+                "Path": "prefabs/living_room_door.prefab"
+              },
               "__PrefabInstancePatch": {
                 "AddedObjects": [],
                 "RemovedObjects": [],
@@ -18222,7 +18521,10 @@
             {
               "__guid": "f0a63821-f147-494e-a14d-91082073505b",
               "__version": 2,
-              "__Prefab": "prefabs/living_room_door.prefab",
+              "__Prefab": {
+                "Id": "0900711b-3937-42b0-83ab-b0c3f8bc2859",
+                "Path": "prefabs/living_room_door.prefab"
+              },
               "__PrefabInstancePatch": {
                 "AddedObjects": [],
                 "RemovedObjects": [],
@@ -18297,7 +18599,10 @@
             {
               "__guid": "a830fefb-dd1b-48dd-bb9d-4a7340c585fb",
               "__version": 2,
-              "__Prefab": "prefabs/living_room_door.prefab",
+              "__Prefab": {
+                "Id": "0900711b-3937-42b0-83ab-b0c3f8bc2859",
+                "Path": "prefabs/living_room_door.prefab"
+              },
               "__PrefabInstancePatch": {
                 "AddedObjects": [],
                 "RemovedObjects": [],
@@ -18372,7 +18677,10 @@
             {
               "__guid": "1491529a-0bdc-447b-920b-00907f65898c",
               "__version": 2,
-              "__Prefab": "prefabs/keypad_door.prefab",
+              "__Prefab": {
+                "Id": "8a27c3ab-8d0b-43a2-aedb-28484916ef0e",
+                "Path": "prefabs/keypad_door.prefab"
+              },
               "__PrefabInstancePatch": {
                 "AddedObjects": [],
                 "RemovedObjects": [],
@@ -18485,7 +18793,10 @@
                   "MaterialGroup": null,
                   "MaterialOverride": null,
                   "Materials": null,
-                  "Model": "models/props/office/office_chair_a.vmdl",
+                  "Model": {
+                    "Id": "0a6725be-a89d-4cf8-aa2d-fa09dbd73663",
+                    "Path": "models/props/office/office_chair_a.vmdl"
+                  },
                   "OnComponentDestroy": null,
                   "OnComponentDisabled": null,
                   "OnComponentEnabled": null,
@@ -18510,7 +18821,10 @@
                   "Elasticity": null,
                   "Friction": null,
                   "IsTrigger": false,
-                  "Model": "models/props/office/office_chair_a.vmdl",
+                  "Model": {
+                    "Id": "0a6725be-a89d-4cf8-aa2d-fa09dbd73663",
+                    "Path": "models/props/office/office_chair_a.vmdl"
+                  },
                   "OnComponentDestroy": null,
                   "OnComponentDisabled": null,
                   "OnComponentEnabled": null,
@@ -18609,7 +18923,7 @@
               "__enabled": true,
               "Flags": 0,
               "Center": "0,-463.5,-144",
-              "ColliderFlags": 0,
+              "ColliderFlags": "IgnoreTraces",
               "Elasticity": null,
               "Friction": null,
               "IsTrigger": false,
@@ -18635,7 +18949,10 @@
         {
           "__guid": "ed804532-018a-4119-ab6d-2304b9348abd",
           "__version": 2,
-          "__Prefab": "prefabs/living_room_door.prefab",
+          "__Prefab": {
+            "Id": "0900711b-3937-42b0-83ab-b0c3f8bc2859",
+            "Path": "prefabs/living_room_door.prefab"
+          },
           "__PrefabInstancePatch": {
             "AddedObjects": [],
             "RemovedObjects": [
@@ -18676,7 +18993,10 @@
         {
           "__guid": "84a5dded-fc15-4859-8389-7fef679caabf",
           "__version": 2,
-          "__Prefab": "prefabs/living_room_door.prefab",
+          "__Prefab": {
+            "Id": "0900711b-3937-42b0-83ab-b0c3f8bc2859",
+            "Path": "prefabs/living_room_door.prefab"
+          },
           "__PrefabInstancePatch": {
             "AddedObjects": [],
             "RemovedObjects": [
@@ -19392,7 +19712,10 @@
             {
               "__guid": "cf3c70cc-af60-4fa9-8320-20e51a2b8fac",
               "__version": 2,
-              "__Prefab": "prefabs/baseboard_blue_256.prefab",
+              "__Prefab": {
+                "Id": "04aedf1b-338d-46d9-b6e4-462919b938d1",
+                "Path": "prefabs/baseboard_blue_256.prefab"
+              },
               "__PrefabInstancePatch": {
                 "AddedObjects": [],
                 "RemovedObjects": [],
@@ -19585,7 +19908,10 @@
             {
               "__guid": "57f233ee-cdce-48d3-8962-2f53d9aa8328",
               "__version": 2,
-              "__Prefab": "prefabs/baseboard_blue_256.prefab",
+              "__Prefab": {
+                "Id": "04aedf1b-338d-46d9-b6e4-462919b938d1",
+                "Path": "prefabs/baseboard_blue_256.prefab"
+              },
               "__PrefabInstancePatch": {
                 "AddedObjects": [],
                 "RemovedObjects": [],
@@ -19712,7 +20038,10 @@
             {
               "__guid": "b5c102f5-c57a-4c51-89ff-08f4d8ce5cc4",
               "__version": 2,
-              "__Prefab": "prefabs/baseboard_blue_256.prefab",
+              "__Prefab": {
+                "Id": "04aedf1b-338d-46d9-b6e4-462919b938d1",
+                "Path": "prefabs/baseboard_blue_256.prefab"
+              },
               "__PrefabInstancePatch": {
                 "AddedObjects": [],
                 "RemovedObjects": [],
@@ -20122,7 +20451,10 @@
                 {
                   "__guid": "216ab091-f0ed-4c80-b7a5-d287cf1c02eb",
                   "__version": 2,
-                  "__Prefab": "prefabs/baseboard_blue_256.prefab",
+                  "__Prefab": {
+                    "Id": "04aedf1b-338d-46d9-b6e4-462919b938d1",
+                    "Path": "prefabs/baseboard_blue_256.prefab"
+                  },
                   "__PrefabInstancePatch": {
                     "AddedObjects": [],
                     "RemovedObjects": [],
@@ -20225,7 +20557,10 @@
                 {
                   "__guid": "896ef0c3-94ff-4816-aee9-734286908068",
                   "__version": 2,
-                  "__Prefab": "prefabs/baseboard_blue_256.prefab",
+                  "__Prefab": {
+                    "Id": "04aedf1b-338d-46d9-b6e4-462919b938d1",
+                    "Path": "prefabs/baseboard_blue_256.prefab"
+                  },
                   "__PrefabInstancePatch": {
                     "AddedObjects": [],
                     "RemovedObjects": [],
@@ -20344,7 +20679,10 @@
                 {
                   "__guid": "91d15677-9d9d-4929-9de2-d53cde58b381",
                   "__version": 2,
-                  "__Prefab": "prefabs/baseboard_blue_256.prefab",
+                  "__Prefab": {
+                    "Id": "04aedf1b-338d-46d9-b6e4-462919b938d1",
+                    "Path": "prefabs/baseboard_blue_256.prefab"
+                  },
                   "__PrefabInstancePatch": {
                     "AddedObjects": [],
                     "RemovedObjects": [],
@@ -20473,7 +20811,10 @@
             {
               "__guid": "611a6aa3-58a1-4052-97d1-aa0f79775062",
               "__version": 2,
-              "__Prefab": "prefabs/baseboard_blue_256.prefab",
+              "__Prefab": {
+                "Id": "04aedf1b-338d-46d9-b6e4-462919b938d1",
+                "Path": "prefabs/baseboard_blue_256.prefab"
+              },
               "__PrefabInstancePatch": {
                 "AddedObjects": [],
                 "RemovedObjects": [],
@@ -20952,7 +21293,10 @@
         {
           "__guid": "fe9d3400-265b-45a3-ade4-c4c830627058",
           "__version": 2,
-          "__Prefab": "prefabs/wall_maintenance.prefab",
+          "__Prefab": {
+            "Id": "4271729a-38b1-45f9-aed2-279a9026e038",
+            "Path": "prefabs/wall_maintenance.prefab"
+          },
           "__PrefabInstancePatch": {
             "AddedObjects": [
               {
@@ -20973,7 +21317,10 @@
                 "Data": {
                   "__guid": "86bc5248-1bc5-40e4-9787-953ed5a2044e",
                   "__version": 2,
-                  "__Prefab": "prefabs/baseboard_blue_256.prefab",
+                  "__Prefab": {
+                    "Id": "04aedf1b-338d-46d9-b6e4-462919b938d1",
+                    "Path": "prefabs/baseboard_blue_256.prefab"
+                  },
                   "__PrefabInstancePatch": {
                     "AddedObjects": [],
                     "RemovedObjects": [],
@@ -21116,7 +21463,10 @@
                 "Data": {
                   "__guid": "32d282f0-402f-4aa7-b52a-bb9008eff296",
                   "__version": 2,
-                  "__Prefab": "prefabs/baseboard_blue_256.prefab",
+                  "__Prefab": {
+                    "Id": "04aedf1b-338d-46d9-b6e4-462919b938d1",
+                    "Path": "prefabs/baseboard_blue_256.prefab"
+                  },
                   "__PrefabInstancePatch": {
                     "AddedObjects": [],
                     "RemovedObjects": [],
@@ -21512,7 +21862,10 @@
                 {
                   "__guid": "03c4ddde-4f8d-47c9-8097-f00f35d9958e",
                   "__version": 2,
-                  "__Prefab": "prefabs/baseboard_blue_256.prefab",
+                  "__Prefab": {
+                    "Id": "04aedf1b-338d-46d9-b6e4-462919b938d1",
+                    "Path": "prefabs/baseboard_blue_256.prefab"
+                  },
                   "__PrefabInstancePatch": {
                     "AddedObjects": [],
                     "RemovedObjects": [],
@@ -21656,7 +22009,10 @@
                 {
                   "__guid": "2fa52f6b-fcae-4e0e-99e8-509efd3e0c69",
                   "__version": 2,
-                  "__Prefab": "prefabs/baseboard_blue_256.prefab",
+                  "__Prefab": {
+                    "Id": "04aedf1b-338d-46d9-b6e4-462919b938d1",
+                    "Path": "prefabs/baseboard_blue_256.prefab"
+                  },
                   "__PrefabInstancePatch": {
                     "AddedObjects": [],
                     "RemovedObjects": [],
@@ -21797,7 +22153,7 @@
                   "__enabled": true,
                   "Flags": 0,
                   "Center": "-12.5,795.5,190.5",
-                  "ColliderFlags": 0,
+                  "ColliderFlags": "IgnoreTraces",
                   "Elasticity": null,
                   "Friction": null,
                   "IsTrigger": false,
@@ -21842,7 +22198,7 @@
                   "__enabled": true,
                   "Flags": 0,
                   "Center": "-12.5,2413,446",
-                  "ColliderFlags": 0,
+                  "ColliderFlags": "IgnoreTraces",
                   "Elasticity": null,
                   "Friction": null,
                   "IsTrigger": false,
@@ -24970,7 +25326,10 @@
     {
       "__guid": "d19106ed-4aaa-4920-9946-ccc73f24d903",
       "__version": 2,
-      "__Prefab": "prefabs/wall_living.prefab",
+      "__Prefab": {
+        "Id": "578319a6-c095-4c48-9200-5c4ffb4e6439",
+        "Path": "prefabs/wall_living.prefab"
+      },
       "__PrefabInstancePatch": {
         "AddedObjects": [
           {
@@ -24991,7 +25350,10 @@
             "Data": {
               "__guid": "3910f790-fba3-439c-9d51-ae1862ca4130",
               "__version": 2,
-              "__Prefab": "prefabs/baseboard_blue_256.prefab",
+              "__Prefab": {
+                "Id": "04aedf1b-338d-46d9-b6e4-462919b938d1",
+                "Path": "prefabs/baseboard_blue_256.prefab"
+              },
               "__PrefabInstancePatch": {
                 "AddedObjects": [],
                 "RemovedObjects": [],
@@ -25248,7 +25610,10 @@
         {
           "__guid": "cb0a2a3f-98f4-4d79-9543-850fd9a4ef3f",
           "__version": 2,
-          "__Prefab": "prefabs/baseboard_blue_256.prefab",
+          "__Prefab": {
+            "Id": "04aedf1b-338d-46d9-b6e4-462919b938d1",
+            "Path": "prefabs/baseboard_blue_256.prefab"
+          },
           "__PrefabInstancePatch": {
             "AddedObjects": [],
             "RemovedObjects": [],
@@ -25359,7 +25724,10 @@
         {
           "__guid": "33c85d00-2f25-4618-beff-64a19afeb6cf",
           "__version": 2,
-          "__Prefab": "prefabs/baseboard_blue_256.prefab",
+          "__Prefab": {
+            "Id": "04aedf1b-338d-46d9-b6e4-462919b938d1",
+            "Path": "prefabs/baseboard_blue_256.prefab"
+          },
           "__PrefabInstancePatch": {
             "AddedObjects": [],
             "RemovedObjects": [],
@@ -25470,7 +25838,10 @@
         {
           "__guid": "9d90e5f3-8909-439a-98d3-4772e24b6e92",
           "__version": 2,
-          "__Prefab": "prefabs/baseboard_blue_256.prefab",
+          "__Prefab": {
+            "Id": "04aedf1b-338d-46d9-b6e4-462919b938d1",
+            "Path": "prefabs/baseboard_blue_256.prefab"
+          },
           "__PrefabInstancePatch": {
             "AddedObjects": [],
             "RemovedObjects": [],
@@ -25581,7 +25952,10 @@
         {
           "__guid": "6ad75dcd-7938-4faa-a3b0-4c6e8f468bd1",
           "__version": 2,
-          "__Prefab": "prefabs/baseboard_blue_256.prefab",
+          "__Prefab": {
+            "Id": "04aedf1b-338d-46d9-b6e4-462919b938d1",
+            "Path": "prefabs/baseboard_blue_256.prefab"
+          },
           "__PrefabInstancePatch": {
             "AddedObjects": [],
             "RemovedObjects": [],
@@ -25757,9 +26131,15 @@
             "Maxs": "1104,480,-16"
           },
           "Contrast": 1,
-          "DistanceTexture": "scenes/main_scene_data/ddgi/indirect light volume_distance_6e250d28-6fa4-4b1a-9a81-d113148801a4.vtex",
+          "DistanceTexture": {
+            "Id": "08174a9e-5560-464a-88d5-98c6d4391dbf",
+            "Path": "scenes/main_scene_data/ddgi/indirect light volume_distance_6e250d28-6fa4-4b1a-9a81-d113148801a4.vtex"
+          },
           "InsideGeometry": "Relocate",
-          "IrradianceTexture": "scenes/main_scene_data/ddgi/indirect light volume_irradiance_6e250d28-6fa4-4b1a-9a81-d113148801a4.vtex",
+          "IrradianceTexture": {
+            "Id": "bd400b61-929e-492a-80b7-0babb3bf7787",
+            "Path": "scenes/main_scene_data/ddgi/indirect light volume_irradiance_6e250d28-6fa4-4b1a-9a81-d113148801a4.vtex"
+          },
           "NormalBias": 5,
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
@@ -25768,7 +26148,10 @@
           "OnComponentStart": null,
           "OnComponentUpdate": null,
           "ProbeDensity": 8,
-          "RelocationTexture": "scenes/main_scene_data/ddgi/indirect light volume_relocation_6e250d28-6fa4-4b1a-9a81-d113148801a4.vtex",
+          "RelocationTexture": {
+            "Id": "0eedc758-df83-4a4d-9d9c-47c808479ea4",
+            "Path": "scenes/main_scene_data/ddgi/indirect light volume_relocation_6e250d28-6fa4-4b1a-9a81-d113148801a4.vtex"
+          },
           "RenderExcludeTags": ""
         }
       ],
@@ -25777,7 +26160,10 @@
     {
       "__guid": "15af10d7-3e9a-46e0-89f6-7becaa67219f",
       "__version": 2,
-      "__Prefab": "prefabs/canteen_table.prefab",
+      "__Prefab": {
+        "Id": "24a09583-6b63-4bc7-84fc-80475afb8d0d",
+        "Path": "prefabs/canteen_table.prefab"
+      },
       "__PrefabInstancePatch": {
         "AddedObjects": [],
         "RemovedObjects": [],
@@ -25812,7 +26198,10 @@
     {
       "__guid": "95b00c35-26d8-4ec2-a994-20ccbeff2de3",
       "__version": 2,
-      "__Prefab": "prefabs/canteen_table.prefab",
+      "__Prefab": {
+        "Id": "24a09583-6b63-4bc7-84fc-80475afb8d0d",
+        "Path": "prefabs/canteen_table.prefab"
+      },
       "__PrefabInstancePatch": {
         "AddedObjects": [
           {
@@ -26012,7 +26401,10 @@
     {
       "__guid": "aa19bf25-617d-4b37-af12-7154a735c49f",
       "__version": 2,
-      "__Prefab": "prefabs/canteen_table.prefab",
+      "__Prefab": {
+        "Id": "24a09583-6b63-4bc7-84fc-80475afb8d0d",
+        "Path": "prefabs/canteen_table.prefab"
+      },
       "__PrefabInstancePatch": {
         "AddedObjects": [],
         "RemovedObjects": [],
@@ -26047,7 +26439,10 @@
     {
       "__guid": "1dc319b1-efb5-4d48-be0b-2e85685fb173",
       "__version": 2,
-      "__Prefab": "prefabs/canteen_table.prefab",
+      "__Prefab": {
+        "Id": "24a09583-6b63-4bc7-84fc-80475afb8d0d",
+        "Path": "prefabs/canteen_table.prefab"
+      },
       "__PrefabInstancePatch": {
         "AddedObjects": [],
         "RemovedObjects": [],
@@ -26082,7 +26477,10 @@
     {
       "__guid": "cde8c1d1-be1b-48ec-a0a0-fa069c5dda89",
       "__version": 2,
-      "__Prefab": "prefabs/canteen_table.prefab",
+      "__Prefab": {
+        "Id": "24a09583-6b63-4bc7-84fc-80475afb8d0d",
+        "Path": "prefabs/canteen_table.prefab"
+      },
       "__PrefabInstancePatch": {
         "AddedObjects": [],
         "RemovedObjects": [],
@@ -26117,7 +26515,10 @@
     {
       "__guid": "f00df7ca-8e5d-42f9-8c20-53bb5caeb0ad",
       "__version": 2,
-      "__Prefab": "prefabs/canteen_table.prefab",
+      "__Prefab": {
+        "Id": "24a09583-6b63-4bc7-84fc-80475afb8d0d",
+        "Path": "prefabs/canteen_table.prefab"
+      },
       "__PrefabInstancePatch": {
         "AddedObjects": [],
         "RemovedObjects": [],
@@ -26152,7 +26553,10 @@
     {
       "__guid": "f9e3e016-a04d-4c91-ad75-3695611a3c69",
       "__version": 2,
-      "__Prefab": "prefabs/canteen_table.prefab",
+      "__Prefab": {
+        "Id": "24a09583-6b63-4bc7-84fc-80475afb8d0d",
+        "Path": "prefabs/canteen_table.prefab"
+      },
       "__PrefabInstancePatch": {
         "AddedObjects": [],
         "RemovedObjects": [],
@@ -26187,7 +26591,10 @@
     {
       "__guid": "52829469-cef3-495e-82dc-5ecd36f8fef7",
       "__version": 2,
-      "__Prefab": "prefabs/canteen_table.prefab",
+      "__Prefab": {
+        "Id": "24a09583-6b63-4bc7-84fc-80475afb8d0d",
+        "Path": "prefabs/canteen_table.prefab"
+      },
       "__PrefabInstancePatch": {
         "AddedObjects": [],
         "RemovedObjects": [],
@@ -26222,7 +26629,10 @@
     {
       "__guid": "5daa7e51-d440-484c-8df6-5821b1d1da76",
       "__version": 2,
-      "__Prefab": "prefabs/canteen_table.prefab",
+      "__Prefab": {
+        "Id": "24a09583-6b63-4bc7-84fc-80475afb8d0d",
+        "Path": "prefabs/canteen_table.prefab"
+      },
       "__PrefabInstancePatch": {
         "AddedObjects": [],
         "RemovedObjects": [],
@@ -26398,7 +26808,10 @@
           "MaterialGroup": null,
           "MaterialOverride": null,
           "Materials": null,
-          "Model": "models/citizen/citizen.vmdl",
+          "Model": {
+            "Id": "2b1d7f12-4b7c-415a-81c0-1b3097571fdf",
+            "Path": "models/citizen/citizen.vmdl"
+          },
           "Morphs": {},
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
@@ -26462,7 +26875,10 @@
           "MaterialGroup": null,
           "MaterialOverride": null,
           "Materials": null,
-          "Model": "models/citizen/citizen.vmdl",
+          "Model": {
+            "Id": "2b1d7f12-4b7c-415a-81c0-1b3097571fdf",
+            "Path": "models/citizen/citizen.vmdl"
+          },
           "Morphs": {},
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
@@ -26526,7 +26942,10 @@
           "MaterialGroup": null,
           "MaterialOverride": null,
           "Materials": null,
-          "Model": "models/citizen/citizen.vmdl",
+          "Model": {
+            "Id": "2b1d7f12-4b7c-415a-81c0-1b3097571fdf",
+            "Path": "models/citizen/citizen.vmdl"
+          },
           "Morphs": {},
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
@@ -26590,7 +27009,10 @@
           "MaterialGroup": null,
           "MaterialOverride": null,
           "Materials": null,
-          "Model": "models/citizen/citizen.vmdl",
+          "Model": {
+            "Id": "2b1d7f12-4b7c-415a-81c0-1b3097571fdf",
+            "Path": "models/citizen/citizen.vmdl"
+          },
           "Morphs": {},
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
@@ -26654,7 +27076,10 @@
           "MaterialGroup": null,
           "MaterialOverride": null,
           "Materials": null,
-          "Model": "models/citizen/citizen.vmdl",
+          "Model": {
+            "Id": "2b1d7f12-4b7c-415a-81c0-1b3097571fdf",
+            "Path": "models/citizen/citizen.vmdl"
+          },
           "Morphs": {},
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
@@ -26718,7 +27143,10 @@
           "MaterialGroup": null,
           "MaterialOverride": null,
           "Materials": null,
-          "Model": "models/citizen/citizen.vmdl",
+          "Model": {
+            "Id": "2b1d7f12-4b7c-415a-81c0-1b3097571fdf",
+            "Path": "models/citizen/citizen.vmdl"
+          },
           "Morphs": {},
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
@@ -26831,7 +27259,10 @@
     {
       "__guid": "dc7d5aa9-1168-4260-9cbe-8fc65fb1d3bf",
       "__version": 2,
-      "__Prefab": "prefabs/card_reader_door.prefab",
+      "__Prefab": {
+        "Id": "72757b98-58e4-4c31-b677-58b9dec97bb9",
+        "Path": "prefabs/card_reader_door.prefab"
+      },
       "__PrefabInstancePatch": {
         "AddedObjects": [],
         "RemovedObjects": [],
@@ -26922,7 +27353,10 @@
             {
               "__guid": "4d53c68d-485f-4772-8316-621351924863",
               "__version": 2,
-              "__Prefab": "prefabs/card_reader_door.prefab",
+              "__Prefab": {
+                "Id": "72757b98-58e4-4c31-b677-58b9dec97bb9",
+                "Path": "prefabs/card_reader_door.prefab"
+              },
               "__PrefabInstancePatch": {
                 "AddedObjects": [
                   {
@@ -27225,7 +27659,10 @@
                 {
                   "__guid": "935234b0-8ff9-429e-8a96-3babb038d9c4",
                   "__version": 2,
-                  "__Prefab": "prefabs/baseboard_blue_256.prefab",
+                  "__Prefab": {
+                    "Id": "04aedf1b-338d-46d9-b6e4-462919b938d1",
+                    "Path": "prefabs/baseboard_blue_256.prefab"
+                  },
                   "__PrefabInstancePatch": {
                     "AddedObjects": [],
                     "RemovedObjects": [],
@@ -27413,7 +27850,10 @@
                 {
                   "__guid": "736f513a-6c0e-4e9d-8178-dda98a2ab353",
                   "__version": 2,
-                  "__Prefab": "prefabs/baseboard_blue_256.prefab",
+                  "__Prefab": {
+                    "Id": "04aedf1b-338d-46d9-b6e4-462919b938d1",
+                    "Path": "prefabs/baseboard_blue_256.prefab"
+                  },
                   "__PrefabInstancePatch": {
                     "AddedObjects": [],
                     "RemovedObjects": [],
@@ -27579,7 +28019,10 @@
             {
               "__guid": "7eab0d40-2d1e-4920-9b83-44acfb87c91c",
               "__version": 2,
-              "__Prefab": "prefabs/card_reader_door.prefab",
+              "__Prefab": {
+                "Id": "72757b98-58e4-4c31-b677-58b9dec97bb9",
+                "Path": "prefabs/card_reader_door.prefab"
+              },
               "__PrefabInstancePatch": {
                 "AddedObjects": [],
                 "RemovedObjects": [],
@@ -27757,7 +28200,10 @@
             {
               "__guid": "db23f481-d292-4926-a50f-f432baaa996b",
               "__version": 2,
-              "__Prefab": "prefabs/living_room_door.prefab",
+              "__Prefab": {
+                "Id": "0900711b-3937-42b0-83ab-b0c3f8bc2859",
+                "Path": "prefabs/living_room_door.prefab"
+              },
               "__PrefabInstancePatch": {
                 "AddedObjects": [
                   {
@@ -28099,7 +28545,10 @@
                 {
                   "__guid": "0e870018-4ff4-46fb-84c5-320b57b47cad",
                   "__version": 2,
-                  "__Prefab": "prefabs/baseboard_blue_256.prefab",
+                  "__Prefab": {
+                    "Id": "04aedf1b-338d-46d9-b6e4-462919b938d1",
+                    "Path": "prefabs/baseboard_blue_256.prefab"
+                  },
                   "__PrefabInstancePatch": {
                     "AddedObjects": [],
                     "RemovedObjects": [],
@@ -28295,7 +28744,10 @@
                 {
                   "__guid": "3894552e-2810-45e2-b31b-ee4d9eb6c2f1",
                   "__version": 2,
-                  "__Prefab": "prefabs/baseboard_blue_256.prefab",
+                  "__Prefab": {
+                    "Id": "04aedf1b-338d-46d9-b6e4-462919b938d1",
+                    "Path": "prefabs/baseboard_blue_256.prefab"
+                  },
                   "__PrefabInstancePatch": {
                     "AddedObjects": [],
                     "RemovedObjects": [],
@@ -28412,7 +28864,10 @@
     {
       "__guid": "cf89a0ef-9e30-4762-8406-9f1b7c8a9dbc",
       "__version": 2,
-      "__Prefab": "prefabs/living_room_door.prefab",
+      "__Prefab": {
+        "Id": "0900711b-3937-42b0-83ab-b0c3f8bc2859",
+        "Path": "prefabs/living_room_door.prefab"
+      },
       "__PrefabInstancePatch": {
         "AddedObjects": [
           {
@@ -29312,7 +29767,10 @@
                   "MaterialGroup": null,
                   "MaterialOverride": null,
                   "Materials": null,
-                  "Model": "models/props/electrical/enclosures/old/electric_enclosure_old_short_01.vmdl",
+                  "Model": {
+                    "Id": "01553bf1-45fa-40ef-9f1b-1b10213a44a9",
+                    "Path": "models/props/electrical/enclosures/old/electric_enclosure_old_short_01.vmdl"
+                  },
                   "OnComponentDestroy": null,
                   "OnComponentDisabled": null,
                   "OnComponentEnabled": null,
@@ -29585,7 +30043,10 @@
                   "MaterialGroup": null,
                   "MaterialOverride": null,
                   "Materials": null,
-                  "Model": "models/pliers/pliers.vmdl",
+                  "Model": {
+                    "Id": "c61147fb-b412-439f-889d-e087577217c1",
+                    "Path": "models/pliers/pliers.vmdl"
+                  },
                   "Morphs": {},
                   "OnComponentDestroy": null,
                   "OnComponentDisabled": null,
@@ -31378,7 +31839,10 @@
                   "MaterialGroup": null,
                   "MaterialOverride": null,
                   "Materials": null,
-                  "Model": "models/props/cable/cable_floor_02.vmdl",
+                  "Model": {
+                    "Id": "50b97a04-4acb-4a88-b1e2-2649297a8ffd",
+                    "Path": "models/props/cable/cable_floor_02.vmdl"
+                  },
                   "OnComponentDestroy": null,
                   "OnComponentDisabled": null,
                   "OnComponentEnabled": null,
@@ -31424,7 +31888,10 @@
                   "MaterialGroup": null,
                   "MaterialOverride": null,
                   "Materials": null,
-                  "Model": "models/props/electrical_panels_industrial/electrical_industrial_panel_2.vmdl",
+                  "Model": {
+                    "Id": "e3e391e1-b894-49f8-8a82-d05c3b33ab1d",
+                    "Path": "models/props/electrical_panels_industrial/electrical_industrial_panel_2.vmdl"
+                  },
                   "OnComponentDestroy": null,
                   "OnComponentDisabled": null,
                   "OnComponentEnabled": null,
@@ -31470,7 +31937,10 @@
                   "MaterialGroup": null,
                   "MaterialOverride": null,
                   "Materials": null,
-                  "Model": "models/props/electrical_panels_industrial/electrical_industrial_panel_2.vmdl",
+                  "Model": {
+                    "Id": "e3e391e1-b894-49f8-8a82-d05c3b33ab1d",
+                    "Path": "models/props/electrical_panels_industrial/electrical_industrial_panel_2.vmdl"
+                  },
                   "OnComponentDestroy": null,
                   "OnComponentDisabled": null,
                   "OnComponentEnabled": null,
@@ -31516,7 +31986,10 @@
                   "MaterialGroup": null,
                   "MaterialOverride": null,
                   "Materials": null,
-                  "Model": "models/props/electrical/enclosures/old/electric_enclosure_old_double_interior.vmdl",
+                  "Model": {
+                    "Id": "ee2f93d0-8069-4951-a95e-0c0c1051716a",
+                    "Path": "models/props/electrical/enclosures/old/electric_enclosure_old_double_interior.vmdl"
+                  },
                   "OnComponentDestroy": null,
                   "OnComponentDisabled": null,
                   "OnComponentEnabled": null,
@@ -31562,7 +32035,10 @@
                   "MaterialGroup": null,
                   "MaterialOverride": null,
                   "Materials": null,
-                  "Model": "models/props/electrical/enclosures/old/electric_enclosure_old_double_interior.vmdl",
+                  "Model": {
+                    "Id": "ee2f93d0-8069-4951-a95e-0c0c1051716a",
+                    "Path": "models/props/electrical/enclosures/old/electric_enclosure_old_double_interior.vmdl"
+                  },
                   "OnComponentDestroy": null,
                   "OnComponentDisabled": null,
                   "OnComponentEnabled": null,
@@ -31608,7 +32084,10 @@
                   "MaterialGroup": null,
                   "MaterialOverride": null,
                   "Materials": null,
-                  "Model": "models/props/electrical/enclosures/old/electric_enclosure_old_double_interior.vmdl",
+                  "Model": {
+                    "Id": "ee2f93d0-8069-4951-a95e-0c0c1051716a",
+                    "Path": "models/props/electrical/enclosures/old/electric_enclosure_old_double_interior.vmdl"
+                  },
                   "OnComponentDestroy": null,
                   "OnComponentDisabled": null,
                   "OnComponentEnabled": null,
@@ -31654,7 +32133,10 @@
                   "MaterialGroup": null,
                   "MaterialOverride": null,
                   "Materials": null,
-                  "Model": "models/props/electrical/enclosures/old/electric_enclosure_old_double_interior.vmdl",
+                  "Model": {
+                    "Id": "ee2f93d0-8069-4951-a95e-0c0c1051716a",
+                    "Path": "models/props/electrical/enclosures/old/electric_enclosure_old_double_interior.vmdl"
+                  },
                   "OnComponentDestroy": null,
                   "OnComponentDisabled": null,
                   "OnComponentEnabled": null,
@@ -31719,7 +32201,10 @@
                   "CoverageAmount": 1,
                   "CoverageRange": 0.07,
                   "Decals": [
-                    "decals/facepunch-logo.decal"
+                    {
+                      "Id": "1c1e7986-13e7-451a-a8a6-b719dfb4cdf0",
+                      "Path": "decals/facepunch-logo.decal"
+                    }
                   ],
                   "Depth": 8,
                   "LifeTime": 0,
@@ -31770,7 +32255,10 @@
                   "CoverageAmount": 1,
                   "CoverageRange": 0.07,
                   "Decals": [
-                    "textures/hazard_line/hazard_line.decal"
+                    {
+                      "Id": "e8172395-8379-47ea-b9ef-ff8183088385",
+                      "Path": "textures/hazard_line/hazard_line.decal"
+                    }
                   ],
                   "Depth": 8,
                   "LifeTime": 0,
@@ -31821,7 +32309,10 @@
                   "CoverageAmount": 1,
                   "CoverageRange": 0.07,
                   "Decals": [
-                    "textures/hazard_line/hazard_line.decal"
+                    {
+                      "Id": "e8172395-8379-47ea-b9ef-ff8183088385",
+                      "Path": "textures/hazard_line/hazard_line.decal"
+                    }
                   ],
                   "Depth": 8,
                   "LifeTime": 0,
@@ -31872,7 +32363,10 @@
                   "CoverageAmount": 1,
                   "CoverageRange": 0.07,
                   "Decals": [
-                    "textures/hazard_line/hazard_line.decal"
+                    {
+                      "Id": "e8172395-8379-47ea-b9ef-ff8183088385",
+                      "Path": "textures/hazard_line/hazard_line.decal"
+                    }
                   ],
                   "Depth": 8,
                   "LifeTime": 0,
@@ -31923,7 +32417,10 @@
                   "CoverageAmount": 1,
                   "CoverageRange": 0.07,
                   "Decals": [
-                    "textures/hazard_line/hazard_line.decal"
+                    {
+                      "Id": "e8172395-8379-47ea-b9ef-ff8183088385",
+                      "Path": "textures/hazard_line/hazard_line.decal"
+                    }
                   ],
                   "Depth": 8,
                   "LifeTime": 0,
@@ -31974,7 +32471,10 @@
                   "CoverageAmount": 1,
                   "CoverageRange": 0.07,
                   "Decals": [
-                    "textures/hazard_line/hazard_line.decal"
+                    {
+                      "Id": "e8172395-8379-47ea-b9ef-ff8183088385",
+                      "Path": "textures/hazard_line/hazard_line.decal"
+                    }
                   ],
                   "Depth": 8,
                   "LifeTime": 0,
@@ -32025,7 +32525,10 @@
                   "CoverageAmount": 1,
                   "CoverageRange": 0.07,
                   "Decals": [
-                    "textures/hazard_line/hazard_line.decal"
+                    {
+                      "Id": "e8172395-8379-47ea-b9ef-ff8183088385",
+                      "Path": "textures/hazard_line/hazard_line.decal"
+                    }
                   ],
                   "Depth": 8,
                   "LifeTime": 0,
@@ -32076,7 +32579,10 @@
                   "CoverageAmount": 1,
                   "CoverageRange": 0.07,
                   "Decals": [
-                    "textures/hazard_line/hazard_line.decal"
+                    {
+                      "Id": "e8172395-8379-47ea-b9ef-ff8183088385",
+                      "Path": "textures/hazard_line/hazard_line.decal"
+                    }
                   ],
                   "Depth": 8,
                   "LifeTime": 0,
@@ -32127,7 +32633,10 @@
                   "CoverageAmount": 1,
                   "CoverageRange": 0.07,
                   "Decals": [
-                    "textures/hazard_line/hazard_line.decal"
+                    {
+                      "Id": "e8172395-8379-47ea-b9ef-ff8183088385",
+                      "Path": "textures/hazard_line/hazard_line.decal"
+                    }
                   ],
                   "Depth": 8,
                   "LifeTime": 0,
@@ -32178,7 +32687,10 @@
                   "CoverageAmount": 1,
                   "CoverageRange": 0.07,
                   "Decals": [
-                    "textures/hazard_line/hazard_line.decal"
+                    {
+                      "Id": "e8172395-8379-47ea-b9ef-ff8183088385",
+                      "Path": "textures/hazard_line/hazard_line.decal"
+                    }
                   ],
                   "Depth": 8,
                   "LifeTime": 0,
@@ -32229,7 +32741,10 @@
                   "CoverageAmount": 1,
                   "CoverageRange": 0.07,
                   "Decals": [
-                    "textures/hazard_line/hazard_line.decal"
+                    {
+                      "Id": "e8172395-8379-47ea-b9ef-ff8183088385",
+                      "Path": "textures/hazard_line/hazard_line.decal"
+                    }
                   ],
                   "Depth": 8,
                   "LifeTime": 0,
@@ -32280,7 +32795,10 @@
                   "CoverageAmount": 1,
                   "CoverageRange": 0.07,
                   "Decals": [
-                    "textures/hazard_line/hazard_line.decal"
+                    {
+                      "Id": "e8172395-8379-47ea-b9ef-ff8183088385",
+                      "Path": "textures/hazard_line/hazard_line.decal"
+                    }
                   ],
                   "Depth": 8,
                   "LifeTime": 0,
@@ -32606,7 +33124,10 @@
         {
           "__guid": "874a889e-81fa-4a5f-89ae-bd7ff2119ff0",
           "__version": 2,
-          "__Prefab": "prefabs/items/keycardmaintenance.prefab",
+          "__Prefab": {
+            "Id": "0b9d5c90-8e37-46ec-b00d-1eb81b6be35a",
+            "Path": "prefabs/items/keycardmaintenance.prefab"
+          },
           "__PrefabInstancePatch": {
             "AddedObjects": [
               {
@@ -32635,7 +33156,10 @@
                   "MaterialGroup": null,
                   "MaterialOverride": null,
                   "Materials": null,
-                  "Model": "models/rust_props/misc/access_card.vmdl",
+                  "Model": {
+                    "Id": "1867a116-c0d9-4fd3-9a2a-293a427ecc11",
+                    "Path": "models/rust_props/misc/access_card.vmdl"
+                  },
                   "OnComponentDestroy": null,
                   "OnComponentDisabled": null,
                   "OnComponentEnabled": null,
@@ -32756,7 +33280,10 @@
     {
       "__guid": "c508e1fe-1fb0-4237-8c40-e1de3b2e1c9a",
       "__version": 2,
-      "__Prefab": "prefabs/hall_table.prefab",
+      "__Prefab": {
+        "Id": "e392418e-5b34-4990-a852-81753423144a",
+        "Path": "prefabs/hall_table.prefab"
+      },
       "__PrefabInstancePatch": {
         "AddedObjects": [],
         "RemovedObjects": [],
@@ -32785,7 +33312,10 @@
     {
       "__guid": "7158779e-7ebc-44cb-9f94-b3c3ac660540",
       "__version": 2,
-      "__Prefab": "prefabs/hall_table.prefab",
+      "__Prefab": {
+        "Id": "e392418e-5b34-4990-a852-81753423144a",
+        "Path": "prefabs/hall_table.prefab"
+      },
       "__PrefabInstancePatch": {
         "AddedObjects": [],
         "RemovedObjects": [],
@@ -32830,7 +33360,10 @@
     {
       "__guid": "6b5e36d0-50b2-47f4-bb3b-66fbacd17a2d",
       "__version": 2,
-      "__Prefab": "prefabs/hall_table.prefab",
+      "__Prefab": {
+        "Id": "e392418e-5b34-4990-a852-81753423144a",
+        "Path": "prefabs/hall_table.prefab"
+      },
       "__PrefabInstancePatch": {
         "AddedObjects": [],
         "RemovedObjects": [],
@@ -32920,7 +33453,10 @@
     {
       "__guid": "b84d378c-3345-421a-b0f9-fd66cd063fb3",
       "__version": 2,
-      "__Prefab": "prefabs/wall_living.prefab",
+      "__Prefab": {
+        "Id": "578319a6-c095-4c48-9200-5c4ffb4e6439",
+        "Path": "prefabs/wall_living.prefab"
+      },
       "__PrefabInstancePatch": {
         "AddedObjects": [],
         "RemovedObjects": [
@@ -33052,7 +33588,10 @@
         {
           "__guid": "e7ce1a8a-1d64-46ad-91a9-c1e07beb3eb9",
           "__version": 2,
-          "__Prefab": "prefabs/wall_living.prefab",
+          "__Prefab": {
+            "Id": "578319a6-c095-4c48-9200-5c4ffb4e6439",
+            "Path": "prefabs/wall_living.prefab"
+          },
           "__PrefabInstancePatch": {
             "AddedObjects": [],
             "RemovedObjects": [
@@ -33163,7 +33702,10 @@
         {
           "__guid": "9145fa56-5f6b-4b3f-9342-bbb81ceb3055",
           "__version": 2,
-          "__Prefab": "prefabs/wall_living.prefab",
+          "__Prefab": {
+            "Id": "578319a6-c095-4c48-9200-5c4ffb4e6439",
+            "Path": "prefabs/wall_living.prefab"
+          },
           "__PrefabInstancePatch": {
             "AddedObjects": [],
             "RemovedObjects": [
@@ -33343,7 +33885,10 @@
         {
           "__guid": "f8fc31f2-96d5-4bbb-a013-de1e740f2388",
           "__version": 2,
-          "__Prefab": "prefabs/wall_maintenance.prefab",
+          "__Prefab": {
+            "Id": "4271729a-38b1-45f9-aed2-279a9026e038",
+            "Path": "prefabs/wall_maintenance.prefab"
+          },
           "__PrefabInstancePatch": {
             "AddedObjects": [
               {
@@ -33364,7 +33909,10 @@
                 "Data": {
                   "__guid": "14c8ac77-2d12-4787-95b4-df90874fc79e",
                   "__version": 2,
-                  "__Prefab": "prefabs/baseboard_blue_256.prefab",
+                  "__Prefab": {
+                    "Id": "04aedf1b-338d-46d9-b6e4-462919b938d1",
+                    "Path": "prefabs/baseboard_blue_256.prefab"
+                  },
                   "__PrefabInstancePatch": {
                     "AddedObjects": [],
                     "RemovedObjects": [],
@@ -33507,7 +34055,10 @@
                 "Data": {
                   "__guid": "fc42662c-c2a4-4ce8-9fc6-b477872b9aa6",
                   "__version": 2,
-                  "__Prefab": "prefabs/baseboard_blue_256.prefab",
+                  "__Prefab": {
+                    "Id": "04aedf1b-338d-46d9-b6e4-462919b938d1",
+                    "Path": "prefabs/baseboard_blue_256.prefab"
+                  },
                   "__PrefabInstancePatch": {
                     "AddedObjects": [],
                     "RemovedObjects": [],
@@ -33786,7 +34337,10 @@
         {
           "__guid": "6b8a0e5d-15ee-4138-8cdc-22be55549262",
           "__version": 2,
-          "__Prefab": "prefabs/wall_living.prefab",
+          "__Prefab": {
+            "Id": "578319a6-c095-4c48-9200-5c4ffb4e6439",
+            "Path": "prefabs/wall_living.prefab"
+          },
           "__PrefabInstancePatch": {
             "AddedObjects": [],
             "RemovedObjects": [
@@ -34073,7 +34627,10 @@
         {
           "__guid": "dc943fed-f7ca-4c15-9d6c-d13308abd8bd",
           "__version": 2,
-          "__Prefab": "prefabs/wall_living.prefab",
+          "__Prefab": {
+            "Id": "578319a6-c095-4c48-9200-5c4ffb4e6439",
+            "Path": "prefabs/wall_living.prefab"
+          },
           "__PrefabInstancePatch": {
             "AddedObjects": [],
             "RemovedObjects": [
@@ -37178,7 +37735,10 @@
                   "MaterialGroup": null,
                   "MaterialOverride": null,
                   "Materials": null,
-                  "Model": "models/props/big_button/big_button.vmdl",
+                  "Model": {
+                    "Id": "0d73cb88-9ac4-417c-86e6-0e5d26bdb11e",
+                    "Path": "models/props/big_button/big_button.vmdl"
+                  },
                   "OnComponentDestroy": null,
                   "OnComponentDisabled": null,
                   "OnComponentEnabled": null,
@@ -37203,7 +37763,10 @@
                   "Elasticity": null,
                   "Friction": null,
                   "IsTrigger": false,
-                  "Model": "models/props/big_button/big_button.vmdl",
+                  "Model": {
+                    "Id": "0d73cb88-9ac4-417c-86e6-0e5d26bdb11e",
+                    "Path": "models/props/big_button/big_button.vmdl"
+                  },
                   "OnComponentDestroy": null,
                   "OnComponentDisabled": null,
                   "OnComponentEnabled": null,
@@ -37538,7 +38101,10 @@
                   "MaterialGroup": null,
                   "MaterialOverride": null,
                   "Materials": null,
-                  "Model": "models/props/big_button/big_button.vmdl",
+                  "Model": {
+                    "Id": "0d73cb88-9ac4-417c-86e6-0e5d26bdb11e",
+                    "Path": "models/props/big_button/big_button.vmdl"
+                  },
                   "OnComponentDestroy": null,
                   "OnComponentDisabled": null,
                   "OnComponentEnabled": null,
@@ -37589,7 +38155,10 @@
                   "Elasticity": null,
                   "Friction": null,
                   "IsTrigger": false,
-                  "Model": "models/props/big_button/big_button.vmdl",
+                  "Model": {
+                    "Id": "0d73cb88-9ac4-417c-86e6-0e5d26bdb11e",
+                    "Path": "models/props/big_button/big_button.vmdl"
+                  },
                   "OnComponentDestroy": null,
                   "OnComponentDisabled": null,
                   "OnComponentEnabled": null,
@@ -37879,7 +38448,10 @@
               "MaterialGroup": null,
               "MaterialOverride": null,
               "Materials": null,
-              "Model": "models/sbox_props/wooden_crate/wooden_crate.vmdl",
+              "Model": {
+                "Id": "0bb3e3ee-1ffd-48a5-867b-adf9211bcf8c",
+                "Path": "models/sbox_props/wooden_crate/wooden_crate.vmdl"
+              },
               "OnComponentDestroy": null,
               "OnComponentDisabled": null,
               "OnComponentEnabled": null,
@@ -37904,7 +38476,10 @@
               "Elasticity": null,
               "Friction": null,
               "IsTrigger": false,
-              "Model": "models/sbox_props/wooden_crate/wooden_crate.vmdl",
+              "Model": {
+                "Id": "0bb3e3ee-1ffd-48a5-867b-adf9211bcf8c",
+                "Path": "models/sbox_props/wooden_crate/wooden_crate.vmdl"
+              },
               "OnComponentDestroy": null,
               "OnComponentDisabled": null,
               "OnComponentEnabled": null,
@@ -37950,7 +38525,10 @@
               "MaterialGroup": null,
               "MaterialOverride": null,
               "Materials": null,
-              "Model": "models/sbox_props/wooden_crate/wooden_crate.vmdl",
+              "Model": {
+                "Id": "0bb3e3ee-1ffd-48a5-867b-adf9211bcf8c",
+                "Path": "models/sbox_props/wooden_crate/wooden_crate.vmdl"
+              },
               "OnComponentDestroy": null,
               "OnComponentDisabled": null,
               "OnComponentEnabled": null,
@@ -37975,7 +38553,10 @@
               "Elasticity": null,
               "Friction": null,
               "IsTrigger": false,
-              "Model": "models/sbox_props/wooden_crate/wooden_crate.vmdl",
+              "Model": {
+                "Id": "0bb3e3ee-1ffd-48a5-867b-adf9211bcf8c",
+                "Path": "models/sbox_props/wooden_crate/wooden_crate.vmdl"
+              },
               "OnComponentDestroy": null,
               "OnComponentDisabled": null,
               "OnComponentEnabled": null,
@@ -38021,7 +38602,10 @@
               "MaterialGroup": null,
               "MaterialOverride": null,
               "Materials": null,
-              "Model": "models/sbox_props/wooden_crate/wooden_crate.vmdl",
+              "Model": {
+                "Id": "0bb3e3ee-1ffd-48a5-867b-adf9211bcf8c",
+                "Path": "models/sbox_props/wooden_crate/wooden_crate.vmdl"
+              },
               "OnComponentDestroy": null,
               "OnComponentDisabled": null,
               "OnComponentEnabled": null,
@@ -38046,7 +38630,10 @@
               "Elasticity": null,
               "Friction": null,
               "IsTrigger": false,
-              "Model": "models/sbox_props/wooden_crate/wooden_crate.vmdl",
+              "Model": {
+                "Id": "0bb3e3ee-1ffd-48a5-867b-adf9211bcf8c",
+                "Path": "models/sbox_props/wooden_crate/wooden_crate.vmdl"
+              },
               "OnComponentDestroy": null,
               "OnComponentDisabled": null,
               "OnComponentEnabled": null,
@@ -38092,7 +38679,10 @@
               "MaterialGroup": null,
               "MaterialOverride": null,
               "Materials": null,
-              "Model": "models/sbox_props/wooden_crate/wooden_crate.vmdl",
+              "Model": {
+                "Id": "0bb3e3ee-1ffd-48a5-867b-adf9211bcf8c",
+                "Path": "models/sbox_props/wooden_crate/wooden_crate.vmdl"
+              },
               "OnComponentDestroy": null,
               "OnComponentDisabled": null,
               "OnComponentEnabled": null,
@@ -38117,7 +38707,10 @@
               "Elasticity": null,
               "Friction": null,
               "IsTrigger": false,
-              "Model": "models/sbox_props/wooden_crate/wooden_crate.vmdl",
+              "Model": {
+                "Id": "0bb3e3ee-1ffd-48a5-867b-adf9211bcf8c",
+                "Path": "models/sbox_props/wooden_crate/wooden_crate.vmdl"
+              },
               "OnComponentDestroy": null,
               "OnComponentDisabled": null,
               "OnComponentEnabled": null,
@@ -38163,7 +38756,10 @@
               "MaterialGroup": null,
               "MaterialOverride": null,
               "Materials": null,
-              "Model": "models/sbox_props/wooden_crate/wooden_crate.vmdl",
+              "Model": {
+                "Id": "0bb3e3ee-1ffd-48a5-867b-adf9211bcf8c",
+                "Path": "models/sbox_props/wooden_crate/wooden_crate.vmdl"
+              },
               "OnComponentDestroy": null,
               "OnComponentDisabled": null,
               "OnComponentEnabled": null,
@@ -38188,7 +38784,10 @@
               "Elasticity": null,
               "Friction": null,
               "IsTrigger": false,
-              "Model": "models/sbox_props/wooden_crate/wooden_crate.vmdl",
+              "Model": {
+                "Id": "0bb3e3ee-1ffd-48a5-867b-adf9211bcf8c",
+                "Path": "models/sbox_props/wooden_crate/wooden_crate.vmdl"
+              },
               "OnComponentDestroy": null,
               "OnComponentDisabled": null,
               "OnComponentEnabled": null,
@@ -38234,7 +38833,10 @@
               "MaterialGroup": null,
               "MaterialOverride": null,
               "Materials": null,
-              "Model": "models/props/weapon_crate/weapon_crate_bare_stackb.vmdl",
+              "Model": {
+                "Id": "05773b4e-32c2-4cb4-b6c0-db01ab808542",
+                "Path": "models/props/weapon_crate/weapon_crate_bare_stackb.vmdl"
+              },
               "OnComponentDestroy": null,
               "OnComponentDisabled": null,
               "OnComponentEnabled": null,
@@ -38259,7 +38861,10 @@
               "Elasticity": null,
               "Friction": null,
               "IsTrigger": false,
-              "Model": "models/props/weapon_crate/weapon_crate_bare_stackb.vmdl",
+              "Model": {
+                "Id": "05773b4e-32c2-4cb4-b6c0-db01ab808542",
+                "Path": "models/props/weapon_crate/weapon_crate_bare_stackb.vmdl"
+              },
               "OnComponentDestroy": null,
               "OnComponentDisabled": null,
               "OnComponentEnabled": null,
@@ -38305,7 +38910,10 @@
               "MaterialGroup": null,
               "MaterialOverride": null,
               "Materials": null,
-              "Model": "models/props/weapon_crate/weapon_crate_bare_stackb.vmdl",
+              "Model": {
+                "Id": "05773b4e-32c2-4cb4-b6c0-db01ab808542",
+                "Path": "models/props/weapon_crate/weapon_crate_bare_stackb.vmdl"
+              },
               "OnComponentDestroy": null,
               "OnComponentDisabled": null,
               "OnComponentEnabled": null,
@@ -38330,7 +38938,10 @@
               "Elasticity": null,
               "Friction": null,
               "IsTrigger": false,
-              "Model": "models/props/weapon_crate/weapon_crate_bare_stackb.vmdl",
+              "Model": {
+                "Id": "05773b4e-32c2-4cb4-b6c0-db01ab808542",
+                "Path": "models/props/weapon_crate/weapon_crate_bare_stackb.vmdl"
+              },
               "OnComponentDestroy": null,
               "OnComponentDisabled": null,
               "OnComponentEnabled": null,
@@ -38376,7 +38987,10 @@
               "MaterialGroup": null,
               "MaterialOverride": null,
               "Materials": null,
-              "Model": "models/props/weapon_crate/weapon_crate_bare_stackb.vmdl",
+              "Model": {
+                "Id": "05773b4e-32c2-4cb4-b6c0-db01ab808542",
+                "Path": "models/props/weapon_crate/weapon_crate_bare_stackb.vmdl"
+              },
               "OnComponentDestroy": null,
               "OnComponentDisabled": null,
               "OnComponentEnabled": null,
@@ -38401,7 +39015,10 @@
               "Elasticity": null,
               "Friction": null,
               "IsTrigger": false,
-              "Model": "models/props/weapon_crate/weapon_crate_bare_stackb.vmdl",
+              "Model": {
+                "Id": "05773b4e-32c2-4cb4-b6c0-db01ab808542",
+                "Path": "models/props/weapon_crate/weapon_crate_bare_stackb.vmdl"
+              },
               "OnComponentDestroy": null,
               "OnComponentDisabled": null,
               "OnComponentEnabled": null,
@@ -38538,7 +39155,10 @@
               "StartCap": "None",
               "Texturing": {
                 "Texture": null,
-                "Material": "materials/cable.vmat",
+                "Material": {
+                  "Id": "e5e6d522-61f3-41ad-a8f6-6b18a54f6296",
+                  "Path": "materials/cable.vmat"
+                },
                 "WorldSpace": true,
                 "UnitsPerTexture": 10,
                 "Scale": 1,
@@ -38551,21 +39171,21 @@
               "UseVectorPoints": true,
               "VectorPoints": [
                 "1046,-4902,168",
-                "1044.95874,-4909.61279,166.282562",
-                "1047.04126,-4917.31396,165.039536",
-                "1044.95874,-4924.97705,163.86821",
-                "1044.95874,-4932.67773,162.73465",
-                "1047.04126,-4940.40234,161.609634",
-                "1044.95874,-4948.05664,160.485977",
-                "1044.95874,-4955.76611,159.35733",
-                "1044.99036,-4963.47998,158.230331",
-                "1044.87488,-4971.19531,157.103333",
-                "1044.74988,-4978.90967,155.977005",
-                "1044.62512,-4986.62451,154.850464",
-                "1044.50146,-4994.33838,153.725754",
-                "1044.37903,-5002.05469,152.601242",
-                "1044.25134,-5009.76709,151.485504",
-                "1044.1272,-5017.49902,150.429214",
+                "1044.95874,-4909.62109,166.336166",
+                "1047.04126,-4917.32959,165.178589",
+                "1044.95874,-4924.98877,163.948639",
+                "1044.95874,-4932.6875,162.795624",
+                "1047.04126,-4940.42236,161.824295",
+                "1044.95874,-4948.06445,160.537506",
+                "1044.95874,-4955.76855,159.366714",
+                "1044.99036,-4963.48145,158.232269",
+                "1044.87488,-4971.1958,157.104309",
+                "1044.74988,-4978.91016,155.977219",
+                "1044.62512,-4986.625,154.849869",
+                "1044.50146,-4994.33887,153.725906",
+                "1044.37915,-5002.05469,152.600983",
+                "1044.25122,-5009.76709,151.485352",
+                "1044.12695,-5017.49902,150.42897",
                 "1044,-5025.28076,150"
               ],
               "Width": [
@@ -38681,7 +39301,10 @@
               "StartCap": "None",
               "Texturing": {
                 "Texture": null,
-                "Material": "materials/cable.vmat",
+                "Material": {
+                  "Id": "e5e6d522-61f3-41ad-a8f6-6b18a54f6296",
+                  "Path": "materials/cable.vmat"
+                },
                 "WorldSpace": true,
                 "UnitsPerTexture": 10,
                 "Scale": 1,
@@ -38695,20 +39318,20 @@
               "VectorPoints": [
                 "1028,-5078,220",
                 "1030.0686,-5076.42334,215.77446",
-                "1030.29187,-5074.88916,210.633652",
-                "1031.36023,-5073.29199,205.955536",
-                "1032.41162,-5071.67676,201.280807",
-                "1033.5177,-5070.05566,196.62323",
-                "1034.63464,-5068.42725,191.972458",
-                "1035.76013,-5066.80225,187.325256",
-                "1036.88855,-5065.16357,182.68486",
-                "1038.02002,-5063.5376,178.045013",
-                "1039.16821,-5061.91211,173.408035",
-                "1040.32361,-5060.28906,168.780869",
-                "1041.67212,-5058.71387,164.177658",
-                "1043.27795,-5057.02588,159.725281",
-                "1047.04114,-5055.96631,155.172531",
-                "1045.28564,-5055.53857,150.228912",
+                "1030.2915,-5074.88721,210.633957",
+                "1031.35999,-5073.29004,205.955627",
+                "1032.41064,-5071.67725,201.279922",
+                "1033.51831,-5070.05469,196.622879",
+                "1034.6344,-5068.42578,191.972107",
+                "1035.76099,-5066.79883,187.32576",
+                "1036.88904,-5065.16797,182.682556",
+                "1038.02075,-5063.53711,178.044067",
+                "1039.1687,-5061.9126,173.406677",
+                "1040.32434,-5060.2876,168.779984",
+                "1041.67175,-5058.7124,164.176666",
+                "1043.27405,-5057.02588,159.721939",
+                "1047.04114,-5055.96631,155.172577",
+                "1045.31592,-5055.54492,150.230011",
                 "1046,-5052,146"
               ],
               "Width": [
@@ -38824,7 +39447,10 @@
               "StartCap": "None",
               "Texturing": {
                 "Texture": null,
-                "Material": "materials/cable.vmat",
+                "Material": {
+                  "Id": "e5e6d522-61f3-41ad-a8f6-6b18a54f6296",
+                  "Path": "materials/cable.vmat"
+                },
                 "WorldSpace": true,
                 "UnitsPerTexture": 10,
                 "Scale": 1,
@@ -38837,21 +39463,21 @@
               "UseVectorPoints": true,
               "VectorPoints": [
                 "1054,-4838,202",
-                "1053.50879,-4841.83105,199.505463",
-                "1052.99329,-4845.79053,197.278427",
-                "1052.4126,-4849.84912,195.223007",
-                "1051.703,-4853.95361,193.489212",
-                "1050.46594,-4858.17725,192.976761",
-                "1050.76538,-4861.94678,189.093689",
-                "1050.41553,-4865.85059,186.735077",
-                "1049.98315,-4869.81934,184.504257",
-                "1049.48462,-4873.96729,183.041214",
-                "1049.00024,-4877.82617,180.21077",
-                "1048.46716,-4881.84521,178.094986",
-                "1047.88391,-4885.86621,176.004044",
-                "1047.06006,-4890.08838,175.041229",
-                "1044.95874,-4893.7959,171.948044",
-                "1044.95874,-4897.8252,169.766861",
+                "1053.5083,-4841.82861,199.502167",
+                "1052.9939,-4845.78955,197.277542",
+                "1052.41626,-4849.84912,195.224014",
+                "1051.70898,-4853.95361,193.491653",
+                "1050.49658,-4858.17725,192.989456",
+                "1050.77185,-4861.94824,189.096237",
+                "1050.41895,-4865.85059,186.735931",
+                "1049.98438,-4869.81885,184.503845",
+                "1049.48645,-4873.96631,183.041214",
+                "1049.00085,-4877.82617,180.21283",
+                "1048.46851,-4881.84375,178.093887",
+                "1047.88354,-4885.86572,176.004242",
+                "1047.06799,-4890.08838,175.041229",
+                "1044.95874,-4893.80371,171.979553",
+                "1044.95874,-4897.82861,169.780304",
                 "1046,-4902,168"
               ],
               "Width": [
@@ -39543,7 +40169,10 @@
         {
           "__guid": "7ff6655e-8acd-47a5-9ac2-319c9b2f6514",
           "__version": 2,
-          "__Prefab": "prefabs/keycardscience1.prefab",
+          "__Prefab": {
+            "Id": "2bbb67af-97ab-4917-80ec-169a0f7ac5f5",
+            "Path": "prefabs/keycardscience1.prefab"
+          },
           "__PrefabInstancePatch": {
             "AddedObjects": [
               {
@@ -39570,7 +40199,10 @@
                   "Elasticity": null,
                   "Friction": null,
                   "IsTrigger": false,
-                  "Model": "models/rust_props/misc/access_card.vmdl",
+                  "Model": {
+                    "Id": "1867a116-c0d9-4fd3-9a2a-293a427ecc11",
+                    "Path": "models/rust_props/misc/access_card.vmdl"
+                  },
                   "OnComponentDestroy": null,
                   "OnComponentDisabled": null,
                   "OnComponentEnabled": null,
@@ -39653,7 +40285,10 @@
               "MaterialGroup": null,
               "MaterialOverride": null,
               "Materials": null,
-              "Model": "models/sbox_props/cardboard_box/cardboard_box_03.vmdl",
+              "Model": {
+                "Id": "41ad48ee-ad53-4826-a7ff-53663f302bf1",
+                "Path": "models/sbox_props/cardboard_box/cardboard_box_03.vmdl"
+              },
               "OnComponentDestroy": null,
               "OnComponentDisabled": null,
               "OnComponentEnabled": null,
@@ -39766,7 +40401,10 @@
           "MaterialGroup": null,
           "MaterialOverride": null,
           "Materials": null,
-          "Model": "models/props/trim_sheets/storage/storage_box_01_base.vmdl",
+          "Model": {
+            "Id": "7b978280-4436-4383-90cc-4d432b5f144f",
+            "Path": "models/props/trim_sheets/storage/storage_box_01_base.vmdl"
+          },
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
@@ -39791,7 +40429,10 @@
           "Elasticity": null,
           "Friction": null,
           "IsTrigger": false,
-          "Model": "models/props/trim_sheets/storage/storage_box_01_base.vmdl",
+          "Model": {
+            "Id": "7b978280-4436-4383-90cc-4d432b5f144f",
+            "Path": "models/props/trim_sheets/storage/storage_box_01_base.vmdl"
+          },
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
@@ -40890,7 +41531,10 @@
           "MaterialGroup": null,
           "MaterialOverride": null,
           "Materials": null,
-          "Model": "models/coffee_maker/cofee_maker.vmdl",
+          "Model": {
+            "Id": "66355c2a-90ae-4180-8018-b0e222e5af78",
+            "Path": "models/coffee_maker/cofee_maker.vmdl"
+          },
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
@@ -41029,7 +41673,7 @@
           "__enabled": true,
           "Flags": 0,
           "Center": "-15.5,0,-27.5",
-          "ColliderFlags": 0,
+          "ColliderFlags": "IgnoreTraces",
           "Elasticity": null,
           "Friction": null,
           "IsTrigger": true,
@@ -41064,6 +41708,55 @@
             "_type": "gameobject",
             "go": "c95aa419-2cb5-42ce-bb60-76549fe72d8a"
           }
+        }
+      ],
+      "Children": []
+    },
+    {
+      "__guid": "8f8e8cb3-01f6-43e9-acf7-94cd150ad9ca",
+      "__version": 2,
+      "Flags": 0,
+      "Name": "Socket",
+      "Position": "1310,-766,594",
+      "Rotation": "-0.707106769,0,0,0.707106769",
+      "Scale": "1,1,1",
+      "Tags": "",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkFlags": 0,
+      "NetworkOrphaned": 0,
+      "NetworkTransmit": true,
+      "OwnerTransfer": 1,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "c5e9db53-9bc6-473c-96e8-f24669e0453b",
+          "__enabled": true,
+          "Flags": 0,
+          "BodyGroups": 1,
+          "CreateAttachments": false,
+          "LodOverride": null,
+          "MaterialGroup": null,
+          "MaterialOverride": null,
+          "Materials": null,
+          "Model": {
+            "Id": "d43e536f-90d6-48c1-8b07-e268173639dc",
+            "Path": "models/sbox_props/electrical/outside_socket.vmdl"
+          },
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "RenderOptions": {
+            "GameLayer": true,
+            "OverlayLayer": false,
+            "BloomLayer": false,
+            "AfterUILayer": false
+          },
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
         }
       ],
       "Children": []
@@ -41117,6 +41810,7 @@
     "facepunch.metal_painted_red_b_hs#291767",
     "facepunch.metal_trim_galvanized#274131",
     "facepunch.metalpaintedblackblendahs#344490",
+    "facepunch.outside_socket#308541",
     "facepunch.storage_box_01_base#282042",
     "facepunch.weaponcratebarestackb#279695",
     "facepunch.wooden_crate#143950",
